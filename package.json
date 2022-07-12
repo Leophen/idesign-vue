@@ -1,9 +1,17 @@
 {
-  "devDependencies": {
-    "vuepress": "^2.0.0-beta.48"
-  },
+  "name": "idesign-vue",
+  "version": "2.0.0",
+  "description": "A project of vuepress-theme-hope",
+  "license": "MIT",
   "scripts": {
-    "start": "vuepress dev docs --port 5555",
-    "build": "vuepress build docs"
+    "build": "vuepress build docs",
+    "docs:clean-dev": "vuepress dev docs --clean-cache",
+    "start": "vuepress dev docs --port 6666"
+  },
+  "devDependencies": {
+    "@vuepress/client": "^2.0.0-beta.49",
+    "vue": "^3.2.36",
+    "vuepress": "^2.0.0-beta.49",
+    "vuepress-theme-hope": "^2.0.0-beta.86"
   }
 }
