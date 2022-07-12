@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.48"
+  },
+  "scripts": {
+    "start": "vuepress dev docs --port 5555",
+    "build": "vuepress build docs"
+  }
+}
