@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "vuepress dev docs",
-    "build": "cross-env BASE=/vuepress-demo/ vuepress build docs --clean-cache",
+    "build": "vuepress build docs",
     "serve": "serve docs/.vuepress/dist"
   },
   "dependencies": {},
