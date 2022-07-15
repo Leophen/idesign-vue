@@ -1,0 +1,15 @@
+:root {
+  --c-brand: #646cff;
+  --c-brand-light: #747bff;
+}
+
+html.dark {
+  --c-brand: #646cff;
+  --c-brand-light: #747bff;
+}
+
+.demo-block .xl-button {
+  margin: 0 16px 16px 0 !important;
+}
+
+
