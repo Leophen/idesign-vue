@@ -3,9 +3,9 @@ const navbar = require('./configs/navbar')
 const sidebar = require('./configs/sidebar')
 
 module.exports = {
-  title: 'iDesign Vue',
-  description: 'iDesign 组件库',
-  head: [['link', { rel: 'icon', type: 'image/png', href: '/logo.ico' }]],
+  title: 'VuePress',
+  description: 'Life is short, Keep it simple.',
+  head: [['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }]],
   base: process.env.BASE || '/',
   port: 3333,
   themeConfig: {
@@ -39,6 +39,15 @@ module.exports = {
   plugins: [
     // '@vuepress/plugin-back-to-top',
     // '@vuepress/plugin-active-header-links',
+    ['@vuepress/plugin-debug'],
+    ['@vuepress/plugin-pwa'],
+    [
+      '@vuepress/plugin-pwa-popup',
+      {
+        message: '发现新内容可用',
+        buttonText: '刷新',
+      },
+    ],
     ['@vuepress/plugin-search', { searchMaxSuggestions: 5 }],
     [
       '@vuepress/plugin-register-components',
