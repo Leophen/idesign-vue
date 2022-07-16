@@ -7,7 +7,7 @@ module.exports = {
   description: 'Life is short, Keep it simple.',
   head: [['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }]],
   base: process.env.BASE || '/',
-  port: 3333,
+  port: 3000,
   themeConfig: {
     repo: 'xinlei3166/vuepress-demo',
     docsDir: 'docs',
@@ -34,7 +34,7 @@ module.exports = {
     // options for markdown-it-toc
     toc: { level: [1, 2] },
 
-    extractHeaders: { level: ['h2', 'h3', 'h4'] },
+    extractHeaders: { level: [ 'h2', 'h3', 'h4' ] },
   },
   plugins: [
     // '@vuepress/plugin-back-to-top',
@@ -60,8 +60,7 @@ module.exports = {
       // theme: 'github-light',
       cssPreprocessor: 'less',
       scriptReplaces: [
-        {
-          searchValue: /const ({ defineComponent as _defineComponent }) = Vue/g,
+        { searchValue: /const ({ defineComponent as _defineComponent }) = Vue/g,
           replaceValue: 'const { defineComponent: _defineComponent } = Vue'
         }
       ]

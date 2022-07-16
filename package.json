@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "vuepress dev docs",
-    "build": "cross-env BASE=/vuepress-demo/ vuepress build docs --clean-cache",
-    "serve": "serve docs/.vuepress/dist"
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "cross-env BASE=/vuepress-demo/ vuepress build docs --clean-cache",
+    "docs:serve": "serve docs/.vuepress/dist"
   },
   "dependencies": {},
   "devDependencies": {
