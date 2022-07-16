@@ -5,14 +5,10 @@
   "license": "MIT",
   "scripts": {
     "start": "vuepress dev docs",
-    "build": "vuepress build docs",
-    "serve": "serve docs/.vuepress/dist"
+    "build": "vuepress build docs"
   },
   "dependencies": {},
   "devDependencies": {
-    "@vuepress/plugin-debug": "^2.0.0-beta.24",
-    "@vuepress/plugin-pwa": "^2.0.0-beta.24",
-    "@vuepress/plugin-pwa-popup": "^2.0.0-beta.24",
     "@vuepress/plugin-register-components": "^2.0.0-beta.24",
     "@vuepress/plugin-search": "^2.0.0-beta.24",
     "@vuepress/plugin-shiki": "^2.0.0-beta.24",
@@ -21,8 +17,5 @@
     "prettier": "^2.2.1",
     "vuepress-plugin-demoblock-plus": "^1.5.1",
     "vuepress-vite": "^2.0.0-beta.24"
-  },
-  "engines": {
-    "node": ">=14.0.0"
   }
 }

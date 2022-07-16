@@ -39,15 +39,6 @@ module.exports = {
   plugins: [
     // '@vuepress/plugin-back-to-top',
     // '@vuepress/plugin-active-header-links',
-    ['@vuepress/plugin-debug'],
-    ['@vuepress/plugin-pwa'],
-    [
-      '@vuepress/plugin-pwa-popup',
-      {
-        message: '发现新内容可用',
-        buttonText: '刷新',
-      },
-    ],
     ['@vuepress/plugin-search', { searchMaxSuggestions: 5 }],
     [
       '@vuepress/plugin-register-components',
