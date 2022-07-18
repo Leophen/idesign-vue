@@ -1,5 +1,4 @@
 <template>
-  <button>按钮</button>
   <button>{{btnText}}</button>
 </template>
 

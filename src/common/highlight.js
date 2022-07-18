@@ -1,8 +1,4 @@
 /*
- * @Author: 曹捷
- * @Date: 2022-01-20 19:11:57
- * @LastEditors: 曹捷
- * @LastEditTime: 2022-01-20 19:15:19
  * @Description: fileContent
  */
 // ref https://github.com/vuejs/vitepress/blob/main/src/node/markdown/plugins/highlight.ts

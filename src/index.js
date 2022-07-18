@@ -1,10 +1,3 @@
-/*
- * @Author: 曹捷
- * @Date: 2021-11-11 17:29:49
- * @LastEditors: seepine
- * @LastEditTime: 2022-07-17 21:13:44
- * @Description: fileContent
- */
 /**
  * 提供 ::: demo xxx ::: 语法，用于构建 markdown 中的示例
  */
@@ -22,7 +15,7 @@ module.exports = (options = {}) => {
     options = Object.assign(
       {
         components: {},
-        componentsDir: path.resolve(options.path, "../examples"),
+        componentsDir: path.resolve(options.path, "../packages"),
         componentsPatterns: ["**/*.vue"],
         getComponentName: (filename) =>
           path.trimExt(filename.replace(/\/|\\/g, "-")),
