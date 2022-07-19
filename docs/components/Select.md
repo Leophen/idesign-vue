@@ -514,7 +514,6 @@ export default App
 
 ## Select API
 
-<API hideTitle />
 
 ## SelectItem API
 

@@ -116,7 +116,6 @@ export default App
 
 ## Tabs API
 
-<API hideTitle />
 
 ## TabsItem API
 

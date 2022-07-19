@@ -272,7 +272,6 @@ export default App;
 
 ## Radio API
 
-<API hideTitle />
 
 ## RadioGroup API
 

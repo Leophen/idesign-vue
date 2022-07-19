@@ -166,7 +166,6 @@ export default App;
 
 ## Menu API
 
-<API hideTitle />
 
 ## MenuItem API
 

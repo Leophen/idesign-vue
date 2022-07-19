@@ -158,7 +158,6 @@ export default App;
 
 ## Carousel API
 
-<API hideTitle />
 
 ## CarouselItem API
 

@@ -460,7 +460,6 @@ export default App;
 
 ## Input API
 
-<API hideTitle />
 
 ## InputGroup API
 

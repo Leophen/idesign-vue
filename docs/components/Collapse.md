@@ -328,7 +328,6 @@ export default App
 
 ## Collapse API
 
-<API hideTitle />
 
 ## CollapseItem API
 

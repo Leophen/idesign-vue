@@ -602,7 +602,6 @@ export default App
 
 ## Dropdown API
 
-<API hideTitle />
 
 ## DropdownItem API
 

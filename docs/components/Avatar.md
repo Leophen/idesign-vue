@@ -188,7 +188,6 @@ export default App;
 
 ## Avatar API
 
-<API hideTitle />
 
 ## AvatarGroup API
 
