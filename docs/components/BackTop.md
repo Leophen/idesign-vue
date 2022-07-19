@@ -103,4 +103,3 @@ export default App;
 
 
 
-<API />

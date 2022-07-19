@@ -200,4 +200,3 @@ const App = () => {
 export default App
 ```
 
-<API />
