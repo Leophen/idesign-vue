@@ -24,7 +24,7 @@ module.exports = {
       },
       {
         text: '组件',
-        link: '/components/button.md',
+        link: '/components/Button.md',
       },
       {
         text: 'GitHub',
@@ -38,12 +38,76 @@ module.exports = {
           text: '基础组件',
           link: '',
           children: [
-            '/components/button.md',
-            '/components/icon.md',
+            '/components/Button.md',
+            '/components/Icon.md',
+            '/components/Divider.md',
+            '/components/Grid.md',
+            '/components/Layout.md',
+            '/components/Scrollbar.md',
+          ],
+        },
+        {
+          text: '导航组件',
+          link: '',
+          children: [
+            '/components/Dropdown.md',
+            '/components/Menu.md',
+            '/components/Tabs.md',
+            '/components/Breadcrumb.md',
+            '/components/Pagination.md',
+            '/components/BackTop.md',
+          ],
+        },
+        {
+          text: '表单组件',
+          link: '',
+          children: [
+            '/components/Switch.md',
+            '/components/Radio.md',
+            '/components/Checkbox.md',
+            '/components/Input.md',
+            '/components/Textarea.md',
+            '/components/Select.md',
+            '/components/TimePicker.md',
+            '/components/DatePicker.md',
+            '/components/ColorPicker.md',
+            '/components/Table.md',
+            '/components/Upload.md',
+            '/components/Slider.md',
+            '/components/Progress.md',
+            '/components/Steps.md',
+            '/components/Rate.md',
+          ],
+        },
+        {
+          text: '数据展示组件',
+          link: '',
+          children: [
+            '/components/Tag.md',
+            '/components/Empty.md',
+            '/components/Loading.md',
+            '/components/Avatar.md',
+            '/components/Badge.md',
+            '/components/Image.md',
+            '/components/Carousel.md',
+            '/components/Collapse.md',
+          ],
+        },
+        {
+          text: '弹框提示组件',
+          link: '',
+          children: [
+            '/components/Alert.md',
+            '/components/Message.md',
+            '/components/Notification.md',
+            '/components/Dialog.md',
+            '/components/Drawer.md',
+            '/components/Popup.md',
           ],
         },
       ]
     },
+    sidebarDepth: 0
   }),
   plugins: [
     [

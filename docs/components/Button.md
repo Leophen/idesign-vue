@@ -1,12 +1,3 @@
----
-rightAnchor: 
-  showDepth: 1
-  expand:
-    trigger: hover
-    clickModeDefaultOpen: true
-  customClass: your-customClass
----
-
 # Button 按钮
 
 常用的操作按钮。
