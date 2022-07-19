@@ -50,6 +50,12 @@ $null_bg: transparent;
   transition: all 0.2s linear;
   user-select: none;
 
+  .i-button-icon {
+    margin-right: 6px;
+    color: inherit;
+    font-size: inherit;
+  }
+
   // variant
   &.i-button--variant-dashed {
     border-style: dashed !important;
@@ -85,12 +91,6 @@ $null_bg: transparent;
   &.i-button-disabled {
     cursor: not-allowed;
   }
-}
-
-.i-button-icon {
-  margin-right: 6px;
-  color: inherit;
-  font-size: inherit;
 }
 
 @mixin injectColor($color, $color_hover, $color_active, $color_disabled) {
@@ -206,15 +206,30 @@ $null_bg: transparent;
 }
 
 .i-button--type-primary {
-  @include injectColor($primary, $primary_hover, $primary_active, $primary_disabled);
+  @include injectColor(
+    $primary,
+    $primary_hover,
+    $primary_active,
+    $primary_disabled
+  );
 }
 
 .i-button--type-success {
-  @include injectColor($success, $success_hover, $success_active, $success_disabled);
+  @include injectColor(
+    $success,
+    $success_hover,
+    $success_active,
+    $success_disabled
+  );
 }
 
 .i-button--type-warning {
-  @include injectColor($warning, $warning_hover, $warning_active, $warning_disabled);
+  @include injectColor(
+    $warning,
+    $warning_hover,
+    $warning_active,
+    $warning_disabled
+  );
 }
 
 .i-button--type-error {

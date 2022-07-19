@@ -1,8 +1,6 @@
 <template>
-  <button
-    :class="cls"
-    @click="handleClick"
-  >
+  <button :class="cls" @click="handleClick">
+    <i-icon class="i-button-icon" v-if="!!iconName" :name="iconName" />
     <slot></slot>
   </button>
 </template>
@@ -63,7 +61,11 @@ export default defineComponent({
     variant: {
       type: String as PropType<'base' | 'outline' | 'dashed' | 'text'>,
       default: 'base'
-    }
+    },
+    /**
+     * 内置图标
+     */
+    icon: String
   },
   emits: {
     /**
@@ -81,7 +83,7 @@ export default defineComponent({
       props.size !== 'medium' && `i-button--size-${props.size}`,
       props.shape !== 'round' && `i-button--shape-${props.shape}`,
       props.active && 'i-button-active',
-      props.disabled && 'i-button-disabled',
+      props.disabled && 'i-button-disabled'
     ])
     const handleClick = (ev: MouseEvent) => {
       if (props.disabled) {
@@ -91,6 +93,7 @@ export default defineComponent({
     }
     return {
       cls,
+      iconName: props.icon,
       handleClick
     }
   }

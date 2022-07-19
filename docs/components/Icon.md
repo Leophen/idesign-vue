@@ -94,8 +94,7 @@ export default defineComponent({
 })
 </script>
 
-
-## BreadcrumbItem API
+## Icon API
 
 | 属性     | 说明             | 类型                       | 默认值  |
 | -------- | ---------------- | -------------------------- | ------- |
