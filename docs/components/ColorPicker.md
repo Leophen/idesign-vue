@@ -1,4 +1,4 @@
-# ColorPicker 颜色选择器
+# ColorPicker 颜色选择器（开发中）
 
 用于颜色选择的组件，支持 `Hex` 和 `RGB` 格式。
 

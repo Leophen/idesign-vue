@@ -1,4 +1,4 @@
-# Scrollbar 滚动条
+# Scrollbar 滚动条（开发中）
 
 用于替换浏览器原生滚动条。
 
