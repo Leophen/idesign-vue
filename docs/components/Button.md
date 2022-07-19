@@ -1,5 +1,24 @@
+---
+rightAnchor: 
+  showDepth: 1
+  expand:
+    trigger: hover
+    clickModeDefaultOpen: true
+  customClass: your-customClass
+---
+
 # Button 按钮
 
+常用的操作按钮。
+
+## 基础按钮
+
+基础按钮包括不同颜色状态下的填充按钮、描边按钮、虚框按钮和文字按钮。
+
 ::: demo
-Button/index
+button/demo1
 :::
+
+## 聚焦状态
+
+可以使用 `active` 属性来定义按钮是否被聚焦，该属性接受一个 `Boolean` 类型的值。

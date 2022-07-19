@@ -16,6 +16,7 @@ module.exports = {
   },
   bundler: viteBundler({}),
   theme: defaultTheme({
+    logo: '/images/logo.png',
     navbar: [
       {
         text: '指南',
@@ -23,7 +24,7 @@ module.exports = {
       },
       {
         text: '组件',
-        link: '/components/Button.md',
+        link: '/components/button.md',
       },
       {
         text: 'GitHub',
@@ -37,8 +38,8 @@ module.exports = {
           text: '基础组件',
           link: '',
           children: [
-            '/components/Button.md',
-            '/components/Icon.md',
+            '/components/button.md',
+            '/components/icon.md',
           ],
         },
       ]
