@@ -1,11 +1,45 @@
 :root {
   --c-brand: #646cff;
   --c-brand-light: #747bff;
+  --content-width: 1200px;
 }
 
 html.dark {
   --c-brand: #646cff;
   --c-brand-light: #747bff;
+}
+
+.page-meta {
+  display: none;
+}
+
+.theme-default-content {
+  & > div {
+    & > table {
+      color: #454d64;
+      width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      display: table;
+      box-shadow: inset 0 0 0 1px #ebedf1;
+      thead {
+        color: #454d64;
+        font-size: 18px;
+        border: 2px solid #ebedf1;
+        border-bottom: 0;
+        background-color: #f9fafb;
+      }
+      th {
+        text-align: left;
+        font-size: 16px;
+      }
+      tr:nth-child(2n) {
+        background-color: transparent;
+      }
+    }
+  }
 }
 
 .idesign-demo-block-column {
@@ -30,7 +64,7 @@ html.dark {
 
 .i-design-demo-icon-list {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   box-sizing: border-box;
   padding: 0;
   overflow: hidden;
@@ -38,6 +72,9 @@ html.dark {
   border: 1px solid #ebedf1;
   border-radius: 10px;
   text-size-adjust: 100%;
+  li {
+    list-style-type: none;
+  }
 }
 
 .i-design-demo-icon-item {

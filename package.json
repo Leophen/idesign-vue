@@ -16,6 +16,7 @@
     "url": "https://github.com/Leophen/idesign-vue"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.182",
     "axios": "^0.27.2",
     "escape-html": "~1.0.3",
     "lodash": "^4.17.21",
