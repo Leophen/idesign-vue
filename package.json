@@ -1,8 +1,8 @@
 {
-  "name": "i-design",
+  "name": "idesign-vue",
   "version": "1.0.0",
-  "description": "i-design",
-  "main": "src/index.js",
+  "description": "iDesign 前端通用组件库",
+  "main": "src/components/index.ts",
   "scripts": {
     "start": "vuepress dev docs",
     "build": "vuepress build docs"

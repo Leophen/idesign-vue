@@ -10,13 +10,16 @@ import { defineClientConfig } from "@vuepress/client";
 // import ArcoVueIcon from '@arco-design/web-vue/es/icon';
 // import '@arco-design/web-vue/dist/arco.css';
 
+import iDesign from '../../src/components'
+
 export default defineClientConfig({
   enhance({ app }) {
     // app.use(Antd)
     // app.use(ElementPlus)
     // app.use(ArcoVue);
     // app.use(ArcoVueIcon);
+    app.use(iDesign)
   },
-  setup() {},
+  setup() { },
   rootComponents: [],
 });

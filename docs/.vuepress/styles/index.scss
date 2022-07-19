@@ -7,3 +7,23 @@ html.dark {
   --c-brand: #646cff;
   --c-brand-light: #747bff;
 }
+
+.idesign-demo-block-column {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  column-gap: 16px;
+  row-gap: 16px;
+}
+
+.idesign-demo-block-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  box-sizing: border-box;
+  column-gap: 16px;
+  row-gap: 16px;
+  .i-select {
+    width: 200px;
+  }
+}
