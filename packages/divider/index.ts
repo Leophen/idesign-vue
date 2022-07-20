@@ -1,5 +1,5 @@
 import { App, Plugin } from 'vue';
-import Divider from './src/divider';
+import Divider from './divider';
 
 export const DividerPlugin: Plugin = {
   install(app: App) {
