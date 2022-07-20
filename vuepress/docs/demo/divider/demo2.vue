@@ -1,21 +1,21 @@
-<script setup lang="ts"></script>
-
 <template>
-  <i-button>按钮</i-button>
   <p>
     柯里化即
     Currying，是一门编译原理层面的技术，用途是实现多参函数，其为实现多参函数提供了一个递归降解的实现思路——把接受多个参数的函数变换成接受第一个参数的函数，并且返回接受剩余参数且返回结果的新函数。
   </p>
-  <i-divider />
+  <i-divider align="left">iDesign</i-divider>
   <p>
     柯里化即
     Currying，是一门编译原理层面的技术，用途是实现多参函数，其为实现多参函数提供了一个递归降解的实现思路——把接受多个参数的函数变换成接受第一个参数的函数，并且返回接受剩余参数且返回结果的新函数。
   </p>
-  <i-divider dashed />
+  <i-divider align="center">iDesign</i-divider>
+  <p>
+    柯里化即
+    Currying，是一门编译原理层面的技术，用途是实现多参函数，其为实现多参函数提供了一个递归降解的实现思路——把接受多个参数的函数变换成接受第一个参数的函数，并且返回接受剩余参数且返回结果的新函数。
+  </p>
+  <i-divider align="right">iDesign</i-divider>
   <p>
     柯里化即
     Currying，是一门编译原理层面的技术，用途是实现多参函数，其为实现多参函数提供了一个递归降解的实现思路——把接受多个参数的函数变换成接受第一个参数的函数，并且返回接受剩余参数且返回结果的新函数。
   </p>
 </template>
-
-<style></style>
