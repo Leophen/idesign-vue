@@ -2,7 +2,7 @@
   "name": "idesign-vue",
   "version": "1.0.2",
   "description": "iDesign 前端通用组件库",
-  "private": false,
+  "private": true,
   "main": "dist/idesign-vue.umd.cjs",
   "module": "dist/idesign-vue.js",
   "files": ["dist/*", "idesign-vue.d.ts"],
