@@ -1,8 +1,11 @@
 {
   "name": "idesign-vue",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "iDesign 前端通用组件库",
   "private": false,
+  "main": "dist/idesign-vue.umd.js",
+  "module": "dist/idesign-vue.js",
+  "files": ["dist/*", "idesign-vue.d.ts"],
   "type": "module",
   "scripts": {
     "start": "vite",
