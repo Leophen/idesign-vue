@@ -10,7 +10,8 @@ import { defineClientConfig } from "@vuepress/client";
 // import ArcoVueIcon from '@arco-design/web-vue/es/icon';
 // import '@arco-design/web-vue/dist/arco.css';
 
-import iDesign from '../../src/components'
+import iDesign from '../../../dist/idesign-vue'
+import '../../../dist/style.css'
 
 export default defineClientConfig({
   enhance({ app }) {

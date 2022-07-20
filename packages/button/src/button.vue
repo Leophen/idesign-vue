@@ -85,12 +85,14 @@ export default defineComponent({
       props.active && 'i-button-active',
       props.disabled && 'i-button-disabled'
     ])
+
     const handleClick = (ev: MouseEvent) => {
       if (props.disabled) {
         return
       }
       emit('click', ev)
     }
+
     return {
       cls,
       iconName: props.icon,

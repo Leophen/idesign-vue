@@ -1,0 +1,46 @@
+{
+  "name": "idesign-vue",
+  "version": "1.0.0",
+  "description": "iDesign 前端通用组件库",
+  "main": "src/components/index.ts",
+  "scripts": {
+    "start": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Leophen/idesign-vue"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.182",
+    "axios": "^0.27.2",
+    "escape-html": "~1.0.3",
+    "lodash": "^4.17.21",
+    "markdown-it": "~13.0.0",
+    "markdown-it-container": "~3.0.0"
+  },
+  "devDependencies": {
+    "vuepress": "2.0.0-beta.49"
+  },
+  "keywords": [
+    "vuepress",
+    "vuepress2",
+    "vuepress-plugin",
+    "plugin",
+    "vue",
+    "vue3",
+    "demo",
+    "block",
+    "documentation"
+  ],
+  "author": "seepine",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Leophen/idesign-vue/issues"
+  },
+  "homepage": "https://github.com/Leophen/idesign-vue"
+}
