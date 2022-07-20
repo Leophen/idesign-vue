@@ -7,6 +7,9 @@
   "module": "dist/idesign-vue.js",
   "files": ["dist/*", "idesign-vue.d.ts"],
   "type": "module",
+  "workspaces": [
+    "vuepress"
+  ],
   "scripts": {
     "start": "vite",
     "build": "vue-tsc --noEmit && vite build",
