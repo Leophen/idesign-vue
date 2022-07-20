@@ -1,6 +1,6 @@
 import type { PropType } from 'vue';
 import { defineComponent } from 'vue';
-import './divider.scss';
+import './index.scss';
 
 export default defineComponent({
   name: 'Divider',

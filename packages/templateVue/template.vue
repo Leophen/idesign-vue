@@ -1,7 +1,7 @@
 <template>
-  <template :class="cls" @click="handleClick">
-    <slot></slot>
-  </template>
+  <div :class="cls" @click="handleClick">
+    <slot />
+  </div>
 </template>
 
 <script lang="ts">
@@ -57,5 +57,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import './template.scss';
+@import './index.scss';
 </style>

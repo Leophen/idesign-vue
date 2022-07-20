@@ -1,7 +1,7 @@
 <template>
   <button :class="cls" @click="handleClick">
     <i-icon class="i-button-icon" v-if="!!iconName" :name="iconName" />
-    <slot></slot>
+    <slot />
   </button>
 </template>
 
@@ -103,5 +103,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import './button.scss';
+@import './index.scss';
 </style>
