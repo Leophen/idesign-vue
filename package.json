@@ -10,7 +10,7 @@
   "scripts": {
     "start": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "docs": "vue-tsc --noEmit && vite build && cd vuepress && yarn && vuepress build docs",
+    "docs": "vue-tsc --noEmit && vite build && cd vuepress && yarn --force && vuepress build docs",
     "preview": "vite preview"
   },
   "dependencies": {
