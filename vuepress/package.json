@@ -2,6 +2,7 @@
   "name": "idesign-vue",
   "version": "1.0.0",
   "description": "iDesign 前端通用组件库",
+  "private": true,
   "main": "src/components/index.ts",
   "scripts": {
     "start": "vuepress dev docs",
