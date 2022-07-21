@@ -1,13 +1,13 @@
 <template>
   <!-- 直接使用 -->
   <i-grid>
-    <i-grid-item span="{8}">
+    <i-grid-item span="8">
       <div>GridItem1</div>
     </i-grid-item>
-    <i-grid-item span="{8}">
+    <i-grid-item span="8">
       <div>GridItem2</div>
     </i-grid-item>
-    <i-grid-item span="{8}">
+    <i-grid-item span="8">
       <div>GridItem3</div>
     </i-grid-item>
   </i-grid>
@@ -21,13 +21,13 @@
 
   <!-- span 总和超出换行 -->
   <i-grid>
-    <i-grid-item span="{8}">
+    <i-grid-item span="8">
       <div>span8</div>
     </i-grid-item>
-    <i-grid-item span="{8}">
+    <i-grid-item span="8">
       <div>span8</div>
     </i-grid-item>
-    <i-grid-item span="{12}">
+    <i-grid-item span="12">
       <div>span12</div>
     </i-grid-item>
   </i-grid>
