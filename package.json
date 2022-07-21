@@ -2,11 +2,6 @@
   "name": "idesign-vue",
   "version": "1.0.6",
   "description": "iDesign 前端通用组件库",
-  "license": "ISC",
-  "private": true,
-  "workspaces": [
-    "vuepress"
-  ],
   "main": "dist/idesign-vue.umd.cjs",
   "module": "dist/idesign-vue.js",
   "files": ["dist/*", "idesign-vue.d.ts"],
