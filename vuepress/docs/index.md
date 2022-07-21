@@ -3,7 +3,7 @@ home: true
 heroImage: /images/logo.png
 actions:
 - text: Get Started
-  link: /components/Button.md
+  link: /components/Button/Button.md
   type: primary
 - text: 切换 React 版本
   link: https://idesign-react.vercel.app/

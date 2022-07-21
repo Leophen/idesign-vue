@@ -1,11 +1,11 @@
 <template>
   <div :class="cls">
-    <slot :gutter="props.gutter" />
+    <slot :gutter="gutter" />
   </div>
 </template>
 
 <script lang="ts">
-import type { PropType } from 'vue'
+import { PropType, provide } from 'vue'
 import { defineComponent, computed } from 'vue'
 
 export default defineComponent({
@@ -43,9 +43,10 @@ export default defineComponent({
       props.justify && `i-grid--justify-${props.justify}`
     ])
 
+    provide('gutter', props.gutter)
+
     return {
-      cls,
-      props
+      cls
     }
   }
 })

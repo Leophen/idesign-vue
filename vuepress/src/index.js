@@ -15,7 +15,7 @@ module.exports = (options = {}) => {
     options = Object.assign(
       {
         components: {},
-        componentsDir: path.resolve(options.path, "../demo"),
+        componentsDir: path.resolve(options.path, "../components"),
         componentsPatterns: ["**/*.vue"],
         getComponentName: (filename) =>
           path.trimExt(filename.replace(/\/|\\/g, "-")),

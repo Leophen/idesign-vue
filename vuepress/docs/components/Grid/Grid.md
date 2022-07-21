@@ -11,7 +11,7 @@
 如果一个 `Grid` 中 `Grid.Item` 的 `span` 总和超过 24，那么多余的 `Grid.Item` 会作为一个整体另起一行排列。
 
 ::: demo
-grid/demo1
+Grid/demo/demo1
 :::
 
 ## 自定义单项宽度
@@ -19,7 +19,7 @@ grid/demo1
 `Grid.Item` 的 `width` 属性值可以设置单项固定宽度，`width` 为具体的宽度且优先级高于 `span`，而 `span` 设置的宽度为间隔格数（0 - 24）
 
 ::: demo
-grid/demo2
+Grid/demo/demo2
 :::
 
 ## 区块间隔
@@ -27,7 +27,7 @@ grid/demo2
 `Grid` 的 `gutter` 属性值可以全局设置栅格中每一项的左右内边距。例如，`<Grid gutter={16}>` 将会为每一项 `Grid.Item` 添加左右内边距为 `8px`。
 
 ::: demo
-grid/demo3
+Grid/demo/demo3
 :::
 
 ## 单项左侧间距
@@ -35,7 +35,7 @@ grid/demo3
 `Grid.Item` 的 `offset` 属性值可以单独设置该项的左侧外边距，单位为间隔格数。例如，`<Grid.Item offset={2}>` 将会向右偏移 2 个间隔的距离。
 
 ::: demo
-grid/demo4
+Grid/demo/demo4
 :::
 
 ## 栅格水平排列方式
@@ -43,7 +43,7 @@ grid/demo4
 `Grid` 的 `justify` 属性值可以全局设置栅格水平的排版。
 
 ::: demo
-grid/demo5
+Grid/demo/demo5
 :::
 
 ## 栅格垂直对齐方式
@@ -51,7 +51,7 @@ grid/demo5
 `Grid` 的 `align` 属性值可以全局设置栅格中每一项的垂直对齐方式，而 `Grid.Item` 可通过 `align` 属性值单独设置该项的垂直对齐方式，优先级更高。
 
 ::: demo
-grid/demo6
+Grid/demo/demo6
 :::
 
 ## 自定义单项排序
@@ -59,7 +59,7 @@ grid/demo6
 `Grid.Item` 的 `order` 属性值可以设置单项在整个栅格中的次序。
 
 ::: demo
-grid/demo7
+Grid/demo/demo7
 :::
 
 ## Grid API

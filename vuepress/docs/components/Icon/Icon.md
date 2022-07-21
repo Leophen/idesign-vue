@@ -7,7 +7,7 @@ iDesign 提供了一套常用的图标集合，可直接使用。
 使用 `name` 属性选择展示的图标。
 
 ::: demo
-icon/demo1
+Icon/demo/demo1
 :::
 
 ## 不同尺寸
@@ -15,7 +15,7 @@ icon/demo1
 提供 `size` 属性自定义图标大小。
 
 ::: demo
-icon/demo2
+Icon/demo/demo2
 :::
 
 ## 不同颜色
@@ -23,7 +23,7 @@ icon/demo2
 提供 `color` 属性自定义图标大小。
 
 ::: demo
-icon/demo3
+Icon/demo/demo3
 :::
 
 ## 全部图标

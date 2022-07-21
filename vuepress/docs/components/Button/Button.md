@@ -7,7 +7,7 @@
 基础按钮包括不同颜色状态下的填充按钮、描边按钮、虚框按钮和文字按钮。
 
 ::: demo
-button/demo1
+Button/demo/demo1
 :::
 
 ## 聚焦状态
@@ -15,7 +15,7 @@ button/demo1
 可以使用 `active` 属性来定义按钮是否被聚焦，该属性接受一个 `Boolean` 类型的值。
 
 ::: demo
-button/demo2
+Button/demo/demo2
 :::
 
 ## 禁用状态
@@ -23,7 +23,7 @@ button/demo2
 可以使用 `disabled` 属性来定义按钮是否被禁用，该属性接受一个 `Boolean` 类型的值。
 
 ::: demo
-button/demo3
+Button/demo/demo3
 :::
 
 ## 不同尺寸
@@ -31,7 +31,7 @@ button/demo3
 提供 `small`、`medium`（默认）、`large` 三种尺寸的按钮。
 
 ::: demo
-button/demo4
+Button/demo/demo4
 :::
 
 ## 不同形状
@@ -39,7 +39,7 @@ button/demo4
 提供 `square`、`round`（默认）、`circle` 三种形状的按钮。
 
 ::: demo
-button/demo5
+Button/demo/demo5
 :::
 
 ## 图标按钮
@@ -47,7 +47,7 @@ button/demo5
 通过 `icon` 属性控制按钮中的内置图标：
 
 ::: demo
-button/demo6
+Button/demo/demo6
 :::
 
 ## Button API

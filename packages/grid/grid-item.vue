@@ -5,11 +5,11 @@
 </template>
 
 <script lang="ts">
-import type { PropType } from 'vue'
+import { inject, PropType } from 'vue'
 import { defineComponent, computed } from 'vue'
 
 export default defineComponent({
-  name: 'Grid',
+  name: 'GridItem',
   props: {
     /**
      * 栅格单项的垂直对齐方式
@@ -62,7 +62,10 @@ export default defineComponent({
       return result
     }
 
-    const computedWidth = (width: string | number) => {
+    const turnValue = (width: string | number | undefined) => {
+      if (!width) {
+        return
+      }
       if (isNaN(width as number)) {
         return width
       }
@@ -78,12 +81,14 @@ export default defineComponent({
       props.align && `i-grid__item--align-${props.align}`
     ])
 
+    const provideGutter: number | undefined = inject('gutter')
+
     const style = computed(() => [
       {
-        paddingLeft: props.gutter,
-        paddingRight: props.gutter,
-        flex: props.width ? `0 0 ${computedWidth(props.width)}` : '1',
-        maxWidth: props.width && computedWidth(props.width)
+        paddingLeft: turnValue(props.gutter) || turnValue(provideGutter),
+        paddingRight: turnValue(props.gutter) || turnValue(provideGutter),
+        flex: props.width ? `0 0 ${turnValue(props.width)}` : '1',
+        maxWidth: props.width && turnValue(props.width)
       }
     ])
 

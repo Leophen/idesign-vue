@@ -7,7 +7,7 @@
 可通过 `dashed` 属性来控制分割线样式。
 
 ::: demo
-divider/demo1
+Divider/demo/demo1
 :::
 
 ## 带文字的分割线
@@ -15,7 +15,7 @@ divider/demo1
 可通过 `align` 属性来控制分割线文字内容的位置。
 
 ::: demo
-divider/demo2
+Divider/demo/demo2
 :::
 
 ## Divider API
