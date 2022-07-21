@@ -33,8 +33,9 @@
   </i-grid>
 </template>
 
-<script setup>
-const demoData = [
+<script setup lang="ts">
+import { ref } from 'vue'
+const demoData = ref([
   Array(24).fill(1),
   Array(12).fill(2),
   Array(8).fill(3),
@@ -43,7 +44,7 @@ const demoData = [
   Array(3).fill(8),
   Array(2).fill(12),
   Array(1).fill(24)
-]
+])
 </script>
 
 <style lang="scss">
