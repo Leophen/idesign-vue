@@ -6,6 +6,10 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 export default defineConfig({
   plugins: [vue(), vueJsx()],
   build: {
+    lib: {
+      entry: './packages/index.ts',
+      name: 'i-design'
+    },
     rollupOptions: {
       // 确保外部化库中不需要的依赖
       external: ['vue'],
@@ -15,13 +19,6 @@ export default defineConfig({
           vue: 'Vue'
         }
       }
-    },
-    lib: {
-      entry: './packages/index.ts',
-      name: 'i-design'
     }
-  },
-  resolve: {
-    dedupe: ['vue']
   }
 })
