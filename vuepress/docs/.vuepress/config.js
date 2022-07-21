@@ -15,22 +15,6 @@ module.exports = {
     },
   },
   bundler: viteBundler({}),
-  bundlerConfig: {
-    viteOptions: {
-      build: {
-        rollupOptions: {
-          // 确保外部化库中不需要的依赖
-          external: ['vue'],
-          output: {
-            // 在 UMD 构建模式下为这些外部化的依赖提供一个全局变量
-            globals: {
-              vue: 'Vue'
-            }
-          }
-        }
-      }
-    }
-  },
   theme: defaultTheme({
     logo: '/images/logo.png',
     navbar: [
