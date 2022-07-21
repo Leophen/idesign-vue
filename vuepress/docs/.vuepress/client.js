@@ -12,7 +12,7 @@ import { defineClientConfig } from "@vuepress/client";
 
 // import iDesign from 'idesign-vue'
 // import 'idesign-vue/dist/style.css'
-import iDesign from '../../../dist/idesign-vue.umd.cjs'
+import iDesign from '../../../dist/idesign-vue'
 import '../../../dist/style.css'
 
 export default defineClientConfig({
