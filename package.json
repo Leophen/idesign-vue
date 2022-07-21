@@ -1,8 +1,11 @@
 {
   "name": "idesign-vue",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "iDesign 前端通用组件库",
-  "private": false,
+  "license": "ISC",
+  "workspaces": [
+    "vuepress"
+  ],
   "main": "dist/idesign-vue.umd.cjs",
   "module": "dist/idesign-vue.js",
   "files": ["dist/*", "idesign-vue.d.ts"],
