@@ -1,9 +1,18 @@
 <template>
-  <i-layout>
-    <i-layout-aside>Aside</i-layout-aside>
-    <div>123</div>
-    <section>321</section>
-  </i-layout>
+  <i-scrollbar :height="360">
+    <div
+      className="idesign-demo-itemy"
+      v-for="(item, index) in Array(24).fill('item')"
+      :key="index"
+    >
+      {{ item }}
+    </div>
+  </i-scrollbar>
+  <ul :style="{ maxHeight: '360px', overflowY: 'auto' }">
+    <li v-for="(item, index) in Array(24).fill('item')" :key="index">
+      {{ item }}
+    </li>
+  </ul>
 </template>
 
 <script setup lang="ts"></script>
