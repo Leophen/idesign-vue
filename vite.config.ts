@@ -20,5 +20,8 @@ export default defineConfig({
       entry: './packages/index.ts',
       name: 'i-design'
     }
+  },
+  resolve: {
+    dedupe: ['vue']
   }
 })
