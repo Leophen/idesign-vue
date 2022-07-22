@@ -4130,9 +4130,7 @@ const y_ = /* @__PURE__ */ Mn(w_, [["render", m_]]), nu = {
   },
   setup(a, { emit: m }) {
     return {
-      cls: bn(() => [
-        "i-dropdown"
-      ])
+      cls: bn(() => ["i-dropdown"])
     };
   }
 });

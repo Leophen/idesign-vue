@@ -1,5 +1,11 @@
 :root {
   /**
+   * 基础颜色
+   */
+  --i-bg: #fff;
+  --i-font: #333;
+
+  /**
    * 主题色
    */
   --i-primary: #3a3cf5;
@@ -33,11 +39,54 @@
   --i-border: #e5e7eb;
 }
 
+// 夜间模式
+html.dark,
+*[data-theme='dark'] {
+  /**
+   * 基础颜色
+   */
+  --i-bg: #333;
+  --i-font: #fff;
+
+  /**
+   * 主题色
+   */
+  --i-primary: #3a3cf5;
+  --i-primary-hover: #5d5ff3;
+  --i-primary-active: #2e31d5;
+  --i-primary-disabled: #9fa1fe;
+
+  --i-info: #e7e7e7;
+  --i-info-hover: #dcdcdc;
+  --i-info-active: #c1c1c1;
+  --i-info-disabled: #ededed;
+
+  --i-success: #67c23a;
+  --i-success-hover: #71d340;
+  --i-success-active: #4f9c28;
+  --i-success-disabled: #b3e19d;
+
+  --i-warning: #e69e31;
+  --i-warning-hover: #f5aa3a;
+  --i-warning-active: #c98a2b;
+  --i-warning-disabled: #f3d19e;
+
+  --i-error: #f16262;
+  --i-error-hover: #fc7b7b;
+  --i-error-active: #d35050;
+  --i-error-disabled: #fab6b6;
+
+  /**
+   * 边框颜色
+   */
+  --i-border: #484849;
+}
+
+// Transition 动画
 .i-fade-enter-active,
 .i-fade-leave-active {
   transition: opacity 0.2s ease;
 }
-
 .i-fade-enter-from,
 .i-fade-leave-to {
   opacity: 0;
