@@ -6,152 +6,53 @@
 
 通过 `content` 属性指定气泡内容。
 
-```tsx
-import React from 'react';
-import { Button, Popup } from 'idesign-react';
-
-const App = () => {
-  return (
-    <Popup content="提示内容">
-      <Button>悬浮提示</Button>
-    </Popup>
-  );
-};
-
-export default App;
-```
+:::demo
+Popup/demo/demo1
+:::
 
 ## 禁用状态
 
 通过 `disabled` 属性控制气泡禁用。
 
-```tsx
-import React from 'react';
-import { Button, Popup } from 'idesign-react';
-
-const App = () => {
-  return (
-    <Popup content="提示内容" disabled={true}>
-      <Button>禁用气泡</Button>
-    </Popup>
-  );
-};
-
-export default App;
-```
+:::demo
+Popup/demo/demo2
+:::
 
 ## 不同触发方式
 
 可通过 `trigger` 属性指定触发方式，默认为 `hover`。
 
-```tsx
-import React from 'react';
-import { Button, Popup } from 'idesign-react';
-
-const App = () => {
-  return (
-    <div className="idesign-demo-block-row">
-      <Popup content="提示内容">
-        <Button>悬浮提示</Button>
-      </Popup>
-      <Popup content="提示内容" trigger="click">
-        <Button>点击提示</Button>
-      </Popup>
-      <Popup content="提示内容" trigger="context-menu">
-        <Button>右击提示</Button>
-      </Popup>
-    </div>
-  );
-};
-
-export default App;
-```
+:::demo
+Popup/demo/demo3
+:::
 
 ## 不同触发方向
 
 可通过 `placement` 属性指定气泡触发方向，默认为 `top`。
 
-```tsx
-import React from 'react'
-import { Button, Popup } from 'idesign-react'
-
-const App = () => {
-  return (
-    <div className="idesign-demo-block-popup">
-      <Popup content="气泡提示内容 top" placement="top">
-        <Button className="Top">top</Button>
-      </Popup>
-      <Popup content="气泡提示内容 top-left" placement="top-left">
-        <Button className="TopLeft">top-left</Button>
-      </Popup>
-      <Popup content="气泡提示内容 top-right" placement="top-right">
-        <Button className="TopRight">top-right</Button>
-      </Popup>
-      <Popup content="气泡提示内容 bottom" placement="bottom">
-        <Button className="Bottom">bottom</Button>
-      </Popup>
-      <Popup content="气泡提示内容 bottom-left" placement="bottom-left">
-        <Button className="BottomLeft">bottom-left</Button>
-      </Popup>
-      <Popup content="气泡提示内容 bottom-right" placement="bottom-right">
-        <Button className="BottomRight">bottom-right</Button>
-      </Popup>
-      <Popup content="气泡提示内容 left" placement="left">
-        <Button className="Left">left</Button>
-      </Popup>
-      <Popup content="气泡提示内容 left-top" placement="left-top">
-        <Button className="LeftTop">left-top</Button>
-      </Popup>
-      <Popup content="气泡提示内容 left-bottom" placement="left-bottom">
-        <Button className="LeftBottom">left-bottom</Button>
-      </Popup>
-      <Popup content="气泡提示内容 right" placement="right">
-        <Button className="Right">right</Button>
-      </Popup>
-      <Popup content="气泡提示内容 right-top" placement="right-top">
-        <Button className="RightTop">right-top</Button>
-      </Popup>
-      <Popup content="气泡提示内容 right-bottom" placement="right-bottom">
-        <Button className="RightBottom">right-bottom</Button>
-      </Popup>
-    </div>
-  )
-}
-
-export default App
-```
+:::demo
+Popup/demo/demo4
+:::
 
 ## 手动显示隐藏
 
 通过 `defaultVisible` 属性显示默认显示隐藏，通过 `visible` 属性手动切换气泡显示隐藏。
 
-```tsx
-import React from 'react';
-import { Button, Popup } from 'idesign-react';
+:::demo
+Popup/demo/demo5
+:::
 
-const App = () => {
-  return (
-    <>
-      <h4>默认显示</h4>
-      <Popup placement="right" defaultVisible={true} content="提示内容">
-        <Button>悬浮提示</Button>
-      </Popup>
-      <h4>默认隐藏</h4>
-      <Popup placement="right" defaultVisible={false} content="提示内容">
-        <Button>悬浮提示</Button>
-      </Popup>
-      <h4>固定显示</h4>
-      <Popup placement="right" visible={true} content="提示内容">
-        <Button>悬浮提示</Button>
-      </Popup>
-      <h4>固定隐藏</h4>
-      <Popup placement="right" visible={false} content="提示内容">
-        <Button>悬浮提示</Button>
-      </Popup>
-    </>
-  );
-};
+## Popup API
 
-export default App;
-```
-
+| 属性            | 说明         | 类型                  | 默认值 |
+| --------------- | ------------ | --------------------- | ------ |
+| portalClassName | 弹窗内容类名 | `string`              | `--`   |
+| portalStyle     | 弹窗内容样式 | `CSSProperties`       | `--`   |
+| content         | 气泡提示内容 | `string〡HTMLElement` | `--`   |
+| placement     | 气泡提示位置 | `"top"〡"left"〡"right"〡"bottom"〡"top-left"〡"top-right"〡"bottom-left"〡"bottom-right"〡"left-top"〡"left-bottom"〡"right-top"〡"right-bottom"`       | `top`   |
+| trigger     | 触发气泡出现的方式 | `"hover"〡"click"〡"context-menu"`       | `hover`   |
+| visible     | 气泡显示隐藏（受控） | `boolean`       | `--`   |
+| defaultVisible     | 气泡显示隐藏（非受控） | `boolean`       | `false`   |
+| disabled     | 是否禁用气泡 | `boolean`       | `false`   |
+| updateLocation     | 这个值变化时手动更新位置 | `string〡number〡boolean`       | `--`   |
+| @trigger     | 触发气泡操作时触发 | `(visible: boolean) => void`       | `--`   |

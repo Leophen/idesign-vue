@@ -1,18 +1,13 @@
 <template>
-  <i-scrollbar :height="360">
-    <div
-      className="idesign-demo-itemy"
-      v-for="(item, index) in Array(24).fill('item')"
-      :key="index"
-    >
-      {{ item }}
-    </div>
-  </i-scrollbar>
-  <ul :style="{ maxHeight: '360px', overflowY: 'auto' }">
-    <li v-for="(item, index) in Array(24).fill('item')" :key="index">
-      {{ item }}
-    </li>
-  </ul>
+  <i-popup content="提示内容">
+    <i-button>悬浮提示</i-button>
+  </i-popup>
+  <i-popup content="提示内容" trigger="click">
+    <i-button>点击提示</i-button>
+  </i-popup>
+  <i-popup content="提示内容" trigger="context-menu">
+    <i-button>右击提示</i-button>
+  </i-popup>
 </template>
 
 <script setup lang="ts"></script>

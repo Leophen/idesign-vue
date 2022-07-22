@@ -6,9 +6,9 @@ export const turnValue = (val: string | number | undefined) => {
     return
   }
   if (_.isNumber(val as number)) {
-    return val
+    return `${val}px`
   }
-  return `${val}px`
+  return val
 }
 
 // 通用位置类型

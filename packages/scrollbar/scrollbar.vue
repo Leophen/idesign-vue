@@ -17,7 +17,7 @@
         <div
           class="i-scrollbar__thumbY"
           :style="thumbYStyle"
-          v-show="state.hoverShowThumb || state.downShowThumb"
+          v-if="state.hoverShowThumb || state.downShowThumb"
           @mousedown="handleDownThumb"
         />
       </Transition>
@@ -27,7 +27,7 @@
         <div
           class="i-scrollbar__thumbX"
           :style="thumbXStyle"
-          v-show="state.hoverShowThumb || state.downShowThumb"
+          v-if="state.hoverShowThumb || state.downShowThumb"
           @mousedown="handleDownThumb"
         />
       </Transition>

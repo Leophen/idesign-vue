@@ -189,9 +189,25 @@ html.dark {
   }
 }
 
-// API
+.demo-block {
+  .demo-content {
+    padding-bottom: 35px !important;
+  }
+}
+
 .theme-default-content {
   & > div {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 1rem;
+    }
+    & > h2,
+    & > h3 {
+      border-bottom: none;
+    }
     & > table {
       color: #454d64;
       width: 100%;
