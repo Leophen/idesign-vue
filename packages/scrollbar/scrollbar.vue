@@ -13,7 +13,7 @@
       <slot />
     </div>
     <div class="i-scrollbar__barY" @click="handleClickBarY" v-if="height">
-      <Transition name="thumb-fade">
+      <Transition name="i-fade">
         <div
           class="i-scrollbar__thumbY"
           :style="thumbYStyle"
@@ -23,7 +23,7 @@
       </Transition>
     </div>
     <div class="i-scrollbar__barX" @click="handleClickBarX" v-if="width">
-      <Transition name="thumb-fade">
+      <Transition name="i-fade">
         <div
           class="i-scrollbar__thumbX"
           :style="thumbXStyle"

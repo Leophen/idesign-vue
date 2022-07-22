@@ -52,13 +52,3 @@
   height: 100px;
   transform: translateY(0%);
 }
-
-.thumb-fade-enter-active,
-.thumb-fade-leave-active {
-  transition: opacity 0.2s ease;
-}
-
-.thumb-fade-enter-from,
-.thumb-fade-leave-to {
-  opacity: 0;
-}

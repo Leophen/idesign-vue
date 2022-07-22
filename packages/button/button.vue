@@ -1,6 +1,6 @@
 <template>
   <button :class="cls" @click="handleClick">
-    <i-icon class="i-button-icon" v-if="!!iconName" :name="iconName" />
+    <i-icon class="i-button-icon" v-if="!!icon" :name="icon" />
     <slot />
   </button>
 </template>
@@ -95,7 +95,6 @@ export default defineComponent({
 
     return {
       cls,
-      iconName: props.icon,
       handleClick
     }
   }

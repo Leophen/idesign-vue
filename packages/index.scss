@@ -32,3 +32,13 @@
    */
   --i-border: #e5e7eb;
 }
+
+.i-fade-enter-active,
+.i-fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.i-fade-enter-from,
+.i-fade-leave-to {
+  opacity: 0;
+}
