@@ -37,6 +37,7 @@
 
 <script lang="ts">
 import { defineComponent, computed, reactive, ref, watchEffect } from 'vue'
+import { turnValue } from '../common'
 
 export default defineComponent({
   name: 'Scrollbar',
@@ -95,11 +96,6 @@ export default defineComponent({
       // 是否为自动滚动状态
       autoScroll: true
     })
-
-    const turnValue = (val: string | number) => {
-      const result = typeof val === 'number' ? `${val}px` : String(val)
-      return result
-    }
 
     const scrollWrap = ref<any>(null)
     watchEffect(() => {

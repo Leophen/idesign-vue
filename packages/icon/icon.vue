@@ -1,13 +1,10 @@
 <template>
-  <i
-    :class="cls"
-    :style="iconStyles"
-  />
+  <i :class="cls" :style="iconStyles" />
 </template>
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
-import _ from 'lodash'
+import { turnValue } from '../common'
 
 export default defineComponent({
   name: 'Icon',
@@ -53,7 +50,7 @@ export default defineComponent({
     const iconStyles = computed(() => {
       return {
         color: props.color || undefined,
-        fontSize: _.isNumber(props.size) ? `${props.size}px` : props.size
+        fontSize: turnValue(props.size)
       }
     })
 

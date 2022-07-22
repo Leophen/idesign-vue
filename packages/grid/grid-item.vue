@@ -7,6 +7,7 @@
 <script lang="ts">
 import { inject, PropType } from 'vue'
 import { defineComponent, computed } from 'vue'
+import { turnValue } from '../common'
 
 export default defineComponent({
   name: 'GridItem',
@@ -59,17 +60,6 @@ export default defineComponent({
       if (result < 0) {
         result = 0
       }
-      return result
-    }
-
-    const turnValue = (width: string | number | undefined) => {
-      if (!width) {
-        return
-      }
-      if (isNaN(width as number)) {
-        return width
-      }
-      const result = width + 'px'
       return result
     }
 

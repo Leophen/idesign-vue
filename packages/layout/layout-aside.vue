@@ -5,8 +5,9 @@
 </template>
 
 <script lang="ts">
-import { inject, onMounted, onUnmounted, PropType } from 'vue'
+import { inject, onMounted, onUnmounted } from 'vue'
 import { defineComponent, computed } from 'vue'
+import { turnValue } from '../common'
 
 const generateId = (() => {
   let i = 0
@@ -39,9 +40,7 @@ export default defineComponent({
       asideHook?.onAsideUnMount?.(uniqueId)
     })
 
-    const asideWidth =
-      typeof props.width === 'number' ? `${props.width}px` : String(props.width)
-
+    const asideWidth = turnValue(props.width)
     const asideStyle = computed(() => [
       {
         width: asideWidth,
