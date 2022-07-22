@@ -25,11 +25,9 @@
 <script lang="ts">
 import {
   defineComponent,
-  onMounted,
   PropType,
   reactive,
   ref,
-  watch,
   computed,
   watchEffect,
   CSSProperties

@@ -5,8 +5,7 @@
 </template>
 
 <script lang="ts">
-import { PropType, provide } from 'vue'
-import { defineComponent, computed } from 'vue'
+import { defineComponent, PropType, computed, provide } from 'vue'
 
 export default defineComponent({
   name: 'Grid',

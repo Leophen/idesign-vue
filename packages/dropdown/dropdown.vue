@@ -5,8 +5,7 @@
 </template>
 
 <script lang="ts">
-import type { PropType } from 'vue'
-import { defineComponent, computed } from 'vue'
+import { defineComponent, PropType, computed } from 'vue'
 
 export default defineComponent({
   name: 'Dropdown',
@@ -26,7 +25,7 @@ export default defineComponent({
     shape: {
       type: String as PropType<'square' | 'round' | 'circle'>,
       default: 'round'
-    },
+    }
   },
   emits: {
     /**
@@ -36,12 +35,10 @@ export default defineComponent({
     click: (ev: MouseEvent) => true
   },
   setup(props, { emit }) {
-    const cls = computed(() => [
-      'i-dropdown',
-    ])
+    const cls = computed(() => ['i-dropdown'])
 
     return {
-      cls,
+      cls
     }
   }
 })

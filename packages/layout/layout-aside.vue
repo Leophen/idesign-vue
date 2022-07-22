@@ -5,8 +5,7 @@
 </template>
 
 <script lang="ts">
-import { inject, onMounted, onUnmounted } from 'vue'
-import { defineComponent, computed } from 'vue'
+import { defineComponent, onMounted, onUnmounted, computed, inject } from 'vue'
 import { turnValue } from '../common'
 
 const generateId = (() => {

@@ -1,5 +1,4 @@
-import type { PropType } from 'vue';
-import { defineComponent } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import './index.scss';
 
 export default defineComponent({
