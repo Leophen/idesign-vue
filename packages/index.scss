@@ -1,85 +1,180 @@
+// 默认
 :root {
   /**
    * 基础颜色
    */
   --i-bg: #fff;
-  --i-font: #333;
+  --i-bg-hover: #f7f8fa;
+  --i-bg-active: #f2f3f5;
+  --i-bg-back: #e5e6ea;
+  --i-bg-disabled: #f5f7fa;
+  --i-bg-mid: rgba(0, 0, 0, 0.5);
+  --i-bg-mid-hover: rgba(0, 0, 0, 0.7);
+
+  --i-font: #252b33;
+  --i-font-2: #343c47;
+  --i-font-3: #4e5969;
+  --i-font-4: #67758b;
+  --i-font-5: #a2a5af;
+  --i-font-disabled: #c9cdd4;
+
+  /**
+   * 边框
+   */
+  --i-border: #e5e7eb;
+  --i-border-hover: #c9cdd4;
+
+  /**
+   * 阴影
+   */
+  --i-shadow: rgba(0, 0, 0, 0.12) 0px 3px 6px -4px, rgba(0, 0, 0, 0.08) 0px 6px 16px 0px,
+    rgba(0, 0, 0, 0.05) 0px 9px 28px 8px;
 
   /**
    * 主题色
    */
-  --i-primary: #3a3cf5;
-  --i-primary-hover: #5d5ff3;
-  --i-primary-active: #2e31d5;
-  --i-primary-disabled: #9fa1fe;
+  --i-primary: #5e62ea;
+  --i-primary-hover: #7378fa;
+  --i-primary-active: #5155d3;
+  --i-primary-disabled: #969ef6;
 
+  --i-primary-txt: #5e62ea;
+  --i-primary-bg: rgba(94, 98, 234, 0.08);
+  --i-primary-bg-2: rgba(94, 98, 234, 0.16);
+
+  /**
+   * info 主题
+   */
   --i-info: #e7e7e7;
   --i-info-hover: #dcdcdc;
   --i-info-active: #c1c1c1;
   --i-info-disabled: #ededed;
 
-  --i-success: #67c23a;
-  --i-success-hover: #71d340;
-  --i-success-active: #4f9c28;
-  --i-success-disabled: #b3e19d;
-
-  --i-warning: #e69e31;
-  --i-warning-hover: #f5aa3a;
-  --i-warning-active: #c98a2b;
-  --i-warning-disabled: #f3d19e;
-
-  --i-error: #f16262;
-  --i-error-hover: #fc7b7b;
-  --i-error-active: #d35050;
-  --i-error-disabled: #fab6b6;
+  --i-info-txt: #e7e7e7;
+  --i-info-bg: rgba(231, 231, 231, 0.08);
 
   /**
-   * 边框颜色
+   * success 主题
    */
-  --i-border: #e5e7eb;
+  --i-success: #65b687;
+  --i-success-hover: #62c58b;
+  --i-success-active: #4f9b6e;
+  --i-success-disabled: #92ccaa;
+
+  --i-success-txt: #65b687;
+  --i-success-bg: rgba(101, 182, 135, 0.08);
+
+  /**
+   * warning 主题
+   */
+  --i-warning: #f1ac51;
+  --i-warning-hover: #f19e46;
+  --i-warning-active: #de8a2b;
+  --i-warning-disabled: #f3d19e;
+
+  --i-warning-txt: #f1ac51;
+  --i-warning-bg: rgba(241, 172, 81, 0.08);
+
+  /**
+   * error 主题
+   */
+  --i-error: #ec7491;
+  --i-error-hover: #f76e8e;
+  --i-error-active: #cd5571;
+  --i-error-disabled: #fab6b6;
+
+  --i-error-txt: #ec7491;
+  --i-error-bg: rgba(236, 116, 145, 0.08);
 }
 
 // 夜间模式
 html.dark,
-*[data-theme='dark'] {
+*[data-theme='dark'],
+*[data-prefers-color='dark'] {
   /**
    * 基础颜色
    */
-  --i-bg: #333;
+  --i-bg: #17171a;
+  --i-bg-hover: #202023;
+  --i-bg-active: #29292c;
+  --i-bg-back: #333336;
+  --i-bg-disabled: #262627;
+  --i-bg-mid: rgba(255, 255, 255, 0.1);
+  --i-bg-mid-hover: rgba(255, 255, 255, 0.2);
+
   --i-font: #fff;
-
-  /**
-   * 主题色
-   */
-  --i-primary: #3a3cf5;
-  --i-primary-hover: #5d5ff3;
-  --i-primary-active: #2e31d5;
-  --i-primary-disabled: #9fa1fe;
-
-  --i-info: #e7e7e7;
-  --i-info-hover: #dcdcdc;
-  --i-info-active: #c1c1c1;
-  --i-info-disabled: #ededed;
-
-  --i-success: #67c23a;
-  --i-success-hover: #71d340;
-  --i-success-active: #4f9c28;
-  --i-success-disabled: #b3e19d;
-
-  --i-warning: #e69e31;
-  --i-warning-hover: #f5aa3a;
-  --i-warning-active: #c98a2b;
-  --i-warning-disabled: #f3d19e;
-
-  --i-error: #f16262;
-  --i-error-hover: #fc7b7b;
-  --i-error-active: #d35050;
-  --i-error-disabled: #fab6b6;
+  --i-font-2: #dcdcdc;
+  --i-font-3: #bababb;
+  --i-font-4: #a5a5a5;
+  --i-font-5: #8e9095;
+  --i-font-disabled: #737375;
 
   /**
    * 边框颜色
    */
   --i-border: #484849;
+  --i-border-hover: #737375;
+
+  /**
+   * 阴影
+   */
+  --i-shadow: rgba(0, 0, 0, 0.48) 0px 3px 6px -4px, rgba(0, 0, 0, 0.32) 0px 6px 16px 0px,
+    rgba(0, 0, 0, 0.2) 0px 9px 28px 8px;
+
+  /**
+   * 主题色
+   */
+  --i-primary: #3033ab;
+  --i-primary-hover: #484aa9;
+  --i-primary-active: #282b95;
+  --i-primary-disabled: #595d85;
+
+  --i-primary-txt: #8689e0;
+  --i-primary-bg: rgba(134, 137, 224, 0.08);
+
+  /**
+   * info 主题
+   */
+  --i-info: #29292c;
+  --i-info-hover: #333336;
+  --i-info-active: #3c3c3f;
+  --i-info-disabled: #29292c;
+
+  --i-info-txt: #29292c;
+  --i-info-bg: rgba(41, 41, 44, 0.08);
+
+  /**
+   * success 主题
+   */
+  --i-success: #5e8c3e;
+  --i-success-hover: #669843;
+  --i-success-active: #4a7130;
+  --i-success-disabled: #687a5c;
+
+  --i-success-txt: #91b6a0;
+  --i-success-bg: rgba(145, 182, 160, 0.08);
+
+  /**
+   * warning 主题
+   */
+  --i-warning: #9f7639;
+  --i-warning-hover: #a97f3f;
+  --i-warning-active: #8c6832;
+  --i-warning-disabled: #80735c;
+
+  --i-warning-txt: #9f7639;
+  --i-warning-bg: rgba(159, 118, 57, 0.08);
+
+  /**
+   * error 主题
+   */
+  --i-error: #a2514e;
+  --i-error-hover: #ab615f;
+  --i-error-active: #8f4441;
+  --i-error-disabled: #826665;
+
+  --i-error-txt: #a2514e;
+  --i-error-bg: rgba(162, 81, 78, 0.08);
 }
 
 // Transition 动画

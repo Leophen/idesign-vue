@@ -5,99 +5,76 @@
   </button>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType, computed } from 'vue'
+<script setup lang="ts">
+import { computed } from 'vue'
 
-export default defineComponent({
-  name: 'Button',
-  props: {
-    /**
-     * 是否聚焦状态
-     * @default false
-     */
-    active: {
-      type: Boolean,
-      default: false
-    },
-    /**
-     * 是否禁用按钮
-     * @default false
-     */
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    /**
-     * 按钮形状
-     * @default round
-     */
-    shape: {
-      type: String as PropType<'square' | 'round' | 'circle'>,
-      default: 'round'
-    },
-    /**
-     * 按钮尺寸
-     * @default medium
-     */
-    size: {
-      type: String as PropType<'small' | 'medium' | 'large'>,
-      default: 'medium'
-    },
-    /**
-     * 按钮类型，用于描述组件不同的应用场景
-     * @default primary
-     */
-    type: {
-      type: String as PropType<
-        'info' | 'primary' | 'error' | 'warning' | 'success'
-      >,
-      default: 'primary'
-    },
-    /**
-     * 按钮形式
-     * @default base
-     */
-    variant: {
-      type: String as PropType<'base' | 'outline' | 'dashed' | 'text'>,
-      default: 'base'
-    },
-    /**
-     * 内置图标
-     */
-    icon: String
-  },
-  emits: {
-    /**
-     * @zh 点击按钮时触发
-     * @en Emitted when the button is clicked
-     * @property {MouseEvent} ev
-     */
-    click: (ev: MouseEvent) => true
-  },
-  setup(props, { emit }) {
-    const cls = computed(() => [
-      'i-button',
-      `i-button--type-${props.type}`,
-      props.variant !== 'base' && `i-button--variant-${props.variant}`,
-      props.size !== 'medium' && `i-button--size-${props.size}`,
-      props.shape !== 'round' && `i-button--shape-${props.shape}`,
-      props.active && 'i-button-active',
-      props.disabled && 'i-button-disabled'
-    ])
+interface ButtonProps {
+  /**
+   * 是否聚焦状态
+   * @default false
+   */
+  active?: boolean
+  /**
+   * 是否禁用按钮
+   * @default false
+   */
+  disabled?: boolean
+  /**
+   * 按钮形状
+   * @default round
+   */
+  shape?: 'square' | 'round' | 'circle'
+  /**
+   * 按钮尺寸
+   * @default medium
+   */
+  size?: 'small' | 'medium' | 'large'
+  /**
+   * 按钮类型，用于描述组件不同的应用场景
+   * @default primary
+   */
+  type?: 'info' | 'primary' | 'error' | 'warning' | 'success'
+  /**
+   * 按钮形式
+   * @default base
+   */
+  variant?: 'base' | 'outline' | 'dashed' | 'text'
+  /**
+   * 内置图标
+   */
+  icon?: string
+}
 
-    const handleClick = (ev: MouseEvent) => {
-      if (props.disabled) {
-        return
-      }
-      emit('click', ev)
-    }
+const {
+  active = false,
+  disabled = false,
+  shape = 'round',
+  size = 'medium',
+  type = 'primary',
+  variant = 'base',
+  icon
+} = defineProps<ButtonProps>()
 
-    return {
-      cls,
-      handleClick
-    }
+const cls = computed(() => [
+  'i-button',
+  `i-button--type-${type}`,
+  variant !== 'base' && `i-button--variant-${variant}`,
+  size !== 'medium' && `i-button--size-${size}`,
+  shape !== 'round' && `i-button--shape-${shape}`,
+  active && 'i-button-active',
+  disabled && 'i-button-disabled'
+])
+
+const emit = defineEmits<{
+  (type: 'click', e: MouseEvent): void
+}>()
+
+const handleClick = (e: MouseEvent) => {
+  if (disabled) {
+    return
   }
-})
+  emit('click', e)
+}
 </script>
 
 <style lang="scss">
