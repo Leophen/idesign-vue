@@ -1,0 +1,47 @@
+.i-message {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: fit-content;
+  padding: 10px 16px;
+  color: var(--i-font-2);
+  font-size: 14px;
+  background-color: var(--i-bg);
+  border-radius: 6px;
+  outline: 0;
+  box-shadow: var(--i-shadow);
+  transform: translateX(0);
+  .i-icon {
+    margin-right: 8px;
+  }
+  .icon-TipInfo {
+    color: var(--i-primary);
+  }
+  .icon-TipCheckFill {
+    color: var(--i-success);
+  }
+  .icon-TipWarningFill {
+    color: var(--i-warning);
+  }
+  .icon-TipCloseFill {
+    color: var(--i-error);
+  }
+}
+
+.i-message-wrapper {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  z-index: 5000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+  .i-message:not(:last-of-type) {
+    margin-bottom: 16px;
+  }
+  &.i-message-wrapper__bottom {
+    top: unset;
+    bottom: 20px;
+  }
+}

@@ -210,5 +210,5 @@ export default App;
 | ----------- | ------------------ | ----------------- | ------- |
 | className   | 类名               | `string`          | `--`      |
 | style       | 自定义样式         | `CSSProperties`   | `--`      |
-| title       | 步骤标题           | `React.ReactNode` | `--`    |
-| description | 步骤描述           | `React.ReactNode` | `--`    |
+| title       | 步骤标题           | `string | HTMLElement` | `--`    |
+| description | 步骤描述           | `string | HTMLElement` | `--`    |

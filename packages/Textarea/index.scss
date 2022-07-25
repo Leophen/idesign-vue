@@ -1,0 +1,95 @@
+@mixin settingStatus($color) {
+  &,
+  &:hover,
+  &:focus-within {
+    border-color: $color;
+  }
+}
+
+.i-textarea {
+  position: relative;
+  width: 100%;
+}
+
+.i-textarea__inner {
+  display: flex;
+  width: 100%;
+  height: 56px;
+  min-height: 56px;
+  padding: 5px 8px;
+  color: inherit;
+  color: var(--i-font-2);
+  font-size: 14px;
+  font-family: auto;
+  line-height: 22px;
+  background-color: var(--i-bg);
+  border: 1px solid var(--i-border);
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.38, 0, 0.24, 1), height 0s;
+  resize: vertical;
+  &::placeholder {
+    color: var(--i-font-5);
+    user-select: none;
+  }
+  &:hover {
+    border-color: var(--i-border-hover);
+  }
+  &:focus {
+    border-color: var(--i-primary);
+  }
+  &.i-textarea__inner-is-disabled {
+    background-color: var(--i-bg-disabled);
+    &,
+    * {
+      cursor: not-allowed;
+    }
+    &:hover {
+      border-color: var(--i-border);
+    }
+  }
+  &.i-textarea__inner-is-readonly {
+    &,
+    * {
+      cursor: default;
+    }
+  }
+  &.i-textarea__inner--status-success {
+    @include settingStatus(var(--i-success));
+  }
+  &.i-textarea__inner--status-warning {
+    @include settingStatus(var(--i-warning));
+  }
+  &.i-textarea__inner--status-error {
+    @include settingStatus(var(--i-error));
+  }
+}
+
+.i-textarea--limit {
+  position: absolute;
+  right: 0px;
+  bottom: 8px;
+  margin-left: 8px;
+}
+
+.i-textarea--limit-count {
+  color: var(--i-font-5);
+  font-size: 12px;
+}
+
+.i-textarea__tips {
+  height: auto;
+  min-height: 24px;
+  color: var(--i-font-5);
+  font-size: 12px;
+  line-height: 20px;
+  &.i-textarea__tips--status-success {
+    color: var(--i-success);
+  }
+  &.i-textarea__tips--status-warning {
+    color: var(--i-warning);
+  }
+  &.i-textarea__tips--status-error {
+    color: var(--i-error);
+  }
+}
