@@ -49,7 +49,7 @@ html.dark {
       color: #fff;
       font-size: 16px;
       text-align: center;
-      background: #9dbbf3;
+      background: var(--i-primary-disabled);
     }
     .i-layout--aside {
       display: flex;
@@ -58,7 +58,7 @@ html.dark {
       color: #fff;
       font-size: 16px;
       text-align: center;
-      background: #5886e9;
+      background: var(--i-primary);
     }
     .i-layout--content {
       display: flex;
@@ -68,7 +68,7 @@ html.dark {
       color: #fff;
       font-size: 16px;
       text-align: center;
-      background: #759eee;
+      background: var(--i-primary-hover);
     }
     .i-layout--footer {
       display: flex;
@@ -78,7 +78,7 @@ html.dark {
       color: #fff;
       font-size: 16px;
       text-align: center;
-      background: #9dbbf3;
+      background: var(--i-primary-disabled);
     }
   }
 }

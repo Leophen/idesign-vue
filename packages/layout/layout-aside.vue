@@ -4,9 +4,26 @@
   </aside>
 </template>
 
-<script lang="ts">
-import { defineComponent, onMounted, onUnmounted, computed, inject } from 'vue'
+<script setup lang="ts">
+import {
+  defineComponent,
+  onMounted,
+  onUnmounted,
+  computed,
+  inject,
+  CSSProperties
+} from 'vue'
 import { turnValue } from '../common'
+
+interface LayoutAsideProps {
+  /**
+   * 侧边栏宽度
+   * @default 240
+   */
+  width?: string | number
+}
+
+const { width = 240 } = defineProps<LayoutAsideProps>()
 
 const generateId = (() => {
   let i = 0
@@ -16,44 +33,25 @@ const generateId = (() => {
   }
 })()
 
-export default defineComponent({
-  name: 'LayoutAside',
-  props: {
-    /**
-     * 侧边栏宽度
-     * @default 240
-     */
-    width: {
-      type: [String, Number],
-      default: 240
-    }
-  },
-  setup(props) {
-    const uniqueId = generateId('i_layout_aside')
-    const asideHook: any = inject('layoutProvide')
+const uniqueId = generateId('i_layout_aside')
+const asideHook: any = inject('layoutProvide')
 
-    onMounted(() => {
-      asideHook?.onAsideMount?.(uniqueId)
-    })
-    onUnmounted(() => {
-      asideHook?.onAsideUnMount?.(uniqueId)
-    })
-
-    const asideWidth = turnValue(props.width)
-    const asideStyle = computed(() => [
-      {
-        width: asideWidth,
-        maxWidth: asideWidth,
-        minWidth: asideWidth,
-        flex: `0 0 ${asideWidth}`
-      }
-    ])
-
-    return {
-      asideStyle
-    }
-  }
+onMounted(() => {
+  asideHook?.onAsideMount?.(uniqueId)
 })
+onUnmounted(() => {
+  asideHook?.onAsideUnMount?.(uniqueId)
+})
+
+const asideWidth = turnValue(width)
+const asideStyle = computed(() => [
+  {
+    width: asideWidth,
+    maxWidth: asideWidth,
+    minWidth: asideWidth,
+    flex: `0 0 ${asideWidth}`
+  }
+])
 </script>
 
 <style lang="scss">

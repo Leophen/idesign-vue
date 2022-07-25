@@ -4,29 +4,20 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, computed, ref, provide } from 'vue'
+<script setup lang="ts">
+import { computed, ref, provide } from 'vue'
 
-export default defineComponent({
-  name: 'Layout',
-  setup() {
-    const asideIds = ref<string[]>([])
+const asideIds = ref<string[]>([])
 
-    const cls = computed(() => [
-      'i-layout',
-      asideIds.value.length > 0 && 'i-layout-has-aside'
-    ])
+const cls = computed(() => [
+  'i-layout',
+  asideIds.value.length > 0 && 'i-layout-has-aside'
+])
 
-    provide('layoutProvide', {
-      onAsideMount: (id: string) => asideIds.value.push(id),
-      onAsideUnMount: (id: string) => {
-        asideIds.value = asideIds.value.filter((_id) => _id !== id)
-      }
-    })
-
-    return {
-      cls
-    }
+provide('layoutProvide', {
+  onAsideMount: (id: string) => asideIds.value.push(id),
+  onAsideUnMount: (id: string) => {
+    asideIds.value = asideIds.value.filter((_id) => _id !== id)
   }
 })
 </script>
