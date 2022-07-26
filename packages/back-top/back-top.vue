@@ -22,9 +22,8 @@ import { onMounted, ref } from 'vue'
 interface BackTopAttributes {
   /**
    * 监听滚动的元素
-   * @default window
    */
-  target?: string | HTMLElement | Window
+  target?: string | HTMLElement
   /**
    * 显示起点高度
    * @default 0
@@ -49,22 +48,21 @@ interface BackTopEvents {
 }
 
 const {
-  target = window,
+  target,
   visibleHeight = 0,
   smooth = true
 } = defineProps<BackTopAttributes>()
 const emit = defineEmits<BackTopEvents>()
 
+const isWindow = !target
 const visible = ref(visibleHeight > 0 ? false : true)
 
 // 获取滚动层节点 t
-const getTarget = (target: string | HTMLElement | Window) => {
+const getTarget = (target: string | HTMLElement | undefined) => {
   if (_.isString(target)) {
     return document.querySelector(target) as HTMLElement
   } else {
-    return target === window
-      ? document.documentElement
-      : (target as HTMLElement)
+    return isWindow ? document?.documentElement : (target as HTMLElement)
   }
 }
 
