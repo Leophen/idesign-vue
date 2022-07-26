@@ -9,6 +9,7 @@ import { LayoutPlugin } from './layout'
 import { ScrollbarPlugin } from './scrollbar'
 
 import { DropdownPlugin } from './dropdown'
+import { BackTopPlugin } from './back-top'
 
 import { AvatarPlugin } from './avatar'
 
@@ -25,6 +26,7 @@ const IDesignPlugin: Plugin = {
     ScrollbarPlugin.install?.(app)
 
     DropdownPlugin.install?.(app)
+    BackTopPlugin.install?.(app)
 
     AvatarPlugin.install?.(app)
 
@@ -41,6 +43,7 @@ export * from './layout'
 export * from './scrollbar'
 
 export * from './dropdown'
+export * from './back-top'
 
 export * from './avatar'
 

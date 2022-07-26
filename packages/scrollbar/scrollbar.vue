@@ -39,7 +39,7 @@
 import { computed, reactive, ref, watchEffect } from 'vue'
 import { turnValue } from '../common'
 
-interface ScrollbarProps {
+interface ScrollbarAttributes {
   /**
    * 滚动容器高度
    */
@@ -61,7 +61,7 @@ interface ScrollbarEmits {
   (type: 'scrollY', y: number): void
 }
 
-const { width, height } = defineProps<ScrollbarProps>()
+const { width, height } = defineProps<ScrollbarAttributes>()
 const emit = defineEmits<ScrollbarEmits>()
 
 const state = reactive({

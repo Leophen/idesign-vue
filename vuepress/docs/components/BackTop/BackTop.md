@@ -1,4 +1,4 @@
-# BackTop 回到顶部（开发中）
+# BackTop 回到顶部
 
 可一键快捷返回顶部的按钮。
 
@@ -6,100 +6,45 @@
 
 对具体 `window` 滚动使用：
 
-```tsx
-import React from 'react';
-import { BackTop } from 'idesign-react';
-
-const App = () => {
-  return (
-    <BackTop />
-  );
-};
-
-export default App;
-```
+:::demo
+BackTop/demo/demo1
+:::
 
 ## 具体节点滚动
 
 对具体 `DOM` 节点滚动使用：
 
-```tsx
-import React from 'react';
-import { BackTop } from 'idesign-react';
-
-const App = () => {
-  const data = Array(24).fill('item')
-  return (
-    <>
-      <BackTop
-        target={
-          () => document.getElementById('idesign-demo-scroll1')
-        }
-      />
-      <div id="idesign-demo-scroll1" style={{height: 400, overflow: 'auto'}}>
-        {data.map((item, index) => (
-          <li className="idesign-demo-itemy" key={index}>
-            {item}
-          </li>
-        ))}
-      </div>
-    </>
-  );
-};
-
-export default App;
-```
+:::demo
+BackTop/demo/demo2
+:::
 
 ## 滚动显示起点
 
 通过 `visibleHeight` 属性控制滚动到指定高度时，才显示返回顶部按钮：
 
-```tsx
-import React from 'react';
-import { BackTop } from 'idesign-react';
-
-const App = () => {
-  const data = Array(24).fill('item')
-  return (
-    <>
-      <BackTop
-        visibleHeight={100}
-        target={
-          () => document.getElementById('idesign-demo-scroll2')
-        }
-      />
-      <div id="idesign-demo-scroll2" style={{height: 400, overflow: 'auto'}}>
-        {data.map((item, index) => (
-          <li className="idesign-demo-itemy" key={index}>
-            {item}
-          </li>
-        ))}
-      </div>
-    </>
-  );
-};
-
-export default App;
-```
+:::demo
+BackTop/demo/demo3
+:::
 
 ## 自定义返回顶部按钮
 
 直接包裹自定义内容：
 
-```tsx
-import React from 'react';
-import { BackTop } from 'idesign-react';
+:::demo
+BackTop/demo/demo4
+:::
 
-const App = () => {
-  return (
-    <BackTop>
-      <div>⬆️</div>
-    </BackTop>
-  );
-};
+## BackTop Attributes
 
-export default App;
-```
+| 属性          | 说明           | 类型                        | 默认值         |
+| ------------- | -------------- | --------------------------- | -------------- |
+| target        | 监听滚动的元素 | `string〡HTMLElement〡Window` | `window` |
+| visibleHeight | 显示起点高度   | `number`                    | `0`            |
+| smooth        | 是否平滑滚动   | `boolean`                   | `true`         |
 
+## BackTop Events
 
-
+| 属性   | 说明                 | 类型         | 默认值 |
+| ------ | -------------------- | ------------ | ------ |
+| click  | 点击返回顶部时触发   | `() => void` | `--`   |
+| scroll | 滚动层节点滚动时触发 | `() => void` | `--`   |
