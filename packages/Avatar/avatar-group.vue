@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { computed, provide } from 'vue'
 
-export interface AvatarGroupAttributes {
+interface AvatarGroupAttributes {
   /**
    * 头像大小
    * @default 32
