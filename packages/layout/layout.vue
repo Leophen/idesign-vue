@@ -14,7 +14,7 @@ const cls = computed(() => [
   asideIds.value.length > 0 && 'i-layout-has-aside'
 ])
 
-provide('layoutProvide', {
+provide('layoutCtx', {
   onAsideMount: (id: string) => asideIds.value.push(id),
   onAsideUnMount: (id: string) => {
     asideIds.value = asideIds.value.filter((_id) => _id !== id)

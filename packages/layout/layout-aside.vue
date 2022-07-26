@@ -6,12 +6,10 @@
 
 <script setup lang="ts">
 import {
-  defineComponent,
   onMounted,
   onUnmounted,
   computed,
   inject,
-  CSSProperties
 } from 'vue'
 import { turnValue } from '../common'
 
@@ -34,7 +32,7 @@ const generateId = (() => {
 })()
 
 const uniqueId = generateId('i_layout_aside')
-const asideHook: any = inject('layoutProvide')
+const asideHook: any = inject('layoutCtx')
 
 onMounted(() => {
   asideHook?.onAsideMount?.(uniqueId)
