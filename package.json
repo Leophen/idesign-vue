@@ -4,7 +4,10 @@
   "description": "iDesign 前端通用组件库",
   "main": "dist/idesign-vue.umd.cjs",
   "module": "dist/idesign-vue.js",
-  "files": ["dist/*", "idesign-vue.d.ts"],
+  "files": [
+    "dist/*",
+    "idesign-vue.d.ts"
+  ],
   "type": "module",
   "scripts": {
     "start": "vite",
@@ -17,6 +20,7 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.182",
+    "@types/node": "^18.6.1",
     "@vitejs/plugin-vue": "^3.0.0",
     "@vitejs/plugin-vue-jsx": "^2.0.0",
     "lodash": "^4.17.21",
