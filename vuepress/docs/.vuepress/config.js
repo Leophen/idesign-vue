@@ -1,6 +1,7 @@
 const blockDemo = require("./../../src");
 const { defaultTheme } = require("@vuepress/theme-default");
 const { viteBundler } = require("@vuepress/bundler-vite");
+const { docsearchPlugin } = require('@vuepress/plugin-docsearch')
 
 module.exports = {
   title: 'iDesign',
@@ -107,9 +108,15 @@ module.exports = {
         },
       ]
     },
-    sidebarDepth: 0
+    sidebarDepth: 0,
   }),
   plugins: [
+    docsearchPlugin({
+      apiKey: '0976f4949ddd8a3f89658eec1259baa4',
+      indexName: 'idesign-vue',
+      appId: 'B20VNZVD4U',
+      placeholder: 'Search',
+    }),
     [
       blockDemo({
         path: __dirname,
