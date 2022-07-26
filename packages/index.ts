@@ -10,6 +10,7 @@ import { ScrollbarPlugin } from './scrollbar'
 
 import { DropdownPlugin } from './dropdown'
 
+import { AlertPlugin } from './alert'
 import { PopupPlugin } from './popup'
 
 const IDesignPlugin: Plugin = {
@@ -23,6 +24,7 @@ const IDesignPlugin: Plugin = {
 
     DropdownPlugin.install?.(app)
 
+    AlertPlugin.install?.(app)
     PopupPlugin.install?.(app)
   }
 }
@@ -36,6 +38,7 @@ export * from './scrollbar'
 
 export * from './dropdown'
 
+export * from './alert'
 export * from './popup'
 
 export default IDesignPlugin
