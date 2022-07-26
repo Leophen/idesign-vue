@@ -11,7 +11,7 @@ import { ScrollbarPlugin } from './scrollbar'
 import { DropdownPlugin } from './dropdown'
 import { BackTopPlugin } from './back-top'
 
-import { AvatarPlugin } from './avatar'
+// import { AvatarPlugin } from './avatar'
 
 import { AlertPlugin } from './alert'
 import { PopupPlugin } from './popup'
@@ -28,7 +28,7 @@ const IDesignPlugin: Plugin = {
     DropdownPlugin.install?.(app)
     BackTopPlugin.install?.(app)
 
-    AvatarPlugin.install?.(app)
+    // AvatarPlugin.install?.(app)
 
     AlertPlugin.install?.(app)
     PopupPlugin.install?.(app)
