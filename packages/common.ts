@@ -27,4 +27,4 @@ export type placementType =
   | 'right-bottom'
 
 // 通用触发类型
-export type trigger = 'hover' | 'click' | 'context-menu'
+export type triggerType = 'hover' | 'click' | 'context-menu'

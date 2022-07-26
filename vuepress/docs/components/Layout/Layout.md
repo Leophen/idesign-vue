@@ -34,8 +34,8 @@ Layout/demo/demo3
 Layout/demo/demo4
 :::
 
-## Aside API
+## Aside Attributes
 
-| 属性      | 说明       | 类型            | 默认值 |
-| --------- | ---------- | --------------- | ------ |
-| width     | 宽度       | `number`        | `240`  |
+| 属性  | 说明 | 类型     | 默认值 |
+| ----- | ---- | -------- | ------ |
+| width | 宽度 | `number` | `240`  |

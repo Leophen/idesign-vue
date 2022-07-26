@@ -4,51 +4,39 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType, computed, provide } from 'vue'
+<script setup lang="ts">
+import { computed, provide } from 'vue'
 
-export default defineComponent({
-  name: 'Grid',
-  props: {
-    /**
-     * 栅格每一项的垂直对齐方式
-     * @default top
-     */
-    align: {
-      type: String as PropType<'top' | 'middle' | 'bottom'>,
-      default: 'top'
-    },
-    /**
-     * 栅格每一项间的间隔
-     */
-    gutter: {
-      type: Number
-    },
-    /**
-     * 栅格水平排列方式
-     * @default start
-     */
-    justify: {
-      type: String as PropType<
-        'start' | 'end' | 'center' | 'space-around' | 'space-between'
-      >,
-      default: 'start'
-    }
-  },
-  setup(props) {
-    const cls = computed(() => [
-      'i-grid',
-      props.align && `i-grid--align-${props.align}`,
-      props.justify && `i-grid--justify-${props.justify}`
-    ])
+interface GridAttributes {
+  /**
+   * 栅格每一项的垂直对齐方式
+   * @default top
+   */
+  align?: 'top' | 'middle' | 'bottom'
+  /**
+   * 栅格每一项间的间隔
+   */
+  gutter?: number
+  /**
+   * 栅格水平排列方式
+   * @default start
+   */
+  justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between'
+}
 
-    provide('gutter', props.gutter)
+const {
+  align = 'top',
+  gutter,
+  justify = 'start'
+} = defineProps<GridAttributes>()
 
-    return {
-      cls
-    }
-  }
-})
+const cls = computed(() => [
+  'i-grid',
+  align && `i-grid--align-${align}`,
+  justify && `i-grid--justify-${justify}`
+])
+
+provide('gutter', gutter)
 </script>
 
 <style lang="scss">

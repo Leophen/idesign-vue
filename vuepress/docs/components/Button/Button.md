@@ -50,14 +50,19 @@ Button/demo/demo5
 Button/demo/demo6
 :::
 
-## Button API
+## Button Attributes
 
-| 属性     | 说明             | 类型                                               | 默认值    |
-| -------- | ---------------- | -------------------------------------------------- | --------- |
-| disabled | 是否禁用按钮     | `boolean`                                          | `false`   |
-| active   | 是否聚焦状态     | `boolean`                                          | `false`   |
-| shape    | 按钮形状         | `"square"〡"round"〡"circle"`                      | `round`   |
-| size     | 按钮尺寸         | `"small"〡"medium"〡"large"`                       | `medium`  |
-| type     | 按钮类型         | `"info"〡"primary"〡"error"〡"warning"〡"success"` | `primary` |
-| variant  | 按钮形式         | `"base"〡"outline"〡"dashed"〡"text"`              | `base`    |
-| @click   | 点击图标触发事件 | `(ev: MouseEvent) => true`                         | `--`      |
+| 属性     | 说明         | 类型                                               | 默认值    |
+| -------- | ------------ | -------------------------------------------------- | --------- |
+| disabled | 是否禁用按钮 | `boolean`                                          | `false`   |
+| active   | 是否聚焦状态 | `boolean`                                          | `false`   |
+| shape    | 按钮形状     | `"square"〡"round"〡"circle"`                      | `round`   |
+| size     | 按钮尺寸     | `"small"〡"medium"〡"large"`                       | `medium`  |
+| type     | 按钮类型     | `"info"〡"primary"〡"error"〡"warning"〡"success"` | `primary` |
+| variant  | 按钮形式     | `"base"〡"outline"〡"dashed"〡"text"`              | `base`    |
+
+## Button Events
+
+| 属性  | 说明             | 类型                       | 默认值 |
+| ----- | ---------------- | -------------------------- | ------ |
+| click | 点击图标触发事件 | `(ev: MouseEvent) => true` | `--`   |

@@ -2,70 +2,62 @@
   <i :class="cls" :style="iconStyles" />
 </template>
 
-<script lang="ts">
-import { defineComponent, computed } from 'vue'
+<script setup lang="ts">
+import { computed } from 'vue'
 import { turnValue } from '../common'
 
-export default defineComponent({
-  name: 'Icon',
-  props: {
-    /**
-     * 图标名称
-     */
-    name: {
-      type: String,
-      default: 'UserAvatar'
-    },
-    /**
-     * 图标名称
-     */
-    size: [Number, String],
-    /**
-     * 图标颜色
-     */
-    color: String,
-    /**
-     * 是否禁用按钮
-     */
-    disabled: {
-      type: Boolean,
-      default: false
-    }
-  },
-  emits: {
-    /**
-     * @zh 点击按钮时触发
-     * @en Emitted when the button is clicked
-     * @property {MouseEvent} ev
-     */
-    click: (ev: MouseEvent) => true
-  },
-  setup(props, { emit }) {
-    const cls = computed(() => [
-      'i-icon',
-      `icon-${props.name}`,
-      props.disabled && 'i-icon-is-disabled'
-    ])
+interface IconAttributes {
+  /**
+   * 图标名称
+   */
+  name?: string
+  /**
+   * 图标尺寸
+   * @default 16
+   */
+  size?: number | string
+  /**
+   * 图标颜色
+   */
+  color?: string
+  /**
+   * 是否禁用图标
+   */
+  disabled?: boolean
+}
 
-    const iconStyles = computed(() => {
-      return {
-        color: props.color || undefined,
-        fontSize: turnValue(props.size)
-      }
-    })
+interface IconEvents {
+  /**
+   * 点击事件
+   */
+  (type: 'click', e: MouseEvent): void
+}
 
-    const handleClick = (ev: MouseEvent) => {
-      if (props.disabled) {
-        return
-      }
-      emit('click', ev)
-    }
+const {
+  name = 'UserAvatar',
+  size,
+  color,
+  disabled = false
+} = defineProps<IconAttributes>()
+const emit = defineEmits<IconEvents>()
 
-    return {
-      cls,
-      iconStyles,
-      handleClick
-    }
+const handleClick = (ev: MouseEvent) => {
+  if (disabled) {
+    return
+  }
+  emit('click', ev)
+}
+
+const cls = computed(() => [
+  'i-icon',
+  `icon-${name}`,
+  disabled && 'i-icon-is-disabled'
+])
+
+const iconStyles = computed(() => {
+  return {
+    color: color || undefined,
+    fontSize: turnValue(size)
   }
 })
 </script>

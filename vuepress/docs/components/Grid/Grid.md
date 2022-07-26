@@ -62,7 +62,7 @@ Grid/demo/demo6
 Grid/demo/demo7
 :::
 
-## Grid API
+## Grid Attributes
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -70,7 +70,7 @@ Grid/demo/demo7
 | align | 栅格每一项的全局垂直对齐方式 | `"top"〡"middle"〡"bottom"` | `"top"` |
 | gutter | 栅格每一项间的全局间隔 | `number` | `0` |
 
-## GridItem API
+## GridItem Attributes
 
 | 属性      | 说明                   | 类型                        | 默认值  |
 | --------- | ---------------------- | --------------------------- | ------- |

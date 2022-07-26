@@ -94,12 +94,17 @@ export default defineComponent({
 })
 </script>
 
-## Icon API
+## Icon Attributes
 
-| 属性     | 说明             | 类型                       | 默认值  |
-| -------- | ---------------- | -------------------------- | ------- |
-| name     | 图标名称         | `string`                   | `--`    |
-| size     | 图标尺寸         | `string〡number`           | `16`    |
-| color    | 图标颜色         | `string`                   | `--`    |
-| disabled | 是否禁用图标     | `boolean`                  | `false` |
-| @click   | 点击图标触发事件 | `(ev: MouseEvent) => true` | `--`    |
+| 属性     | 说明         | 类型             | 默认值  |
+| -------- | ------------ | ---------------- | ------- |
+| name     | 图标名称     | `string`         | `--`    |
+| size     | 图标尺寸     | `string〡number` | `16`    |
+| color    | 图标颜色     | `string`         | `--`    |
+| disabled | 是否禁用图标 | `boolean`        | `false` |
+
+## Icon Events
+
+| 属性  | 说明             | 类型                       | 默认值 |
+| ----- | ---------------- | -------------------------- | ------ |
+| click | 点击图标触发事件 | `(ev: MouseEvent) => true` | `--`   |

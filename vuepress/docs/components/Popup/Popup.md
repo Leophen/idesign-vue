@@ -42,7 +42,7 @@ Popup/demo/demo4
 Popup/demo/demo5
 :::
 
-## Popup API
+## Popup Attributes
 
 | 属性            | 说明         | 类型                  | 默认值 |
 | --------------- | ------------ | --------------------- | ------ |
@@ -55,4 +55,9 @@ Popup/demo/demo5
 | defaultVisible     | 气泡显示隐藏（非受控） | `boolean`       | `false`   |
 | disabled     | 是否禁用气泡 | `boolean`       | `false`   |
 | updateLocation     | 这个值变化时手动更新位置 | `string〡number〡boolean`       | `--`   |
-| @trigger     | 触发气泡操作时触发 | `(visible: boolean) => void`       | `--`   |
+
+## Popup Events
+
+| 属性    | 说明               | 类型                         | 默认值 |
+| ------- | ------------------ | ---------------------------- | ------ |
+| trigger | 触发气泡操作时触发 | `(visible: boolean) => void` | `--`   |

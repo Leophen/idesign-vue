@@ -7,6 +7,7 @@
 html.dark {
   --c-brand: #646cff;
   --c-brand-light: #747bff;
+  --c-bg: #141414;
 }
 
 .page-meta {
@@ -28,11 +29,11 @@ html.dark {
         justify-content: center;
         min-height: 40px;
         color: #fff;
-        background: #759eee;
+        background: var(--i-primary);
       }
       &:nth-of-type(2n) {
         & > div {
-          background: #9dbbf3;
+          background: var(--i-primary-disabled);
         }
       }
     }
@@ -91,8 +92,8 @@ html.dark {
       justify-content: center;
       box-sizing: border-box;
       height: 50px;
-      color: #409eff;
-      background: #ecf5ff;
+      color: var(--i-primary-txt);
+      background: var(--i-primary-bg);
       border-radius: 4px;
       &:not(:last-of-type) {
         margin-bottom: 10px;
@@ -112,8 +113,8 @@ html.dark {
       box-sizing: border-box;
       width: 100px;
       height: 50px;
-      color: #f56c6c;
-      background: #fef0f0;
+      color: var(--i-success-txt);
+      background: var(--i-success-bg);
       border-radius: 4px;
       &:not(:last-of-type) {
         margin-right: 10px;
@@ -209,20 +210,20 @@ html.dark {
       border-bottom: none;
     }
     & > table {
-      color: #454d64;
+      color: var(--i-font-2);
       width: 100%;
       box-sizing: border-box;
       overflow: hidden;
       border: 1px solid transparent;
       border-radius: 10px;
       display: table;
-      box-shadow: inset 0 0 0 1px #ebedf1;
+      box-shadow: inset 0 0 0 1px var(--i-border);
       thead {
-        color: #454d64;
+        color: var(--i-font-2);
         font-size: 18px;
-        border: 2px solid #ebedf1;
+        border: 2px solid var(--i-border);
         border-bottom: 0;
-        background-color: #f9fafb;
+        background-color: var(--i-bg-hover);
       }
       th {
         text-align: left;
@@ -261,13 +262,10 @@ html.dark {
   box-sizing: border-box;
   padding: 0;
   overflow: hidden;
-  color: #303133;
-  border: 1px solid #ebedf1;
+  color: var(--i-font-3);
+  border: 1px solid var(--i-border);
   border-radius: 10px;
   text-size-adjust: 100%;
-  li {
-    list-style-type: none;
-  }
 }
 
 .i-design-demo-icon-item {
@@ -278,7 +276,7 @@ html.dark {
   justify-content: center;
   box-sizing: border-box;
   height: 125px;
-  color: #606266;
+  color: var(--i-font-2);
   font-size: 15px;
   line-height: 1.8;
   text-align: center;
@@ -288,12 +286,12 @@ html.dark {
   transition: background 0.2s;
   text-size-adjust: 100%;
   &:hover {
-    background: #f2f2f2;
+    background: var(--i-bg-hover);
   }
   &::after {
     position: absolute;
     top: 4px;
-    color: #999ba2;
+    color: var(--i-font-3);
     font-size: 14px;
     opacity: 0;
     transition: all 0.1s ease-out;

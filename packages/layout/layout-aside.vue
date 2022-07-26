@@ -15,7 +15,7 @@ import {
 } from 'vue'
 import { turnValue } from '../common'
 
-interface LayoutAsideProps {
+interface LayoutAsideAttributes {
   /**
    * 侧边栏宽度
    * @default 240
@@ -23,7 +23,7 @@ interface LayoutAsideProps {
   width?: string | number
 }
 
-const { width = 240 } = defineProps<LayoutAsideProps>()
+const { width = 240 } = defineProps<LayoutAsideAttributes>()
 
 const generateId = (() => {
   let i = 0

@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-interface ButtonProps {
+interface ButtonAttributes {
   /**
    * 是否聚焦状态
    * @default false
@@ -45,6 +45,13 @@ interface ButtonProps {
   icon?: string
 }
 
+interface ButtonEvents {
+  /**
+   * 点击事件
+   */
+  (type: 'click', e: MouseEvent): void
+}
+
 const {
   active = false,
   disabled = false,
@@ -53,7 +60,15 @@ const {
   type = 'primary',
   variant = 'base',
   icon
-} = defineProps<ButtonProps>()
+} = defineProps<ButtonAttributes>()
+const emit = defineEmits<ButtonEvents>()
+
+const handleClick = (e: MouseEvent) => {
+  if (disabled) {
+    return
+  }
+  emit('click', e)
+}
 
 const cls = computed(() => [
   'i-button',
@@ -64,17 +79,6 @@ const cls = computed(() => [
   active && 'i-button-active',
   disabled && 'i-button-disabled'
 ])
-
-const emit = defineEmits<{
-  (type: 'click', e: MouseEvent): void
-}>()
-
-const handleClick = (e: MouseEvent) => {
-  if (disabled) {
-    return
-  }
-  emit('click', e)
-}
 </script>
 
 <style lang="scss">

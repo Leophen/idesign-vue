@@ -26,11 +26,16 @@ Scrollbar/demo/demo2
 Scrollbar/demo/demo3
 :::
 
-## Scrollbar API
+## Scrollbar Attributes
 
-| 属性     | 说明             | 类型                  | 默认值 |
-| -------- | ---------------- | --------------------- | ------ |
-| width    | 滚动容器宽度     | `string〡number`      | `--`   |
-| height   | 滚动容器高度     | `string〡number`      | `--`   |
-| @scrollX | 水平滚动触发事件 | `(x: number) => void` | `--`   |
-| @scrollY | 垂直滚动触发事件 | `(y: number) => void` | `--`   |
+| 属性   | 说明         | 类型             | 默认值 |
+| ------ | ------------ | ---------------- | ------ |
+| width  | 滚动容器宽度 | `string〡number` | `--`   |
+| height | 滚动容器高度 | `string〡number` | `--`   |
+
+## Scrollbar Events
+
+| 属性    | 说明             | 类型                  | 默认值 |
+| ------- | ---------------- | --------------------- | ------ |
+| scrollX | 水平滚动触发事件 | `(x: number) => void` | `--`   |
+| scrollY | 垂直滚动触发事件 | `(y: number) => void` | `--`   |
