@@ -45,7 +45,7 @@ export * from './scrollbar'
 export * from './dropdown'
 export * from './back-top'
 
-export * from './avatar'
+// export * from './avatar'
 
 export * from './alert'
 export * from './popup'
