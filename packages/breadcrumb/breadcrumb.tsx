@@ -1,6 +1,5 @@
 import './index.scss';
-import { defineComponent, provide, reactive } from 'vue';
-import { getAllElements } from '../common'
+import { defineComponent, provide } from 'vue';
 
 export default defineComponent({
   name: 'Breadcrumb',
@@ -24,14 +23,9 @@ export default defineComponent({
     );
 
     return () => {
-      // const children = getAllElements(slots.default?.() ?? []);
-
       return (
         <div class='i-breadcrumb'>
           {slots.default?.()}
-          {/* {children.map((child) => {
-            return child;
-          })} */}
         </div>
       );
     };

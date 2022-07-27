@@ -4,7 +4,7 @@ import { Icon } from '../icon';
 import './index.scss';
 
 export default defineComponent({
-  name: 'Divider',
+  name: 'BreadcrumbItem',
   props: {
     /**
    * 是否禁用当前项点击
@@ -42,8 +42,6 @@ export default defineComponent({
     const currentSeparator = computed(() => {
       return breadcrumbCtx?.slots.separator?.() ?? <Icon name="ArrowRight" size={16} />
     });
-
-    // console.log('jjj', slots.separator, breadcrumbCtx?.slots.separator, <Icon name="ArrowRight" size={16} />)
 
     return () => {
       const children = slots.default?.();
