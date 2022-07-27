@@ -12,6 +12,7 @@ import { DropdownPlugin } from './dropdown'
 import { BackTopPlugin } from './back-top'
 
 import { AvatarPlugin } from './avatar'
+import { BadgePlugin } from './badge'
 
 import { AlertPlugin } from './alert'
 import { PopupPlugin } from './popup'
@@ -29,6 +30,7 @@ const IDesignPlugin: Plugin = {
     BackTopPlugin.install?.(app)
 
     AvatarPlugin.install?.(app)
+    BadgePlugin.install?.(app)
 
     AlertPlugin.install?.(app)
     PopupPlugin.install?.(app)
@@ -46,6 +48,7 @@ export * from './dropdown'
 export * from './back-top'
 
 export * from './avatar'
+export * from './badge'
 
 export * from './alert'
 export * from './popup'

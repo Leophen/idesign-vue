@@ -1,9 +1,9 @@
 <template>
   <div className="idesign-demo-block-row">
-    <i-badge>
+    <i-badge shape="circle">
       <i-button>按钮</i-button>
     </i-badge>
-    <i-badge count="new">
+    <i-badge shape="round">
       <i-button>按钮</i-button>
     </i-badge>
   </div>

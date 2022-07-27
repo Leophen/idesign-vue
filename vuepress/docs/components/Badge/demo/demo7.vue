@@ -1,9 +1,12 @@
 <template>
   <div className="idesign-demo-block-row">
-    <i-badge>
+    <i-badge :count="6">
       <i-button>按钮</i-button>
     </i-badge>
-    <i-badge count="new">
+    <i-badge :count="6" :offset="[10, 10]">
+      <i-button>按钮</i-button>
+    </i-badge>
+    <i-badge :count="6" :offset="[-10, 10]">
       <i-button>按钮</i-button>
     </i-badge>
   </div>
