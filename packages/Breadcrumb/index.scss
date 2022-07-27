@@ -23,16 +23,18 @@
 
 .i-breadcrumb__inner,
 .i-breadcrumb__inner a {
-  display: inline-block;
+  display: inline-flex;
   overflow: hidden;
   color: var(--i-font-4);
   white-space: nowrap;
   text-overflow: ellipsis;
   word-break: break-all;
   cursor: pointer;
+  text-decoration: none;
   &:hover {
     color: var(--i-primary-txt);
     transition: color 0.2s ease-out;
+    text-decoration: none;
   }
 }
 
