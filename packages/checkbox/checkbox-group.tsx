@@ -1,4 +1,4 @@
-import { computed, defineComponent, PropType, provide, ref, watch } from 'vue';
+import { computed, defineComponent, PropType, provide, ref } from 'vue';
 import './index.scss';
 import { useChildComponentSlots } from '../common'
 import Checkbox from './checkbox'
@@ -30,13 +30,13 @@ export default defineComponent({
   },
   emits: {
     /**
-     * 悬浮导航项时触发
+     * 选中某一项时触发
      */
     'change': (value?: Array<string | number>, event?: Event) => true,
   },
   setup(props, { slots, emit }) {
-    const _groupValue = ref(props.defaultValue)
-    const innerChecked = computed(() => props.value ?? _groupValue.value)
+    const _groupChecked = ref(props.defaultValue)
+    const innerChecked = computed(() => props.value ?? _groupChecked.value)
     let groupCheckedArr: Set<any> = new Set([].concat(innerChecked.value as any));
 
     const getChildComponentByName = useChildComponentSlots();
@@ -53,7 +53,7 @@ export default defineComponent({
               } else {
                 groupCheckedArr.delete(itemVal)
               }
-              _groupValue.value = Array.from(groupCheckedArr)
+              _groupChecked.value = Array.from(groupCheckedArr)
               emit('change', Array.from(groupCheckedArr), e)
             }}
             {...item.props}

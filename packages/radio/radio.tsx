@@ -1,29 +1,36 @@
-import './index.scss';
 import { computed, defineComponent, inject, PropType, ref } from 'vue';
+import './index.scss';
 
 export default defineComponent({
-  name: 'Checkbox',
+  name: 'Radio',
   props: {
     /**
-     * 多选框尺寸
+     * 单选框类型
+     * @default radio
+     */
+    type: {
+      type: String as PropType<"radio" | "radio-button">
+    },
+    /**
+     * 按钮单选框尺寸
      * @default medium
      */
     size: {
       type: String as PropType<"small" | "medium" | "large">
     },
     /**
-     * 多选框唯一标识
+     * 单选框的值
      */
     value: [String, Number],
     /**
-     * 多选框的值（受控）
+     * 是否选中（受控）
      */
     checked: {
       type: Boolean,
       default: undefined
     },
     /**
-     * 多选框的值（非受控）
+     * 是否选中（非受控）
      * @default false
      */
     defaultChecked: {
@@ -45,19 +52,20 @@ export default defineComponent({
     'change': (checked: boolean, ev: Event) => true,
   },
   setup(props, { slots, emit }) {
-    const _checkboxChecked = ref(props.defaultChecked)
-    const innerChecked = computed(() => props.checked ?? _checkboxChecked.value)
+    const _radioChecked = ref(props.defaultChecked)
+    const innerChecked = computed(() => props.checked ?? _radioChecked.value)
 
-    // 存在多选框组时从 Context 注入 checked 覆盖原 checked
-    const checkboxGroupCtx: any = inject('checkboxGroupCtx', undefined)
+    // 存在单选框组时从 Context 注入 checked 覆盖原 checked
+    const radioGroupCtx: any = inject('radioGroupCtx', undefined)
 
-    const mergedSize = computed(() => props.size || checkboxGroupCtx?.size || 'medium')
-    const mergedDisabled = computed(() => props.disabled || checkboxGroupCtx?.disabled || false)
+    const mergedType = computed(() => props.type || radioGroupCtx?.type || 'radio')
+    const mergedSize = computed(() => props.size || radioGroupCtx?.size || 'medium')
+    const mergedDisabled = computed(() => props.disabled || radioGroupCtx?.disabled || false)
 
     const handleCheck = (e: Event) => {
       if (mergedDisabled.value) return;
       const newChecked = (e.target as HTMLInputElement).checked;
-      _checkboxChecked.value = newChecked
+      _radioChecked.value = newChecked
       emit('change', newChecked, e)
     };
 
@@ -67,28 +75,27 @@ export default defineComponent({
       return (
         <label
           class={[
-            'i-checkbox',
-            innerChecked.value && 'i-checkbox-is-checked',
-            mergedDisabled.value && 'i-checkbox-is-disabled',
-            mergedSize.value && `i-checkbox--size-${mergedSize.value}`
+            `i-${mergedType.value}`,
+            innerChecked.value && `i-${mergedType.value}-is-checked`,
+            mergedDisabled.value && `i-${mergedType.value}-is-disabled`,
+            mergedSize.value && `i-${mergedType.value}--size-${mergedSize.value}`,
           ]}
         >
           <input
             readonly
-            type="checkbox"
-            class='i-checkbox__former'
+            type="radio"
+            class={`i-${mergedType.value}__former`}
             checked={innerChecked.value}
             disabled={mergedDisabled.value}
             value={props.value}
             onClick={(e) => e.stopPropagation()}
             onChange={handleCheck}
           />
-          <span class='i-checkbox__input' />
-          <span class='i-checkbox__label'>
-            {children}
-          </span>
+          <span class={`i-${mergedType.value}__input`} />
+          <span class={`i-${mergedType.value}__label`}>{children}</span>
         </label>
       );
     };
   },
 });
+

@@ -36,12 +36,12 @@ Checkbox/demo/demo4
 
 ## Checkbox Attributes
 
-| 属性     | 说明         | 类型                         | 默认值     |
-| -------- | ------------ | ---------------------------- | ---------- |
-| size     | 多选框尺寸   | `"small"〡"medium"〡"large"` | `"medium"` |
-| value    | 多选框的值   | `string〡number`             | `--`       |
-| checked  | 是否选中     | `boolean`                    | `false`    |
-| disabled | 是否禁用组件 | `boolean`                    | `false`    |
+| 属性     | 说明           | 类型                         | 默认值     |
+| -------- | -------------- | ---------------------------- | ---------- |
+| size     | 多选框尺寸     | `"small"〡"medium"〡"large"` | `"medium"` |
+| value    | 多选框唯一标识 | `string〡number`             | `--`       |
+| checked  | 是否选中       | `boolean`                    | `false`    |
+| disabled | 是否禁用组件   | `boolean`                    | `false`    |
 
 ## Checkbox Events
 

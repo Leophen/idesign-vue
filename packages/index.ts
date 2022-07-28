@@ -12,6 +12,7 @@ import { DropdownPlugin } from './dropdown'
 import { BreadcrumbPlugin } from './breadcrumb'
 import { BackTopPlugin } from './back-top'
 
+import { RadioPlugin } from './radio'
 import { CheckboxPlugin } from './checkbox'
 
 import { AvatarPlugin } from './avatar'
@@ -34,6 +35,7 @@ const IDesignPlugin: Plugin = {
     BreadcrumbPlugin.install?.(app)
     BackTopPlugin.install?.(app)
 
+    RadioPlugin.install?.(app)
     CheckboxPlugin.install?.(app)
 
     AvatarPlugin.install?.(app)
@@ -56,6 +58,7 @@ export * from './dropdown'
 export * from './breadcrumb'
 export * from './back-top'
 
+export * from './radio'
 export * from './checkbox'
 
 export * from './avatar'

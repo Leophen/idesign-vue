@@ -1,4 +1,4 @@
-# Radio 单选框（开发中）
+# Radio 单选框
 
 单选框代表从一组互斥的选项中仅选择一个选项。
 
@@ -6,282 +6,79 @@
 
 最简单的单选框形式。
 
-```tsx
-import React, { useState } from 'react';
-import { Radio } from 'idesign-react';
-
-const App = () => {
-  const [checked, setChecked] = useState(false);
-
-  const handleChange = (val, e) => {
-    console.log(val, e);
-    setChecked(val);
-  };
-
-  return (
-    <div className="idesign-demo-block-row">
-      <Radio checked={true}>已选中</Radio>
-      <Radio checked={checked} onChange={handleChange}>
-        {checked ? '已选中' : '未选中'}
-      </Radio>
-    </div>
-  );
-};
-
-export default App;
-```
+:::demo
+Radio/demo/demo1
+:::
 
 ## 单选框组
 
-使用 `Radio.Group` 可以包裹 `Radio` 形成一组单选框组。
+使用 `i-radio-group` 可以包裹 `i-radio` 形成一组单选框组。
 
-```tsx
-import React, { useState } from 'react';
-import { Radio } from 'idesign-react';
-
-const App = () => {
-  const [currentValue, setCurrentValue] = useState('2');
-
-  const handleChange = (val, e) => {
-    console.log(val, e);
-    setCurrentValue(val);
-  };
-
-  return (
-    <Radio.Group currentValue={currentValue} onChange={handleChange}>
-      <Radio value="1">选项一</Radio>
-      <Radio value="2">选项二</Radio>
-      <Radio value="3">选项三</Radio>
-      <Radio value="4">选项四</Radio>
-    </Radio.Group>
-  );
-};
-
-export default App;
-```
+:::demo
+Radio/demo/demo2
+:::
 
 ## 单选框（按钮型）
 
-`Radio` 提供 `type` 属性切换为按钮形式的单选框。
+`i-radio` 提供 `type` 属性切换为按钮形式的单选框。
 
-```tsx
-import React, { useState } from 'react';
-import { Radio } from 'idesign-react';
-
-const App = () => {
-  const [checked, setChecked] = useState(false);
-
-  const handleChange = (val, e) => {
-    console.log(val, e);
-    setChecked(val);
-  };
-
-  return (
-    <div className="idesign-demo-block-row">
-      <Radio checked={true} type="radio-button">
-        已选中
-      </Radio>
-      <Radio checked={checked} onChange={handleChange} type="radio-button">
-        {checked ? '已选中' : '未选中'}
-      </Radio>
-    </div>
-  );
-};
-
-export default App;
-```
+:::demo
+Radio/demo/demo3
+:::
 
 ## 单选框组（按钮型）
 
-`Radio.Group` 提供 `type` 属性全局修改每一项为按钮型单选框。
+`i-radio-group` 提供 `type` 属性全局修改每一项为按钮型单选框。
 
-```tsx
-import React, { useState } from 'react';
-import { Radio } from 'idesign-react';
-
-const App = () => {
-  const [currentValue, setCurrentValue] = useState('2');
-
-  const handleChange = (val, e) => {
-    console.log(val, e);
-    setCurrentValue(val);
-  };
-
-  return (
-    <Radio.Group type="radio-button" currentValue={currentValue} onChange={handleChange}>
-      <Radio value="1">选项一</Radio>
-      <Radio value="2">选项二</Radio>
-      <Radio value="3">选项三</Radio>
-      <Radio value="4">选项四</Radio>
-    </Radio.Group>
-  );
-};
-
-export default App;
-```
+:::demo
+Radio/demo/demo4
+:::
 
 ## 不同尺寸（按钮型）
 
-`Radio` 按钮形式的单选框提供 `size` 属性控制尺寸，`Radio.Group` 也有 `size` 属性可以全局控制每一项按钮单选框的尺寸。
+`i-radio` 按钮形式的单选框提供 `size` 属性控制尺寸，`i-radio-group` 也有 `size` 属性可以全局控制每一项按钮单选框的尺寸。
 
-```tsx
-import React, { useState } from 'react';
-import { Radio } from 'idesign-react';
-
-const App = () => {
-  const [currentValue, setCurrentValue] = useState('2');
-
-  const handleChange = (val) => {
-    setCurrentValue(val);
-  };
-
-  return (
-    <div className="idesign-demo-block-column">
-      <div className="idesign-demo-block-row">
-        <Radio type="radio-button" size="small">
-          未选中
-        </Radio>
-        <Radio type="radio-button" size="medium" checked={true}>
-          未选中
-        </Radio>
-        <Radio type="radio-button" size="large">
-          未选中
-        </Radio>
-      </div>
-
-      <div className="idesign-demo-block-row">
-        <Radio.Group
-          type="radio-button"
-          size="small"
-          currentValue={currentValue}
-          onChange={handleChange}
-        >
-          <Radio value="1">选项一</Radio>
-          <Radio value="2">选项二</Radio>
-          <Radio value="3">选项三</Radio>
-        </Radio.Group>
-      </div>
-
-      <div className="idesign-demo-block-row">
-        <Radio.Group
-          type="radio-button"
-          size="medium"
-          currentValue={currentValue}
-          onChange={handleChange}
-        >
-          <Radio value="1">选项一</Radio>
-          <Radio value="2">选项二</Radio>
-          <Radio value="3">选项三</Radio>
-        </Radio.Group>
-      </div>
-
-      <div className="idesign-demo-block-row">
-        <Radio.Group
-          type="radio-button"
-          size="large"
-          currentValue={currentValue}
-          onChange={handleChange}
-        >
-          <Radio value="1">选项一</Radio>
-          <Radio value="2">选项二</Radio>
-          <Radio value="3">选项三</Radio>
-        </Radio.Group>
-      </div>
-    </div>
-  );
-};
-
-export default App;
-```
+:::demo
+Radio/demo/demo5
+:::
 
 ## 禁用状态
 
-`Radio` 提供 `disabled` 属性控制单选框为禁用状态，`Radio.Group` 可以全局控制每一项为禁用状态。
+`i-radio` 提供 `disabled` 属性控制单选框为禁用状态，`i-radio-group` 可以全局控制每一项为禁用状态。
 
-```tsx
-import React, { useState } from 'react';
-import { Radio } from 'idesign-react';
+:::demo
+Radio/demo/demo6
+:::
 
-const App = () => {
-  const [currentValue, setCurrentValue] = useState('2');
+## Radio Attributes
 
-  const handleChange = (val) => {
-    setCurrentValue(val);
-  };
+| 属性           | 说明                   | 类型                         | 默认值   |
+| -------------- | ---------------------- | ---------------------------- | -------- |
+| type           | 单选框类型             | `"radio"〡"radio-button"`    | `radio`  |
+| size           | 按钮单选框尺寸         | `"small"〡"medium"〡"large"` | `medium` |
+| checked        | 是否固定选中（受控）   | `boolean`                    | `false`  |
+| defaultChecked | 是否默认选中（非受控） | `boolean`                    | `false`  |
+| disabled       | 是否禁用组件           | `boolean`                    | `false`  |
+| value          | 单选框的值             | `string〡number`             | `--`     |
 
-  return (
-    <div className="idesign-demo-block-column">
-      <h3>单项禁用</h3>
+## Radio Events
 
-      <div className="idesign-demo-block-row">
-        <Radio disabled>未选中</Radio>
-        <Radio type="radio-button" disabled>
-          未选中
-        </Radio>
-      </div>
+| 属性   | 说明         | 类型                                         | 默认值 |
+| ------ | ------------ | -------------------------------------------- | ------ |
+| change | 值变化时触发 | `(checked: boolean, context: Event) => void` | `--`   |
 
-      <h3>单选框组局部禁用</h3>
+## RadioGroup Attributes
 
-      <div className="idesign-demo-block-row">
-        <Radio.Group currentValue={currentValue} onChange={handleChange}>
-          <Radio value="1">选项一</Radio>
-          <Radio value="2" disabled>
-            选项二
-          </Radio>
-          <Radio value="3">选项三</Radio>
-        </Radio.Group>
-      </div>
-      <div className="idesign-demo-block-row">
-        <Radio.Group type="radio-button" currentValue={currentValue} onChange={handleChange}>
-          <Radio value="1">选项一</Radio>
-          <Radio value="2">选项二</Radio>
-          <Radio value="3" disabled>
-            选项三
-          </Radio>
-        </Radio.Group>
-      </div>
+| 属性         | 说明                         | 类型                         | 默认值     |
+| ------------ | ---------------------------- | ---------------------------- | ---------- |
+| checked        | 单选框组选中固定值（受控）   | `string〡number`             | `--`       |
+| defaultChecked | 单选框组选中默认值（非受控） | `string〡number`             | `--`       |
+| type         | 单选框组全局类型             | `"radio"〡"radio-button"`    | `"radio"`  |
+| size         | 按钮单选框全局尺寸           | `"small"〡"medium"〡"large"` | `"medium"` |
+| disabled     | 单选框组是否全局禁用         | `boolean`                    | `false`    |
 
-      <h3>单选框组全局禁用</h3>
+## RadioGroup Events
 
-      <div className="idesign-demo-block-row">
-        <Radio.Group disabled currentValue={currentValue} onChange={handleChange}>
-          <Radio value="1">选项一</Radio>
-          <Radio value="2">选项二</Radio>
-          <Radio value="3">选项三</Radio>
-        </Radio.Group>
-      </div>
-
-      <div className="idesign-demo-block-row">
-        <Radio.Group
-          disabled
-          type="radio-button"
-          currentValue={currentValue}
-          onChange={handleChange}
-        >
-          <Radio value="1">选项一</Radio>
-          <Radio value="2">选项二</Radio>
-          <Radio value="3">选项三</Radio>
-        </Radio.Group>
-      </div>
-    </div>
-  );
-};
-
-export default App;
-```
-
-## Radio API
-
-
-## RadioGroup API
-
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| children | 按钮内容 | `ReactNode` | `--` |
-| className | 类名 | `string` | `--` |
-| style | 自定义样式 | `CSSProperties` | `--` |
-| currentValue | 单选框组选中的值 | `string〡number` | `--` |
-| type | 单选框组全局类型 | `"radio"〡"radio-button"` | `"radio"` |
-| size | 按钮单选框全局尺寸 | `"small"〡"medium"〡"large"` | `"medium"` |
-| disabled | 单选框组是否全局禁用 | `boolean` | `false` |
-| onChange | 选中某一项时触发 | `(value: boolean〡number, context: React.ChangeEvent<HTMLInputElement>) => void` | `--` |
+| 属性   | 说明             | 类型                                              | 默认值 |
+| ------ | ---------------- | ------------------------------------------------- | ------ |
+| change | 选中某一项时触发 | `(value: string〡number, context: Event) => void` | `--`   |
