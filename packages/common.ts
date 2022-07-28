@@ -2,6 +2,7 @@ import _ from 'lodash'
 import {
   Component,
   ComponentPublicInstance,
+  getCurrentInstance,
   Slots,
   VNode,
   VNodeTypes
@@ -123,4 +124,36 @@ export const getAllElements = (
     }
   }
   return results
+}
+
+/**
+ * 渲染 default slot，获取子组件 VNode。处理多种子组件创建场景
+ * @returns {function(childComponentName: string, slots: Slots): VNode[]}
+ * @param childComponentName
+ * @param slots
+ * @example const getChildByName = useChildComponentSlots()
+ * @example getChildComponentByName('xxItem')
+ */
+export const useChildComponentSlots = () => {
+  const instance = getCurrentInstance()
+  return (childComponentName: string, slots?: Slots): VNode[] => {
+    if (!slots) {
+      slots = instance?.slots
+    }
+    const content = slots?.default?.() || []
+
+    return (
+      content
+        .map((item: VNode) => {
+          if (item.children && Array.isArray(item.children))
+            return item.children
+          return item
+        })
+        .flat()
+        // @ts-ignore
+        .filter((item: VNode) =>
+          (item.type as Component).name?.endsWith(childComponentName)
+        ) as VNode[]
+    )
+  }
 }

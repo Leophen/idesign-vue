@@ -1,5 +1,5 @@
 <template>
-  <i-carousel :defaultCurrent="1" @change="handleChange">
+  <i-carousel :duration="100">
     <i-carousel-item>
       <div :style="{ background: 'var(--i-primary)', height: '100%' }">1</div>
     </i-carousel-item>
@@ -14,9 +14,3 @@
     </i-carousel-item>
   </i-carousel>
 </template>
-
-<script setup>
-const handleChange = (val) => {
-  console.log(val)
-}
-</script>

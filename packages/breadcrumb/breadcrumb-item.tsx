@@ -7,9 +7,9 @@ export default defineComponent({
   name: 'BreadcrumbItem',
   props: {
     /**
-   * 是否禁用当前项点击
-   */
-    disabled: [Boolean],
+     * 是否禁用当前项点击
+     */
+    disabled: Boolean,
     /**
      * 单项最大宽度，超出后会以省略号形式呈现
      */
