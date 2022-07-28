@@ -10,9 +10,9 @@ export default defineComponent({
   name: 'Carousel',
   props: {
     /**
-   * 初始轮播项
-   * @default 0
-   */
+     * 初始轮播项
+     * @default 0
+     */
     defaultCurrent: {
       type: Number,
       default: 0

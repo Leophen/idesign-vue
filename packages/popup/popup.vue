@@ -118,6 +118,7 @@ const setTargetLocation = (target: HTMLElement) => {
 
 const _popupVisible = ref(defaultVisible)
 const innerVisible = computed(() => visible ?? _popupVisible.value)
+// const [innerVisible, setInnerVisible] = useDefault(visible, defaultVisible)
 
 // 触发节点是否在指定包裹层中
 const hasParent = (node: any, parent: HTMLElement | null) => {

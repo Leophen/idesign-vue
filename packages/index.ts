@@ -12,6 +12,8 @@ import { DropdownPlugin } from './dropdown'
 import { BreadcrumbPlugin } from './breadcrumb'
 import { BackTopPlugin } from './back-top'
 
+import { CheckboxPlugin } from './checkbox'
+
 import { AvatarPlugin } from './avatar'
 import { BadgePlugin } from './badge'
 import { CarouselPlugin } from './carousel'
@@ -32,6 +34,8 @@ const IDesignPlugin: Plugin = {
     BreadcrumbPlugin.install?.(app)
     BackTopPlugin.install?.(app)
 
+    CheckboxPlugin.install?.(app)
+
     AvatarPlugin.install?.(app)
     BadgePlugin.install?.(app)
     CarouselPlugin.install?.(app)
@@ -51,6 +55,8 @@ export * from './scrollbar'
 export * from './dropdown'
 export * from './breadcrumb'
 export * from './back-top'
+
+export * from './checkbox'
 
 export * from './avatar'
 export * from './badge'
