@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import './index.scss';
 import _ from 'lodash'
-import Collapse from '../Collapse';
+import Collapse from '../collapse/collapse';
 import Dropdown from '../Dropdown';
 import Icon from '../Icon';
 import { MenuContext } from './index'

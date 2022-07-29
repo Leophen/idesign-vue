@@ -1,10 +1,10 @@
 export interface RateProps {
   /**
-   * 分值
+   * 固定分值（受控）
    */
   value?: number;
   /**
-   * 默认分值
+   * 默认分值（非受控）
    * @default 0
    */
   defaultValue?: number;

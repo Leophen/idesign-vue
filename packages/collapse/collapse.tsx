@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import './index.scss';
 import useDefault from '../hooks/useDefault';
-import CollapseItem from './CollapseItem';
+import CollapseItem from './collapse-item';
 import { CollapseContextValue, CollapseItemProps, CollapseProps, CollapseValueType } from './type';
 
 export const CollapseContext = React.createContext<CollapseContextValue>(null as any);

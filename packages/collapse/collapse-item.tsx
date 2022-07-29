@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import './index.scss';
-import Icon from '../Icon'
-import { CollapseContext } from './index'
+import Icon from '../icon'
+import { CollapseContext } from './collapse'
 import { CollapseItemAddProps, CollapseItemProps } from './type';
 
 const CollapseItem: React.FC<CollapseItemProps> = (props) => {

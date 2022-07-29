@@ -1,10 +1,10 @@
 export interface DatePickerProps {
   /**
-   * 选中值
+   * 固定选中值（受控）
    */
   value?: string;
   /**
-   * 默认选中值，非受控属性
+   * 默认选中值（非受控）
    */
   defaultValue?: string;
   /**

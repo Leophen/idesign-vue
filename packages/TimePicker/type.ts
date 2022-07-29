@@ -1,10 +1,10 @@
 export interface TimePickerProps {
   /**
-   * 时间值
+   * 固定时间值（受控）
    */
   value?: string;
   /**
-   * 默认时间值
+   * 默认时间值（非受控）
    * @default 当前时间
    */
   defaultValue?: string;
