@@ -1,94 +1,140 @@
-import React from 'react';
-import classNames from 'classnames';
 import './index.scss';
-import useDefault from '../hooks/useDefault';
+import { useChildComponentSlots } from '../common'
 import CollapseItem from './collapse-item';
-import { CollapseContextValue, CollapseItemProps, CollapseProps, CollapseValueType } from './type';
+import { computed, defineComponent, PropType, provide, ref } from 'vue';
 
-export const CollapseContext = React.createContext<CollapseContextValue>(null as any);
-
-const Collapse: React.FC<CollapseProps> & { Item: React.ElementType } = (props) => {
-  let defaultVal: CollapseValueType = []
-  React.Children.map(props.children, (child, index) => {
-    !props.defaultActive && props.expandAll && (defaultVal.push((child as any).props.value || index))
-  })
-
-  const {
-    children = '',
-    className,
-    style,
-    active,
-    defaultActive = defaultVal,
-    accordion = false,
-    disabled = false,
-    expandAll = false,
-    iconPlacement = 'left',
-    hideBorder = false,
-    noIndent = false,
-    onChange,
-    ...restProps
-  } = props;
-
-  const [innerActive, setInnerActive] = useDefault(active, defaultActive, onChange);
-
-  // 更新展开项
-  const updateInnerActive = (value: string | number) => {
-    let newValue: CollapseValueType = [].concat(innerActive as any || []);
-    const index = newValue.indexOf(value);
-    if (index >= 0) {
-      newValue.splice(index, 1);
-    } else if (accordion) {
-      newValue = [value];
-    } else {
-      newValue.push(value);
-    }
-    setInnerActive([...newValue]);
-  };
-
-  // 注入每一项的 context
-  const context: CollapseContextValue = {
-    // 将 props 注入每一项子节点的方法
-    inject: (singleCollapseProps: CollapseItemProps) => {
-      return {
-        innerActive,
-        disabled,
-        updateInnerActive,
-        iconPlacement,
-        ...singleCollapseProps,
-      };
+export default defineComponent({
+  name: 'Collapse',
+  props: {
+    /**
+     * 固定展开项（受控）
+     */
+    active: Array as PropType<Array<string | number>>,
+    /**
+     * 默认展开项（非受控）
+     */
+    defaultActive: {
+      type: Array as PropType<Array<string | number>>
     },
-  };
+    /**
+     * 是否为手风琴模式
+     * @default false
+     */
+    accordion: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * 全局禁用折叠项
+     * @default false
+     */
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * 默认全部展开
+     * @default false
+     */
+    expandAll: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * 自定义图标位置
+     * @default left
+     */
+    iconPlacement: {
+      type: String as PropType<'left' | 'right'>,
+      default: 'left'
+    },
+    /**
+     * 是否隐藏边框
+     * @default false
+     */
+    hideBorder: {
+      type: Boolean,
+      default: false
+    },
+    /**
+     * 无缩进模式
+     * @default false
+     */
+    noIndent: {
+      type: Boolean,
+      default: false
+    },
+  },
+  emits: {
+    /**
+     * 切换面板时触发，返回变化的值
+     */
+    'change': (value?: Array<string | number>) => true,
+  },
+  setup(props, { slots, emit }) {
+    const getChildComponentByName = useChildComponentSlots();
+    const childrenList = getChildComponentByName('CollapseItem')
 
-  return (
-    <CollapseContext.Provider value={context}>
-      <div
-        className={classNames(
-          'i-collapse',
-          hideBorder && 'i-collapse__hide-border',
-          noIndent && 'i-collapse__no-indent',
-          className
-        )}
-        style={{ ...style }}
-        {...restProps}
-      >
-        {React.Children.map(children, (child, index) => {
-          if (!React.isValidElement(child)) {
-            return null;
-          }
-          const childProps = {
-            index,
-            ...child.props,
-          };
-          return React.cloneElement(child, childProps);
-        })}
-      </div>
-    </CollapseContext.Provider>
-  );
-};
+    const initVal = () => {
+      let result = props.defaultActive || []
+      !props.defaultActive && props.expandAll && childrenList.map((item: any, index: number) => {
+        result.push(item.props?.value || index)
+      })
+      return result
+    }
 
-Collapse.Item = CollapseItem;
+    const _collapseActive = ref(initVal())
+    const innerActive = computed(() => props.active ?? _collapseActive.value)
 
-CollapseItem.displayName = 'CollapseItem';
-Collapse.displayName = 'Collapse';
+    // 更新展开项
+    const updateInnerActive = (value: string | number) => {
+      let newValue: Array<string | number> = [].concat(innerActive.value as any || []);
+      const index = newValue.indexOf(value);
+      if (index >= 0) {
+        newValue.splice(index, 1);
+      } else if (props.accordion) {
+        newValue = [value];
+      } else {
+        newValue.push(value);
+      }
+      _collapseActive.value = [...newValue]
+      emit('change', [...newValue])
+    };
 
-export default Collapse;
+    const collapseItems = () => {
+      return childrenList.map((item: any, index: number) => {
+        const itemVal = item.props.value || index
+        return (
+          <CollapseItem
+            index={index}
+            isActive={innerActive.value.includes(itemVal)}
+            onClickHeader={() => updateInnerActive(itemVal)}
+            {...item.props}
+          >
+            {item.children.default()}
+          </CollapseItem>
+        );
+      })
+    }
+
+    // 注入每一项的 context
+    provide('collapseCtx', {
+      disabled: props.disabled,
+      iconPlacement: props.iconPlacement,
+    })
+
+    return () => {
+      return (
+        <div
+          class={[
+            'i-collapse',
+            props.hideBorder && 'i-collapse__hide-border',
+            props.noIndent && 'i-collapse__no-indent'
+          ]}
+        >
+          {collapseItems()}
+        </div>
+      );
+    };
+  },
+});

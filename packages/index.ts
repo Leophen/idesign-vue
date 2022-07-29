@@ -18,6 +18,7 @@ import { CheckboxPlugin } from './checkbox'
 import { AvatarPlugin } from './avatar'
 import { BadgePlugin } from './badge'
 import { CarouselPlugin } from './carousel'
+import { CollapsePlugin } from './collapse'
 
 import { AlertPlugin } from './alert'
 import { PopupPlugin } from './popup'
@@ -41,6 +42,7 @@ const IDesignPlugin: Plugin = {
     AvatarPlugin.install?.(app)
     BadgePlugin.install?.(app)
     CarouselPlugin.install?.(app)
+    CollapsePlugin.install?.(app)
 
     AlertPlugin.install?.(app)
     PopupPlugin.install?.(app)
@@ -64,6 +66,7 @@ export * from './checkbox'
 export * from './avatar'
 export * from './badge'
 export * from './carousel'
+export * from './collapse'
 
 export * from './alert'
 export * from './popup'

@@ -1,98 +1,125 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import classNames from 'classnames';
 import './index.scss';
-import Icon from '../icon'
-import { CollapseContext } from './collapse'
-import { CollapseItemAddProps, CollapseItemProps } from './type';
+import { Icon } from '../icon'
+import { computed, defineComponent, inject, onMounted, onUnmounted, PropType, ref } from 'vue';
+import { turnValue } from '../common';
 
-const CollapseItem: React.FC<CollapseItemProps> = (props) => {
-  // 从 Collapse Context 注入全局属性
-  const context = useContext(CollapseContext);
-  const newProps: CollapseItemAddProps = context ? context.inject(props) : props;
+export default defineComponent({
+  name: 'CollapseItem',
+  props: {
+    /**
+     * 折叠项标题
+     */
+    title: String,
+    /**
+     * 折叠项唯一标识
+     * @default 索引值
+     */
+    value: [String, Number],
+    /**
+     * 禁用单折叠项
+     * @default false
+     */
+    disabled: {
+      type: Boolean
+    },
+    /**
+     * 自定义图标位置
+     * @default left
+     */
+    iconPlacement: {
+      type: String as PropType<'left' | 'right'>
+    },
+    /**
+     * 组生成的索引值
+     * @default 0
+     */
+    index: {
+      type: Number,
+      default: 0
+    },
+    /**
+     * 组传入的 active 值
+     * @default false
+     */
+    isActive: {
+      type: Boolean,
+      default: false
+    },
+  },
+  setup(props, { slots, emit }) {
+    const collapseCtx: any = inject('collapseCtx', undefined)
 
-  const {
-    children,
-    className,
-    style,
-    title,
-    value,
-    disabled = false,
-    index,
-    innerActive,
-    updateInnerActive,
-    iconPlacement = 'left',
-    ...restProps
-  } = newProps;
+    const mergedDisabled = computed(() => props.disabled || collapseCtx?.disabled || false)
+    const mergedIconPlacement = computed(() => props.iconPlacement || collapseCtx?.iconPlacement || 'left')
 
-  const itemValue = value || index;
-  const isActive = Array.isArray(innerActive) ? innerActive.includes(itemValue as string | number) : innerActive === itemValue;
-
-  const handleClickHeader = () => {
-    if (!disabled) {
-      updateInnerActive?.(itemValue as string | number);
+    const handleClickHeader = () => {
+      if (!mergedDisabled.value) {
+        emit('clickHeader')
+      }
     }
-  }
 
-  const contentInnerRef = useRef<HTMLDivElement>(null)
-  const [contentHeight, setContentHeight] = useState(0)
-  useEffect(() => {
-    const height = contentInnerRef.current?.getBoundingClientRect().height || 0
-    setContentHeight(height + 16) // 加上下 padding
+    const contentInnerRef = ref<any>(null)
+    const contentHeight = ref(0)
 
     const resizeObserver = new ResizeObserver(entries => {
-      setContentHeight(entries[0].contentRect.height + 16)
+      contentHeight.value = entries[0].contentRect.height + 16
     });
-    resizeObserver.observe((contentInnerRef.current as any))
-    return () => resizeObserver.disconnect()
-  }, [])
+    onMounted(() => {
+      const height = contentInnerRef.value?.getBoundingClientRect().height || 0
+      contentHeight.value = height + 16 // 加上下 padding
+      resizeObserver.observe((contentInnerRef.value as any))
+    })
+    onUnmounted(() => {
+      resizeObserver.disconnect()
+    })
 
-  return (
-    <div
-      className={classNames(
-        'i-collapse-item',
-        disabled && 'i-collapse-item__disabled',
-        iconPlacement === 'right' && 'i-collapse-item__icon-right',
-        className
-      )}
-      style={{ ...style }}
-      {...restProps}
-    >
-      <header
-        className={classNames(
-          'i-collapse-item__header',
-          !isActive && 'i-collapse-item__header-fold'
-        )}
-        onClick={handleClickHeader}
-        data-active={isActive ? 1 : 0}
-      >
-        <Icon
-          name="ArrowCaretRight"
-          style={{
-            transform: isActive ? 'rotate(90deg)' : 'rotate(0deg)'
-          }}
-        />
-        <span className="i-collapse-item__header-txt">
-          {title}
-        </span>
-      </header>
+    return () => {
+      const children = slots.default?.();
 
-      <section
-        className={classNames(
-          'i-collapse-item__content',
-          isActive && 'i-collapse-item__content-unfold'
-        )}
-        style={{ height: isActive ? contentHeight : 0 }}
-        data-active={isActive ? 1 : 0}
-      >
+      return (
         <div
-          className="i-collapse-item__content-inner"
-          ref={contentInnerRef}
+          class={['i-collapse-item',
+            mergedDisabled.value && 'i-collapse-item__disabled',
+            mergedIconPlacement.value === 'right' && 'i-collapse-item__icon-right'
+          ]}
         >
-          {children}
-        </div>
-      </section>
-    </div>
-  )
-}
+          <header
+            class={[
+              'i-collapse-item__header',
+              !props.isActive && 'i-collapse-item__header-fold'
+            ]}
+            onClick={handleClickHeader}
+            data-active={props.isActive ? 1 : 0}
+          >
+            <Icon
+              name="ArrowCaretRight"
+              style={{
+                transform: props.isActive ? 'rotate(90deg)' : 'rotate(0deg)'
+              }}
+            />
+            <span class="i-collapse-item__header-txt">
+              {props.title}
+            </span>
+          </header>
 
-export default CollapseItem;
+          <section
+            class={[
+              'i-collapse-item__content',
+              props.isActive && 'i-collapse-item__content-unfold'
+            ]}
+            style={{ height: props.isActive ? turnValue(contentHeight.value) : 0 }}
+            data-active={props.isActive ? 1 : 0}
+          >
+            <div
+              class="i-collapse-item__content-inner"
+              ref={contentInnerRef}
+            >
+              {children}
+            </div>
+          </section>
+        </div>
+      );
+    };
+  },
+});
+
