@@ -1,5 +1,5 @@
 <template>
-  <h3>top</h3>
+  <h4>top</h4>
   <i-grid align="top">
     <i-grid-item :span="4">
       <div :style="{ height: '80px' }">GridItem1</div>
@@ -15,7 +15,7 @@
     </i-grid-item>
   </i-grid>
 
-  <h3>middle</h3>
+  <h4>middle</h4>
   <i-grid align="middle">
     <i-grid-item :span="4">
       <div :style="{ height: '80px' }">GridItem1</div>
@@ -31,7 +31,7 @@
     </i-grid-item>
   </i-grid>
 
-  <h3>bottom</h3>
+  <h4>bottom</h4>
   <i-grid align="bottom">
     <i-grid-item :span="4">
       <div :style="{ height: '80px' }">GridItem1</div>
@@ -47,7 +47,7 @@
     </i-grid-item>
   </i-grid>
 
-  <h3>单项对齐设置</h3>
+  <h4>单项对齐设置</h4>
   <i-grid align="bottom">
     <i-grid-item :span="4">
       <div :style="{ height: '80px' }">GridItem1</div>
