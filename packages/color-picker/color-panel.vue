@@ -1,17 +1,164 @@
-import React, { useState, useRef, useEffect } from 'react';
+<!-- <template>
+  <div class="i-color-panel">
+      <header class="i-color-panel-header">
+        <div class="i-color-panel-header-txt">
+          颜色选择器
+        </div>
+        <div
+          class="i-color-panel-header-icon"
+          @click="() => emit('close')"
+        >
+          <Icon name="Close" />
+        </div>
+      </header>
+
+      <section
+        class="i-color-panel-block"
+        :style="{ background: `hsl(${colors.h}, 100%, 50%)` }"
+      >
+        <div class="i-color-panel-block__white" />
+        <div
+          class="i-color-panel-block__black"
+          ref="panelNode"
+          @mousedown="(e) => handleUsualDown(e, 'panel')"
+        />
+        <ColorCursor
+          :x="location.panel.x"
+          :y="location.panel.y"
+          :color="colors.rgbVal"
+        />
+      </section>
+
+      <section class="i-color-panel-controls">
+          <div
+          class="i-color-panel-controls__dropper"
+          @click="handleClickDropper"
+          v-if="!!global.EyeDropper"
+        >
+          <Icon name="Dropper" />
+        </div>
+        <div class="i-color-panel-controls__bar">
+          <div
+            class="i-color-panel-bar__rgb"
+            ref={rgbBarNode}
+            @mousedown="(e) => handleUsualDown(e, 'rgb')"
+          >
+            <ColorCursor
+              :x="location.rgb.x"
+              mode="x"
+            />
+          </div>
+          <div
+            class="i-color-panel-bar__a"
+            ref="aBarNode"
+            @mousedown="(e) => handleUsualDown(e, 'a')"
+          >
+            <ColorCursor
+              mode="x"
+              :x="location.a.x"
+              style="{ background: 'rgba(0, 0, 0, 0.4)' }"
+            />
+            <section
+              class="i-color-panel-bar__a-color"
+              :style="{
+                background: `linear-gradient(90deg, rgba(255, 0, 0, 0) 0%, hsl(${colors.h}, 100%, 50%) 100%)`
+                }"
+            />
+            <section class="i-color-panel-bar__a-bg"></section>
+          </div>
+        </div>
+      </section>
+
+      <section class="i-color-panel-values">
+        <Select
+          :width="60"
+          :value="colorType"
+          size="small"
+          :clearable="false"
+          @change="handleSelect"
+        >
+          <Select.Item value="hex">Hex</Select.Item>
+          <Select.Item value="rgb">RGB</Select.Item>
+        </Select>
+        <div class="i-color-panel-input__wrapper">
+          <div class="i-color-panel-input__class">
+            {colorType === 'hex' ?
+              <Input
+                value={colors.hexVal}
+                size="small"
+                onFocus={inputFocusHex}
+                onChange={inputChangeHex}
+                onBlur={inputBlurHex}
+              /> : <>
+                <Input
+                  value={colors.r.toFixed(0)}
+                  type="number"
+                  size="small"
+                  maxNumber={255}
+                  minNumber={0}
+                  selectAll
+                  hideNumberBtn
+                  onChange={inputChangeR}
+                />
+                <Input
+                  value={colors.g.toFixed(0)}
+                  type="number"
+                  size="small"
+                  maxNumber={255}
+                  minNumber={0}
+                  selectAll
+                  hideNumberBtn
+                  onChange={inputChangeG}
+                />
+                <Input
+                  value={colors.b.toFixed(0)}
+                  type="number"
+                  size="small"
+                  maxNumber={255}
+                  minNumber={0}
+                  selectAll
+                  hideNumberBtn
+                  onChange={inputChangeB}
+                />
+              </>
+            }
+          </div>
+          <div class="i-color-panel-input__alpha">
+            <Input
+              value={(colors.a * 100).toFixed(0)}
+              type="number"
+              size="small"
+              maxNumber={100}
+              minNumber={0}
+              selectAll
+              hideNumberBtn
+              onChange={inputChangeA}
+            />
+          </div>
+        </div>
+      </section>
+
+      <footer class="i-color-panel-footer">
+        {colorList.map(item =>
+          <ColorItem color={item?.value} key={item?.value} onClick={() => handleUsualUpdate(item?.value)} />
+        )}
+      </footer>
+    </div>
+</template>
+
+<script setup lang="ts">
 import './index.scss';
 import tinycolor from 'tinycolor2'
 import Select from '../Select';
 import Input from '../Input';
-import Icon from '../Icon';
-import ColorCursor from './ColorCursor';
-import ColorItem from './ColorItem';
+import Icon from '../icon';
+import ColorCursor from './color-cursor';
+import ColorItem from './color-item.vue';
 import { defaultColor } from './index'
 import { ColorPanelProps } from './type';
 
-const ColorPanel: React.FC<ColorPanelProps> = (props) => {
   const {
-    value = '#265CF0',
+    value = '#5e62ea',
     colorList = defaultColor,
     onChange,
     onClose
@@ -332,155 +479,9 @@ const ColorPanel: React.FC<ColorPanelProps> = (props) => {
     handleUsualUpdate(color)
   }
 
-  return (
-    <div className="i-color-panel">
-      <header className="i-color-panel-header">
-        <div className="i-color-panel-header-txt">
-          颜色选择器
-        </div>
-        <div
-          className="i-color-panel-header-icon"
-          onClick={() => {
-            onClose?.()
-          }}
-        >
-          <Icon name="Close" />
-        </div>
-      </header>
 
-      <section
-        className="i-color-panel-block"
-        style={{ background: `hsl(${colors.h}, 100%, 50%)` }}
-      >
-        <div className="i-color-panel-block__white" />
-        <div
-          className="i-color-panel-block__black"
-          ref={panelNode}
-          onMouseDown={(e) => handleUsualDown(e, 'panel')}
-        />
-        <ColorCursor
-          x={location.panel.x}
-          y={location.panel.y}
-          color={colors.rgbVal}
-        />
-      </section>
+</script>
 
-      <section className="i-color-panel-controls">
-        {/* @ts-ignore */}
-        {!!window.EyeDropper &&
-          <div
-            className="i-color-panel-controls__dropper"
-            onClick={handleClickDropper}
-          >
-            <Icon name="Dropper" />
-          </div>
-        }
-        <div className="i-color-panel-controls__bar">
-          <div
-            className="i-color-panel-bar__rgb"
-            ref={rgbBarNode}
-            onMouseDown={(e) => handleUsualDown(e, 'rgb')}
-          >
-            <ColorCursor
-              x={location.rgb.x}
-              mode="x"
-            />
-          </div>
-          <div
-            className="i-color-panel-bar__a"
-            ref={aBarNode}
-            onMouseDown={(e) => handleUsualDown(e, 'a')}
-          >
-            <ColorCursor
-              mode="x"
-              x={location.a.x}
-              style={{ background: 'rgba(0, 0, 0, 0.4)' }}
-            />
-            <section
-              className="i-color-panel-bar__a-color"
-              style={{ background: `linear-gradient(90deg, rgba(255, 0, 0, 0) 0%, hsl(${colors.h}, 100%, 50%) 100%)` }}
-            />
-            <section className="i-color-panel-bar__a-bg"></section>
-          </div>
-        </div>
-      </section>
-
-      <section className="i-color-panel-values">
-        <Select
-          width={60}
-          value={colorType}
-          size="small"
-          clearable={false}
-          onChange={handleSelect}
-        >
-          <Select.Item value="hex">Hex</Select.Item>
-          <Select.Item value="rgb">RGB</Select.Item>
-        </Select>
-        <div className="i-color-panel-input__wrapper">
-          <div className="i-color-panel-input__class">
-            {colorType === 'hex' ?
-              <Input
-                value={colors.hexVal}
-                size="small"
-                onFocus={inputFocusHex}
-                onChange={inputChangeHex}
-                onBlur={inputBlurHex}
-              /> : <>
-                <Input
-                  value={colors.r.toFixed(0)}
-                  type="number"
-                  size="small"
-                  maxNumber={255}
-                  minNumber={0}
-                  selectAll
-                  hideNumberBtn
-                  onChange={inputChangeR}
-                />
-                <Input
-                  value={colors.g.toFixed(0)}
-                  type="number"
-                  size="small"
-                  maxNumber={255}
-                  minNumber={0}
-                  selectAll
-                  hideNumberBtn
-                  onChange={inputChangeG}
-                />
-                <Input
-                  value={colors.b.toFixed(0)}
-                  type="number"
-                  size="small"
-                  maxNumber={255}
-                  minNumber={0}
-                  selectAll
-                  hideNumberBtn
-                  onChange={inputChangeB}
-                />
-              </>
-            }
-          </div>
-          <div className="i-color-panel-input__alpha">
-            <Input
-              value={(colors.a * 100).toFixed(0)}
-              type="number"
-              size="small"
-              maxNumber={100}
-              minNumber={0}
-              selectAll
-              hideNumberBtn
-              onChange={inputChangeA}
-            />
-          </div>
-        </div>
-      </section>
-
-      <footer className="i-color-panel-footer">
-        {colorList.map(item =>
-          <ColorItem color={item?.value} key={item?.value} onClick={() => handleUsualUpdate(item?.value)} />
-        )}
-      </footer>
-    </div>
-  );
-};
-
-export default ColorPanel;
+<style lang="scss">
+@import './index.scss';
+</style> -->
