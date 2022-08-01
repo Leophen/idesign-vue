@@ -38,7 +38,7 @@ import {
 import { placementType, triggerType } from '../common'
 import Portal from './portal.vue'
 
-interface PopupAttributes {
+interface PopupProps {
   /**
    * 弹窗内容类名
    */
@@ -81,7 +81,7 @@ interface PopupAttributes {
   updateLocation?: string | number | boolean
 }
 
-interface PopupEvents {
+interface PopupEmits {
   /**
    * 切换显示隐藏时触发
    */
@@ -98,8 +98,8 @@ const {
   defaultVisible = false,
   disabled = false,
   updateLocation
-} = defineProps<PopupAttributes>()
-const emit = defineEmits<PopupEvents>()
+} = defineProps<PopupProps>()
+const emit = defineEmits<PopupEmits>()
 
 const state = reactive({
   top: 0,

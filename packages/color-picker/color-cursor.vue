@@ -5,7 +5,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue'
 
-interface ColorCursorAttributes {
+interface ColorCursorProps {
   /**
    * 初始横坐标比例
    */
@@ -31,7 +31,7 @@ const {
   y = 0,
   mode = 'xy',
   color
-} = defineProps<ColorCursorAttributes>()
+} = defineProps<ColorCursorProps>()
 
 const cursor = ref<any>(null)
 

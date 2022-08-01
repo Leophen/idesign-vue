@@ -20,7 +20,7 @@
 import { computed, inject, ref } from 'vue'
 import { turnValue } from '../common'
 
-interface AvatarAttributes {
+interface AvatarProps {
   /**
    * 头像图片地址
    */
@@ -42,7 +42,7 @@ interface AvatarAttributes {
 }
 
 const groupCtx: any = inject('avatarGroupCtx', undefined)
-const { image, size, shape, color } = defineProps<AvatarAttributes>()
+const { image, size, shape, color } = defineProps<AvatarProps>()
 
 const mergedSize = computed(() => (size ? size : groupCtx?.size) || 32)
 const mergedShape = computed(

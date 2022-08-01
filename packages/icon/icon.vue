@@ -6,7 +6,7 @@
 import { computed } from 'vue'
 import { turnValue } from '../common'
 
-interface IconAttributes {
+interface IconProps {
   /**
    * 图标名称
    */
@@ -26,7 +26,7 @@ interface IconAttributes {
   disabled?: boolean
 }
 
-interface IconEvents {
+interface IconEmits {
   /**
    * 点击事件
    */
@@ -38,8 +38,8 @@ const {
   size,
   color,
   disabled = false
-} = defineProps<IconAttributes>()
-const emit = defineEmits<IconEvents>()
+} = defineProps<IconProps>()
+const emit = defineEmits<IconEmits>()
 
 const handleClick = (ev: MouseEvent) => {
   if (disabled) {

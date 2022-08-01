@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-interface ColorItemAttributes {
+interface ColorItemProps {
   /**
    * 颜色
    * @default #5e62ea
@@ -15,15 +15,15 @@ interface ColorItemAttributes {
   color?: string
 }
 
-interface ButtonEvents {
+interface ColorItemEmits {
   /**
    * 点击事件
    */
   (type: 'click', val: string): void
 }
 
-const { color = '#5e62ea' } = defineProps<ColorItemAttributes>()
-const emit = defineEmits<ButtonEvents>()
+const { color = '#5e62ea' } = defineProps<ColorItemProps>()
+const emit = defineEmits<ColorItemEmits>()
 
 const handleClick = () => {
   emit('click', color)

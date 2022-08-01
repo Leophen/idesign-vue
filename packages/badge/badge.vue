@@ -12,7 +12,7 @@
 <script setup lang="ts">
 import { computed, CSSProperties } from 'vue'
 
-interface BadgeAttributes {
+interface BadgeProps {
   /**
    * 徽标内容，可为任意内容
    * @default 0
@@ -62,7 +62,7 @@ const {
   shape = 'circle',
   showZero = true,
   offset
-} = defineProps<BadgeAttributes>()
+} = defineProps<BadgeProps>()
 
 const getDisplayCount = () => {
   if (typeof count === 'number' && count > maxCount) {

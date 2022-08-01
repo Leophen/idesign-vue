@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 
-interface AlertAttributes {
+interface AlertProps {
   /**
    * 是否显示关闭按钮
    * @default false
@@ -44,7 +44,7 @@ const {
   closable = false,
   title,
   type = 'info'
-} = defineProps<AlertAttributes>()
+} = defineProps<AlertProps>()
 
 const closed = ref(false)
 

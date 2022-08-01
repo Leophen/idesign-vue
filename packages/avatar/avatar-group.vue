@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { computed, provide } from 'vue'
 
-interface AvatarGroupAttributes {
+interface AvatarGroupProps {
   /**
    * 头像大小
    * @default 32
@@ -34,7 +34,7 @@ const {
   shape,
   color,
   cascading = 'right'
-} = defineProps<AvatarGroupAttributes>()
+} = defineProps<AvatarGroupProps>()
 
 provide('avatarGroupCtx', {
   size,

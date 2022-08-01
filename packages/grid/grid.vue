@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { computed, provide } from 'vue'
 
-interface GridAttributes {
+interface GridProps {
   /**
    * 栅格每一项的垂直对齐方式
    * @default top
@@ -28,7 +28,7 @@ const {
   align = 'top',
   gutter,
   justify = 'start'
-} = defineProps<GridAttributes>()
+} = defineProps<GridProps>()
 
 const cls = computed(() => [
   'i-grid',

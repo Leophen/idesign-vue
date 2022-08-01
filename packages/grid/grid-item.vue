@@ -8,7 +8,7 @@
 import { computed, inject } from 'vue'
 import { turnValue } from '../common'
 
-interface GridItemAttributes {
+interface GridItemProps {
   /**
    * 栅格单项的垂直对齐方式
    */
@@ -43,7 +43,7 @@ const {
   offset,
   span = 24,
   width
-} = defineProps<GridItemAttributes>()
+} = defineProps<GridItemProps>()
 
 const limitNum = (num: number) => {
   let result = parseInt(num.toString())

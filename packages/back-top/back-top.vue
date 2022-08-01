@@ -19,7 +19,7 @@
 import _ from 'lodash'
 import { onMounted, ref } from 'vue'
 
-interface BackTopAttributes {
+interface BackTopProps {
   /**
    * 监听滚动的元素
    */
@@ -36,7 +36,7 @@ interface BackTopAttributes {
   smooth?: boolean
 }
 
-interface BackTopEvents {
+interface BackTopEmits {
   /**
    * 点击返回顶部时触发
    */
@@ -51,8 +51,8 @@ const {
   target,
   visibleHeight = 0,
   smooth = true
-} = defineProps<BackTopAttributes>()
-const emit = defineEmits<BackTopEvents>()
+} = defineProps<BackTopProps>()
+const emit = defineEmits<BackTopEmits>()
 
 const isWindow = !target
 const visible = ref(visibleHeight > 0 ? false : true)
