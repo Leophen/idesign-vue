@@ -46,15 +46,21 @@ export default defineComponent({
       default: false
     },
   },
+  emits: {
+    /**
+     * 点击顶部触发
+     */
+    'clickHeader': (e: MouseEvent) => true,
+  },
   setup(props, { slots, emit }) {
     const collapseCtx: any = inject('collapseCtx', undefined)
 
     const mergedDisabled = computed(() => props.disabled || collapseCtx?.disabled || false)
     const mergedIconPlacement = computed(() => props.iconPlacement || collapseCtx?.iconPlacement || 'left')
 
-    const handleClickHeader = () => {
+    const handleClickHeader = (e: MouseEvent) => {
       if (!mergedDisabled.value) {
-        emit('clickHeader')
+        emit('clickHeader', e)
       }
     }
 
