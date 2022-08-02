@@ -1,3 +1,21 @@
 <template>
-  <div>123</div>
+  <h4>无默认值</h4>
+  <i-switch />
+  <h4>有默认值（非受控）</h4>
+  <i-switch :defaultValue="currentVal" />
+  <h4>有固定值（受控）</h4>
+  <i-switch :value="currentVal" />
+  <h4>一般用法</h4>
+  <i-switch :value="currentVal" @change="handleChange" />
 </template>
+
+<script setup>
+import { ref } from 'vue'
+
+const currentVal = ref(true)
+
+const handleChange = (val) => {
+  console.log(val)
+  currentVal.value = val
+}
+</script>

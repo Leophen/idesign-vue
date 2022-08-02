@@ -12,6 +12,7 @@ import { DropdownPlugin } from './dropdown'
 import { BreadcrumbPlugin } from './breadcrumb'
 import { BackTopPlugin } from './back-top'
 
+import { SwitchPlugin } from './switch'
 import { RadioPlugin } from './radio'
 import { CheckboxPlugin } from './checkbox'
 import { InputPlugin } from './input'
@@ -38,6 +39,7 @@ const IDesignPlugin: Plugin = {
     BreadcrumbPlugin.install?.(app)
     BackTopPlugin.install?.(app)
 
+    SwitchPlugin.install?.(app)
     RadioPlugin.install?.(app)
     CheckboxPlugin.install?.(app)
     InputPlugin.install?.(app)
@@ -64,6 +66,7 @@ export * from './dropdown'
 export * from './breadcrumb'
 export * from './back-top'
 
+export * from './switch'
 export * from './radio'
 export * from './checkbox'
 export * from './input'

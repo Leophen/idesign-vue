@@ -1,220 +1,76 @@
 # Switch 开关
-（开发中）
+
 用于两个互斥选项，多用于触发「开/关」
 
 ## 基本用法
 
 不带描述，最基础的开关。
 
-```tsx
-import React, { useState } from 'react'
-import { Switch } from 'idesign-react'
-
-const App = () => {
-  const [value, setValue] = useState(true)
-
-  const handleChange = (val) => {
-    console.log(val)
-    setValue(val)
-  }
-
-  return (
-    <>
-      <h4>无默认值</h4>
-      <Switch />
-      <h4>有默认值（非受控）</h4>
-      <Switch defaultValue={value} />
-      <h4>有固定值（受控）</h4>
-      <Switch value={value} />
-      <h4>一般用法</h4>
-      <Switch
-        value={value}
-        onChange={handleChange}
-      />
-    </>
-  )
-}
-
-export default App
-```
+:::demo
+Switch/demo/demo1
+:::
 
 ## 自定义颜色
 
 提供 `inactiveColor` 和 `activeColor` 属性控制开关关闭和打开时的颜色。
 
-```tsx
-import React, { useState } from 'react';
-import { Switch } from 'idesign-react';
-
-const App = () => {
-  const [checked, setChecked] = useState(true);
-
-  const handleChange = (val) => {
-    setChecked(val);
-  };
-
-  return (
-    <div className="idesign-demo-block-row">
-      <Switch inactiveColor="#64D878" value={checked} onChange={handleChange} />
-      <Switch activeColor="#64D878" value={checked} onChange={handleChange} />
-      <Switch
-        inactiveColor="#ff4949"
-        activeColor="#64D878"
-        value={checked}
-        onChange={handleChange}
-      />
-    </div>
-  );
-};
-
-export default App;
-```
+:::demo
+Switch/demo/demo2
+:::
 
 ## 不同尺寸
 
 提供 `small`、`medium`（默认）、`large` 三种尺寸的开关。
 
-```tsx
-import React, { useState } from 'react';
-import { Switch } from 'idesign-react';
-
-const App = () => {
-  const [checked, setChecked] = useState(true);
-
-  const handleChange = (val) => {
-    setChecked(val);
-  };
-
-  return (
-    <div className="idesign-demo-block-row">
-      <Switch size="small" value={checked} onChange={handleChange} />
-      <Switch size="medium" value={checked} onChange={handleChange} />
-      <Switch size="large" value={checked} onChange={handleChange} />
-    </div>
-  );
-};
-
-export default App;
-```
+:::demo
+Switch/demo/demo3
+:::
 
 ## 带描述内容的开关
 
-提供 `inactiveColor` 和 `activeColor` 属性控制开关关闭和打开时的颜色。
+提供 `inactiveLabel` 和 `activeLabel` 插槽展示开关关闭和打开时的描述标签。
 
-```tsx
-import React, { useState } from 'react';
-import { Switch } from 'idesign-react';
-import { Icon } from 'idesign-react';
-
-const App = () => {
-  const [checked, setChecked] = useState(false);
-
-  const handleChange = (val) => {
-    setChecked(val);
-  };
-
-  const inactiveIcon = <Icon name="Close" />;
-  const activeIcon = <Icon name="Check" />;
-
-  return (
-    <div className="idesign-demo-block-column">
-      <div className="idesign-demo-block-row">
-        <Switch
-          size="small"
-          inactiveLabel="关"
-          activeLabel="开"
-          value={checked}
-          onChange={handleChange}
-        />
-        <Switch
-          size="medium"
-          inactiveLabel="关"
-          activeLabel="开"
-          value={checked}
-          onChange={handleChange}
-        />
-        <Switch
-          size="large"
-          inactiveLabel="关"
-          activeLabel="开"
-          value={checked}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="idesign-demo-block-row">
-        <Switch
-          size="small"
-          inactiveLabel={inactiveIcon}
-          activeLabel={activeIcon}
-          value={checked}
-          onChange={handleChange}
-        />
-        <Switch
-          size="medium"
-          inactiveLabel={inactiveIcon}
-          activeLabel={activeIcon}
-          value={checked}
-          onChange={handleChange}
-        />
-        <Switch
-          size="large"
-          inactiveLabel={inactiveIcon}
-          activeLabel={activeIcon}
-          value={checked}
-          onChange={handleChange}
-        />
-      </div>
-    </div>
-  );
-};
-
-export default App;
-```
+:::demo
+Switch/demo/demo4
+:::
 
 ## 禁用状态
 
 可以使用 `disabled` 属性来定义开关是否被禁用，该属性接受一个 `Boolean` 类型的值。
 
-```tsx
-import React, { useState } from 'react';
-import { Switch } from 'idesign-react';
-
-const App = () => {
-  const [checked, setChecked] = useState(true);
-
-  const onChange = (val) => {
-    setChecked(val);
-  };
-
-  return (
-    <div className="idesign-demo-block-row">
-      <Switch disabled />
-      <Switch disabled value={checked} onChange={onChange} />
-    </div>
-  );
-};
-
-export default App;
-```
+:::demo
+Switch/demo/demo5
+:::
 
 ## 加载中的状态
 
 提供 `loading` 属性控制开关是否为加载状态。
 
-```tsx
-import React, { useState } from 'react';
-import { Switch } from 'idesign-react';
+:::demo
+Switch/demo/demo6
+:::
 
-const App = () => {
-  return (
-    <div className="idesign-demo-block-row">
-      <Switch size="small" loading />
-      <Switch size="medium" loading />
-      <Switch size="large" loading value={true} />
-    </div>
-  );
-};
+## Switch Attributes
 
-export default App;
-```
+| 属性          | 说明             | 类型                         | 默认值   |
+| ------------- | ---------------- | ---------------------------- | -------- |
+| size          | 开关尺寸         | `"small"〡"medium"〡"large"` | `medium` |
+| inactiveColor | 开关关闭时的颜色 | `string`                     | `--`     |
+| activeColor   | 开关打开时的颜色 | `string`                     | `--`     |
+| disabled      | 是否禁用组件     | `boolean`                    | `false`  |
+| loading       | 是否为加载状态   | `boolean`                    | `false`  |
+| value         | 开关值           | `boolean`                    | `--`     |
+| defaultValue  | 开关默认值       | `boolean`                    | `false`  |
 
+## Switch Slots
+
+| 插槽名        | 说明               |
+| ------------- | ------------------ |
+| inactiveLabel | 开关关闭的描述标签 |
+| activeLabel   | 开关打开的描述标签 |
+
+## Switch Events
+
+| 属性   | 说明           | 类型                       | 默认值 |
+| ------ | -------------- | -------------------------- | ------ |
+| change | 切换开关时触发 | `(value: boolean) => void` | `--`   |
