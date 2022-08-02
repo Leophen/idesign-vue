@@ -15,6 +15,7 @@ import { BackTopPlugin } from './back-top'
 import { RadioPlugin } from './radio'
 import { CheckboxPlugin } from './checkbox'
 import { InputPlugin } from './input'
+import { TextareaPlugin } from './textarea'
 
 import { AvatarPlugin } from './avatar'
 import { BadgePlugin } from './badge'
@@ -40,6 +41,7 @@ const IDesignPlugin: Plugin = {
     RadioPlugin.install?.(app)
     CheckboxPlugin.install?.(app)
     InputPlugin.install?.(app)
+    TextareaPlugin.install?.(app)
 
     AvatarPlugin.install?.(app)
     BadgePlugin.install?.(app)
@@ -65,6 +67,7 @@ export * from './back-top'
 export * from './radio'
 export * from './checkbox'
 export * from './input'
+export * from './textarea'
 
 export * from './avatar'
 export * from './badge'

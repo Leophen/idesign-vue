@@ -140,15 +140,15 @@ Input/demo/demo13
 
 | 属性            | 说明                     | 类型                                  | 默认值 |
 | --------------- | ------------------------ | ------------------------------------- | ------ |
-| onInput         | 输入框值发生变化时触发   | `(value: string, ev?: Event) => void` | `--`   |
-| onFocus         | 输入框聚焦时触发         | `(value: string, ev?: Event) => void` | `--`   |
-| onBlur          | 输入框失焦时触发         | `(value: string, ev?: Event) => void` | `--`   |
-| onKeyDown       | 键盘按下时触发           | `(value: string, ev?: Event) => void` | `--`   |
-| onEnter         | 键盘按下回车键时触发     | `(value: string, ev?: Event) => void` | `--`   |
-| onKeyUp         | 释放键盘时触发           | `(value: string, ev?: Event) => void` | `--`   |
-| onClear         | 清空按钮点击时触发       | `(ev?: MouseEvent) => void`           | `--`   |
-| onMove          | 数字输入框移动滑块时触发 | `(value: string, ev?: Event) => void` | `--`   |
-| onMoveUp        | 数字输入框滑块失焦时触发 | `(value: string) => void`             | `--`   |
+| input         | 输入框值发生变化时触发   | `(value: string, ev?: Event) => void` | `--`   |
+| focus         | 输入框聚焦时触发         | `(value: string, ev?: Event) => void` | `--`   |
+| blur          | 输入框失焦时触发         | `(value: string, ev?: Event) => void` | `--`   |
+| keyDown       | 键盘按下时触发           | `(value: string, ev?: Event) => void` | `--`   |
+| enter         | 键盘按下回车键时触发     | `(value: string, ev?: Event) => void` | `--`   |
+| keyUp         | 释放键盘时触发           | `(value: string, ev?: Event) => void` | `--`   |
+| clear         | 清空按钮点击时触发       | `(ev?: MouseEvent) => void`           | `--`   |
+| move          | 数字输入框移动滑块时触发 | `(value: string, ev?: Event) => void` | `--`   |
+| moveUp        | 数字输入框滑块失焦时触发 | `(value: string) => void`             | `--`   |
 | clickPrefixIcon | 点击前置图标触发事件     | `(ev?: MouseEvent) => void`           | `--`   |
 | clickSuffixIcon | 点击后置图标触发事件     | `(ev?: MouseEvent) => void`           | `--`   |
 
