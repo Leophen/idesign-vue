@@ -1,5 +1,9 @@
 <template>
-  <i :class="cls" :style="iconStyles" />
+  <i
+    :class="cls"
+    :style="iconStyles"
+    @click="handleClick"
+  />
 </template>
 
 <script setup lang="ts">

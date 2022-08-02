@@ -114,7 +114,7 @@ module.exports = {
     docsearchPlugin({
       apiKey: '0976f4949ddd8a3f89658eec1259baa4',
       indexName: 'idesign-vue',
-      // appId: 'B20VNZVD4U',
+      appId: 'B20VNZVD4U',
       // placeholder: 'Search',
     }),
     [

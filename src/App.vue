@@ -1,21 +1,19 @@
 <template>
-  <!-- <i-back-top :visibleHeight="100" :target="document.getElementById('idesign-demo-scroll2')" /> -->
-  <div id="idesign-demo-scroll2" :style="{ height: '400px', overflow: 'auto' }">
-    <li
-      className="idesign-demo-itemy"
-      v-for="(item, index) in data"
-      :key="index"
-    >
-      {{ item }}
-    </li>
-  </div>
+  <Test />
+  <!-- <Test :defaultValue="val" />
+  <Test :value="val" />
+  <Test :value="val" @input="handleInput" /> -->
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { ref } from 'vue'
+import Test from './testx'
 
-const data = Array(24).fill('item')
-console.log(document.getElementById('idesign-demo-scroll2'),'xxx')
+const val = ref('iDesign')
+
+const handleInput = (value: string | number) => {
+  val.value = value as string
+}
 </script>
 
 <style lang="scss">
