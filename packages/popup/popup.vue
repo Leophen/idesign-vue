@@ -2,7 +2,7 @@
   <div
     class="i-popup__reference"
     ref="referenceRef"
-    @click.stop.prevent="handleClickReference"
+    @click="handleClickReference"
     @mouseenter="handleHoverReference"
     @contextmenu="handleRClickReference"
   >
@@ -159,7 +159,7 @@ const hoverHandle = (e: any) => {
 }
 
 // 鼠标点击后的操作
-const clickHandle = (e:  MouseEvent) => {
+const clickHandle = (e: MouseEvent) => {
   // 点击位置在气泡外
   if (ifOutContent(e.target as HTMLElement)) {
     // 点击位置既在气泡外 又在触发节点外
@@ -175,7 +175,10 @@ const clickHandle = (e:  MouseEvent) => {
 const rClickHandle = (e: MouseEvent) => {
   e.preventDefault()
   if (ifOutContent(e.target as HTMLElement)) {
-    switchPopupShow(false)
+    // 点击位置既在气泡外 又在触发节点外
+    if (ifOutReference(e.target as HTMLElement)) {
+      switchPopupShow(false)
+    }
     listenContextMenu.value = false
     window.removeEventListener('click', rClickHandle)
     window.removeEventListener('contextmenu', rClickHandle)
@@ -237,12 +240,16 @@ const handleRClickReference = (e: MouseEvent) => {
 }
 
 // 销毁时的操作
-onUnmounted(() => {
-  popperInstance?.destroy?.()
-  popperInstance = null
+const removeListen = () => {
   window.removeEventListener('click', clickHandle)
   window.removeEventListener('click', rClickHandle)
   window.removeEventListener('contextmenu', rClickHandle)
+}
+
+onUnmounted(() => {
+  popperInstance?.destroy?.()
+  popperInstance = null
+  removeListen()
 })
 </script>
 
