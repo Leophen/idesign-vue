@@ -20,19 +20,15 @@ export interface PopupProps {
   /**
    * 内容
    */
-  children?: React.ReactNode;
+  children?: string | HTMLElement;
   /**
    * 弹窗内容类名
    */
   portalClassName?: string;
   /**
-   * 气泡样式
-   */
-  style?: React.CSSProperties;
-  /**
    * 气泡提示内容
    */
-  content?: React.ReactNode;
+  content?: string | HTMLElement;
   /**
    * 气泡提示位置
    * @default top
@@ -81,13 +77,11 @@ export interface PopupProps {
 
 export interface PortalProps {
   className?: string;
-  style?: React.CSSProperties;
   visible?: boolean;
-  content?: React.ReactNode;
+  content?: string | HTMLElement;
   placement?: placementType;
   top: number;
   left: number;
   width: number;
   height: number;
-  getRef?: (ref: React.Ref<HTMLDivElement>) => void;
 }

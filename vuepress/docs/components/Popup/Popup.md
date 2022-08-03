@@ -46,15 +46,19 @@ Popup/demo/demo5
 
 | 属性            | 说明         | 类型                  | 默认值 |
 | --------------- | ------------ | --------------------- | ------ |
-| portalClassName | 弹窗内容类名 | `string`              | `--`   |
-| portalStyle     | 弹窗内容样式 | `CSSProperties`       | `--`   |
+| portalClassName | 气泡内容类名 | `string`              | `--`   |
 | content         | 气泡提示内容 | `string〡HTMLElement` | `--`   |
-| placement     | 气泡提示位置 | `"top"〡"left"〡"right"〡"bottom"〡"top-left"〡"top-right"〡"bottom-left"〡"bottom-right"〡"left-top"〡"left-bottom"〡"right-top"〡"right-bottom"`       | `top`   |
+| placement     | 气泡提示位置 | `"auto"〡"auto-start"〡"auto-end"〡"top"〡"top-start"〡"top-end"〡"bottom"〡"bottom-start"〡"bottom-end"〡"right"〡"right-start"〡"right-end"〡"left"〡"left-start"〡"left-end"`       | `top`   |
 | trigger     | 触发气泡出现的方式 | `"hover"〡"click"〡"context-menu"`       | `hover`   |
 | visible     | 气泡显示隐藏（受控） | `boolean`       | `--`   |
 | defaultVisible     | 气泡显示隐藏（非受控） | `boolean`       | `false`   |
 | disabled     | 是否禁用气泡 | `boolean`       | `false`   |
-| updateLocation     | 这个值变化时手动更新位置 | `string〡number〡boolean`       | `--`   |
+
+## Popup Slots
+
+| 插槽名      | 说明                   |
+| --------- | ---------------------- |
+| content | 气泡内容 |
 
 ## Popup Events
 

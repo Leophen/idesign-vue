@@ -1,40 +1,52 @@
 <template>
   <div class="idesign-demo-block-popup">
-    <i-popup content="气泡提示内容 top" placement="top">
+    <i-popup placement="top">
       <i-button class="Top">top</i-button>
+      <template #content>气泡提示内容 top</template>
     </i-popup>
-    <i-popup content="气泡提示内容 top-left" placement="top-left">
-      <i-button class="TopLeft">top-left</i-button>
+    <i-popup placement="top-start">
+      <i-button class="TopLeft">top-start</i-button>
+      <template #content>气泡提示内容 top-start</template>
     </i-popup>
-    <i-popup content="气泡提示内容 top-right" placement="top-right">
-      <i-button class="TopRight">top-right</i-button>
+    <i-popup placement="top-end">
+      <i-button class="TopRight">top-end</i-button>
+      <template #content>气泡提示内容 top-end</template>
     </i-popup>
-    <i-popup content="气泡提示内容 bottom" placement="bottom">
+    <i-popup placement="bottom">
       <i-button class="Bottom">bottom</i-button>
+      <template #content>气泡提示内容 bottom</template>
     </i-popup>
-    <i-popup content="气泡提示内容 bottom-left" placement="bottom-left">
-      <i-button class="BottomLeft">bottom-left</i-button>
+    <i-popup placement="bottom-start">
+      <i-button class="BottomLeft">bottom-start</i-button>
+      <template #content>气泡提示内容 bottom-start</template>
     </i-popup>
-    <i-popup content="气泡提示内容 bottom-right" placement="bottom-right">
-      <i-button class="BottomRight">bottom-right</i-button>
+    <i-popup placement="bottom-end">
+      <i-button class="BottomRight">bottom-end</i-button>
+      <template #content>气泡提示内容 bottom-end</template>
     </i-popup>
-    <i-popup content="气泡提示内容 left" placement="left">
+    <i-popup placement="left">
       <i-button class="Left">left</i-button>
+      <template #content>气泡提示内容 left</template>
     </i-popup>
-    <i-popup content="气泡提示内容 left-top" placement="left-top">
-      <i-button class="LeftTop">left-top</i-button>
+    <i-popup placement="left-start">
+      <i-button class="LeftTop">left-start</i-button>
+      <template #content>气泡提示内容 left-start</template>
     </i-popup>
-    <i-popup content="气泡提示内容 left-bottom" placement="left-bottom">
-      <i-button class="LeftBottom">left-bottom</i-button>
+    <i-popup placement="left-end">
+      <i-button class="LeftBottom">left-end</i-button>
+      <template #content>气泡提示内容 left-end</template>
     </i-popup>
     <i-popup content="气泡提示内容 right" placement="right">
       <i-button class="Right">right</i-button>
+      <template #content>气泡提示内容 right</template>
     </i-popup>
-    <i-popup content="气泡提示内容 right-top" placement="right-top">
-      <i-button class="RightTop">right-top</i-button>
+    <i-popup placement="right-start">
+      <i-button class="RightTop">right-start</i-button>
+      <template #content>气泡提示内容 right-start</template>
     </i-popup>
-    <i-popup content="气泡提示内容 right-bottom" placement="right-bottom">
-      <i-button class="RightBottom">right-bottom</i-button>
+    <i-popup placement="right-end">
+      <i-button class="RightBottom">right-end</i-button>
+      <template #content>气泡提示内容 right-end</template>
     </i-popup>
   </div>
 </template>

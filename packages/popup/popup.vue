@@ -1,56 +1,46 @@
 <template>
-  <div class="i-popup__reference">
-    <section
-      @click="handleClick"
-      @mouseenter="handleEnter"
-      @contextmenu="handleContextMenu"
-      ref="triggerNode"
-    >
-      <slot />
-    </section>
-
-    <Portal
-      :contentStyle="portalStyle"
-      :contentClass="portalClassName"
-      :visible="innerVisible && !disabled"
-      :placement="placement"
-      :top="state.top"
-      :left="state.left"
-      :width="state.width"
-      :height="state.height"
-      @getRef="getPopupRef"
-    >
-      {{ content }}
-    </Portal>
+  <div
+    class="i-popup__reference"
+    ref="referenceRef"
+    @click.stop.prevent="handleClickReference"
+    @mouseenter="handleHoverReference"
+    @contextmenu="handleRClickReference"
+  >
+    <slot />
   </div>
+  <Teleport to="#i-popup-wrapper">
+    <Transition name="i-fade">
+      <div
+        :class="['i-popup', portalClassName]"
+        ref="contentRef"
+        v-show="!disabled && innerVisible"
+      >
+        <slot name="content" />
+        <div class="i-popup__arrow" ref="arrowRef" />
+      </div>
+    </Transition>
+  </Teleport>
 </template>
 
-<script setup lang="ts">
-import {
-  CSSProperties,
-  reactive,
-  ref,
-  computed,
-  watch,
-  onMounted,
-  onUnmounted
-} from 'vue'
-import { placementType, triggerType } from '../common'
-import Portal from './portal.vue'
+<script lang="ts" setup>
+import { ref, onMounted, nextTick, onUnmounted, computed, watch } from 'vue'
+import { createPopper } from '@popperjs/core'
+import { hasParent, placementType, triggerType } from '../common'
+
+// 创建气泡提示容器
+let popupWrapper = document.querySelector('#i-popup-wrapper')
+if (!popupWrapper) {
+  popupWrapper = document.createElement('div')
+  popupWrapper.className = 'i-popup-wrapper'
+  popupWrapper.id = 'i-popup-wrapper'
+  document.body.append(popupWrapper)
+}
 
 interface PopupProps {
   /**
    * 弹窗内容类名
    */
   portalClassName?: string
-  /**
-   * 弹窗内容样式
-   */
-  portalStyle?: CSSProperties
-  /**
-   * 气泡提示内容
-   */
-  content?: string | HTMLElement
   /**
    * 气泡提示位置
    * @default top
@@ -75,10 +65,6 @@ interface PopupProps {
    * @default false
    */
   disabled?: boolean
-  /**
-   * 这个值变化时手动更新位置
-   */
-  updateLocation?: string | number | boolean
 }
 
 interface PopupEmits {
@@ -90,183 +76,173 @@ interface PopupEmits {
 
 const {
   portalClassName,
-  portalStyle,
-  content,
   placement = 'top',
   trigger = 'hover',
   visible = undefined,
   defaultVisible = false,
-  disabled = false,
-  updateLocation
+  disabled = false
 } = defineProps<PopupProps>()
 const emit = defineEmits<PopupEmits>()
 
-const state = reactive({
-  top: 0,
-  left: 0,
-  width: 0,
-  height: 0
-})
-
-const setTargetLocation = (target: HTMLElement) => {
-  const rect = target.getBoundingClientRect()
-  state.top = (rect?.top || 0) + window.scrollY
-  state.left = (rect?.left || 0) + window.scrollX
-  state.width = rect?.width || 0
-  state.height = rect?.height || 0
-}
-
 const _popupVisible = ref(defaultVisible)
 const innerVisible = computed(() => visible ?? _popupVisible.value)
-// const [innerVisible, setInnerVisible] = useDefault(visible, defaultVisible)
 
-// 触发节点是否在指定包裹层中
-const hasParent = (node: any, parent: HTMLElement | null) => {
-  while (node) {
-    if (node === parent) {
-      return true
-    }
-    node = node.parentNode
-  }
-  return false
+const referenceRef = ref<HTMLElement>()
+const contentRef = ref<HTMLElement>()
+const arrowRef = ref<HTMLElement>()
+
+let popperInstance: any = null
+// 创建 popper 实例
+const createPopperInstance = () => {
+  nextTick(() => {
+    popperInstance = createPopper(
+      referenceRef.value?.children[0] as HTMLElement,
+      contentRef.value as HTMLElement,
+      {
+        placement: placement,
+        modifiers: [
+          {
+            name: 'offset',
+            options: {
+              offset: [0, 16]
+            }
+          }
+        ]
+      }
+    )
+    popperInstance.update()
+    // 异步更新
+    nextTick(() => {
+      popperInstance.update()
+    })
+  })
 }
 
-// 初始化更新一次位置
 onMounted(() => {
-  const currentTriggerNode = (triggerNode.value as any).children[0]
-  setTargetLocation(currentTriggerNode)
+  createPopperInstance()
 })
 
-// 手动更新实时位置
-const triggerNode = ref(null)
-watch(
-  () => updateLocation,
-  () => {
-    const currentTriggerNode = (triggerNode.value as any).children[0]
-    setTargetLocation(currentTriggerNode)
+// 通用方法 - 切换气泡显示隐藏
+const switchPopupShow = (show: boolean) => {
+  if (disabled) {
+    return
   }
-)
-
-// 打开气泡通用方法
-const switchPopup = (e: MouseEvent, show: boolean) => {
-  const currentTriggerNode = (triggerNode.value as any).children[0]
-  if (show) {
-    setTargetLocation(currentTriggerNode)
-  }
-  // 设置气泡显示隐藏
+  show && createPopperInstance()
   _popupVisible.value = show
   emit('trigger', show)
 }
 
-// 关闭气泡通用方法
-const closePopup = () => {
-  _popupVisible.value = false
-  emit('trigger', false)
+// 通用方法 - 判断该位置是否在气泡外
+const ifOutContent = (target: HTMLElement) => {
+  return !hasParent(target, contentRef.value as HTMLElement)
 }
 
-const popupRef = ref(null)
-const getPopupRef = (ref: any) => {
-  popupRef.value = ref.value
+// 通用方法 - 判断该位置是否在触发节点外
+const ifOutReference = (target: HTMLElement) => {
+  return !hasParent(target, referenceRef.value as HTMLElement)
 }
 
-// 全局监听事件，判断点击节点是否在气泡内，以确定是否关闭气泡
 const listenClick = ref(false)
-const ifClickInPopup = (e: any) => {
-  // 点击位置在气泡外
-  if (!hasParent(e.target, popupRef.value)) {
-    // 点击位置既在气泡外 又在触发节点外
-    if (!hasParent(e.target, triggerNode.value)) {
-      closePopup()
-    }
-    listenClick.value = false
-    window.removeEventListener('click', ifClickInPopup)
-  }
-}
-watch(listenClick, (listenClick) => {
-  if (listenClick) {
-    window.addEventListener('click', ifClickInPopup)
-    return () => window.removeEventListener('click', ifClickInPopup)
-  }
-})
-// 点击触发节点
-const handleClick = (e: MouseEvent) => {
-  if (trigger === 'click') {
-    switchPopup(e, !innerVisible.value)
-    // 气泡在关闭状态下点击 则监听下一次全局点击事件
-    if (innerVisible.value) {
-      setTimeout(() => (listenClick.value = true))
-    }
-  }
-  return
-}
-
-// 判断点击和右击节点是否在气泡内
 const listenContextMenu = ref(false)
-const ifHandleInPopup = (e: any) => {
-  e.preventDefault()
-  if (!hasParent(e.target, popupRef.value as any)) {
-    closePopup()
-    listenContextMenu.value = false
-    window.removeEventListener('click', ifHandleInPopup)
-    window.removeEventListener('contextmenu', ifHandleInPopup)
-  }
-}
-watch(listenContextMenu, (listenContextMenu) => {
-  if (listenContextMenu) {
-    window.addEventListener('click', ifHandleInPopup)
-    window.addEventListener('contextmenu', ifHandleInPopup)
-    return () => {
-      window.removeEventListener('click', ifHandleInPopup)
-      window.removeEventListener('contextmenu', ifHandleInPopup)
-    }
-  }
-})
-// 右击触发节点
-const handleContextMenu = (e: MouseEvent) => {
-  if (trigger === 'context-menu') {
-    e.preventDefault()
-    switchPopup(e, !innerVisible.value)
-    if (innerVisible.value) {
-      setTimeout(() => (listenContextMenu.value = true))
-    }
-  }
-  return
-}
 
-// 判断悬浮节点是否在气泡内
-const ifHoverInPopup = (e: any) => {
+// 悬浮后的操作
+const hoverHandle = (e: any) => {
   e.preventDefault()
   // 悬浮位置在气泡外
-  if (!hasParent(e.target, popupRef.value)) {
+  if (ifOutContent(e.target)) {
     // 悬浮位置既在气泡外 又在触发节点外
-    if (!hasParent(e.target, triggerNode.value)) {
-      closePopup()
+    if (ifOutReference(e.target)) {
+      switchPopupShow(false)
     }
-    window.removeEventListener('click', ifClickInPopup)
+    window.removeEventListener('mouseover', hoverHandle)
   }
 }
 
-// 悬浮触发节点
-const handleEnter = (e: MouseEvent) => {
-  if (trigger === 'hover') {
-    switchPopup(e, !innerVisible.value)
-    setTimeout(() => {
-      window.addEventListener('mouseover', ifHoverInPopup)
-    })
+// 鼠标点击后的操作
+const clickHandle = (e:  MouseEvent) => {
+  // 点击位置在气泡外
+  if (ifOutContent(e.target as HTMLElement)) {
+    // 点击位置既在气泡外 又在触发节点外
+    if (ifOutReference(e.target as HTMLElement)) {
+      switchPopupShow(false)
+    }
+    listenClick.value = false
+    window.removeEventListener('click', clickHandle)
   }
-  return
 }
 
-// 触发节点宽高变化时重定位
-const resizeObserver = new ResizeObserver((entries) => {
-  state.width = entries[0].contentRect.width || 0
-  state.height = entries[0].contentRect.height || 0
-})
-onMounted(() => {
-  resizeObserver.observe(triggerNode.value as any)
-})
+// 鼠标右键后的操作
+const rClickHandle = (e: MouseEvent) => {
+  e.preventDefault()
+  if (ifOutContent(e.target as HTMLElement)) {
+    switchPopupShow(false)
+    listenContextMenu.value = false
+    window.removeEventListener('click', rClickHandle)
+    window.removeEventListener('contextmenu', rClickHandle)
+  }
+}
+
+watch(
+  () => listenClick.value,
+  (newVal) => {
+    newVal && window.addEventListener('click', clickHandle)
+  }
+)
+
+watch(
+  () => listenContextMenu.value,
+  (newVal) => {
+    if (newVal) {
+      window.addEventListener('click', rClickHandle)
+      window.addEventListener('contextmenu', rClickHandle)
+    }
+  }
+)
+
+// 触发节点 - 悬浮
+const handleHoverReference = () => {
+  if (trigger !== 'hover') {
+    return
+  }
+  const newVal = !innerVisible.value
+  switchPopupShow(newVal)
+  setTimeout(() => window.addEventListener('mouseover', hoverHandle))
+}
+
+// 触发节点 - 点击
+const handleClickReference = () => {
+  if (trigger !== 'click') {
+    return
+  }
+  const newVal = !innerVisible.value
+  switchPopupShow(newVal)
+  // 气泡在关闭状态下点击 则监听下一次全局点击事件
+  if (newVal) {
+    setTimeout(() => (listenClick.value = true))
+  }
+}
+
+// 触发节点 - 右键
+const handleRClickReference = (e: MouseEvent) => {
+  if (trigger !== 'context-menu') {
+    return
+  }
+  e.preventDefault()
+  const newVal = !innerVisible.value
+  switchPopupShow(newVal)
+  // 气泡在关闭状态下点击 则监听下一次全局点击事件
+  if (newVal) {
+    setTimeout(() => (listenContextMenu.value = true))
+  }
+}
+
+// 销毁时的操作
 onUnmounted(() => {
-  resizeObserver.disconnect()
+  popperInstance?.destroy?.()
+  popperInstance = null
+  window.removeEventListener('click', clickHandle)
+  window.removeEventListener('click', rClickHandle)
+  window.removeEventListener('contextmenu', rClickHandle)
 })
 </script>
 
