@@ -1,10 +1,10 @@
-import { App, Plugin } from 'vue';
-import Dropdown from './dropdown.vue';
+import { App, Plugin } from 'vue'
+import Dropdown from './dropdown'
 
 export const DropdownPlugin: Plugin = {
   install(app: App) {
-    app.component('i-dropdown', Dropdown);
-  },
-};
+    app.component('i-dropdown', Dropdown)
+  }
+}
 
-export { Dropdown };
+export { Dropdown }

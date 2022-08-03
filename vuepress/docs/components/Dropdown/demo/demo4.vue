@@ -1,6 +1,6 @@
 <template>
-  <i-dropdown :options="options" @click="handleSelect">
-    <i-button>更多</i-button>
+  <i-dropdown :options="options" :disabled="true" @click="handleSelect">
+    <i-button>禁用下拉菜单</i-button>
   </i-dropdown>
 </template>
 

@@ -3,7 +3,7 @@ import './index.scss';
 import { turnValue } from '../common';
 
 export default defineComponent({
-  name: 'CarouselNavigation',
+  name: 'Textarea',
   props: {
     /**
      * 占位符

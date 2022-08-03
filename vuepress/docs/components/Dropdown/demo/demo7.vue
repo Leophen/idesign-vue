@@ -1,6 +1,6 @@
 <template>
   <i-dropdown :options="options" @click="handleSelect">
-    <i-button>更多</i-button>
+    <i-button>带分组标题的下拉项</i-button>
   </i-dropdown>
 </template>
 
@@ -8,15 +8,18 @@
 const options = [
   {
     content: '操作一',
-    value: 1
+    value: 1,
+    title: '分组 1'
   },
   {
     content: '操作二',
-    value: 2
+    value: 2,
+    divider: true
   },
   {
     content: '操作三',
-    value: 3
+    value: 3,
+    title: '分组 2'
   }
 ]
 

@@ -1,6 +1,6 @@
 <template>
-  <i-dropdown :options="options" @click="handleSelect">
-    <i-button>更多</i-button>
+  <i-dropdown :options="options">
+    <i-button>点击操作二触发</i-button>
   </i-dropdown>
 </template>
 
@@ -12,15 +12,14 @@ const options = [
   },
   {
     content: '操作二',
-    value: 2
+    value: 2,
+    onClick: (item, e) => {
+      console.log(item, e)
+    }
   },
   {
     content: '操作三',
     value: 3
   }
 ]
-
-const handleSelect = (val) => {
-  console.log(val)
-}
 </script>

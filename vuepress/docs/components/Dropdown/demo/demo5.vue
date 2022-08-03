@@ -1,6 +1,6 @@
 <template>
   <i-dropdown :options="options" @click="handleSelect">
-    <i-button>更多</i-button>
+    <i-button>禁用操作二</i-button>
   </i-dropdown>
 </template>
 
@@ -12,7 +12,8 @@ const options = [
   },
   {
     content: '操作二',
-    value: 2
+    value: 2,
+    disabled: true
   },
   {
     content: '操作三',
