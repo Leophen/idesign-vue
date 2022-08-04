@@ -26,12 +26,12 @@
   transition: all 0.2s cubic-bezier(0.38, 0, 0.24, 1);
   .i-icon {
     margin-left: 6px;
-    color: var(--i-font-4) !important;
-    font-size: inherit !important;
+    color: var(--i-font-4);
+    font-size: inherit;
     cursor: pointer;
     transition: all 0.1s ease-out;
     &:hover {
-      color: var(--i-font-3) !important;
+      color: var(--i-font-3);
     }
   }
   .icon-TipCloseFill {
@@ -42,12 +42,12 @@
   .i-input-suffix-icon {
     cursor: text;
     &:hover {
-      color: var(--i-font-4) !important;
+      color: var(--i-font-4);
     }
     &.i-input-icon-cursor {
       cursor: pointer;
       &:hover {
-        color: var(--i-font-3) !important;
+        color: var(--i-font-3);
       }
     }
   }
@@ -171,7 +171,7 @@
   input::-webkit-inner-spin-button,
   input::-webkit-outer-spin-button {
     display: none;
-    -webkit-appearance: none !important;
+    -webkit-appearance: none;
   }
 }
 
@@ -204,17 +204,17 @@
       background-color: var(--i-bg-disabled);
     }
     &:active {
-      color: var(--i-font-4) !important;
+      color: var(--i-font-4);
     }
     &.i-icon-is-disabled {
       background-color: var(--i-bg-disabled);
       cursor: not-allowed;
       opacity: 0.5;
       &:hover {
-        color: var(--i-font-4) !important;
+        color: var(--i-font-4);
       }
       &:active {
-        color: var(--i-font-4) !important;
+        color: var(--i-font-4);
       }
     }
   }

@@ -74,6 +74,14 @@ export default defineComponent({
       item.onClick?.(item, event)
     }
 
+    const ifHasAtt = (att: any) => {
+      if (att !== undefined) {
+        return true
+      }
+      return false
+    }
+    console.log(props.options,'jjj')
+
     return () => {
       return (
         <ul
@@ -95,15 +103,15 @@ export default defineComponent({
                   class={[
                     'i-dropdown__item',
                     props.size && `i-dropdown__item--size-${props.size}`,
-                    item.disabled && 'i-dropdown__item-is-disabled',
-                    item.divider && 'i-dropdown__item-has-divider',
+                    ifHasAtt(item.disabled) && 'i-dropdown__item-is-disabled',
+                    ifHasAtt(item.divider) && 'i-dropdown__item-has-divider',
                     item.value === props.selectedValue && 'i-dropdown__item-is-active',
                     item.children && item.children?.length > 0 && 'i-dropdown__item-cascader',
                     props.multiple && 'i-dropdown__item-multiple'
                   ]}
                   data-direction={props.cascaderDirection}
-                  data-disabled={item.disabled}
-                  onClick={!item.disabled ? ((e) => handleItemClick(item, e)) : () => { }}
+                  data-disabled={ifHasAtt(item.disabled)}
+                  onClick={!ifHasAtt(item.disabled) ? ((e) => handleItemClick(item, e)) : () => { }}
                 >
                   {item.children && item.children?.length > 0 && props.cascaderDirection === 'left' && <i-icon name="ArrowLeft" size={12} color="var(--i-font-2)" />}
                   <div
@@ -125,7 +133,7 @@ export default defineComponent({
                       cascaderDirection={props.cascaderDirection}
                       multiple={props.multiple}
                       selectedValue={props.selectedValue}
-                      onClickItem={!item.disabled ? clickCascaderItem : () => { }}
+                      onClickItem={!ifHasAtt(item.disabled) ? clickCascaderItem : () => { }}
                     />
                   }
                   {props.multiple &&

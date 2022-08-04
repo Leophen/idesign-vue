@@ -1,5 +1,5 @@
-.i-popup-wrapper .i-dropdown-popup {
-  padding: 0;
+.i-dropdown {
+  width: 100%;
 }
 
 .i-dropdown__menu {
@@ -94,7 +94,7 @@
       display: block;
     }
   }
-  &[data-disabled] {
+  &[data-disabled='true'] {
     .i-icon {
       color: var(--i-font-disabled) !important;
     }
@@ -128,6 +128,12 @@
     color: var(--i-font-disabled);
     cursor: not-allowed;
     user-select: none;
+    background-color: unset;
+    &.i-dropdown__item-is-active {
+      .i-dropdown__item-txt {
+        color: var(--i-primary-disabled);
+      }
+    }
     &:hover {
       background-color: unset;
     }

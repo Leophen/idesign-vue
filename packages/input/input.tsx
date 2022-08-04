@@ -1,6 +1,6 @@
 import './index.scss';
 import { Icon } from '../icon';
-import { computed, defineComponent, nextTick, onMounted, PropType, ref } from 'vue';
+import { computed, defineComponent, nextTick, onMounted, PropType, ref, withModifiers } from 'vue';
 import { turnValue } from '../common'
 
 export default defineComponent({
@@ -185,7 +185,7 @@ export default defineComponent({
     /**
      * 清空按钮点击时触发
      */
-    'clear': (ev?: Event) => true,
+    'clear': (ev: Event) => true,
     /**
      * 数字输入框移动滑块时触发
      */
@@ -600,7 +600,7 @@ export default defineComponent({
               // && (props.clearable || onClear)
               && props.clearable
               && (
-                <Icon name="TipCloseFill" onClick={handleClear} />
+                <Icon name="TipCloseFill" onClick={withModifiers(handleClear, ['stop'])} />
               )}
             {!props.disabled && props.type === 'password' && (
               <Icon

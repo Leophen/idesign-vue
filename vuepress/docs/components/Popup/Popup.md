@@ -53,6 +53,8 @@ Popup/demo/demo5
 | visible     | 气泡显示隐藏（受控） | `boolean`       | `--`   |
 | defaultVisible     | 气泡显示隐藏（非受控） | `boolean`       | `false`   |
 | disabled     | 是否禁用气泡 | `boolean`       | `false`   |
+| sameWidth     | 气泡是否与触发节点等宽 | `boolean`       | `false`   |
+| noPadding     | 去除内边距 | `boolean`       | `false`   |
 
 ## Popup Slots
 

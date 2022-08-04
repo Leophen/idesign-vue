@@ -17,6 +17,7 @@ import { RadioPlugin } from './radio'
 import { CheckboxPlugin } from './checkbox'
 import { InputPlugin } from './input'
 import { TextareaPlugin } from './textarea'
+import { SelectPlugin } from './select'
 
 import { TagPlugin } from './tag'
 import { AvatarPlugin } from './avatar'
@@ -45,6 +46,7 @@ const IDesignPlugin: Plugin = {
     CheckboxPlugin.install?.(app)
     InputPlugin.install?.(app)
     TextareaPlugin.install?.(app)
+    SelectPlugin.install?.(app)
 
     TagPlugin.install?.(app)
     AvatarPlugin.install?.(app)
@@ -73,6 +75,7 @@ export * from './radio'
 export * from './checkbox'
 export * from './input'
 export * from './textarea'
+export * from './select'
 
 export * from './tag'
 export * from './avatar'

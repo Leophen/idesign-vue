@@ -138,6 +138,7 @@ Dropdown/demo/demo13
 | width | 宽度 | `number` | `--` |
 | maxHeight | 最大高度 | `number` | `--` |
 | disabled | 单项是否禁用 | `boolean` | `false` |
+| sameWidth | 气泡是否与触发节点等宽 | `boolean` | `false` |
 | divider | 是否显示操作项之后的分隔线 | `boolean` | `false` |
 | title | 该下拉项上方组标题 | `string` | `--` |
 

@@ -11,7 +11,7 @@
   <Teleport to="#i-popup-wrapper">
     <Transition name="i-fade">
       <div
-        :class="['i-popup', portalClassName]"
+        :class="['i-popup', noPadding && 'i-popup-no-padding', portalClassName]"
         ref="contentRef"
         v-show="!disabled && innerVisible"
       >
@@ -65,6 +65,16 @@ interface PopupProps {
    * @default false
    */
   disabled?: boolean
+  /**
+   * 气泡是否与触发节点等宽
+   * @default false
+   */
+  sameWidth?: boolean
+  /**
+   * 是否去除内边距
+   * @default false
+   */
+  noPadding?: boolean
 }
 
 interface PopupEmits {
@@ -80,7 +90,9 @@ const {
   trigger = 'hover',
   visible = undefined,
   defaultVisible = false,
-  disabled = false
+  disabled = false,
+  sameWidth = false,
+  noPadding = false
 } = defineProps<PopupProps>()
 const emit = defineEmits<PopupEmits>()
 
@@ -106,6 +118,19 @@ const createPopperInstance = () => {
             options: {
               offset: [0, 16]
             }
+          },
+          {
+            name: 'sameWidth',
+            enabled: sameWidth,
+            phase: 'beforeWrite',
+            requires: ['computeStyles'],
+            fn: ({ state }) => {
+              state.styles.popper.width = `${state.rects.reference.width}px`
+            },
+            effect: ({ state }) => {
+              // @ts-ignore
+              state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`
+            }
           }
         ]
       }
@@ -118,8 +143,14 @@ const createPopperInstance = () => {
   })
 }
 
+const resizeObserver = new ResizeObserver((entries) => {
+  popperInstance.update()
+})
+
 onMounted(() => {
   createPopperInstance()
+  // 监听触发节点宽高变化
+  resizeObserver.observe(referenceRef.value as HTMLElement)
 })
 
 // 通用方法 - 切换气泡显示隐藏
@@ -250,6 +281,7 @@ onUnmounted(() => {
   popperInstance?.destroy?.()
   popperInstance = null
   removeListen()
+  resizeObserver.disconnect()
 })
 </script>
 

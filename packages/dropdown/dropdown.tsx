@@ -1,4 +1,4 @@
-import { defineComponent, PropType, ref, watch, watchEffect } from 'vue';
+import { computed, defineComponent, PropType, ref, watch, watchEffect } from 'vue';
 import _ from 'lodash';
 import './index.scss';
 import { DropdownOption } from './type'
@@ -80,6 +80,14 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+    /**
+     * 气泡是否与触发节点等宽
+     * @default false
+     */
+    sameWidth: {
+      type: Boolean,
+      default: false
+    },
   },
   emits: {
     /**
@@ -98,11 +106,6 @@ export default defineComponent({
       popupVisible.value = visible
       emit('trigger', visible)
     }
-
-    const dropdownOptions = ref(props.options)
-    watchEffect(() => {
-      dropdownOptions.value = props.options
-    })
 
     // 下拉选中项
     const innerValue = ref(props.value)
@@ -145,7 +148,7 @@ export default defineComponent({
       >
         <DropdownMenu
           size={props.size}
-          options={dropdownOptions.value}
+          options={props.options}
           cascaderDirection={props.cascaderDirection}
           multiple={props.multiple}
           selectedValue={innerValue.value}
@@ -158,11 +161,12 @@ export default defineComponent({
       const children = slots.default?.();
       return (
         <Popup
-          portalClassName='i-dropdown-popup'
+          noPadding
           placement={props.placement}
           trigger={props.trigger}
           visible={popupVisible.value}
           disabled={props.disabled}
+          sameWidth={props.sameWidth}
           onTrigger={switchPopup}
         >
           {{

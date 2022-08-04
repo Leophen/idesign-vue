@@ -73,6 +73,11 @@ export interface DropdownProps {
    */
   disabled?: boolean
   /**
+   * 气泡是否与触发节点等宽
+   * @default false
+   */
+  sameWidth?: boolean
+  /**
    * 点击菜单项触发事件
    */
   onClick?: (
