@@ -4,6 +4,8 @@
 
 ## 基本用法
 
+可通过 `defaultValue` 设置默认值，通过 `value` 属性设置受控值，通过 `@change` 设置值改变时触发的操作：
+
 :::demo
 Select/demo/demo1
 :::
