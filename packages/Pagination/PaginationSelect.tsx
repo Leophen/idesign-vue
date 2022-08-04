@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.scss';
-import Select from '../Select';
+import Select from '../select/select';
 import { PaginationSelectProps } from './type';
 
 const PaginationSelect: React.FC<PaginationSelectProps> = (props) => {

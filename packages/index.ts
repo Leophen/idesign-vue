@@ -18,6 +18,7 @@ import { CheckboxPlugin } from './checkbox'
 import { InputPlugin } from './input'
 import { TextareaPlugin } from './textarea'
 
+import { TagPlugin } from './tag'
 import { AvatarPlugin } from './avatar'
 import { BadgePlugin } from './badge'
 import { CarouselPlugin } from './carousel'
@@ -45,6 +46,7 @@ const IDesignPlugin: Plugin = {
     InputPlugin.install?.(app)
     TextareaPlugin.install?.(app)
 
+    TagPlugin.install?.(app)
     AvatarPlugin.install?.(app)
     BadgePlugin.install?.(app)
     CarouselPlugin.install?.(app)
@@ -72,6 +74,7 @@ export * from './checkbox'
 export * from './input'
 export * from './textarea'
 
+export * from './tag'
 export * from './avatar'
 export * from './badge'
 export * from './carousel'

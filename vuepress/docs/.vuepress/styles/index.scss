@@ -210,6 +210,9 @@ html.dark {
 }
 
 .theme-default-content {
+  a:hover {
+    text-decoration: unset;
+  }
   & > div {
     h2,
     h3,
