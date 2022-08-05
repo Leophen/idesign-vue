@@ -80,7 +80,6 @@ export default defineComponent({
       }
       return false
     }
-    console.log(props.options,'jjj')
 
     return () => {
       return (

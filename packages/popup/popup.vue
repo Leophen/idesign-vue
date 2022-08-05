@@ -10,20 +10,26 @@
   </div>
   <Teleport to="#i-popup-wrapper">
     <Transition name="i-fade">
-      <div
-        :class="['i-popup', noPadding && 'i-popup-no-padding', portalClassName]"
-        ref="contentRef"
-        v-show="!disabled && innerVisible"
-      >
-        <slot name="content" />
-        <div class="i-popup__arrow" ref="arrowRef" />
-      </div>
+      <template v-if="!disabled && innerVisible">
+        <div
+          :class="[
+            'i-popup',
+            noPadding && 'i-popup-no-padding',
+            portalClassName
+          ]"
+          ref="contentRef"
+          v-show="!disabled && innerVisible"
+        >
+          <slot name="content" />
+          <div class="i-popup__arrow" ref="arrowRef" />
+        </div>
+      </template>
     </Transition>
   </Teleport>
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, nextTick, onUnmounted, computed, watch } from 'vue'
+import { ref, onUnmounted, computed, watch } from 'vue'
 import { createPopper } from '@popperjs/core'
 import { hasParent, placementType, triggerType } from '../common'
 
@@ -106,7 +112,10 @@ const arrowRef = ref<HTMLElement>()
 let popperInstance: any = null
 // 创建 popper 实例
 const createPopperInstance = () => {
-  nextTick(() => {
+  setTimeout(() => {
+    if (!contentRef.value) {
+      return
+    }
     popperInstance = createPopper(
       referenceRef.value?.children[0] as HTMLElement,
       contentRef.value as HTMLElement,
@@ -131,27 +140,67 @@ const createPopperInstance = () => {
               // @ts-ignore
               state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`
             }
+          },
+          {
+            name: 'observeReferenceContent',
+            enabled: true,
+            phase: 'main',
+            fn: () => {},
+            effect: ({ state, instance }) => {
+              const { reference } = state.elements
+
+              // 监听触发节点宽高内容变化
+              const referenceObserverContent = new ResizeObserver((entries) => {
+                instance.update()
+              })
+              referenceObserverContent.observe(reference as HTMLElement)
+
+              return () => {
+                referenceObserverContent.disconnect()
+              }
+            }
+          },
+          {
+            name: 'observeReferenceLocation',
+            enabled: true,
+            phase: 'main',
+            fn: () => {},
+            effect: ({ state, instance }) => {
+              const { reference } = state.elements
+
+              // 监听触发节点位置变化
+              const referenceObserverLocation = new MutationObserver(
+                (entries) => {
+                  instance.update()
+                }
+              )
+              referenceObserverLocation.observe(reference as HTMLElement, {
+                attributes: true,
+                childList: false,
+                subtree: false
+              })
+
+              return () => {
+                referenceObserverLocation.disconnect()
+              }
+            }
           }
         ]
       }
     )
     popperInstance.update()
-    // 异步更新
-    nextTick(() => {
-      popperInstance.update()
-    })
   })
 }
 
-const resizeObserver = new ResizeObserver((entries) => {
-  popperInstance.update()
-})
-
-onMounted(() => {
-  createPopperInstance()
-  // 监听触发节点宽高变化
-  resizeObserver.observe(referenceRef.value as HTMLElement)
-})
+watch(
+  () => visible,
+  () => {
+    createPopperInstance()
+  },
+  {
+    immediate: true
+  }
+)
 
 // 通用方法 - 切换气泡显示隐藏
 const switchPopupShow = (show: boolean) => {
@@ -205,11 +254,9 @@ const clickHandle = (e: MouseEvent) => {
 // 鼠标右键后的操作
 const rClickHandle = (e: MouseEvent) => {
   e.preventDefault()
+  // 点击位置既在气泡外
   if (ifOutContent(e.target as HTMLElement)) {
-    // 点击位置既在气泡外 又在触发节点外
-    if (ifOutReference(e.target as HTMLElement)) {
-      switchPopupShow(false)
-    }
+    switchPopupShow(false)
     listenContextMenu.value = false
     window.removeEventListener('click', rClickHandle)
     window.removeEventListener('contextmenu', rClickHandle)
@@ -281,7 +328,6 @@ onUnmounted(() => {
   popperInstance?.destroy?.()
   popperInstance = null
   removeListen()
-  resizeObserver.disconnect()
 })
 </script>
 
