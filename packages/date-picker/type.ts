@@ -1,3 +1,7 @@
+export const DATE_FORMAT = 'YYYY-MM-DD';
+export const WEEK_HEAD_0 = ['日', '一', '二', '三', '四', '五', '六']
+export const WEEK_HEAD_1 = ['一', '二', '三', '四', '五', '六', '日']
+
 export interface DatePickerProps {
   /**
    * 固定选中值（受控）
