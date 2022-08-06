@@ -14,7 +14,7 @@
         <div
           :class="[
             'i-popup',
-            noPadding && 'i-popup-no-padding',
+            noPadding && 'i-popup__no-padding',
             portalClassName
           ]"
           ref="contentRef"
@@ -133,9 +133,11 @@ const createPopperInstance = () => {
             enabled: sameWidth,
             phase: 'beforeWrite',
             requires: ['computeStyles'],
+            // @ts-ignore
             fn: ({ state }) => {
               state.styles.popper.width = `${state.rects.reference.width}px`
             },
+            // @ts-ignore
             effect: ({ state }) => {
               // @ts-ignore
               state.elements.popper.style.width = `${state.elements.reference.offsetWidth}px`
@@ -146,6 +148,7 @@ const createPopperInstance = () => {
             enabled: true,
             phase: 'main',
             fn: () => {},
+            // @ts-ignore
             effect: ({ state, instance }) => {
               const { reference } = state.elements
 
@@ -165,6 +168,7 @@ const createPopperInstance = () => {
             enabled: true,
             phase: 'main',
             fn: () => {},
+            // @ts-ignore
             effect: ({ state, instance }) => {
               const { reference } = state.elements
 

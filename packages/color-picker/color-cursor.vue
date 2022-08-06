@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, reactive, ref, watch } from 'vue'
 
 interface ColorCursorProps {
   /**
@@ -26,47 +26,42 @@ interface ColorCursorProps {
   color?: string
 }
 
-const {
-  x = 0,
-  y = 0,
-  mode = 'xy',
-  color
-} = defineProps<ColorCursorProps>()
+const { x = 0, y = 0, mode = 'xy', color } = defineProps<ColorCursorProps>()
 
 const cursor = ref<any>(null)
 
-const translate = ref({
+const translate = reactive({
   x: 0,
   y: 0
 })
 
-const parent = ref({
+const parent = reactive({
   width: 0,
   height: 0
 })
 
 onMounted(() => {
-  parent.value.width = cursor.current.parentNode.clientWidth
-  parent.value.height = cursor.current.parentNode.clientHeight
+  parent.width = cursor.value.parentNode.clientWidth
+  parent.height = cursor.value.parentNode.clientHeight
 })
 
 watch(
   () => [x, y],
   ([newX, newY]) => {
     if (mode === 'x') {
-      translate.value.x = newX * (parent.value.width - 12)
+      translate.x = newX * (parent.width - 12)
     } else if (mode === 'y') {
-      translate.value.y = newY * (parent.value.height - 12)
+      translate.y = newY * (parent.height - 12)
     } else {
-      translate.value.y = newX * parent.value.width - 6
-      translate.value.y = newY * parent.value.height - 6
+      translate.x = newX * parent.width - 6
+      translate.y = newY * parent.height - 6
     }
   }
 )
 
 const cursorStyle = computed(() => [
   {
-    transform: `translate(${translate.value.x}px, ${translate.value.y}px)`,
+    transform: `translate(${translate.x}px, ${translate.y}px)`,
     background: color
   }
 ])

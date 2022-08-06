@@ -259,7 +259,7 @@ export default defineComponent({
               prefixIconClass={props.prefixIconClass}
               suffixIcon={props.suffixIcon ? props.suffixIcon : "ArrowDown"}
               suffixIconClass={dropdownShow.value && !props.suffixIcon ? "i-select-arrow__show" : props.suffixIconClass}
-              clearable
+              clearable={props.clearable}
               onClear={handleClear}
             >
               {props.multiple && Array.isArray(innerValue.value) && innerValue.value.length > 0 && (
