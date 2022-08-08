@@ -18,6 +18,7 @@ import { CheckboxPlugin } from './checkbox'
 import { InputPlugin } from './input'
 import { TextareaPlugin } from './textarea'
 import { SelectPlugin } from './select'
+import { TimePickerPlugin } from './time-picker'
 import { DatePickerPlugin } from './date-picker'
 import { ColorPickerPlugin } from './color-picker'
 
@@ -49,6 +50,7 @@ const IDesignPlugin: Plugin = {
     InputPlugin.install?.(app)
     TextareaPlugin.install?.(app)
     SelectPlugin.install?.(app)
+    TimePickerPlugin.install?.(app)
     DatePickerPlugin.install?.(app)
     ColorPickerPlugin.install?.(app)
 
@@ -80,6 +82,7 @@ export * from './checkbox'
 export * from './input'
 export * from './textarea'
 export * from './select'
+export * from './time-picker'
 export * from './date-picker'
 export * from './color-picker'
 

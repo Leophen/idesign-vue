@@ -1,6 +1,6 @@
 <template>
   <div
-    class="i-popup__reference"
+    :class="['i-popup__reference', referenceClassName]"
     ref="referenceRef"
     @click="handleClickReference"
     @mouseenter="handleHoverReference"
@@ -43,6 +43,10 @@ if (!popupWrapper) {
 }
 
 interface PopupProps {
+  /**
+   * 触发节点类名
+   */
+  referenceClassName?: string
   /**
    * 弹窗内容类名
    */

@@ -129,3 +129,8 @@ export enum EPickerCols {
   second = 'second',
   meridiem = 'meridiem',
 }
+
+export const MERIDIEM_LIST = ['AM', 'PM'];
+export const DEFAULT_STEPS = [1, 1, 1];
+export const DEFAULT_FORMAT = 'HH:mm:ss';
+export const timeArr = [EPickerCols.hour, EPickerCols.minute, EPickerCols.second];

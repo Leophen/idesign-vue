@@ -46,6 +46,7 @@ Popup/demo/demo5
 
 | 属性            | 说明         | 类型                  | 默认值 |
 | --------------- | ------------ | --------------------- | ------ |
+| referenceClassName | 触发节点类名 | `string`              | `--`   |
 | portalClassName | 气泡内容类名 | `string`              | `--`   |
 | content         | 气泡提示内容 | `string〡HTMLElement` | `--`   |
 | placement     | 气泡提示位置 | `"auto"〡"auto-start"〡"auto-end"〡"top"〡"top-start"〡"top-end"〡"bottom"〡"bottom-start"〡"bottom-end"〡"right"〡"right-start"〡"right-end"〡"left"〡"left-start"〡"left-end"`       | `top`   |
