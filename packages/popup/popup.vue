@@ -31,16 +31,10 @@
 <script lang="ts" setup>
 import { ref, onUnmounted, computed, watch } from 'vue'
 import { createPopper } from '@popperjs/core'
-import { hasParent, placementType, triggerType } from '../common'
+import { hasParent, placementType, triggerType, useContainer } from '../common'
 
 // 创建气泡提示容器
-let popupWrapper = document.querySelector('#i-popup-wrapper')
-if (!popupWrapper) {
-  popupWrapper = document.createElement('div')
-  popupWrapper.className = 'i-popup-wrapper'
-  popupWrapper.id = 'i-popup-wrapper'
-  document.body.append(popupWrapper)
-}
+const popupWrapper = useContainer('i-popup-wrapper', document.body)
 
 interface PopupProps {
   /**

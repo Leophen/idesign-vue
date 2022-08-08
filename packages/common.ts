@@ -1,7 +1,9 @@
 import _ from 'lodash'
 import { Component, getCurrentInstance, Slots, VNode, VNodeTypes } from 'vue'
 
-// 通用位置类型
+/**
+ * 通用位置类型
+ */
 export type placementType =
   | 'auto'
   | 'auto-start'
@@ -19,10 +21,16 @@ export type placementType =
   | 'left-start'
   | 'left-end'
 
-// 通用触发类型
+/**
+ * 通用触发类型
+ */
 export type triggerType = 'hover' | 'click' | 'context-menu'
 
-// 转换 width/height/left/... 样式值
+/**
+ * 转换 style 样式值
+ * @param val 转换前的样式值
+ * @returns 转换后的样式值
+ */
 export const turnValue = (val: string | number | undefined) => {
   if (!val) {
     return
@@ -33,7 +41,12 @@ export const turnValue = (val: string | number | undefined) => {
   return val
 }
 
-// 触发节点是否在指定包裹层中
+/**
+ * 触发节点是否在指定包裹层中
+ * @param node 要判断的节点
+ * @param parent 是否在该容器中
+ * @returns true 为在反之不在
+ */
 export const hasParent = (node: any, parent: HTMLElement | null) => {
   while (node) {
     if (node === parent) {
@@ -76,7 +89,7 @@ export const useChildComponentSlots = () => {
   }
 }
 
-// 模拟 React.children
+// 模拟 React.children - 1
 export enum ShapeFlags {
   ELEMENT = 1,
   FUNCTIONAL_COMPONENT = 1 << 1,
@@ -144,4 +157,22 @@ export const getAllElements = (
     }
   }
   return results
+}
+// 模拟 React.children - 2
+
+/**
+ * 获取装入指定容器的 id 节点
+ * @param id 标识符
+ * @param container 装入的容器
+ * @param className 容器类名（可选）
+ */
+export function useContainer(id: string, container: Element, className?: string) {
+  let result = document.querySelector(`#${id}`);
+  if (!result) {
+    result = document.createElement('div');
+    result.className = className ?? id;
+    result.id = id;
+    container.append(result);
+  }
+  return result;
 }
