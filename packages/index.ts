@@ -29,6 +29,7 @@ import { CarouselPlugin } from './carousel'
 import { CollapsePlugin } from './collapse'
 
 import { AlertPlugin } from './alert'
+import { MessagePlugin } from './message'
 import { PopupPlugin } from './popup'
 
 const IDesignPlugin: Plugin = {
@@ -61,6 +62,7 @@ const IDesignPlugin: Plugin = {
     CollapsePlugin.install?.(app)
 
     AlertPlugin.install?.(app)
+    MessagePlugin.install?.(app)
     PopupPlugin.install?.(app)
   }
 }
@@ -93,6 +95,7 @@ export * from './carousel'
 export * from './collapse'
 
 export * from './alert'
+export * from './message'
 export * from './popup'
 
 export default IDesignPlugin
