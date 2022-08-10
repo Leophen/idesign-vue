@@ -86,7 +86,7 @@ const messageInstance: any = {}
 
 const openMessage = (
   type: 'info' | 'success' | 'warning' | 'error',
-  content: string | ConfigType,
+  content: any,
   duration = 3,
   placement = 'top'
 ) => {
@@ -117,28 +117,28 @@ const closeMessage = (placement = 'all') => {
 
 export default {
   info(
-    content: string | ConfigType,
+    content: any,
     duration?: number,
     placement?: 'top' | 'bottom'
   ) {
     openMessage('info', content, duration, placement)
   },
   success(
-    content: string | ConfigType,
+    content: any,
     duration?: number,
     placement?: 'top' | 'bottom'
   ) {
     openMessage('success', content, duration, placement)
   },
   warning(
-    content: string | ConfigType,
+    content: any,
     duration?: number,
     placement?: 'top' | 'bottom'
   ) {
     openMessage('warning', content, duration, placement)
   },
   error(
-    content: string | ConfigType,
+    content: any,
     duration?: number,
     placement?: 'top' | 'bottom'
   ) {

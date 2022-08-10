@@ -23,11 +23,6 @@ export interface ConfigType {
    */
   placement?: 'top' | 'bottom'
   /**
-   * 重置更新
-   * @default false
-   */
-  resetOnUpdate?: boolean
-  /**
    * 关闭时触发
    */
   onClose?: Function
