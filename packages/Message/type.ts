@@ -1,5 +1,9 @@
 export interface ConfigType {
   /**
+   * 唯一标识
+   */
+  key: number
+  /**
    * 全局提示类型
    * @default info
    */
@@ -18,6 +22,15 @@ export interface ConfigType {
    * @default top
    */
   placement?: 'top' | 'bottom'
+  /**
+   * 重置更新
+   * @default false
+   */
+  resetOnUpdate?: boolean
+  /**
+   * 关闭时触发
+   */
+  onClose?: Function
 }
 
 export interface MessageProps {

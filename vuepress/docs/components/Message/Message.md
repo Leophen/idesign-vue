@@ -1,4 +1,4 @@
-# Message 全局提示（开发中）
+# Message 全局提示
 
 全局展示操作反馈信息。
 
@@ -42,7 +42,7 @@ Message/demo/demo4
 Message/demo/demo5
 :::
 
-## Message API
+## Message Options
 
 | 属性     | 说明         | 类型             | 默认值  |
 | -------- | ------------ | ---------------- | ------- |
@@ -50,3 +50,7 @@ Message/demo/demo5
 |content|全局提示内容|`string`|`--`|
 |duration|消息显示时长，单位：秒。值为 0 表示永久显示|`number`|`3`|
 |placement|全局提示位置|`"top"〡"bottom"`|`top`|
+
+## Message Events
+
+|closeAll| 关闭所有提示|`"top"〡"bottom"〡"all"`|`all`|

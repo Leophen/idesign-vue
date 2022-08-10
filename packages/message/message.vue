@@ -1,50 +1,34 @@
 <template>
-  <Transition name="i-fade">
-    <div class="i-message" v-show="visible">
-      <Icon
-        :name="
-          {
-            info: 'TipInfo',
-            success: 'TipCheckFill',
-            warning: 'TipWarningFill',
-            error: 'TipCloseFill'
-          }[config.type]
-        "
-        :size="20"
-      />
-      {{ config.content }}
-    </div>
-  </Transition>
+  <div class="i-message">
+    <Icon
+      :name="
+        {
+          info: 'TipInfo',
+          success: 'TipCheckFill',
+          warning: 'TipWarningFill',
+          error: 'TipCloseFill'
+        }[type]
+      "
+      :size="20"
+    />
+    <slot />
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { Icon } from '../icon'
-import { ConfigType } from './type'
 
 interface MessageProps {
   /**
-   * 提示配置
+   * 全局提示类型
+   * @default info
    */
-  config?: ConfigType
+  type: 'info' | 'success' | 'warning' | 'error'
 }
 
 const {
-  config = {
-    type: 'info',
-    content: '',
-    duration: 3,
-    placement: 'top'
-  }
+  type = 'info',
 } = defineProps<MessageProps>()
-
-const visible = ref(false)
-
-const onOpen = (config: ConfigType) => {
-  visible.value = true
-}
-
-onOpen(config)
 </script>
 
 <style lang="scss">

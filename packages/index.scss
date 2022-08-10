@@ -183,159 +183,123 @@ $line_exit: transform 300ms linear 100ms, opacity 300ms ease-in-out;
 $incline_enter: transform 300ms ease-out, opacity 300ms ease-in-out;
 $incline_exit: transform 300ms linear, opacity 600ms ease-in-out;
 
-// 从上到下渐进渐出
-.i-slide-in-top-enter {
-  transform: translateY(-100%);
-  opacity: 0;
-}
+// 从上到下渐入渐出
 .i-slide-in-top-enter-active {
-  transform: translate(0);
-  opacity: 1;
   transition: $line_enter;
 }
-.i-slide-in-top-exit {
-  opacity: 1;
+.i-slide-in-top-leave-active {
+  transition: $line_exit;
 }
-.i-slide-in-top-exit-active {
+.i-slide-in-top-enter-from,
+.i-slide-in-top-leave-to {
   transform: translateY(-100%);
   opacity: 0;
-  transition: $line_exit;
 }
 
-// 从下到上渐进渐出
-.i-slide-in-bottom-enter {
-  transform: translateY(100%);
-  opacity: 0;
-}
+// 从下到上渐入渐出
 .i-slide-in-bottom-enter-active {
-  transform: translate(0);
-  opacity: 1;
   transition: $line_enter;
 }
-.i-slide-in-bottom-exit {
-  opacity: 1;
+.i-slide-in-bottom-leave-active {
+  transition: $line_exit;
 }
-.i-slide-in-bottom-exit-active {
+.i-slide-in-bottom-enter-from,
+.i-slide-in-bottom-leave-to {
   transform: translateY(100%);
   opacity: 0;
-  transition: $line_exit;
 }
 
-// 从左到右渐进渐出
-.i-slide-in-left-enter {
-  transform: translateX(-100%);
-  opacity: 0;
-}
+// 从左到右渐入渐出
 .i-slide-in-left-enter-active {
-  transform: translate(0);
-  opacity: 1;
   transition: $line_enter;
 }
-.i-slide-in-left-exit {
-  opacity: 1;
+.i-slide-in-left-leave-active {
+  transition: $line_exit;
 }
-.i-slide-in-left-exit-active {
+.i-slide-in-left-enter-from,
+.i-slide-in-left-leave-to {
   transform: translateX(-100%);
   opacity: 0;
-  transition: $line_exit;
 }
 
-// 从右到左渐进渐出
-.i-slide-in-right-enter {
-  transform: translateX(100%);
-  opacity: 0;
-}
+// 从右到左渐入渐出
 .i-slide-in-right-enter-active {
-  transform: translate(0);
-  opacity: 1;
   transition: $line_enter;
 }
-.i-slide-in-right-exit {
-  opacity: 1;
+.i-slide-in-right-leave-active {
+  transition: $line_exit;
 }
-.i-slide-in-right-exit-active {
+.i-slide-in-right-enter-from,
+.i-slide-in-right-leave-to {
   transform: translateX(100%);
   opacity: 0;
-  transition: $line_exit;
 }
 
 // 从左上渐进垂直渐出
-.i-slide-in-top-left-enter {
+.i-slide-in-top-left-enter-active {
+  transition: $incline_enter;
+}
+.i-slide-in-top-left-leave-active {
+  transition: $incline_exit;
+}
+.i-slide-in-top-left-enter-from {
   transform: translateX(-100%);
   opacity: 0;
 }
-.i-slide-in-top-left-enter-active {
-  transform: translate(0);
-  opacity: 1;
-  transition: $incline_enter;
-}
-.i-slide-in-top-left-exit {
-  opacity: 1;
-}
-.i-slide-in-top-left-exit-active {
+.i-slide-in-top-left-leave-to {
   transform: translateY(-100%);
   opacity: 0;
-  transition: $incline_exit;
 }
 
 // 从右上渐进垂直渐出
-.i-slide-in-top-right-enter {
+.i-slide-in-top-right-enter-active {
+  transition: $incline_enter;
+}
+.i-slide-in-top-right-leave-active {
+  transition: $incline_exit;
+}
+.i-slide-in-top-right-enter-from {
   transform: translateX(100%);
   opacity: 0;
 }
-.i-slide-in-top-right-enter-active {
-  transform: translate(0);
-  opacity: 1;
-  transition: $incline_enter;
-}
-.i-slide-in-top-right-exit {
-  opacity: 1;
-}
-.i-slide-in-top-right-exit-active {
+.i-slide-in-top-right-leave-to {
   transform: translateY(-100%);
   opacity: 0;
-  transition: $incline_exit;
 }
 
 // 从右下渐进垂直渐出
-.i-slide-in-bottom-right-enter {
+.i-slide-in-bottom-right-enter-active {
+  transition: $incline_enter;
+}
+.i-slide-in-bottom-right-leave-active {
+  transition: $incline_exit;
+}
+.i-slide-in-bottom-right-enter-from {
   transform: translateX(100%);
   opacity: 0;
 }
-.i-slide-in-bottom-right-enter-active {
-  transform: translate(0);
-  opacity: 1;
-  transition: $incline_enter;
-}
-.i-slide-in-bottom-right-exit {
-  opacity: 1;
-}
-.i-slide-in-bottom-right-exit-active {
+.i-slide-in-bottom-right-leave-to {
   transform: translateY(100%);
   opacity: 0;
-  transition: $incline_exit;
 }
 
 // 从左下渐进垂直渐出
-.i-slide-in-bottom-left-enter {
+.i-slide-in-bottom-left-enter-active {
+  transition: $incline_enter;
+}
+.i-slide-in-bottom-left-leave-active {
+  transition: $incline_exit;
+}
+.i-slide-in-bottom-left-enter-from {
   transform: translateX(-100%);
   opacity: 0;
 }
-.i-slide-in-bottom-left-enter-active {
-  transform: translate(0);
-  opacity: 1;
-  transition: $incline_enter;
-}
-.i-slide-in-bottom-left-exit {
-  opacity: 1;
-}
-.i-slide-in-bottom-left-exit-active {
+.i-slide-in-bottom-left-leave-to {
   transform: translateY(100%);
   opacity: 0;
-  transition: $incline_exit;
 }
 
-// 显示隐藏
+// 显示隐藏渐入渐出
 .i-fade-enter-active,
 .i-fade-leave-active {
   transition: opacity 0.2s ease;
