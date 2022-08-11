@@ -43,17 +43,59 @@
 
 .i-message-wrapper__top {
   top: 20px;
+
+  .i-message:not(:last-of-type) {
+    margin-bottom: 16px;
+  }
 }
 
 .i-message-wrapper__bottom {
   bottom: 20px;
+
+  .i-message:not(:first-of-type) {
+    margin-top: 16px;
+  }
 }
 
 .i-message-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  .i-message:not(:last-of-type) {
-    margin-bottom: 16px;
-  }
+}
+
+$line_enter: all 200ms ease-out, opacity 200ms ease-in-out;
+$line_exit: all 300ms linear 100ms, opacity 300ms ease-in-out;
+
+// 顶部消息动画
+.message-top-enter-active {
+  transition: $line_enter;
+}
+.message-top-leave-active {
+  transition: $line_exit;
+}
+.message-top-enter-from {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+.message-top-leave-to {
+  transform: translateY(-100%);
+  margin-top: -57px;
+  opacity: 0;
+}
+
+// 底部消息动画
+.message-bottom-enter-active {
+  transition: $line_enter;
+}
+.message-bottom-leave-active {
+  transition: $line_exit;
+}
+.message-bottom-enter-from {
+  transform: translateY(100%);
+  opacity: 0;
+}
+.message-bottom-leave-to {
+  transform: translateY(100%);
+  margin-bottom: -57px;
+  opacity: 0;
 }

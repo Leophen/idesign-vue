@@ -9746,7 +9746,7 @@ const _1 = /* @__PURE__ */ _e({
   setup(n, { emit: l }) {
     return (i, u) => (J(), ft(up, {
       class: "i-message-list",
-      name: `i-slide-in-${n.placement}`,
+      name: `message-${n.placement}`,
       tag: "div",
       onAfterLeave: u[0] || (u[0] = () => l("afterClose"))
     }, {

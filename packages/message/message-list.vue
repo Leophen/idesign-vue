@@ -1,7 +1,7 @@
 <template>
   <TransitionGroup
     class="i-message-list"
-    :name="`i-slide-in-${placement}`"
+    :name="`message-${placement}`"
     tag="div"
     @afterLeave="() => emit('afterClose')"
   >
