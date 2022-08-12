@@ -1,33 +1,39 @@
-import { ref, Ref, createVNode, render, reactive } from 'vue'
+import { ref, Ref, createVNode, render, reactive, isVNode } from 'vue'
 import MessageList from './message-list.vue'
 import { useContainer } from '../common'
-import { ConfigType } from './type'
+import {
+  MergeConfigType,
+  MessageConfig,
+  MessageConfigType,
+  MessageType,
+  PositionType
+} from './type'
 import _ from 'lodash'
 
 // 创建消息提示容器
 const popupWrapper = useContainer('i-popup-wrapper', document.body)
 
 class MessageManger {
-  private readonly messages: Ref<ConfigType[]>
+  private readonly listData: Ref<MergeConfigType[]>
 
-  private readonly placement: 'top' | 'bottom'
+  private readonly position: PositionType
 
   private container: HTMLElement | null
 
   private messageCount = 0
 
-  constructor(config: ConfigType) {
-    const { placement = 'top' } = config
+  constructor(config: MergeConfigType) {
+    const { position = 'top' } = config
 
     const popper = document.createElement('div')
-    popper.setAttribute('class', `i-message-wrapper__${placement}`)
+    popper.setAttribute('class', `i-message-wrapper__${position}`)
     this.container = popper
-    this.messages = ref([])
-    this.placement = placement
+    this.listData = ref([])
+    this.position = position
 
     const vm = createVNode(MessageList, {
-      messages: this.messages.value,
-      placement,
+      listData: this.listData.value,
+      position,
       onClose: this.remove,
       onAfterClose: this.destroy
     })
@@ -36,48 +42,48 @@ class MessageManger {
     popupWrapper.appendChild(this.container)
   }
 
-  add = (config: ConfigType) => {
+  add = (config: MergeConfigType) => {
     this.messageCount++
-    const message: ConfigType = reactive(config)
-    if (config.placement === 'top') {
-      this.messages.value.push(message)
+    const message: MergeConfigType = reactive(config)
+    if (config.position === 'top') {
+      this.listData.value.push(message)
     } else {
-      this.messages.value.unshift(message)
+      this.listData.value.unshift(message)
     }
     if (config.duration && config.duration !== 0) {
       setTimeout(() => {
-        this.remove(message.key)
+        this.remove(message.id)
       }, config.duration * 1000)
     }
     return {
-      close: () => this.remove(message.key)
+      close: () => this.remove(message.id)
     }
   }
 
-  remove = (id: number | string) => {
-    for (let i = 0; i < this.messages.value.length; i++) {
-      const item = this.messages.value[i]
-      if (item.key === id) {
+  remove = (id: number) => {
+    for (let i = 0; i < this.listData.value.length; i++) {
+      const item = this.listData.value[i]
+      if (item.id === id) {
         if (_.isFunction(item.onClose)) {
           item.onClose(id)
         }
 
-        this.messages.value.splice(i, 1)
+        this.listData.value.splice(i, 1)
         break
       }
     }
   }
 
   clear = () => {
-    this.messages.value.splice(0)
+    this.listData.value.splice(0)
   }
 
   destroy = () => {
-    if (this.messages.value.length === 0 && this.container) {
+    if (this.listData.value.length === 0 && this.container) {
       render(null, this.container)
       popupWrapper.removeChild(this.container)
       this.container = null
-      messageInstance[this.placement] = undefined
+      messageInstance[this.position] = undefined
     }
   }
 }
@@ -85,31 +91,35 @@ class MessageManger {
 const messageInstance: any = {}
 
 const openMessage = (
-  type: 'info' | 'success' | 'warning' | 'error',
-  content: any,
+  type: MessageType,
+  messageConfig: MessageConfig,
   duration = 3,
-  placement = 'top'
+  position = 'top'
 ) => {
-  const isConfigMode = typeof content === 'object'
+  const isConfigMode = typeof messageConfig === 'object'
   const mergeConfig = {
-    key: Date.now(),
+    id: Date.now(),
     type,
-    content: isConfigMode ? content?.content : content,
-    duration: isConfigMode ? content?.duration || 3 : duration,
-    placement: isConfigMode
-      ? content?.placement || 'top'
-      : (placement as 'top' | 'bottom')
+    content: isConfigMode
+      ? (messageConfig as MessageConfigType)?.content
+      : messageConfig,
+    duration: isConfigMode
+      ? (messageConfig as MessageConfigType)?.duration || 3
+      : duration,
+    position: isConfigMode
+      ? (messageConfig as MessageConfigType)?.position || 'top'
+      : (position as PositionType)
   }
 
-  if (!messageInstance[mergeConfig.placement]) {
-    messageInstance[mergeConfig.placement] = new MessageManger(mergeConfig)
+  if (!messageInstance[mergeConfig.position]) {
+    messageInstance[mergeConfig.position] = new MessageManger(mergeConfig)
   }
-  return messageInstance[mergeConfig.placement]!.add(mergeConfig)
+  return messageInstance[mergeConfig.position]!.add(mergeConfig)
 }
 
-const closeMessage = (placement = 'all') => {
-  if (placement !== 'all') {
-    messageInstance[placement]?.clear()
+const clearMessage = (position?: PositionType) => {
+  if (position) {
+    messageInstance[position]?.clear()
   } else {
     Object.values(messageInstance).forEach((item: any) => item?.clear())
   }
@@ -117,34 +127,34 @@ const closeMessage = (placement = 'all') => {
 
 export default {
   info(
-    content: any,
+    messageConfig: MessageConfig,
     duration?: number,
-    placement?: 'top' | 'bottom'
+    position?: PositionType
   ) {
-    openMessage('info', content, duration, placement)
+    openMessage('info', messageConfig, duration, position)
   },
   success(
-    content: any,
+    messageConfig: MessageConfig,
     duration?: number,
-    placement?: 'top' | 'bottom'
+    position?: PositionType
   ) {
-    openMessage('success', content, duration, placement)
+    openMessage('success', messageConfig, duration, position)
   },
   warning(
-    content: any,
+    messageConfig: MessageConfig,
     duration?: number,
-    placement?: 'top' | 'bottom'
+    position?: PositionType
   ) {
-    openMessage('warning', content, duration, placement)
+    openMessage('warning', messageConfig, duration, position)
   },
   error(
-    content: any,
+    messageConfig: MessageConfig,
     duration?: number,
-    placement?: 'top' | 'bottom'
+    position?: PositionType
   ) {
-    openMessage('error', content, duration, placement)
+    openMessage('error', messageConfig, duration, position)
   },
-  closeAll(placement?: 'top' | 'bottom') {
-    closeMessage(placement ?? 'all')
+  clear(position?: PositionType) {
+    clearMessage(position)
   }
 }

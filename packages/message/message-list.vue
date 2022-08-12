@@ -1,11 +1,11 @@
 <template>
   <TransitionGroup
     class="i-message-list"
-    :name="`message-${placement}`"
+    :name="`message-${position}`"
     tag="div"
     @afterLeave="() => emit('afterClose')"
   >
-    <message v-for="item in messages" :key="item.key" :type="item.type">
+    <message v-for="item in listData" :key="item.id" :type="item.type">
       {{ item.content }}
     </message>
   </TransitionGroup>
@@ -13,18 +13,18 @@
 
 <script setup lang="ts">
 import Message from './message.vue'
-import { ConfigType } from './type'
+import { MergeConfigType, PositionType } from './type'
 
 interface MessageListProps {
   /**
    * 消息列表数据
    */
-  messages?: ConfigType[]
+  listData?: MergeConfigType[]
   /**
    * 消息位置
    * @default top
    */
-  placement?: 'top' | 'bottom'
+  position?: PositionType
 }
 
 interface MessageListEmits {
@@ -34,7 +34,7 @@ interface MessageListEmits {
   (type: 'afterClose'): void
 }
 
-const { messages = [], placement = 'top' } = defineProps<MessageListProps>()
+const { listData = [], position = 'top' } = defineProps<MessageListProps>()
 const emit = defineEmits<MessageListEmits>()
 </script>
 

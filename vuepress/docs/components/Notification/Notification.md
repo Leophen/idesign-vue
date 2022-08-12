@@ -278,7 +278,7 @@ export default App;
 
 ## 手动关闭所有提示
 
-可通过 `Notification.closeAll()` 来关闭所有提示。
+可通过 `Notification.clear()` 来关闭所有提示。
 
 ```tsx
 import React from 'react';
@@ -312,7 +312,7 @@ const App = () => {
         </Button>
         <Button
           onClick={() => {
-            Notification.closeAll();
+            Notification.clear();
           }}
         >
           关闭所有通知

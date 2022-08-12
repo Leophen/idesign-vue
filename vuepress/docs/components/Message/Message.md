@@ -28,7 +28,7 @@ Message/demo/demo3
 
 ## 手动关闭所有提示
 
-可通过 `Message.closeAll()` 来关闭所有提示。
+可通过 `Message.clear()` 来关闭所有提示。
 
 :::demo
 Message/demo/demo4
@@ -42,15 +42,39 @@ Message/demo/demo4
 Message/demo/demo5
 :::
 
-## Message Options
+<!-- ## 自定义提示内容
 
-| 属性     | 说明         | 类型             | 默认值  |
-| -------- | ------------ | ---------------- | ------- |
-|type|全局提示类型|`"info"〡"success"〡"warning"〡"error"`|`info`|
-|content|全局提示内容|`string`|`--`|
-|duration|消息显示时长，单位：秒。值为 0 表示永久显示|`number`|`3`|
-|placement|全局提示位置|`"top"〡"bottom"`|`top`|
+通知内容或标题节点均可自定义展示：
 
-## Message Events
+:::demo
+Message/demo/demo6
+::: -->
 
-|closeAll| 关闭所有提示|`"top"〡"bottom"〡"all"`|`all`|
+## Message 方法
+
+| 属性    | 说明         | 类型                                |
+| ------- | ------------ | ----------------------------------- |
+| info    | 显示信息提示 | `MessageMethod`                     |
+| success | 显示成功提示 | `MessageMethod`                     |
+| warning | 显示警告提示 | `MessageMethod`                     |
+| error   | 显示错误提示 | `MessageMethod`                     |
+| clear   | 清除全部提示 | `(position?: PositionType) => void` |
+
+```ts
+type MessageMethod = (
+  messageConfig: string | HTMLElement | MessageConfigType,
+  duration?: number,
+  position?: PositionType,
+  closeable?: boolean
+) => void;
+
+type PositionType = 'top' | 'bottom';
+```
+
+## Message 配置项
+
+| 属性     | 说明                 | 类型                  | 默认值 |
+| -------- | -------------------- | --------------------- | ------ |
+| content  | 提示内容             | `string〡HTMLElement` | `--`   |
+| duration | 消息持续时间，单位秒 | `number`              | `3`    |
+| position | 提示位置             | `PositionType`        | `top`  |

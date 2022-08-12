@@ -16,7 +16,7 @@ const Notification: React.FC<NotificationProps> & {
   warning?: any
   error?: any
   info?: any
-  closeAll?: any
+  clear?: any
 } = (props) => {
   const {
     type = 'info',
@@ -151,7 +151,7 @@ Notification.info = (config: NotificationConfig) => openNotification('info', con
 Notification.success = (config: NotificationConfig) => openNotification('success', config)
 Notification.warning = (config: NotificationConfig) => openNotification('warning', config)
 Notification.error = (config: NotificationConfig) => openNotification('error', config)
-Notification.closeAll = (config: NotificationConfig) => closeNotification(config)
+Notification.clear = (config: NotificationConfig) => closeNotification(config)
 
 Notification.displayName = 'Notification';
 

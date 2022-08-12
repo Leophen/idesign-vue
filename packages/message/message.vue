@@ -17,13 +17,14 @@
 
 <script setup lang="ts">
 import { Icon } from '../icon'
+import { MessageType } from './type';
 
 interface MessageProps {
   /**
    * 全局提示类型
    * @default info
    */
-  type: 'info' | 'success' | 'warning' | 'error'
+  type: MessageType
 }
 
 const {
