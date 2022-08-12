@@ -1,4 +1,4 @@
-import { VNodeTypes } from 'vue'
+import { VueNode } from './../common'
 export type PositionType = 'top' | 'bottom'
 export type MessageType = 'info' | 'success' | 'warning' | 'error'
 
@@ -11,11 +11,7 @@ export interface MessageProps {
   /**
    * 全局提示内容
    */
-  content: string | VNodeTypes | symbol
-  /**
-   * 是否完成进入动画
-   */
-  entered?: boolean
+  content: VueNode
   /**
    * 关闭时触发
    */
@@ -71,4 +67,4 @@ export type MessageMethod = (
   position?: PositionType
 ) => void
 
-export type MessageConfig = string | symbol | VNodeTypes | MessageConfigType
+export type MessageConfig = VueNode | MessageConfigType

@@ -27,6 +27,11 @@ export type placementType =
 export type triggerType = 'hover' | 'click' | 'context-menu'
 
 /**
+ * 模拟 ReactNode 任意节点类型
+ */
+export type VueNode = string | symbol | VNodeTypes
+
+/**
  * 转换 style 样式值
  * @param val 转换前的样式值
  * @returns 转换后的样式值
