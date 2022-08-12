@@ -4,7 +4,7 @@
 
 ## 基本用法
 
-与 [Message](./message) 组件同理，可使用 `Notification.info` | `Notification.success` | `Notification.warning` | `Notification.error` 来显示对应类型的全局通知：
+与 [Message](../message/message) 组件同理，可使用 `Notification.info` | `Notification.success` | `Notification.warning` | `Notification.error` 来显示对应类型的全局通知：
 
 :::demo
 Notification/demo/demo1
