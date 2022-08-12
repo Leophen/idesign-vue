@@ -6,13 +6,14 @@
     @afterLeave="() => emit('afterClose')"
   >
     <message v-for="item in listData" :key="item.id" :type="item.type">
-      {{ item.content }}
+      <VNode :content="item.content" />
     </message>
   </TransitionGroup>
 </template>
 
 <script setup lang="ts">
 import Message from './message.vue'
+import { VNode } from '../v-node'
 import { MergeConfigType, PositionType } from './type'
 
 interface MessageListProps {

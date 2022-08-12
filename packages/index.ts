@@ -98,4 +98,6 @@ export * from './alert'
 export * from './message'
 export * from './popup'
 
+export * from './v-node'
+
 export default IDesignPlugin

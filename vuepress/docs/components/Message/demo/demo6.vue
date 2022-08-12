@@ -7,7 +7,7 @@
       @click="
         () =>
           this.$message.info({
-            content: a
+            content: b
           })
       "
     >
@@ -18,6 +18,8 @@
 
 <script setup>
 import { h } from 'vue'
+import { Button } from 'idesign-vue'
 
 const a = h('button', '这是提示的内容')
+const b = h(Button, '自定义组件内容')
 </script>

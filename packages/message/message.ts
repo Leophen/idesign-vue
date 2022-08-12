@@ -96,7 +96,8 @@ const openMessage = (
   duration = 3,
   position = 'top'
 ) => {
-  const isConfigMode = typeof messageConfig === 'object'
+  const isConfigMode =
+    typeof messageConfig === 'object' && !isVNode(messageConfig)
   const mergeConfig = {
     id: Date.now(),
     type,
@@ -104,10 +105,10 @@ const openMessage = (
       ? (messageConfig as MessageConfigType)?.content
       : messageConfig,
     duration: isConfigMode
-      ? (messageConfig as MessageConfigType)?.duration || 3
+      ? (messageConfig as MessageConfigType)?.duration ?? 3
       : duration,
     position: isConfigMode
-      ? (messageConfig as MessageConfigType)?.position || 'top'
+      ? (messageConfig as MessageConfigType)?.position ?? 'top'
       : (position as PositionType)
   }
 

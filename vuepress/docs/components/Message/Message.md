@@ -42,13 +42,13 @@ Message/demo/demo4
 Message/demo/demo5
 :::
 
-<!-- ## 自定义提示内容
+## 自定义提示内容
 
-通知内容或标题节点均可自定义展示：
+可传入创建的 `VNode` 来展示自定义提示：
 
 :::demo
 Message/demo/demo6
-::: -->
+:::
 
 ## Message 方法
 
@@ -62,7 +62,7 @@ Message/demo/demo6
 
 ```ts
 type MessageMethod = (
-  messageConfig: string | HTMLElement | MessageConfigType,
+  messageConfig: string | VNodeTypes | MessageConfigType,
   duration?: number,
   position?: PositionType,
   closeable?: boolean
@@ -75,6 +75,6 @@ type PositionType = 'top' | 'bottom';
 
 | 属性     | 说明                 | 类型                  | 默认值 |
 | -------- | -------------------- | --------------------- | ------ |
-| content  | 提示内容             | `string〡HTMLElement` | `--`   |
+| content  | 提示内容             | `string〡VNodeTypes` | `--`   |
 | duration | 消息持续时间，单位秒 | `number`              | `3`    |
 | position | 提示位置             | `PositionType`        | `top`  |
