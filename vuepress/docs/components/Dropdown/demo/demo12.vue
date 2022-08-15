@@ -1,29 +1,36 @@
 <template>
   <div className="idesign-demo-block-row">
-    <i-dropdown :options="options" @click="handleSelect">
-      <i-button>级联菜单</i-button>
-    </i-dropdown>
     <i-dropdown
       :options="options"
-      :value="currentValue"
+      :value="singleVal"
+      @click="handleSingleSelect"
+    >
+      <i-button>级联单选菜单</i-button>
+    </i-dropdown>
+
+    <i-dropdown
+      :options="options"
+      :value="multiVal"
       :multiple="true"
-      @click="handleSelect"
+      @click="handleMultiSelect"
     >
       <i-button>级联多选菜单</i-button>
     </i-dropdown>
+
     <i-dropdown
       :options="options"
       cascaderDirection="left"
-      @click="handleSelect"
+      @click="handleSingleSelect"
     >
-      <i-button>向左展开的级联菜单</i-button>
+      <i-button>向左展开的级联单选菜单</i-button>
     </i-dropdown>
+
     <i-dropdown
       :options="options"
-      :value="currentValue"
+      :value="multiVal"
       cascaderDirection="left"
       :multiple="true"
-      @click="handleSelect"
+      @click="handleMultiSelect"
     >
       <i-button>向左展开的级联多选菜单</i-button>
     </i-dropdown>
@@ -76,10 +83,15 @@ const options = [
   }
 ]
 
-const currentValue = ref([])
+const singleVal = ref([])
+const multiVal = ref([])
 
-const handleSelect = (val) => {
+const handleMultiSelect = (val) => {
   console.log(val)
-  currentValue.value = val
+  multiVal.value = val
+}
+const handleSingleSelect = (val) => {
+  console.log(val)
+  singleVal.value = val
 }
 </script>

@@ -1,8 +1,9 @@
 import { defineComponent, PropType } from 'vue';
 import './index.scss';
-import { DropdownOption } from './type'
+import { DropdownItemProps, DropdownOption } from './type'
 import { turnValue } from '../common'
 import DropdownMenu from './dropdown-menu'
+import _ from 'lodash';
 
 export default defineComponent({
   name: 'DropdownMenu',
@@ -81,6 +82,53 @@ export default defineComponent({
       return false
     }
 
+    const ifSelected = (itemVal: string | number) => {
+      if (!_.isArray(props.selectedValue)) {
+        if (itemVal === props.selectedValue) {
+          return true
+        }
+      } else {
+        if (props.selectedValue.includes(itemVal)) {
+          return true
+        }
+      }
+      return false
+    }
+
+    const hasChildSelected = (itemContent: any) => {
+      let result = false
+      if (!_.isArray(itemContent)) {
+        ifSelected(itemContent.value) && (result = true)
+      } else {
+        itemContent.map((item: any) => {
+          if (item.children && item.children.length > 0) {
+            hasChildSelected(item.children) && (result = true)
+          } else {
+            ifSelected(item.value) && (result = true)
+          }
+        })
+      }
+      return result
+    }
+
+    const ifItemActive = (itemVal: string | number, itemContent: DropdownItemProps[] | undefined) => {
+      const ifCascader = itemContent && itemContent.length > 0
+      if (ifCascader) {
+        return hasChildSelected(itemContent)
+      } else {
+        if (!props.multiple) {
+          // 单选 - 末选项
+          return itemVal === props.selectedValue
+        } else {
+          // 多选 - 末选项
+          if (Array.isArray(props.selectedValue)) {
+            return props.selectedValue.includes(itemVal)
+          }
+        }
+      }
+      return false;
+    };
+
     return () => {
       return (
         <ul
@@ -112,17 +160,36 @@ export default defineComponent({
                   data-disabled={ifHasAtt(item.disabled)}
                   onClick={!ifHasAtt(item.disabled) ? ((e) => handleItemClick(item, e)) : () => { }}
                 >
-                  {item.children && item.children?.length > 0 && props.cascaderDirection === 'left' && <i-icon name="ArrowLeft" size={12} color="var(--i-font-2)" />}
+                  {item.children && item.children?.length > 0 && props.cascaderDirection === 'left' && (
+                    <i-icon
+                      name="ArrowLeft"
+                      size={12}
+                      color={
+                        ifItemActive(item.value, item.children) ?
+                          "var(--i-primary-disabled)" :
+                          "var(--i-font-2)"
+                      }
+                    />
+                  )}
                   <div
                     class={[
                       'i-dropdown__item-txt',
-                      ((!props.multiple && item.value === props.selectedValue) || (props.multiple && Array.isArray(props.selectedValue) && props.selectedValue.includes(item.value)))
-                      && 'i-dropdown__item-txt-is-active'
+                      ifItemActive(item.value, item.children) && 'i-dropdown__item-txt-is-active',
                     ]}
                   >
                     {item.content}
                   </div>
-                  {item.children && item.children?.length > 0 && props.cascaderDirection === 'right' && <i-icon name="ArrowRight" size={12} color="var(--i-font-2)" />}
+                  {item.children && item.children?.length > 0 && props.cascaderDirection === 'right' && (
+                    <i-icon
+                      name="ArrowRight"
+                      size={12}
+                      color={
+                        ifItemActive(item.value, item.children) ?
+                          "var(--i-primary-disabled)" :
+                          "var(--i-font-2)"
+                      }
+                    />
+                  )}
                   {item.children && item.children?.length > 0 &&
                     <DropdownMenu
                       options={item.children}
