@@ -23,6 +23,7 @@ import { DatePickerPlugin } from './date-picker'
 import { ColorPickerPlugin } from './color-picker'
 
 import { TagPlugin } from './tag'
+import { EmptyPlugin } from './empty'
 import { AvatarPlugin } from './avatar'
 import { BadgePlugin } from './badge'
 import { CarouselPlugin } from './carousel'
@@ -59,6 +60,7 @@ const IDesignPlugin: Plugin = {
     ColorPickerPlugin.install?.(app)
 
     TagPlugin.install?.(app)
+    EmptyPlugin.install?.(app)
     AvatarPlugin.install?.(app)
     BadgePlugin.install?.(app)
     CarouselPlugin.install?.(app)
@@ -95,6 +97,7 @@ export * from './date-picker'
 export * from './color-picker'
 
 export * from './tag'
+export * from './empty'
 export * from './avatar'
 export * from './badge'
 export * from './carousel'

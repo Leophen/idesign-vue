@@ -206,6 +206,9 @@ html.dark {
 .demo-block {
   .demo-content {
     padding-bottom: 35px !important;
+    img {
+      max-width: unset;
+    }
   }
 }
 
