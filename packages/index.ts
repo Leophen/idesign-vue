@@ -24,6 +24,7 @@ import { ColorPickerPlugin } from './color-picker'
 
 import { TagPlugin } from './tag'
 import { EmptyPlugin } from './empty'
+import { LoadingPlugin } from './loading'
 import { AvatarPlugin } from './avatar'
 import { BadgePlugin } from './badge'
 import { CarouselPlugin } from './carousel'
@@ -61,6 +62,7 @@ const IDesignPlugin: Plugin = {
 
     TagPlugin.install?.(app)
     EmptyPlugin.install?.(app)
+    LoadingPlugin.install?.(app)
     AvatarPlugin.install?.(app)
     BadgePlugin.install?.(app)
     CarouselPlugin.install?.(app)
@@ -98,6 +100,7 @@ export * from './color-picker'
 
 export * from './tag'
 export * from './empty'
+export * from './loading'
 export * from './avatar'
 export * from './badge'
 export * from './carousel'

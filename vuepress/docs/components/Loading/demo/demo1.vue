@@ -1,3 +1,3 @@
 <template>
-  <div>123</div>
+  <i-loading />
 </template>
