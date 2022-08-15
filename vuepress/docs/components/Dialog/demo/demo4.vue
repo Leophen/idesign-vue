@@ -1,6 +1,6 @@
 <template>
-  <i-button @click="handleShow">打开对话框</i-button>
-  <i-dialog :visible="visible" @close="handleHide">
+  <i-button @click="handleShow">自定义宽度</i-button>
+  <i-dialog :visible="visible" :width="800" @close="handleHide">
     <span>对话框内容</span>
     <template #header>
       对话框标题
