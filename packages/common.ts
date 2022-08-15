@@ -4,6 +4,11 @@ import { Component, getCurrentInstance, Slots, VNode, VNodeTypes } from 'vue'
 /**
  * 通用位置类型
  */
+export type positionType = 'top' | 'bottom' | 'right' | 'left'
+
+/**
+ * 通用方位类型
+ */
 export type placementType =
   | 'auto'
   | 'auto-start'
@@ -171,13 +176,17 @@ export const getAllElements = (
  * @param container 装入的容器
  * @param className 容器类名（可选）
  */
-export function useContainer(id: string, container: Element, className?: string) {
-  let result = document.querySelector(`#${id}`);
+export function useContainer(
+  id: string,
+  container: Element,
+  className?: string
+) {
+  let result = document.querySelector(`#${id}`)
   if (!result) {
-    result = document.createElement('div');
-    result.className = className ?? id;
-    result.id = id;
-    container.append(result);
+    result = document.createElement('div')
+    result.className = className ?? id
+    result.id = id
+    container.append(result)
   }
-  return result;
+  return result
 }

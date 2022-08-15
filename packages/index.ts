@@ -32,6 +32,7 @@ import { AlertPlugin } from './alert'
 import { MessagePlugin } from './message'
 import { NotificationPlugin } from './notification'
 import { DialogPlugin } from './dialog'
+import { DrawerPlugin } from './drawer'
 import { PopupPlugin } from './popup'
 
 const IDesignPlugin: Plugin = {
@@ -67,6 +68,7 @@ const IDesignPlugin: Plugin = {
     MessagePlugin.install?.(app)
     NotificationPlugin.install?.(app)
     DialogPlugin.install?.(app)
+    DrawerPlugin.install?.(app)
     PopupPlugin.install?.(app)
   }
 }
@@ -102,6 +104,7 @@ export * from './alert'
 export * from './message'
 export * from './notification'
 export * from './dialog'
+export * from './drawer'
 export * from './popup'
 
 export * from './v-node'

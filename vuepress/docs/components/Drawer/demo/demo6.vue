@@ -1,9 +1,10 @@
 <template>
-  <i-button @click="handleShow">打开抽屉框</i-button>
+  <i-button @click="handleShow">自定义头部</i-button>
   <i-drawer :visible="visible" @close="handleHide">
-    <span>抽屉内容</span>
+    <span>抽屉框内容</span>
     <template #header>
-      抽屉标题
+      <i-icon name="TipWarningFill" />
+      <span>这是一个自定义标题</span>
     </template>
   </i-drawer>
 </template>

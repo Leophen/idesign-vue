@@ -1,40 +1,38 @@
 <template>
-  <Teleport :to="dialogWrapper">
+  <Teleport :to="drawerWrapper">
     <Transition name="i-fade">
       <div
-        class="i-dialog__mask"
+        class="i-drawer__mask"
         v-if="visible && showMask"
-        @click="closeDialog"
-        @scroll="
-          () => {
-            return
-          }
-        "
+        @click="closeDrawer"
       />
     </Transition>
 
-    <Transition name="i-fade">
+    <Transition :name="`drawer-${placement}`">
       <div
-        ref="dialogRef"
-        class="i-dialog"
+        ref="drawerRef"
+        :class="[
+          'i-drawer',
+          placement !== 'right' && `i-drawer--placement-${placement}`
+        ]"
         v-if="visible"
-        :style="{ width: turnValue(width) }"
+        :style="{ width: turnValue(width), height: turnValue(height) }"
       >
-        <div class="i-dialog__close" @click="closeDialog">
+        <div class="i-drawer__close" @click="closeDrawer">
           <Icon name="Close" />
         </div>
-        <div class="i-dialog__header">
+        <div class="i-drawer__header">
           <slot name="header" />
         </div>
-        <div class="i-dialog__body">
+        <div class="i-drawer__body">
           <slot />
         </div>
-        <div class="i-dialog__footer">
+        <div class="i-drawer__footer" v-if="!hideFooter">
           <template v-if="$slots.footer">
             <slot name="footer" />
           </template>
           <template v-else>
-            <Button variant="outline" @click="closeDialog">取消</Button>
+            <Button variant="outline" @click="closeDrawer">取消</Button>
             <Button>确认</Button>
           </template>
         </div>
@@ -45,22 +43,14 @@
 
 <script setup lang="ts">
 import { Icon } from '../icon'
-import { Button } from '../button'
-import { hasParent, useContainer, turnValue } from '../common'
+import { Button } from '../Button'
+import { hasParent, positionType, turnValue, useContainer } from '../common'
 import { nextTick, ref, watch } from 'vue'
 
-// 获取触发对话框打开的 DOM 节点原位置
+// 获取触发抽屉打开的 DOM 节点原位置
 let clickOpenTarget: EventTarget | null
-let mousePosition: { x: number; y: number } | null
 const getClickPosition = (e: MouseEvent) => {
   clickOpenTarget = e.target
-  mousePosition = {
-    x: e.clientX,
-    y: e.clientY
-  }
-  setTimeout(() => {
-    mousePosition = null
-  }, 100)
 }
 if (
   typeof window !== 'undefined' &&
@@ -70,13 +60,13 @@ if (
   document.documentElement.addEventListener('click', getClickPosition, true)
 }
 
-// 创建对话框容器
+// 创建抽屉容器
 const popupWrapper = useContainer('i-popup-wrapper', document.body)
-const dialogWrapper = useContainer('i-dialog-wrapper', popupWrapper)
+const drawerWrapper = useContainer('i-drawer-wrapper', popupWrapper)
 
-interface DialogProps {
+interface DrawerProps {
   /**
-   * 控制对话框显示隐藏
+   * 控制抽屉显示隐藏
    * @default false
    */
   visible?: boolean
@@ -91,14 +81,28 @@ interface DialogProps {
    */
   showMask?: boolean
   /**
-   * 对话框宽度
+   * 是否显示底部内容
+   * @default false
+   */
+  hideFooter?: boolean
+  /**
+   * 抽屉展开位置
+   * @default right
+   */
+  placement?: positionType
+  /**
+   * 抽屉宽度
    */
   width?: string | number
+  /**
+   * 抽屉高度
+   */
+  height?: string | number
 }
 
-interface DialogEmits {
+interface DrawerEmits {
   /**
-   * 对话框关闭时触发事件
+   * 抽屉框关闭时触发事件
    */
   (type: 'close'): void
 }
@@ -107,9 +111,12 @@ const {
   visible = false,
   closeOnEsc = true,
   showMask = true,
-  width
-} = defineProps<DialogProps>()
-const emit = defineEmits<DialogEmits>()
+  hideFooter = false,
+  placement = 'right',
+  width,
+  height
+} = defineProps<DrawerProps>()
+const emit = defineEmits<DrawerEmits>()
 
 const handleKeyDown = (e: any) => {
   if (e.key === 'Escape') {
@@ -117,21 +124,21 @@ const handleKeyDown = (e: any) => {
   }
 }
 
-const closeDialog = () => {
+const closeDrawer = () => {
   emit('close')
   closeOnEsc && document.removeEventListener('keydown', handleKeyDown)
 }
 
-const dialogRef = ref<any>()
+const drawerRef = ref<any>(null)
 
-const handleClick = (e: MouseEvent) => {
-  if (!hasParent(e.target, dialogRef.value) && e.target !== clickOpenTarget) {
-    closeDialog()
+const handleClick = (e: any) => {
+  if (!hasParent(e.target, drawerRef.value) && e.target !== clickOpenTarget) {
+    closeDrawer()
     document.removeEventListener('click', handleClick, true)
   }
 }
 
-// 打开对话框时禁止背景滚动，对原 overflow 进行备份
+// 打开抽屉时禁止背景滚动，对原 overflow 进行备份
 const bodyOverflow = ref<string>(document.body.style.overflow)
 
 watch(
@@ -139,21 +146,15 @@ watch(
   (visible) => {
     if (visible) {
       nextTick(() => {
-        // 打开对话框时禁止背景滚动
+        // 打开抽屉时禁止背景滚动
         document.body.style.overflow = 'hidden'
         // 退出键功能
         closeOnEsc && document.addEventListener('keydown', handleKeyDown)
-        // 展开动画出发点
-        if (mousePosition && dialogRef.value) {
-          dialogRef.value.style.transformOrigin = `${
-            mousePosition.x - dialogRef.value.offsetLeft
-          }px ${mousePosition.y - dialogRef.value.offsetTop}px`
-        }
         // 无遮罩层时点击关闭功能
         !showMask && document.addEventListener('click', handleClick, true)
       })
     } else {
-      // 关闭对话框时恢复背景滚动
+      // 关闭抽屉时恢复背景滚动
       document.body.style.overflow = bodyOverflow.value
     }
   },

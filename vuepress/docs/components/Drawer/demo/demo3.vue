@@ -1,9 +1,9 @@
 <template>
-  <i-button @click="handleShow">打开抽屉框</i-button>
-  <i-drawer :visible="visible" @close="handleHide">
-    <span>抽屉内容</span>
+  <i-button @click="handleShow">隐藏遮罩层</i-button>
+  <i-drawer :visible="visible" :showMask="false" @close="handleHide">
+    <span>抽屉框内容</span>
     <template #header>
-      抽屉标题
+      抽屉框标题
     </template>
   </i-drawer>
 </template>

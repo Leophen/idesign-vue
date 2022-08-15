@@ -1,6 +1,6 @@
 <template>
-  <i-button @click="handleShow">打开抽屉框</i-button>
-  <i-drawer :visible="visible" @close="handleHide">
+  <i-button @click="handleShow">禁用抽屉退出键功能</i-button>
+  <i-drawer :visible="visible" :closeOnEsc="false" @close="handleHide">
     <span>抽屉内容</span>
     <template #header>
       抽屉标题
