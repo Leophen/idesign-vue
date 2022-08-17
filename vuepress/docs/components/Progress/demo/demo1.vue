@@ -1,3 +1,3 @@
 <template>
-  <div>123</div>
+  <i-progress :percentage="60" />
 </template>
