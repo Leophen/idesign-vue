@@ -1,7 +1,7 @@
 import './index.scss';
 import MenuItem from './menu-item';
 import MenuGroup from './menu-group';
-import { computed, defineComponent, mergeProps, PropType, provide, ref } from 'vue';
+import { computed, defineComponent, mergeProps, PropType, provide, ref, VNode } from 'vue';
 import { getAllElements, turnValue } from '../common';
 
 export default defineComponent({
@@ -22,8 +22,7 @@ export default defineComponent({
      * @default 0
      */
     defaultActive: {
-      type: [String, Number],
-      default: '0'
+      type: [String, Number]
     },
     /**
      * 导航方向
@@ -42,12 +41,13 @@ export default defineComponent({
   },
   setup(props, { slots, emit }) {
     // 初始默认值（导航第一项）
-    // let defaultVal
-    // React.Children.map(props.children, (child, index) => {
-    //   index === 0 && (defaultVal = (child as ReactElement).props.value || '0')
-    // })
+    let defaultVal = '0'
+    const children = getAllElements(slots.default?.() ?? []);
+    children.forEach((child: any, index) => {
+      index === 0 && (defaultVal = props.defaultActive ?? child.props?.value ?? '0')
+    })
 
-    const _menuActive = ref(props.defaultActive)
+    const _menuActive = ref<string | number>(defaultVal)
     const innerActive = computed(() => props.active ?? _menuActive.value)
 
     const handleChange = (val: string | number) => {
@@ -61,7 +61,6 @@ export default defineComponent({
 
     return () => {
       const prefixContent = slots.prefixContent?.();
-      const children = getAllElements(slots.default?.() ?? []);
       const suffixContent = slots.suffixContent?.();
 
       const childItems = children.map((child, index) => {

@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /images/logo.png
+heroImage: /images/logo.svg
 actions:
 - text: Get Started
   link: /components/Button/Button.md
