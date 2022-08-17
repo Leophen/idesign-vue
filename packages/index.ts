@@ -11,6 +11,7 @@ import { ScrollbarPlugin } from './scrollbar'
 import { DropdownPlugin } from './dropdown'
 import { MenuPlugin } from './menu'
 import { BreadcrumbPlugin } from './breadcrumb'
+import { PaginationPlugin } from './pagination'
 import { BackTopPlugin } from './back-top'
 
 import { SwitchPlugin } from './switch'
@@ -50,6 +51,7 @@ const IDesignPlugin: Plugin = {
     DropdownPlugin.install?.(app)
     MenuPlugin.install?.(app)
     BreadcrumbPlugin.install?.(app)
+    PaginationPlugin.install?.(app)
     BackTopPlugin.install?.(app)
 
     SwitchPlugin.install?.(app)
@@ -89,6 +91,7 @@ export * from './scrollbar'
 export * from './dropdown'
 export * from './menu'
 export * from './breadcrumb'
+export * from './pagination'
 export * from './back-top'
 
 export * from './switch'

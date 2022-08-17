@@ -23,7 +23,7 @@ export default defineComponent({
      */
     'change': (value?: string | number) => true
   },
-  setup(props, { slots, emit }) {
+  setup(props, { slots, emit, attrs }) {
     const itemValue = props.value || String(props.index)
     const handleClickItem = () => {
       emit('click', itemValue)
@@ -41,6 +41,7 @@ export default defineComponent({
             itemValue === menuCtx.active.value && 'i-menu-item__active',
           ]}
           onClick={handleClickItem}
+          {...attrs}
         >
           <span class="i-menu-item__txt">{children}</span>
         </li>

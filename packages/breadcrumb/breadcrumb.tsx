@@ -13,7 +13,7 @@ export default defineComponent({
      */
     separator: [String, HTMLElement]
   },
-  setup(props, { slots }) {
+  setup(props, { slots, attrs }) {
     provide(
       'breadcrumbCtx',
       {
@@ -24,7 +24,7 @@ export default defineComponent({
 
     return () => {
       return (
-        <div class='i-breadcrumb'>
+        <div class='i-breadcrumb' {...attrs}>
           {slots.default?.()}
         </div>
       );

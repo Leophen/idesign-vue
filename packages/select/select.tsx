@@ -115,7 +115,7 @@ export default defineComponent({
      */
     'change': (val: string | number | Array<string | number>) => true,
   },
-  setup(props, { slots, emit }) {
+  setup(props, { slots, emit, attrs }) {
     // 转换下拉数据及更新下拉框宽度
     const selectRef = ref<HTMLDivElement>()
     const innerOptions = ref(props.options)
@@ -235,6 +235,7 @@ export default defineComponent({
           class='i-select'
           style={{ width: turnValue(props.width), minWidth: turnValue(props.width) }}
           data-size={props.size}
+          {...attrs}
         >
           <Dropdown
             width={dropdownWidth.value}

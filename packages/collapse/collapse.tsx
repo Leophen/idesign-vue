@@ -71,7 +71,7 @@ export default defineComponent({
      */
     'change': (value?: Array<string | number>) => true,
   },
-  setup(props, { slots, emit }) {
+  setup(props, { attrs, emit }) {
     const getChildComponentByName = useChildComponentSlots();
     const childrenList = getChildComponentByName('CollapseItem')
 
@@ -131,6 +131,7 @@ export default defineComponent({
             props.hideBorder && 'i-collapse__hide-border',
             props.noIndent && 'i-collapse__no-indent'
           ]}
+          {...attrs}
         >
           {collapseItems()}
         </div>

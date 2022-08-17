@@ -14,7 +14,7 @@ export default defineComponent({
      */
     'clickSuffix': (ev?: MouseEvent) => true,
   },
-  setup(props, { slots, emit }) {
+  setup(props, { slots, emit, attrs }) {
     const contentHeight = ref(0);
     const groupNode = ref(null);
 
@@ -56,6 +56,7 @@ export default defineComponent({
           class='i-input__group'
           style={{ height: turnValue(contentHeight.value) }}
           ref={groupNode}
+          {...attrs}
         >
           {prefixContent && (
             <div

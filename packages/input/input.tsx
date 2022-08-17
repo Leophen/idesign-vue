@@ -203,7 +203,7 @@ export default defineComponent({
      */
     'clickSuffixIcon': (ev?: MouseEvent) => true,
   },
-  setup(props, { slots, emit }) {
+  setup(props, { slots, emit, attrs }) {
     // 聚焦 input 输入框
     const inputRef = ref<HTMLInputElement>();
     const focusInputNode = (e: MouseEvent) => {
@@ -526,6 +526,7 @@ export default defineComponent({
               currentType.value && `i-input--type-${currentType.value}`,
             ]}
             onClick={focusInputNode}
+            {...attrs}
           >
             {props.prefixIcon && renderPrefixIcon}
             {children}

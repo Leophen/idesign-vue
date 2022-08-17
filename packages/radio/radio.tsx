@@ -51,7 +51,7 @@ export default defineComponent({
      */
     'change': (checked: boolean, ev: Event) => true,
   },
-  setup(props, { slots, emit }) {
+  setup(props, { slots, emit, attrs }) {
     const _radioChecked = ref(props.defaultChecked)
     const innerChecked = computed(() => props.checked ?? _radioChecked.value)
 
@@ -80,6 +80,7 @@ export default defineComponent({
             mergedDisabled.value && `i-${mergedType.value}-is-disabled`,
             mergedSize.value && `i-${mergedType.value}--size-${mergedSize.value}`,
           ]}
+          {...attrs}
         >
           <input
             readonly

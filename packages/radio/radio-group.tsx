@@ -39,7 +39,7 @@ export default defineComponent({
      */
     'change': (value?: string | number, event?: Event) => true,
   },
-  setup(props, { slots, emit }) {
+  setup(props, { attrs, emit }) {
     const getChildComponentByName = useChildComponentSlots();
     const childrenList = getChildComponentByName('Radio')
 
@@ -79,7 +79,7 @@ export default defineComponent({
 
     return () => {
       return (
-        <div class='i-radio-group'>
+        <div class='i-radio-group' {...attrs}>
           {radioItems()}
         </div>
       );

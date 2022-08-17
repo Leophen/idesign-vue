@@ -19,7 +19,7 @@ export default defineComponent({
      */
     maxWidth: [String, Number],
   },
-  setup(props, { slots }) {
+  setup(props, { slots, attrs }) {
     const breadcrumbCtx: any = inject('breadcrumbCtx', undefined);
 
     // 限制最大宽度
@@ -52,6 +52,7 @@ export default defineComponent({
             'i-breadcrumb__item',
             props.disabled && 'i-breadcrumb-is-disabled'
           ]}
+          {...attrs}
         >
           <span class="i-breadcrumb__inner" style={currentMaxWidth.value}>
             {children}

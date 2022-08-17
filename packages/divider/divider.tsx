@@ -21,7 +21,7 @@ export default defineComponent({
       default: false
     }
   },
-  setup(props, { slots }) {
+  setup(props, { slots, attrs }) {
     return () => {
       const children = slots.default?.();
 
@@ -33,6 +33,7 @@ export default defineComponent({
             children && 'i-divider--with-text',
             children && `i-divider--with-text-${props.align}`,
           ]}
+          {...attrs}
         >
           {children && (
             <span class="i-divider--text">

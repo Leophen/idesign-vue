@@ -102,7 +102,7 @@ export default defineComponent({
      */
     'blur': (value: string | number, ev?: Event) => true,
   },
-  setup(props, { slots, emit }) {
+  setup(props, { attrs, emit }) {
 
     const _inputValue = ref(props.defaultValue)
     const innerValue = computed(() => props.value ?? _inputValue.value)
@@ -155,7 +155,7 @@ export default defineComponent({
     return () => {
       return (
         <>
-          <div class='i-textarea'>
+          <div class='i-textarea' {...attrs}>
             <textarea
               class={[
                 'i-textarea__inner',

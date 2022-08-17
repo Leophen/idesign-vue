@@ -44,7 +44,7 @@ export default defineComponent({
      */
     'change': (checked: boolean, ev: Event) => true,
   },
-  setup(props, { slots, emit }) {
+  setup(props, { slots, emit, attrs }) {
     const _checkboxChecked = ref(props.defaultChecked)
     const innerChecked = computed(() => props.checked ?? _checkboxChecked.value)
 
@@ -72,6 +72,7 @@ export default defineComponent({
             mergedDisabled.value && 'i-checkbox-is-disabled',
             mergedSize.value && `i-checkbox--size-${mergedSize.value}`
           ]}
+          {...attrs}
         >
           <input
             readonly

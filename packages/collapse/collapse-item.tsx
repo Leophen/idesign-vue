@@ -52,7 +52,7 @@ export default defineComponent({
      */
     'clickHeader': (e: MouseEvent) => true,
   },
-  setup(props, { slots, emit }) {
+  setup(props, { slots, emit, attrs }) {
     const collapseCtx: any = inject('collapseCtx', undefined)
 
     const mergedDisabled = computed(() => props.disabled || collapseCtx?.disabled || false)
@@ -88,6 +88,7 @@ export default defineComponent({
             mergedDisabled.value && 'i-collapse-item__disabled',
             mergedIconPlacement.value === 'right' && 'i-collapse-item__icon-right'
           ]}
+          {...attrs}
         >
           <header
             class={[

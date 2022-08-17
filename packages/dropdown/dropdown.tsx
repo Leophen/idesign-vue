@@ -99,7 +99,7 @@ export default defineComponent({
      */
     'trigger': (visible: boolean) => true
   },
-  setup(props, { slots, emit }) {
+  setup(props, { slots, emit, attrs }) {
     const popupVisible = ref(false)
 
     const switchPopup = (visible: boolean) => {
@@ -145,6 +145,7 @@ export default defineComponent({
           maxHeight: turnValue(props.maxHeight),
           overflowY: turnValue(props.maxHeight) ? 'auto' : 'unset'
         }}
+        {...attrs}
       >
         <DropdownMenu
           size={props.size}

@@ -88,7 +88,7 @@ export default defineComponent({
      */
     'change': (current: number) => true,
   },
-  setup(props, { emit }) {
+  setup(props, { emit, attrs }) {
     const innerCurrent = ref(0)
     const childrenLength = ref(0)
     const ifAnimation = ref(false)
@@ -295,6 +295,7 @@ export default defineComponent({
           ]}
           style={{ width: turnValue(props.width), height: turnValue(props.height) }}
           ref={carouselRef}
+          {...attrs}
         >
           <div
             class="i-carousel__content"

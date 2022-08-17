@@ -39,7 +39,7 @@ export default defineComponent({
      */
     'change': (value?: string | number) => true,
   },
-  setup(props, { slots, emit }) {
+  setup(props, { slots, emit, attrs }) {
     // 初始默认值（导航第一项）
     let defaultVal = '0'
     const children = getAllElements(slots.default?.() ?? []);
@@ -83,6 +83,7 @@ export default defineComponent({
             props.direction === 'vertical' && 'i-menu__vertical'
           ]}
           style={{ width: turnValue(props.width) }}
+          {...attrs}
         >
           {prefixContent && (
             <header class="i-menu__logo">

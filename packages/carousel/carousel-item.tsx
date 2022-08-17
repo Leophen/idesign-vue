@@ -71,7 +71,7 @@ export default defineComponent({
      */
     'clickItem': (index: number) => true,
   },
-  setup(props, { slots, emit }) {
+  setup(props, { slots, emit, attrs }) {
     const disposeIndex = computed(() => {
       if (props.type !== 'card') return 0;
       if (props.innerCurrent === 0 && props.index === props.childrenLength - 1) {
@@ -142,6 +142,7 @@ export default defineComponent({
           class='i-carousel-item'
           style={itemStyle.value}
           onClick={() => { emit('clickItem', props.index) }}
+          {...attrs}
         >
           {children}
         </li>

@@ -34,7 +34,7 @@ export default defineComponent({
      */
     'change': (value?: Array<string | number>, event?: Event) => true,
   },
-  setup(props, { slots, emit }) {
+  setup(props, { emit, attrs }) {
     const _groupChecked = ref(props.defaultValue)
     const innerChecked = computed(() => props.value ?? _groupChecked.value)
     let groupCheckedArr: Set<any> = new Set([].concat(innerChecked.value as any));
@@ -71,7 +71,7 @@ export default defineComponent({
 
     return () => {
       return (
-        <div class='i-checkbox-group'>
+        <div class='i-checkbox-group' {...attrs}>
           {checkboxItems()}
         </div>
       );
