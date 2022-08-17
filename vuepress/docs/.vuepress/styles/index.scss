@@ -96,6 +96,12 @@ html.dark {
   }
 }
 
+.demo-Menu {
+  .demo-content {
+    background: var(--i-bg-hover);
+  }
+}
+
 .demo-Scrollbar,
 .demo-BackTop {
   .demo-content {

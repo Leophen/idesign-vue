@@ -111,7 +111,7 @@ export default defineComponent({
             onClickHeader={() => updateInnerActive(itemVal)}
             {...item.props}
           >
-            {item.children.default()}
+            {item.children?.default()}
           </CollapseItem>
         );
       })

@@ -68,6 +68,27 @@ export const hasParent = (node: any, parent: HTMLElement | null) => {
 }
 
 /**
+ * 获取装入指定容器的 id 节点
+ * @param id 标识符
+ * @param container 装入的容器
+ * @param className 容器类名（可选）
+ */
+export function useContainer(
+  id: string,
+  container: Element,
+  className?: string
+) {
+  let result = document.querySelector(`#${id}`)
+  if (!result) {
+    result = document.createElement('div')
+    result.className = className ?? id
+    result.id = id
+    container.append(result)
+  }
+  return result
+}
+
+/**
  * 渲染 default slot，获取子组件 VNode。处理多种子组件创建场景
  * @returns {function(childComponentName: string, slots: Slots): VNode[]}
  * @param childComponentName
@@ -169,24 +190,3 @@ export const getAllElements = (
   return results
 }
 // 模拟 React.children - 2
-
-/**
- * 获取装入指定容器的 id 节点
- * @param id 标识符
- * @param container 装入的容器
- * @param className 容器类名（可选）
- */
-export function useContainer(
-  id: string,
-  container: Element,
-  className?: string
-) {
-  let result = document.querySelector(`#${id}`)
-  if (!result) {
-    result = document.createElement('div')
-    result.className = className ?? id
-    result.id = id
-    container.append(result)
-  }
-  return result
-}

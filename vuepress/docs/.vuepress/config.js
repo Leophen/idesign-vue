@@ -6,7 +6,7 @@ const { docsearchPlugin } = require('@vuepress/plugin-docsearch')
 module.exports = {
   title: 'iDesign',
   description: '一套基于 Vue 的高质量 UI 组件库',
-  head: [['link', { rel: 'icon', type: 'image/png', href: '/images/logo.png' }]],
+  head: [['link', { rel: 'icon', type: 'image/png', href: '/images/logo.ico' }]],
   base: process.env.BASE || '/',
   host: "0.0.0.0",
   port: 3333,
@@ -17,7 +17,7 @@ module.exports = {
   },
   bundler: viteBundler({}),
   theme: defaultTheme({
-    logo: '/images/logo.png',
+    logo: '/images/logo.svg',
     navbar: [
       {
         text: '指南',
