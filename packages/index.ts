@@ -29,6 +29,7 @@ import { EmptyPlugin } from './empty'
 import { LoadingPlugin } from './loading'
 import { AvatarPlugin } from './avatar'
 import { BadgePlugin } from './badge'
+import { ImagePlugin } from './image'
 import { CarouselPlugin } from './carousel'
 import { CollapsePlugin } from './collapse'
 
@@ -69,6 +70,7 @@ const IDesignPlugin: Plugin = {
     LoadingPlugin.install?.(app)
     AvatarPlugin.install?.(app)
     BadgePlugin.install?.(app)
+    ImagePlugin.install?.(app)
     CarouselPlugin.install?.(app)
     CollapsePlugin.install?.(app)
 
@@ -109,6 +111,7 @@ export * from './empty'
 export * from './loading'
 export * from './avatar'
 export * from './badge'
+export * from './image'
 export * from './carousel'
 export * from './collapse'
 

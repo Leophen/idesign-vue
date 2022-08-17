@@ -1,39 +1,24 @@
-# Image 图片查看器（开发中）
+# Image 图片查看器
 
 用于显示及缩放查看的图片组件。
 
 ## 基本用法
 
-```tsx
-import React from 'react';
-import { Image } from 'idesign-react';
-
-const App = () => {
-  return (
-    <Image src="https://picsum.photos/180/120" />
-  );
-};
-
-export default App;
-```
+:::demo
+Image/demo/demo1
+:::
 
 ## 自定义大小
 
 通过 `width` 属性控制图片大小。
 
-```tsx
-import React from 'react';
-import { Image } from 'idesign-react';
+:::demo
+Image/demo/demo2
+:::
 
-const App = () => {
-  return (
-    <div className="idesign-demo-block-row">
-      <Image width={260} src="https://picsum.photos/180/120" />
-      <Image width="260px" src="https://picsum.photos/180/120" />
-    </div>
-  );
-};
+## Image Attributes
 
-export default App;
-```
-
+| 属性  | 说明     | 类型             | 默认值 |
+| ----- | -------- | ---------------- | ------ |
+| src   | 图片地址 | `string`         | `--`   |
+| width | 图片宽度 | `string〡number` | `200`  |

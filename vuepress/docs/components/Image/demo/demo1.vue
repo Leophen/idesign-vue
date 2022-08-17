@@ -1,3 +1,3 @@
 <template>
-  <div>123</div>
+  <i-image src="https://picsum.photos/180/120" />
 </template>
