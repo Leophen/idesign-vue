@@ -1,3 +1,9 @@
 <template>
-  <div>123</div>
+  <i-upload @change="handleChange" />
 </template>
+
+<script setup>
+const handleChange = (file) => {
+  console.log(file)
+}
+</script>
