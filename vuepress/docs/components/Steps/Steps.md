@@ -1,4 +1,4 @@
-# Steps 步骤条（开发中）
+# Steps 步骤条
 
 任务流程中常见的步骤条。
 
@@ -6,209 +6,46 @@
 
 可通过 `current` 设置当前进行的步骤，默认为 `0`：
 
-```tsx
-import React from 'react';
-import { Steps } from 'idesign-react';
-
-const App = () => {
-  return (
-    <>
-      <h4>不设置 current</h4>
-      <Steps>
-        <Steps.Item
-          title="步骤1"
-          description="提示文字"
-        />
-        <Steps.Item
-          title="步骤2"
-          description="提示文字"
-        />
-        <Steps.Item
-          title="步骤3"
-          description="提示文字"
-        />
-      </Steps>
-      <h4>设置 current</h4>
-      <Steps current={2}>
-        <Steps.Item
-          title="步骤1"
-          description="提示文字"
-        />
-        <Steps.Item
-          title="步骤2"
-          description="提示文字"
-        />
-        <Steps.Item
-          title="步骤3"
-          description="提示文字"
-        />
-      </Steps>
-    </>
-  );
-};
-
-export default App;
-```
+:::demo
+Steps/demo/demo1
+:::
 
 ## 无序状态
 
 可通过 `dot` 设置为无序小圆点步骤条：
 
-```tsx
-import React from 'react';
-import { Steps } from 'idesign-react';
-
-const App = () => {
-  return (
-    <>
-      <h4>不设置 current</h4>
-      <Steps dot>
-        <Steps.Item
-          title="步骤1"
-          description="提示文字"
-        />
-        <Steps.Item
-          title="步骤2"
-          description="提示文字"
-        />
-        <Steps.Item
-          title="步骤3"
-          description="提示文字"
-        />
-      </Steps>
-      <h4>设置 current</h4>
-      <Steps dot current={2}>
-        <Steps.Item
-          title="步骤1"
-          description="提示文字"
-        />
-        <Steps.Item
-          title="步骤2"
-          description="提示文字"
-        />
-        <Steps.Item
-          title="步骤3"
-          description="提示文字"
-        />
-      </Steps>
-    </>
-  );
-};
-
-export default App;
-```
+:::demo
+Steps/demo/demo2
+:::
 
 ## 垂直状态
 
 可通过 `layout` 设置为垂直步骤条：
 
-```tsx
-import React from 'react';
-import { Steps } from 'idesign-react';
-
-const App = () => {
-  return (
-    <div className="idesign-demo-block-row">
-      <Steps layout="vertical" current={2}>
-        <Steps.Item
-          title="步骤1"
-          description="提示文字"
-        />
-        <Steps.Item
-          title="步骤2"
-          description="提示文字"
-        />
-        <Steps.Item
-          title="步骤3"
-          description="提示文字"
-        />
-      </Steps>
-      <Steps layout="vertical" dot current={2}>
-        <Steps.Item
-          title="步骤1"
-          description="提示文字"
-        />
-        <Steps.Item
-          title="步骤2"
-          description="提示文字"
-        />
-        <Steps.Item
-          title="步骤3"
-          description="提示文字"
-        />
-      </Steps>
-    </div>
-  );
-};
-
-export default App;
-```
+:::demo
+Steps/demo/demo3
+:::
 
 ## 倒序步骤条
 
 可通过 `reverse` 设置为倒序步骤条：
 
-```tsx
-import React from 'react';
-import { Steps } from 'idesign-react';
+:::demo
+Steps/demo/demo4
+:::
 
-const App = () => {
-  return (
-    <>
-      <h4>默认正向</h4>
-      <Steps>
-        <Steps.Item
-          title="步骤1"
-          description="提示文字"
-        />
-        <Steps.Item
-          title="步骤2"
-          description="提示文字"
-        />
-        <Steps.Item
-          title="步骤3"
-          description="提示文字"
-        />
-      </Steps>
-      <h4>反向顺序</h4>
-      <Steps reverse>
-        <Steps.Item
-          title="步骤1"
-          description="提示文字"
-        />
-        <Steps.Item
-          title="步骤2"
-          description="提示文字"
-        />
-        <Steps.Item
-          title="步骤3"
-          description="提示文字"
-        />
-      </Steps>
-    </>
-  );
-};
+## Steps Attributes
 
-export default App;
-```
+| 属性    | 说明               | 类型                   | 默认值       |
+| ------- | ------------------ | ---------------------- | ------------ |
+| current | 进行到哪一步       | `number`               | `0`          |
+| layout  | 步骤条方向         | `horizontal〡vertical` | `horizontal` |
+| reverse | 步骤条是否倒序     | `boolean`              | `false`      |
+| dot     | 是否为无序的步骤条 | `boolean`              | `false`      |
 
-## Steps API
+## StepsItem Slots
 
-| 属性      | 说明               | 类型                   | 默认值       |
-| --------- | ------------------ | ---------------------- | ------------ |
-| children  | 按钮内容           | `ReactNode`            | `--`           |
-| className | 类名               | `string`               | `--`           |
-| style     | 自定义样式         | `CSSProperties`        | `--`           |
-| current   | 进行到哪一步       | `number`               | `0`          |
-| layout    | 步骤条方向         | `horizontal〡vertical` | `horizontal` |
-| reverse   | 步骤条是否倒序     | `boolean`              | `false`      |
-| dot       | 是否为无序的步骤条 | `boolean`              | `false`      |
-
-## StepsItem API
-
-| 属性        | 说明               | 类型              | 默认值  |
-| ----------- | ------------------ | ----------------- | ------- |
-| className   | 类名               | `string`          | `--`      |
-| style       | 自定义样式         | `CSSProperties`   | `--`      |
-| title       | 步骤标题           | `string | HTMLElement` | `--`    |
-| description | 步骤描述           | `string | HTMLElement` | `--`    |
+| 插槽名      | 说明     |
+| ----------- | -------- |
+| title       | 步骤标题 |
+| description | 步骤描述 |

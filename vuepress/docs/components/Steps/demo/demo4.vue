@@ -1,5 +1,5 @@
 <template>
-  <h4>不设置 current</h4>
+  <h4>默认正向</h4>
   <i-steps>
     <i-steps-item>
       <template #title>步骤1</template>
@@ -14,8 +14,8 @@
       <template #description>提示文字</template>
     </i-steps-item>
   </i-steps>
-  <h4>设置 current</h4>
-  <i-steps :current="2">
+  <h4>反向顺序</h4>
+  <i-steps reverse>
     <i-steps-item>
       <template #title>步骤1</template>
       <template #description>提示文字</template>
