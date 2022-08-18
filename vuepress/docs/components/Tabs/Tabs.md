@@ -1,129 +1,55 @@
-# Tabs 选项卡（开发中）
+# Tabs 选项卡
 
 用于在同个页面下进行快速切换的选项卡。
 
 ## 基本用法
 
-使用 `Tabs` 包裹菜单的每一项 `Tabs.Item`：
+使用 `i-tabs` 包裹菜单的每一项 `i-tabs-item`：
 
-```tsx
-import React, { useState } from 'react'
-import { Tabs } from 'idesign-react'
-
-const App = () => {
-  const [value, setValue] = useState(1)
-
-  const handleChange = (val) => {
-    console.log(val)
-    setValue(val)
-  }
-
-  return (
-    <>
-      <h4>无默认值</h4>
-      <Tabs>
-        <Tabs.Item>选项卡1</Tabs.Item>
-        <Tabs.Item>选项卡22</Tabs.Item>
-        <Tabs.Item>选项卡333</Tabs.Item>
-      </Tabs>
-      <h4>有默认值（非受控）</h4>
-      <Tabs defaultActive={value}>
-        <Tabs.Item>选项卡1</Tabs.Item>
-        <Tabs.Item>选项卡22</Tabs.Item>
-        <Tabs.Item>选项卡333</Tabs.Item>
-      </Tabs>
-      <h4>有固定值（受控）</h4>
-      <Tabs active={value}>
-        <Tabs.Item>选项卡1</Tabs.Item>
-        <Tabs.Item>选项卡22</Tabs.Item>
-        <Tabs.Item>选项卡333</Tabs.Item>
-      </Tabs>
-      <h4>一般用法</h4>
-      <Tabs active={value} onChange={handleChange}>
-        <Tabs.Item>选项卡1</Tabs.Item>
-        <Tabs.Item>选项卡22</Tabs.Item>
-        <Tabs.Item>选项卡333</Tabs.Item>
-      </Tabs>
-    </>
-  )
-}
-
-export default App
-```
+:::demo
+Tabs/demo/demo1
+:::
 
 ## 卡片风格
 
 通过 `theme` 属性指定卡片风格：
 
-```tsx
-import React, { useState } from 'react'
-import { Tabs } from 'idesign-react'
-
-const App = () => {
-  return (
-    <Tabs defaultActive="2" theme="card">
-      <Tabs.Item value="1">选项卡1</Tabs.Item>
-      <Tabs.Item value="2">选项卡22</Tabs.Item>
-      <Tabs.Item value="3">选项卡333</Tabs.Item>
-    </Tabs>
-  )
-}
-
-export default App
-```
+:::demo
+Tabs/demo/demo2
+:::
 
 ## 禁用状态
 
 通过 `disabled` 属性指定选项卡禁用：
 
-```tsx
-import React, { useState } from 'react'
-import { Tabs } from 'idesign-react'
+:::demo
+Tabs/demo/demo3
+:::
 
-const App = () => {
-  return (
-    <>
-      <h4>全局禁用</h4>
-      <Tabs disabled>
-        <Tabs.Item>选项卡1</Tabs.Item>
-        <Tabs.Item>选项卡22</Tabs.Item>
-        <Tabs.Item>选项卡333</Tabs.Item>
-      </Tabs>
-      <h4>单项禁用</h4>
-      <Tabs>
-        <Tabs.Item>选项卡1</Tabs.Item>
-        <Tabs.Item disabled>选项卡22</Tabs.Item>
-        <Tabs.Item>选项卡333</Tabs.Item>
-      </Tabs>
-      <h4>卡片风格全局禁用</h4>
-      <Tabs theme="card" disabled>
-        <Tabs.Item>选项卡1</Tabs.Item>
-        <Tabs.Item>选项卡22</Tabs.Item>
-        <Tabs.Item>选项卡333</Tabs.Item>
-      </Tabs>
-      <h4>卡片风格单项禁用</h4>
-      <Tabs theme="card">
-        <Tabs.Item>选项卡1</Tabs.Item>
-        <Tabs.Item disabled>选项卡22</Tabs.Item>
-        <Tabs.Item>选项卡333</Tabs.Item>
-      </Tabs>
-    </>
-  )
-}
+## Tabs Attributes
 
-export default App
-```
+| 属性          | 说明                 | 类型               | 默认值   |
+| ------------- | -------------------- | ------------------ | -------- |
+| theme         | 选项卡风格类型       | `"normal"〡"card"` | `normal` |
+| active        | 固定选中值（受控）   | `string〡number`   | `--`     |
+| defaultActive | 默认选中值（非受控） | `string〡number`   | `--`     |
+| disabled      | 全局禁用             | `boolean`          | `false`  |
 
-## Tabs API
+## Tabs Events
 
+| 属性   | 说明             | 类型                              | 默认值 |
+| ------ | ---------------- | --------------------------------- | ------ |
+| change | 点击选项卡时触发 | `(value: string〡number) => void` | `--`   |
 
-## TabsItem API
+## TabsItem Attributes
 
-| 属性      | 说明             | 类型                               | 默认值  |
-| --------- | ---------------- | ---------------------------------- | ------- |
-| children  | 按钮内容         | `ReactNode`                        | `--`      |
-| className | 类名             | `string`                           | `--`      |
-| style     | 自定义样式       | `CSSProperties`                    | `--`      |
-| value     | 单项值           | `string〡number`                   | `--`      |
-| disabled  | 单项禁用         | `boolean`                          | `false` |
-| onClick   | 点击单项卡时触发 | `(value?: string〡number) => void` | `--`      |
+| 属性     | 说明     | 类型             | 默认值  |
+| -------- | -------- | ---------------- | ------- |
+| value    | 单项值   | `string〡number` | `--`    |
+| disabled | 单项禁用 | `boolean`        | `false` |
+
+## TabsItem Events
+
+| 属性  | 说明             | 类型                               | 默认值 |
+| ----- | ---------------- | ---------------------------------- | ------ |
+| click | 点击单项卡时触发 | `(value?: string〡number) => void` | `--`   |

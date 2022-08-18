@@ -46,7 +46,6 @@ export default defineComponent({
       const stepItemList = childrenList.map((item: any, index: number) => {
         const stepIndex = props.reverse ? childrenList.length - index - 1 : index;
         return (
-          // 在这里决定父子组件属性的优先级谁高谁低
           <StepsItem current={props.current} index={stepIndex}>
             {{
               title: () => item.children.title(),

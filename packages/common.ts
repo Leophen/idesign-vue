@@ -49,9 +49,6 @@ export type VueNode = string | symbol | VNodeTypes
  * @returns 转换后的样式值
  */
 export const turnValue = (val: string | number | undefined) => {
-  if (!val) {
-    return
-  }
   if (_.isNumber(val as number)) {
     return `${val}px`
   }
