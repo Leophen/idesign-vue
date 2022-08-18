@@ -1,5 +1,5 @@
 <template>
-  <i-table :columns="columns" :data="data" />
+  <i-table :maxHeight="300" :columns="columns" :data="data" />
 </template>
 
 <script setup>
@@ -96,6 +96,78 @@ const data = [
   },
   {
     key: '8',
+    id: 364616775,
+    name: 'Steve Jobs',
+    age: 28,
+    salary: 66000,
+    address: '88 Park Road, Guangzhou',
+    email: 'steve.jobs@idesign.com'
+  },
+  {
+    key: '9',
+    id: 103761657,
+    name: 'Jane Doe',
+    age: 21,
+    salary: 23000,
+    address: '11 Park Road, Guangzhou',
+    email: 'jane.doe@idesign.com'
+  },
+  {
+    key: '10',
+    id: 761651037,
+    name: 'Alisa Ross',
+    age: 22,
+    salary: 25000,
+    address: '22 Park Road, Guangzhou',
+    email: 'alisa.ross@idesign.com'
+  },
+  {
+    key: '11',
+    id: 373567616,
+    name: 'Kevin Sandra',
+    age: 23,
+    salary: 22000,
+    address: '33 Park Road, Guangzhou',
+    email: 'kevin.sandra@idesign.com'
+  },
+  {
+    key: '12',
+    id: 735646761,
+    name: 'Ed Hellen',
+    age: 24,
+    salary: 17000,
+    address: '44 Park Road, Guangzhou',
+    email: 'ed.hellen@idesign.com'
+  },
+  {
+    key: '13',
+    id: 647616735,
+    name: 'William Smith',
+    age: 25,
+    salary: 27000,
+    address: '55 Park Road, Guangzhou',
+    email: 'william.smith@idesign.com'
+  },
+  {
+    key: '14',
+    id: 616736475,
+    name: 'Tim Cook',
+    age: 26,
+    salary: 36000,
+    address: '66 Park Road, Guangzhou',
+    email: 'tim.cook@idesign.com'
+  },
+  {
+    key: '15',
+    id: 475761636,
+    name: 'Bill Gates',
+    age: 27,
+    salary: 12000,
+    address: '77 Park Road, Guangzhou',
+    email: 'bill.gates@idesign.com'
+  },
+  {
+    key: '16',
     id: 364616775,
     name: 'Steve Jobs',
     age: 28,

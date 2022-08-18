@@ -23,6 +23,7 @@ import { SelectPlugin } from './select'
 import { TimePickerPlugin } from './time-picker'
 import { DatePickerPlugin } from './date-picker'
 import { ColorPickerPlugin } from './color-picker'
+import { TablePlugin } from './table'
 import { SliderPlugin } from './slider'
 import { ProgressPlugin } from './progress'
 import { StepsPlugin } from './steps'
@@ -68,6 +69,7 @@ const IDesignPlugin: Plugin = {
     TimePickerPlugin.install?.(app)
     DatePickerPlugin.install?.(app)
     ColorPickerPlugin.install?.(app)
+    TablePlugin.install?.(app)
     SliderPlugin.install?.(app)
     ProgressPlugin.install?.(app)
     StepsPlugin.install?.(app)
@@ -113,6 +115,7 @@ export * from './select'
 export * from './time-picker'
 export * from './date-picker'
 export * from './color-picker'
+export * from './table'
 export * from './slider'
 export * from './progress'
 export * from './steps'

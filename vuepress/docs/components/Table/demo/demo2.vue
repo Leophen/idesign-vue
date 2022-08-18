@@ -6,27 +6,33 @@
 const columns = [
   {
     title: 'ID',
-    key: 'id'
+    key: 'id',
+    width: '10%'
   },
   {
     title: 'Name',
-    key: 'name'
+    key: 'name',
+    width: '10%'
   },
   {
     title: 'Age',
-    key: 'age'
+    key: 'age',
+    width: '10%'
   },
   {
     title: 'Salary',
-    key: 'salary'
+    key: 'salary',
+    width: '10%'
   },
   {
     title: 'Address',
-    key: 'address'
+    key: 'address',
+    width: '30%'
   },
   {
     title: 'Email',
-    key: 'email'
+    key: 'email',
+    width: '30%'
   }
 ]
 

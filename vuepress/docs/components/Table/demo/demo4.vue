@@ -1,5 +1,5 @@
 <template>
-  <i-table :columns="columns" :data="data" />
+  <i-table stripe :columns="columns" :data="data" />
 </template>
 
 <script setup>
