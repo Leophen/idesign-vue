@@ -279,6 +279,11 @@ html.dark {
   .i-select {
     width: 200px;
   }
+  &.vertical {
+    h4 {
+      margin: 0;
+    }
+  }
 }
 
 .i-design-demo-icon-list {
