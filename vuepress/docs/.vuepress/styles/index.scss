@@ -1,7 +1,8 @@
 :root {
   --c-brand: #646cff;
   --c-brand-light: #747bff;
-  --content-width: 1200px;
+  --content-width: 100%;
+  --sidebar-width: 300px;
 }
 
 html.dark {
@@ -218,44 +219,100 @@ html.dark {
   }
 }
 
-.theme-default-content {
-  a:hover {
-    text-decoration: unset;
+div {
+  .right-anchor {
+    min-width: 310px;
   }
-  & > div {
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin-bottom: 1rem;
+  .right-anchor-menu {
+    overflow: unset;
+    padding-right: 24px;
+  }
+  .right-anchor-button {
+    display: none;
+  }
+  .right-anchor-menu-item {
+    position: relative;
+    box-sizing: border-box;
+    width: calc(100% - 24px);
+    height: auto;
+    margin-left: 24px;
+    padding: 8px 16px;
+    font-size: 14.4px;
+    border-radius: 10px;
+    transition: all 0.1s ease-out;
+    border: none;
+    &:hover {
+      background: var(--i-bg-hover);
     }
-    & > h2,
-    & > h3 {
-      border-bottom: none;
+    &.h2 {
+      padding: 8px 16px;
+      font-weight: unset;
+      border-left: none;
+      &:hover,
+      &.active {
+        padding: 8px 16px;
+        border-left: none;
+      }
+      &.active {
+        &::before {
+          position: absolute;
+          left: -25px;
+          transform: scaleX(1.5);
+          top: 0;
+          content: '';
+          width: 1px;
+          height: 100%;
+          background: var(--i-primary);
+        }
+      }
     }
-    & > table {
-      color: var(--i-font-2);
-      width: 100%;
-      box-sizing: border-box;
-      overflow: hidden;
-      border: 1px solid transparent;
-      border-radius: 10px;
-      display: table;
-      box-shadow: inset 0 0 0 1px var(--i-border);
-      thead {
+  }
+}
+
+.page {
+  .page-nav {
+    padding: 30px 360px 30px 60px;
+  }
+  .theme-default-content {
+    padding: 30px 360px 30px 60px;
+    a:hover {
+      text-decoration: unset;
+    }
+    & > div {
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: 1rem;
+      }
+      & > h2,
+      & > h3 {
+        border-bottom: none;
+      }
+      & > table {
         color: var(--i-font-2);
-        font-size: 18px;
-        border: 2px solid var(--i-border);
-        border-bottom: 0;
-        background-color: var(--i-bg-hover);
-      }
-      th {
-        text-align: left;
-        font-size: 16px;
-      }
-      tr:nth-child(2n) {
-        background-color: transparent;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        display: table;
+        box-shadow: inset 0 0 0 1px var(--i-border);
+        thead {
+          color: var(--i-font-2);
+          font-size: 18px;
+          border: 2px solid var(--i-border);
+          border-bottom: 0;
+          background-color: var(--i-bg-hover);
+        }
+        th {
+          text-align: left;
+          font-size: 16px;
+        }
+        tr:nth-child(2n) {
+          background-color: transparent;
+        }
       }
     }
   }

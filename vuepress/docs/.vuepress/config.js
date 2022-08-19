@@ -2,6 +2,7 @@ const blockDemo = require("./../../src");
 const { defaultTheme } = require("@vuepress/theme-default");
 const { viteBundler } = require("@vuepress/bundler-vite");
 const { docsearchPlugin } = require('@vuepress/plugin-docsearch')
+const { rightAnchorPlugin } = require('vuepress-plugin-right-anchor')
 
 module.exports = {
   title: 'iDesign',
@@ -122,6 +123,13 @@ module.exports = {
         path: __dirname,
       }),
     ],
+    rightAnchorPlugin({
+      showDepth: 1,
+      expand: {
+        trigger: 'click',
+        clickModeDefaultOpen: true
+      },
+    })
   ],
   markdown: {
     lineNumbers: true,

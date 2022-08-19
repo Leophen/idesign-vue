@@ -22,7 +22,8 @@
     "idesign-vue": "1.1.0",
     "lodash": "^4.17.21",
     "markdown-it": "~13.0.0",
-    "markdown-it-container": "~3.0.0"
+    "markdown-it-container": "~3.0.0",
+    "vuepress-plugin-right-anchor": "^2.1.0-rc.2"
   },
   "devDependencies": {
     "@vuepress/plugin-docsearch": "2.0.0-beta.49",
