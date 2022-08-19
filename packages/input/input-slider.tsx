@@ -1,14 +1,10 @@
 import './index.scss';
 import { defineComponent, Teleport } from 'vue';
-import { turnValue } from '../common';
+import { isBrowser, turnValue, useContainer } from '../common';
 
 // 创建输入框滑块容器
-let inputSliderWrapper = document.querySelector('#i-input-slider-wrapper')
-if (!inputSliderWrapper) {
-  inputSliderWrapper = document.createElement('div')
-  inputSliderWrapper.id = 'i-input-slider-wrapper'
-  document.body.append(inputSliderWrapper)
-}
+let popupWrapper: Element
+isBrowser() && (popupWrapper = useContainer('i-popup-wrapper', document.body))
 
 export default defineComponent({
   name: 'InputSlider',
@@ -33,7 +29,7 @@ export default defineComponent({
   setup(props) {
     return () => {
       return (
-        <Teleport to="#i-input-slider-wrapper">
+        <Teleport to="#i-popup-wrapper">
           <div
             class="i-input-number-scrubbable"
             style={{

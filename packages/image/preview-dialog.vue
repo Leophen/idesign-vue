@@ -70,6 +70,7 @@
 
 <script setup lang="ts">
 import { nextTick, onUnmounted, ref, watch } from 'vue'
+import { isBrowser } from '../common'
 import { Icon } from '../icon'
 
 interface PreviewDialogProps {
@@ -166,13 +167,15 @@ const handleUp = () => {
 }
 
 // 打开对话框时禁止背景滚动，对原 overflow 进行备份
-const bodyOverflow = ref<string>(document.body.style.overflow)
+let defaultOverFlow = ''
+isBrowser() && (defaultOverFlow = document.body.style.overflow)
+const bodyOverflow = ref<string>(defaultOverFlow)
 
 const handleCloseImg = () => {
   closeOnEsc && window.removeEventListener('keydown', handleKeyDown)
 
   // 关闭对话框时恢复背景滚动
-  document.body.style.overflow = bodyOverflow.value
+  isBrowser() && (document.body.style.overflow = bodyOverflow.value)
 }
 
 watch(
@@ -190,7 +193,7 @@ watch(
       scale.value = 1
 
       // 打开对话框时禁止背景滚动
-      document.body.style.overflow = 'hidden'
+      isBrowser() && (document.body.style.overflow = 'hidden')
     } else {
       handleCloseImg()
     }

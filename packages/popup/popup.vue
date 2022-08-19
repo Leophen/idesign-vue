@@ -31,10 +31,17 @@
 <script lang="ts" setup>
 import { ref, onUnmounted, computed, watch } from 'vue'
 import { createPopper } from '@popperjs/core'
-import { hasParent, placementType, triggerType, useContainer } from '../common'
+import {
+  hasParent,
+  isBrowser,
+  placementType,
+  triggerType,
+  useContainer
+} from '../common'
 
 // 创建气泡提示容器
-const popupWrapper = useContainer('i-popup-wrapper', document.body)
+let popupWrapper: Element
+isBrowser() && (popupWrapper = useContainer('i-popup-wrapper', document.body))
 
 interface PopupProps {
   /**

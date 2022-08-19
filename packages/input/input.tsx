@@ -270,7 +270,7 @@ export default defineComponent({
       if (eventType === 'focus') {
         emit('focus', (e.target as HTMLInputElement).value, e)
         if (props.selectAll) {
-          (inputRef.value as unknown as HTMLInputElement).select()
+          (inputRef.value as HTMLInputElement).select()
         }
       }
       if (eventType === 'blur') {
@@ -440,10 +440,12 @@ export default defineComponent({
       sliderMovingY.value = startY
     };
     const handleSliderUp = () => {
-      sliderDown.value = false
       document.exitPointerLock();
+      sliderDown.value = false
       sliderMovingX.value = 0
       sliderMovingY.value = 0
+      startX = 0;
+      startY = 0;
       emit('moveUp', (inputRef.value as unknown as HTMLInputElement).value)
       window.removeEventListener('mouseup', handleSliderUp);
       window.removeEventListener('mousemove', handleSliderMove);

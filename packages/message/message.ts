@@ -1,6 +1,6 @@
 import { ref, Ref, createVNode, render, reactive, isVNode } from 'vue'
 import MessageList from './message-list.vue'
-import { useContainer } from '../common'
+import { isBrowser, useContainer } from '../common'
 import {
   MergeConfigType,
   MessageConfig,
@@ -11,7 +11,8 @@ import {
 import _ from 'lodash'
 
 // 创建消息提示容器
-const popupWrapper = useContainer('i-popup-wrapper', document.body)
+let popupWrapper: Element
+isBrowser() && (popupWrapper = useContainer('i-popup-wrapper', document.body))
 
 class MessageManger {
   private readonly listData: Ref<MergeConfigType[]>

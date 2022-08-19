@@ -1,11 +1,5 @@
 import _ from 'lodash'
-import {
-  Component,
-  getCurrentInstance,
-  Slots,
-  VNode,
-  VNodeTypes
-} from 'vue'
+import { Component, getCurrentInstance, Slots, VNode, VNodeTypes } from 'vue'
 
 /**
  * 通用位置类型
@@ -52,6 +46,18 @@ export const turnValue = (val: string | number | undefined) => {
     return `${val}px`
   }
   return val
+}
+
+/**
+ * 判断是否为浏览器环境
+ * @returns true 为是反之不是
+ */
+export const isBrowser = () => {
+  return (
+    typeof window !== 'undefined' &&
+    window.document &&
+    window.document.documentElement
+  )
 }
 
 /**

@@ -1,5 +1,5 @@
 <template>
-  <Teleport :to="dialogWrapper">
+  <Teleport :to="dialogWrapper?? 'body'">
     <Transition name="i-fade">
       <div
         class="i-dialog__mask"
@@ -46,7 +46,7 @@
 <script setup lang="ts">
 import { Icon } from '../icon'
 import { Button } from '../button'
-import { hasParent, useContainer, turnValue } from '../common'
+import { hasParent, useContainer, turnValue, isBrowser } from '../common'
 import { nextTick, ref, watch } from 'vue'
 
 // 获取触发对话框打开的 DOM 节点原位置
@@ -62,17 +62,15 @@ const getClickPosition = (e: MouseEvent) => {
     mousePosition = null
   }, 100)
 }
-if (
-  typeof window !== 'undefined' &&
-  window.document &&
-  window.document.documentElement
-) {
+isBrowser() &&
   document.documentElement.addEventListener('click', getClickPosition, true)
-}
 
 // 创建对话框容器
-const popupWrapper = useContainer('i-popup-wrapper', document.body)
-const dialogWrapper = useContainer('i-dialog-wrapper', popupWrapper)
+let dialogWrapper: Element
+if (isBrowser()) {
+  const popupWrapper = useContainer('i-popup-wrapper', document.body)
+  dialogWrapper = useContainer('i-dialog-wrapper', popupWrapper)
+}
 
 interface DialogProps {
   /**
@@ -135,7 +133,9 @@ const handleClick = (e: MouseEvent) => {
 }
 
 // 打开对话框时禁止背景滚动，对原 overflow 进行备份
-const bodyOverflow = ref<string>(document.body.style.overflow)
+let defaultOverFlow = ''
+isBrowser() && (defaultOverFlow = document.body.style.overflow)
+const bodyOverflow = ref<string>(defaultOverFlow)
 
 watch(
   () => visible,
@@ -143,7 +143,7 @@ watch(
     if (visible) {
       nextTick(() => {
         // 打开对话框时禁止背景滚动
-        document.body.style.overflow = 'hidden'
+        isBrowser() && (document.body.style.overflow = 'hidden')
         // 退出键功能
         closeOnEsc && document.addEventListener('keydown', handleKeyDown)
         // 展开动画出发点
@@ -157,7 +157,7 @@ watch(
       })
     } else {
       // 关闭对话框时恢复背景滚动
-      document.body.style.overflow = bodyOverflow.value
+      isBrowser() && (document.body.style.overflow = bodyOverflow.value)
     }
   },
   { immediate: true }

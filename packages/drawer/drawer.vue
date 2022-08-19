@@ -1,5 +1,5 @@
 <template>
-  <Teleport :to="drawerWrapper">
+  <Teleport :to="drawerWrapper?? 'body'">
     <Transition name="i-fade">
       <div
         class="i-drawer__mask"
@@ -44,7 +44,13 @@
 <script setup lang="ts">
 import { Icon } from '../icon'
 import { Button } from '../Button'
-import { hasParent, positionType, turnValue, useContainer } from '../common'
+import {
+  hasParent,
+  isBrowser,
+  positionType,
+  turnValue,
+  useContainer
+} from '../common'
 import { nextTick, ref, watch } from 'vue'
 
 // 获取触发抽屉打开的 DOM 节点原位置
@@ -52,17 +58,15 @@ let clickOpenTarget: EventTarget | null
 const getClickPosition = (e: MouseEvent) => {
   clickOpenTarget = e.target
 }
-if (
-  typeof window !== 'undefined' &&
-  window.document &&
-  window.document.documentElement
-) {
+isBrowser() &&
   document.documentElement.addEventListener('click', getClickPosition, true)
-}
 
 // 创建抽屉容器
-const popupWrapper = useContainer('i-popup-wrapper', document.body)
-const drawerWrapper = useContainer('i-drawer-wrapper', popupWrapper)
+let drawerWrapper: Element
+if (isBrowser()) {
+  const popupWrapper = useContainer('i-popup-wrapper', document.body)
+  drawerWrapper = useContainer('i-drawer-wrapper', popupWrapper)
+}
 
 interface DrawerProps {
   /**
@@ -142,7 +146,9 @@ const handleClick = (e: MouseEvent) => {
 }
 
 // 打开抽屉时禁止背景滚动，对原 overflow 进行备份
-const bodyOverflow = ref<string>(document.body.style.overflow)
+let defaultOverFlow = ''
+isBrowser() && (defaultOverFlow = document.body.style.overflow)
+const bodyOverflow = ref<string>(defaultOverFlow)
 
 watch(
   () => visible,
@@ -150,7 +156,7 @@ watch(
     if (visible) {
       nextTick(() => {
         // 打开抽屉时禁止背景滚动
-        document.body.style.overflow = 'hidden'
+        isBrowser() && (document.body.style.overflow = 'hidden')
         // 退出键功能
         closeOnEsc && document.addEventListener('keydown', handleKeyDown)
         // 无遮罩层时点击关闭功能
@@ -158,7 +164,7 @@ watch(
       })
     } else {
       // 关闭抽屉时恢复背景滚动
-      document.body.style.overflow = bodyOverflow.value
+      isBrowser() && (document.body.style.overflow = bodyOverflow.value)
     }
   },
   { immediate: true }

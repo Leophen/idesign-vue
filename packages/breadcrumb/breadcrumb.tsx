@@ -7,11 +7,7 @@ export default defineComponent({
     /**
      * 单项最大宽度，超出后会以省略号形式呈现
      */
-    maxItemWidth: [String, Number],
-    /**
-     * 自定义分隔符
-     */
-    separator: [String, HTMLElement]
+    maxItemWidth: [String, Number]
   },
   setup(props, { slots, attrs }) {
     provide(

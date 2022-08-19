@@ -163,6 +163,7 @@ import { Select, SelectItem } from '../select'
 import { Icon } from '../icon'
 import ColorCursor from './color-cursor.vue'
 import ColorItem from './color-item.vue'
+import { isBrowser } from '../common'
 
 interface ColorPanelProps {
   /**
@@ -207,8 +208,9 @@ const emit = defineEmits<ColorPanelEmits>()
 const _colorPanelValue = ref(defaultValue)
 const innerValue = computed(() => value ?? _colorPanelValue.value)
 
+let ifDropperShow: boolean
 // @ts-ignore
-const ifDropperShow = !!window.EyeDropper
+isBrowser() && (ifDropperShow = !!window.EyeDropper)
 
 // 颜色值
 const colors = reactive({

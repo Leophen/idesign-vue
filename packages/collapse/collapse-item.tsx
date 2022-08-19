@@ -1,7 +1,7 @@
 import './index.scss';
 import { Icon } from '../icon'
 import { computed, defineComponent, inject, onMounted, onUnmounted, PropType, ref } from 'vue';
-import { turnValue } from '../common';
+import { isBrowser, turnValue } from '../common';
 
 export default defineComponent({
   name: 'CollapseItem',
@@ -78,9 +78,12 @@ export default defineComponent({
     const contentInnerRef = ref<HTMLElement>()
     const contentHeight = ref(0)
 
-    const resizeObserver = new ResizeObserver(entries => {
-      contentHeight.value = entries[0].contentRect.height + 16
-    });
+    let resizeObserver: ResizeObserver
+    if (isBrowser()) {
+      resizeObserver = new ResizeObserver(entries => {
+        contentHeight.value = entries[0].contentRect.height + 16
+      });
+    }
     onMounted(() => {
       const height = contentInnerRef.value?.getBoundingClientRect().height || 0
       contentHeight.value = height + 16 // 加上下 padding
