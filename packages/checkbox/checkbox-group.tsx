@@ -1,4 +1,4 @@
-import { computed, defineComponent, PropType, provide, ref } from 'vue';
+import { computed, defineComponent, PropType, provide, ref, VNode } from 'vue';
 import './index.scss';
 import { useChildComponentSlots } from '../common'
 import Checkbox from './checkbox'
@@ -37,13 +37,13 @@ export default defineComponent({
   setup(props, { emit, attrs }) {
     const _groupChecked = ref(props.defaultValue)
     const innerChecked = computed(() => props.value ?? _groupChecked.value)
-    let groupCheckedArr: Set<any> = new Set([].concat(innerChecked.value as any));
+    let groupCheckedArr: Set<string | number> = new Set([...innerChecked.value]);
 
     const getChildComponentByName = useChildComponentSlots();
-    const childrenList = getChildComponentByName('Checkbox')
+    const childrenList: VNode[] = getChildComponentByName('Checkbox')
     const checkboxItems = () => {
-      return childrenList.map((item: any, index: number) => {
-        const itemVal = item.props.value;
+      return childrenList.map(item => {
+        const itemVal = item.props?.value;
         return (
           <Checkbox
             checked={innerChecked.value.includes(itemVal)}
@@ -58,7 +58,8 @@ export default defineComponent({
             }}
             {...item.props}
           >
-            {item.children.default()}
+            {/* @ts-ignore */}
+            {item.children?.default()}
           </Checkbox>
         );
       })

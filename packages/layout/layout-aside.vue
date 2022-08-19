@@ -5,12 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  onMounted,
-  onUnmounted,
-  computed,
-  inject,
-} from 'vue'
+import { onMounted, onUnmounted, computed, inject } from 'vue'
 import { turnValue } from '../common'
 
 interface LayoutAsideProps {
@@ -32,7 +27,10 @@ const generateId = (() => {
 })()
 
 const uniqueId = generateId('i_layout_aside')
-const asideHook: any = inject('layoutCtx')
+const asideHook: {
+  onAsideMount?: (id: string) => void
+  onAsideUnMount?: (id: string) => void
+} = inject('layoutCtx', {})
 
 onMounted(() => {
   asideHook?.onAsideMount?.(uniqueId)

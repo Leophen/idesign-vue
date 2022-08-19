@@ -16,13 +16,13 @@ export default defineComponent({
   },
   setup(props, { slots, emit, attrs }) {
     const contentHeight = ref(0);
-    const groupNode = ref(null);
+    const groupRef = ref();
 
     watchEffect(() => {
       let maxHeight = 0;
-      const groupChild = groupNode.value && (groupNode.value as HTMLElement).childNodes;
+      const groupChild: HTMLElement[] = groupRef.value && (groupRef.value as HTMLElement).childNodes;
       groupChild &&
-        Array.from(groupChild).map((item: any) => {
+        Array.from(groupChild).map((item) => {
           if (
             item.className !== 'i-input__group-prefix' &&
             item.className !== 'i-input__group-suffix' &&
@@ -55,7 +55,7 @@ export default defineComponent({
         <div
           class='i-input__group'
           style={{ height: turnValue(contentHeight.value) }}
-          ref={groupNode}
+          ref={groupRef}
           {...attrs}
         >
           {prefixContent && (

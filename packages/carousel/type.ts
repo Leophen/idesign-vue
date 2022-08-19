@@ -86,7 +86,7 @@ export interface CarouselItemProps {
   /**
    * 包裹层 ref
    */
-  wrapWidth?: any
+  wrapWidth?: number
   /**
    * 点击轮播项触发
    */

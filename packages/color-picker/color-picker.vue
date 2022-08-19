@@ -97,7 +97,7 @@ const innerValue = computed(() => value ?? _colorPickerValue.value)
 
 const visible = ref(false)
 
-const currentColor = ref<any>(innerValue)
+const currentColor = ref<string>(innerValue.value)
 const handleChange = (val: string) => {
   if (currentColor.value !== val) {
     _colorPickerValue.value = val

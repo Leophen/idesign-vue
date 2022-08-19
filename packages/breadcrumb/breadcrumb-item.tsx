@@ -1,4 +1,4 @@
-import { computed, defineComponent, inject } from 'vue';
+import { computed, defineComponent, inject, VNode } from 'vue';
 import { turnValue } from '../common';
 import { Icon } from '../icon';
 import './index.scss';
@@ -20,7 +20,16 @@ export default defineComponent({
     maxWidth: [String, Number],
   },
   setup(props, { slots, attrs }) {
-    const breadcrumbCtx: any = inject('breadcrumbCtx', undefined);
+    const breadcrumbCtx: {
+      /**
+       * 单项最大宽度，超出后会以省略号形式呈现
+       */
+      maxItemWidth?: string | number
+      /**
+       * 自定义分隔符
+       */
+      separator?: string | HTMLElement
+    } = inject('breadcrumbCtx', {});
 
     // 限制最大宽度
     const currentMaxWidth = computed(() => {
@@ -40,7 +49,7 @@ export default defineComponent({
     });
 
     const currentSeparator = computed(() => {
-      return breadcrumbCtx?.slots.separator?.() ?? <Icon name="ArrowRight" size={16} />
+      return breadcrumbCtx?.separator ?? <Icon name="ArrowRight" size={16} />
     });
 
     return () => {

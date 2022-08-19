@@ -113,7 +113,7 @@ export default defineComponent({
     /**
      * 选中值变化时触发
      */
-    'change': (val: string | number | Array<string | number>) => true,
+    'change': (val: string | number | Array<string | number>) => true
   },
   setup(props, { slots, emit, attrs }) {
     // 转换下拉数据及更新下拉框宽度

@@ -1,7 +1,7 @@
 import './index.scss';
 import { useChildComponentSlots } from '../common'
 import CollapseItem from './collapse-item';
-import { computed, defineComponent, PropType, provide, ref } from 'vue';
+import { computed, defineComponent, PropType, provide, ref, VNode } from 'vue';
 
 export default defineComponent({
   name: 'Collapse',
@@ -73,11 +73,11 @@ export default defineComponent({
   },
   setup(props, { attrs, emit }) {
     const getChildComponentByName = useChildComponentSlots();
-    const childrenList = getChildComponentByName('CollapseItem')
+    const childrenList: VNode[] = getChildComponentByName('CollapseItem')
 
     const initVal = () => {
       let result = props.defaultActive || []
-      !props.defaultActive && props.expandAll && childrenList.map((item: any, index: number) => {
+      !props.defaultActive && props.expandAll && childrenList.map((item, index) => {
         result.push(item.props?.value || index)
       })
       return result
@@ -88,7 +88,7 @@ export default defineComponent({
 
     // 更新展开项
     const updateInnerActive = (value: string | number) => {
-      let newValue: Array<string | number> = [].concat(innerActive.value as any || []);
+      let newValue: Array<string | number> = [...innerActive.value];
       const index = newValue.indexOf(value);
       if (index >= 0) {
         newValue.splice(index, 1);
@@ -102,8 +102,8 @@ export default defineComponent({
     };
 
     const collapseItems = () => {
-      return childrenList.map((item: any, index: number) => {
-        const itemVal = item.props.value || index
+      return childrenList.map((item: VNode, index: number) => {
+        const itemVal = item.props?.value || index
         return (
           <CollapseItem
             index={index}
@@ -111,6 +111,7 @@ export default defineComponent({
             onClickHeader={() => updateInnerActive(itemVal)}
             {...item.props}
           >
+            {/* @ts-ignore */}
             {item.children?.default()}
           </CollapseItem>
         );

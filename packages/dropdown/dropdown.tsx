@@ -1,7 +1,7 @@
 import { computed, defineComponent, PropType, ref, watch, watchEffect } from 'vue';
 import _ from 'lodash';
 import './index.scss';
-import { DropdownOption } from './type'
+import { DropdownOption, DropdownValue } from './type'
 import { placementType, triggerType, turnValue } from '../common'
 import { Popup } from '../popup'
 import DropdownMenu from './dropdown-menu';
@@ -93,7 +93,7 @@ export default defineComponent({
     /**
      * 点击菜单项触发事件
      */
-    'click': (value: string | number | Array<string | number>, event?: MouseEvent) => true,
+    'click': (value: DropdownValue, event?: MouseEvent) => true,
     /**
      * 切换下拉操作时触发
      */
@@ -122,7 +122,7 @@ export default defineComponent({
       } else {
         // 多选模式
         let delIndex = 0
-        let curMultiSelected: any = innerValue.value
+        let curMultiSelected: DropdownValue | undefined = innerValue.value
         !Array.isArray(curMultiSelected) && (curMultiSelected = [])
         curMultiSelected.map((it: string | number, index: number) => {
           if (it === item.value) {

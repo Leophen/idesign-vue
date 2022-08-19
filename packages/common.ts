@@ -61,12 +61,12 @@ export const turnValue = (val: string | number | undefined) => {
  * @param parent 是否在该容器中
  * @returns true 为在反之不在
  */
-export const hasParent = (node: any, parent: HTMLElement | null) => {
+export const hasParent = (node: HTMLElement, parent: HTMLElement | null) => {
   while (node) {
     if (node === parent) {
       return true
     }
-    node = node.parentNode
+    node = node.parentNode as HTMLElement
   }
   return false
 }

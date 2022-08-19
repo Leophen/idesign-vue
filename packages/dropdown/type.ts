@@ -1,5 +1,7 @@
 import { CSSProperties } from 'vue'
 
+export type DropdownValue = string | number | Array<string | number>
+
 export interface DropdownProps {
   /**
    * 下拉内容类名
@@ -29,7 +31,7 @@ export interface DropdownProps {
   /**
    * 下拉选中项
    */
-  value?: string | number | Array<string | number>
+  value?: DropdownValue
   /**
    * 下拉操作项
    * @default []
@@ -80,10 +82,7 @@ export interface DropdownProps {
   /**
    * 点击菜单项触发事件
    */
-  onClick?: (
-    value: string | number | Array<string | number>,
-    event?: MouseEvent
-  ) => void
+  onClick?: (value: DropdownValue, event?: MouseEvent) => void
   /**
    * 切换下拉操作时触发
    */
@@ -160,7 +159,7 @@ export interface DropdownMenuProps {
   /**
    * 选中值
    */
-  selectedValue?: string | number | Array<string | number>
+  selectedValue?: DropdownValue
   /**
    * 点击菜单项触发事件
    */

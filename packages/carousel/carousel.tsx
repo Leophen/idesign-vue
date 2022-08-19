@@ -1,4 +1,4 @@
-import { cloneVNode, computed, defineComponent, onMounted, onUnmounted, PropType, ref, watch, watchEffect } from 'vue';
+import { cloneVNode, computed, defineComponent, onMounted, onUnmounted, PropType, ref, VNode, watch, watchEffect } from 'vue';
 import './index.scss';
 import _ from 'lodash';
 import { Icon } from '../icon'
@@ -92,17 +92,17 @@ export default defineComponent({
     const innerCurrent = ref(0)
     const childrenLength = ref(0)
     const ifAnimation = ref(false)
-    const carouselRef = ref<any>(null);
+    const carouselRef = ref<HTMLElement>();
     const wrapWidth = ref(0)
     const ifHoverContent = ref(false)
 
     // 进行子组件筛选，创建子节点列表
     const carouselItems = () => {
       const getChildComponentByName = useChildComponentSlots();
-      const childrenList = getChildComponentByName('CarouselItem')
+      const childrenList: VNode[] = getChildComponentByName('CarouselItem')
       childrenLength.value = childrenList.length;
       // 创建渲染用的节点列表
-      const carouselItemList = childrenList.map((item: any, index: number) => {
+      const carouselItemList = childrenList.map((item, index) => {
         return (
           <CarouselItem
             index={index}
@@ -119,6 +119,7 @@ export default defineComponent({
               }
             }}
           >
+            {/* @ts-ignore */}
             {item.children.default()}
           </CarouselItem>
         );
@@ -153,7 +154,7 @@ export default defineComponent({
     }
     onMounted(() => {
       innerCurrent.value = resetDefaultCurrent(props.defaultCurrent)
-      wrapWidth.value = carouselRef.value.getBoundingClientRect().width
+      wrapWidth.value = (carouselRef.value as HTMLElement).getBoundingClientRect().width
     })
 
     // 轮播图通用跳转函数

@@ -1,9 +1,5 @@
 interface IconProps {
   /**
-   * 组件自定义样式
-   */
-  style?: React.CSSProperties;
-  /**
    * 图标名称
    */
   name?: string;
@@ -20,8 +16,4 @@ interface IconProps {
    * 是否禁用图标
    */
   disabled?: boolean;
-  /**
-   * 点击图标触发事件
-   */
-  onClick?: any;
 }

@@ -53,7 +53,18 @@ export default defineComponent({
     'clickHeader': (e: MouseEvent) => true,
   },
   setup(props, { slots, emit, attrs }) {
-    const collapseCtx: any = inject('collapseCtx', undefined)
+    const collapseCtx: {
+      /**
+       * 全局禁用折叠项
+       * @default false
+       */
+      disabled?: boolean
+      /**
+       * 自定义图标位置
+       * @default left
+       */
+      iconPlacement?: 'left' | 'right'
+    } = inject('collapseCtx', {})
 
     const mergedDisabled = computed(() => props.disabled || collapseCtx?.disabled || false)
     const mergedIconPlacement = computed(() => props.iconPlacement || collapseCtx?.iconPlacement || 'left')
@@ -64,7 +75,7 @@ export default defineComponent({
       }
     }
 
-    const contentInnerRef = ref<any>(null)
+    const contentInnerRef = ref<HTMLElement>()
     const contentHeight = ref(0)
 
     const resizeObserver = new ResizeObserver(entries => {
@@ -73,7 +84,7 @@ export default defineComponent({
     onMounted(() => {
       const height = contentInnerRef.value?.getBoundingClientRect().height || 0
       contentHeight.value = height + 16 // 加上下 padding
-      resizeObserver.observe((contentInnerRef.value as any))
+      resizeObserver.observe((contentInnerRef.value as HTMLElement))
     })
     onUnmounted(() => {
       resizeObserver.disconnect()

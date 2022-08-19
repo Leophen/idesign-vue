@@ -49,7 +49,17 @@ export default defineComponent({
     const innerChecked = computed(() => props.checked ?? _checkboxChecked.value)
 
     // 存在多选框组时从 Context 注入 checked 覆盖原 checked
-    const checkboxGroupCtx: any = inject('checkboxGroupCtx', undefined)
+    const checkboxGroupCtx: {
+      /**
+       * 按钮多选框全局尺寸
+       * @default medium
+       */
+      size?: "small" | "medium" | "large"
+      /**
+       * 多选框组是否全局禁用
+       */
+      disabled?: boolean
+    } = inject('checkboxGroupCtx', {})
 
     const mergedSize = computed(() => props.size || checkboxGroupCtx?.size || 'medium')
     const mergedDisabled = computed(() => props.disabled || checkboxGroupCtx?.disabled || false)

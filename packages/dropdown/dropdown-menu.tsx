@@ -1,4 +1,4 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, VNode } from 'vue';
 import './index.scss';
 import { DropdownItemProps, DropdownOption } from './type'
 import { turnValue } from '../common'
@@ -75,7 +75,7 @@ export default defineComponent({
       item.onClick?.(item, event)
     }
 
-    const ifHasAtt = (att: any) => {
+    const ifHasAtt = (att: string | boolean | undefined) => {
       if (att !== undefined) {
         return true
       }
@@ -95,12 +95,12 @@ export default defineComponent({
       return false
     }
 
-    const hasChildSelected = (itemContent: any) => {
+    const hasChildSelected = (itemContent: DropdownItemProps | DropdownItemProps[]) => {
       let result = false
       if (!_.isArray(itemContent)) {
         ifSelected(itemContent.value) && (result = true)
       } else {
-        itemContent.map((item: any) => {
+        itemContent.map((item: DropdownOption) => {
           if (item.children && item.children.length > 0) {
             hasChildSelected(item.children) && (result = true)
           } else {

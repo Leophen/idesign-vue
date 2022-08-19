@@ -1,5 +1,5 @@
 <template>
-  <div class="i-color-picker__cursor" ref="cursor" :style="cursorStyle" />
+  <div class="i-color-picker__cursor" ref="cursorRef" :style="cursorStyle" />
 </template>
 
 <script setup lang="ts">
@@ -28,7 +28,7 @@ interface ColorCursorProps {
 
 const { x = 0, y = 0, mode = 'xy', color } = defineProps<ColorCursorProps>()
 
-const cursor = ref<any>(null)
+const cursorRef = ref<HTMLElement>()
 
 const translate = reactive({
   x: 0,
@@ -41,8 +41,8 @@ const parent = reactive({
 })
 
 onMounted(() => {
-  parent.width = cursor.value.parentNode.clientWidth
-  parent.height = cursor.value.parentNode.clientHeight
+  parent.width = (cursorRef.value?.parentNode as HTMLElement).clientWidth
+  parent.height = (cursorRef.value?.parentNode as HTMLElement).clientHeight
 })
 
 watch(

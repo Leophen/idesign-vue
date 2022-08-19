@@ -22,14 +22,14 @@
       />
       <template #content>
         <DatePanel
-          :value="innerValue"
+          :value="_.isString(innerValue) ? innerValue : ''"
           :firstDayOfWeek="firstDayOfWeek"
           @change="handleChange"
           @close="handleClose"
           v-if="type === 'date'"
         />
         <DateRangePanel
-          :rangeValue="innerValue"
+          :rangeValue="_.isArray(innerValue) ? innerValue : []"
           :firstDayOfWeek="firstDayOfWeek"
           @change="handleChange"
           @close="handleClose"

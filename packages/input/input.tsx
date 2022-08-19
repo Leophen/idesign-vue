@@ -260,28 +260,28 @@ export default defineComponent({
     };
 
     // 键盘事件
-    const handleKeyDown = (e: any) => {
-      e.key === 'Enter' && emit('enter', e.target.value, e);
-      emit('keyDown', e.target.value, e)
+    const handleKeyDown = (e: KeyboardEvent) => {
+      e.key === 'Enter' && emit('enter', (e.target as HTMLInputElement).value, e);
+      emit('keyDown', (e.target as HTMLInputElement).value, e)
     };
 
     // 通用事件
-    const handleEvent = (eventType: 'focus' | 'blur' | 'up', e: any) => {
+    const handleEvent = (eventType: 'focus' | 'blur' | 'up', e: Event) => {
       if (eventType === 'focus') {
-        emit('focus', e.target.value, e)
+        emit('focus', (e.target as HTMLInputElement).value, e)
         if (props.selectAll) {
           (inputRef.value as unknown as HTMLInputElement).select()
         }
       }
       if (eventType === 'blur') {
-        if (props.type === 'number' && e.target.value) {
-          const fixedValue = Number(e.target.value).toFixed(props.precision);
-          e.target.value = fixedValue;
+        if (props.type === 'number' && (e.target as HTMLInputElement).value) {
+          const fixedValue = Number((e.target as HTMLInputElement).value).toFixed(props.precision);
+          (e.target as HTMLInputElement).value = fixedValue;
         }
-        emit('blur', e.target.value, e)
+        emit('blur', (e.target as HTMLInputElement).value, e)
       }
       if (eventType === 'up') {
-        emit('keyUp', e.target.value, e)
+        emit('keyUp', (e.target as HTMLInputElement).value, e)
         if (props.type === 'number') {
           // 设置最大值最小值按钮禁用状态
           const currentValue = Number((inputRef.value as unknown as HTMLInputElement).value);
@@ -393,7 +393,7 @@ export default defineComponent({
     let startY = 0;
     let countValue = 0;
     let criticalValue = 0;
-    const handleSliderMove = (e: any) => {
+    const handleSliderMove = (e: MouseEvent) => {
       startX += e.movementX;
       startY += e.movementY;
 

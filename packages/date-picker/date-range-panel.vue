@@ -31,7 +31,7 @@ interface DatePickerProps {
   /**
    * rangeValue
    */
-  rangeValue?: any
+  rangeValue?: string[]
   /**
    * 每周的第一天，0 为周日，1 为周一
    * @default 1
@@ -60,7 +60,7 @@ const {
 const emit = defineEmits<DatePickerEmits>()
 
 const innerRangeValue = ref<string[]>(rangeValue)
-const rangeLock = ref<any>(true)
+const rangeLock = ref<boolean>(true)
 const hoverStartVal = ref('')
 
 const handleSelect = (val: string) => {

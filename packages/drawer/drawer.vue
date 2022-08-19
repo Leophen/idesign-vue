@@ -118,7 +118,7 @@ const {
 } = defineProps<DrawerProps>()
 const emit = defineEmits<DrawerEmits>()
 
-const handleKeyDown = (e: any) => {
+const handleKeyDown = (e: KeyboardEvent) => {
   if (e.key === 'Escape') {
     emit('close')
   }
@@ -129,10 +129,13 @@ const closeDrawer = () => {
   closeOnEsc && document.removeEventListener('keydown', handleKeyDown)
 }
 
-const drawerRef = ref<any>(null)
+const drawerRef = ref<HTMLElement>()
 
-const handleClick = (e: any) => {
-  if (!hasParent(e.target, drawerRef.value) && e.target !== clickOpenTarget) {
+const handleClick = (e: MouseEvent) => {
+  if (
+    !hasParent(e.target as HTMLElement, drawerRef.value as HTMLElement) &&
+    e.target !== clickOpenTarget
+  ) {
     closeDrawer()
     document.removeEventListener('click', handleClick, true)
   }

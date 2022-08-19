@@ -111,7 +111,7 @@ const {
 } = defineProps<DialogProps>()
 const emit = defineEmits<DialogEmits>()
 
-const handleKeyDown = (e: any) => {
+const handleKeyDown = (e: KeyboardEvent) => {
   if (e.key === 'Escape') {
     emit('close')
   }
@@ -122,10 +122,13 @@ const closeDialog = () => {
   closeOnEsc && document.removeEventListener('keydown', handleKeyDown)
 }
 
-const dialogRef = ref<any>()
+const dialogRef = ref<HTMLElement>()
 
 const handleClick = (e: MouseEvent) => {
-  if (!hasParent(e.target, dialogRef.value) && e.target !== clickOpenTarget) {
+  if (
+    !hasParent(e.target as HTMLElement, dialogRef.value as HTMLElement) &&
+    e.target !== clickOpenTarget
+  ) {
     closeDialog()
     document.removeEventListener('click', handleClick, true)
   }

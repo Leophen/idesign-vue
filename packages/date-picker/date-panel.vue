@@ -127,7 +127,7 @@ interface DatePanelProps {
   /**
    * value
    */
-  value?: any
+  value?: string
   /**
    * defaultDisplayVal
    */
@@ -243,7 +243,17 @@ const getMonthPanelDays = () => {
     startIndex = currentMonthStart
   }
 
-  const panelDays: any = []
+  interface panelDaysType {
+    label: number
+    type: string
+    value: string
+    range?: boolean
+    rangeStart?: boolean
+    rangeSame?: boolean
+    rangeEnd?: boolean
+  }
+
+  const panelDays: panelDaysType[] = []
 
   const lastMonthDays = dayjs(displayVal.value)
     .subtract(1, 'month')

@@ -18,7 +18,7 @@ export default defineComponent({
       'breadcrumbCtx',
       {
         maxItemWidth: props.maxItemWidth,
-        slots,
+        separator: slots.separator?.()
       }
     );
 

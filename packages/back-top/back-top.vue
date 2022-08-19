@@ -66,7 +66,7 @@ const getTarget = (target: string | HTMLElement | undefined) => {
   }
 }
 
-const handleScroll = _.throttle((e: any) => {
+const handleScroll = _.throttle((e: Event) => {
   const top = (e.target as HTMLElement).scrollTop
   top >= visibleHeight ? (visible.value = true) : (visible.value = false)
   emit('scroll')

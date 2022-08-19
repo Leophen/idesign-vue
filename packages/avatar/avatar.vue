@@ -41,7 +41,24 @@ interface AvatarProps {
   color?: string
 }
 
-const groupCtx: any = inject('avatarGroupCtx', undefined)
+interface GroupCtxType {
+  /**
+   * 头像大小
+   * @default 32
+   */
+  size?: number
+  /**
+   * 头像形状
+   * @default circle
+   */
+  shape?: 'circle' | 'round'
+  /**
+   * 头像底色
+   */
+  color?: string
+}
+
+const groupCtx: GroupCtxType = inject('avatarGroupCtx', {})
 const { image, size, shape, color } = defineProps<AvatarProps>()
 
 const mergedSize = computed(() => (size ? size : groupCtx?.size) || 32)
