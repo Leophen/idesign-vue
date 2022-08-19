@@ -399,7 +399,7 @@ export default defineComponent({
 
       // 滑块更新输入框数值
       if (inputRef) {
-        countValue = Number((inputRef.value as HTMLInputElement).value);
+        countValue = Number((inputRef.value as unknown as HTMLInputElement).value);
         criticalValue += e.movementX;
         let changeSpeedNum = { slow: 30, default: 10, fast: 1 }[props.speed];
         if (criticalValue > changeSpeedNum && countValue < props.maxNumber) {
@@ -440,12 +440,10 @@ export default defineComponent({
       sliderMovingY.value = startY
     };
     const handleSliderUp = () => {
-      document.exitPointerLock();
       sliderDown.value = false
+      document.exitPointerLock();
       sliderMovingX.value = 0
       sliderMovingY.value = 0
-      startX = 0;
-      startY = 0;
       emit('moveUp', (inputRef.value as unknown as HTMLInputElement).value)
       window.removeEventListener('mouseup', handleSliderUp);
       window.removeEventListener('mousemove', handleSliderMove);

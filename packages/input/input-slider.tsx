@@ -1,6 +1,14 @@
 import './index.scss';
 import { defineComponent, Teleport } from 'vue';
-import { turnValue, useContainer } from '../common';
+import { turnValue } from '../common';
+
+// 创建输入框滑块容器
+let inputSliderWrapper = document.querySelector('#i-input-slider-wrapper')
+if (!inputSliderWrapper) {
+  inputSliderWrapper = document.createElement('div')
+  inputSliderWrapper.id = 'i-input-slider-wrapper'
+  document.body.append(inputSliderWrapper)
+}
 
 export default defineComponent({
   name: 'InputSlider',
@@ -23,12 +31,9 @@ export default defineComponent({
     sliderMovingY: Number,
   },
   setup(props) {
-    // 创建输入框滑块容器
-    const popupWrapper = useContainer('i-popup-wrapper', document.body)
-    
     return () => {
       return (
-        <Teleport to="#i-popup-wrapper">
+        <Teleport to="#i-input-slider-wrapper">
           <div
             class="i-input-number-scrubbable"
             style={{

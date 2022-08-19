@@ -1,4 +1,4 @@
-import { computed, defineComponent, inject, VNode } from 'vue';
+import { computed, defineComponent, inject } from 'vue';
 import { turnValue } from '../common';
 import { Icon } from '../icon';
 import './index.scss';
@@ -28,7 +28,7 @@ export default defineComponent({
       /**
        * 自定义分隔符
        */
-      separator?: VNode
+      separator?: string | HTMLElement
     } = inject('breadcrumbCtx', {});
 
     // 限制最大宽度

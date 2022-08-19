@@ -1,5 +1,11 @@
 import _ from 'lodash'
-import { Component, getCurrentInstance, Slots, VNode, VNodeTypes } from 'vue'
+import {
+  Component,
+  getCurrentInstance,
+  Slots,
+  VNode,
+  VNodeTypes
+} from 'vue'
 
 /**
  * 通用位置类型
