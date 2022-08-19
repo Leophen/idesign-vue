@@ -1,7 +1,5 @@
 import './index.scss';
-import MenuItem from './menu-item';
-import MenuGroup from './menu-group';
-import { computed, defineComponent, mergeProps, PropType, provide, ref, VNode } from 'vue';
+import { computed, defineComponent, mergeProps, PropType, provide, ref } from 'vue';
 import { getAllElements, turnValue } from '../common';
 
 export default defineComponent({

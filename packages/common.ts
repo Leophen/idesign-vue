@@ -2,7 +2,6 @@ import _ from 'lodash'
 import {
   Component,
   getCurrentInstance,
-  ref,
   Slots,
   VNode,
   VNodeTypes

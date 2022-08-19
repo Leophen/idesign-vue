@@ -1,4 +1,4 @@
-import { computed, defineComponent, PropType, ref, watch, watchEffect } from 'vue';
+import { defineComponent, PropType, ref, watch } from 'vue';
 import _ from 'lodash';
 import './index.scss';
 import { DropdownOption, DropdownValue } from './type'

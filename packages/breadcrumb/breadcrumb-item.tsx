@@ -1,4 +1,4 @@
-import { computed, defineComponent, inject, VNode } from 'vue';
+import { computed, defineComponent, inject } from 'vue';
 import { turnValue } from '../common';
 import { Icon } from '../icon';
 import './index.scss';

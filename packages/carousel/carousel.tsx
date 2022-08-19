@@ -1,4 +1,4 @@
-import { cloneVNode, computed, defineComponent, onMounted, onUnmounted, PropType, ref, VNode, watch, watchEffect } from 'vue';
+import { cloneVNode, computed, defineComponent, onMounted, onUnmounted, PropType, ref, VNode, watch } from 'vue';
 import './index.scss';
 import _ from 'lodash';
 import { Icon } from '../icon'

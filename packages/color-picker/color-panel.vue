@@ -155,7 +155,6 @@
 </template>
 
 <script setup lang="ts">
-// @ts-ignore
 import tinycolor, { Instance } from 'tinycolor2'
 import { colorListType, defaultColor } from './type.js'
 import { computed, onMounted, reactive, ref } from 'vue'

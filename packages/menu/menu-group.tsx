@@ -3,7 +3,7 @@ import _ from 'lodash'
 import { MenuItem, MenuGroup } from './index';
 import { Dropdown } from '../Dropdown';
 import { Icon } from '../Icon';
-import { cloneVNode, computed, defineComponent, h, inject, onMounted, PropType, ref, VNode, watch } from 'vue';
+import { defineComponent, h, inject, onMounted, PropType, ref, VNode } from 'vue';
 import { Collapse, CollapseItem } from '../collapse';
 
 export default defineComponent({

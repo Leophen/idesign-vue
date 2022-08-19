@@ -1,4 +1,4 @@
-import { computed, defineComponent, onMounted, PropType, ref, VNode, watch } from 'vue';
+import { computed, defineComponent, onMounted, PropType, ref, VNode } from 'vue';
 import _ from 'lodash';
 import './index.scss';
 import { Tag } from '../tag'

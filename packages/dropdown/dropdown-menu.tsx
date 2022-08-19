@@ -1,4 +1,4 @@
-import { defineComponent, PropType, VNode } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import './index.scss';
 import { DropdownItemProps, DropdownOption } from './type'
 import { turnValue } from '../common'

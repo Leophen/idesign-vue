@@ -33,7 +33,6 @@
 import { computed, CSSProperties, ref } from 'vue'
 import { Popup } from '../Popup'
 import ColorPanel from './color-panel.vue'
-// @ts-ignore
 import { colorListType, defaultColor } from './type'
 
 interface ColorPickerProps {

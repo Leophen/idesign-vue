@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, ref } from 'vue'
 import { Button } from '../button'
 import { Icon } from '../icon'
 import { Message } from '../message'
