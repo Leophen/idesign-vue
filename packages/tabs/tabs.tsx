@@ -1,4 +1,4 @@
-import { computed, defineComponent, nextTick, onMounted, PropType, ref, watch } from 'vue';
+import { computed, defineComponent, nextTick, onMounted, PropType, ref, VNode, watch } from 'vue';
 import './index.scss';
 import TabsItem from './tabs-item';
 import { turnValue, useChildComponentSlots } from '../common'
@@ -38,12 +38,10 @@ export default defineComponent({
     'change': (value?: string | number) => true,
   },
   setup(props, { slots, emit, attrs }) {
-    let defaultVal = 0
-    // React.Children.map(props.children, (child, index) => {
-    //   index === 0 && (defaultVal = (child as any).props.value || 0)
-    // })
+    const children = slots.default?.() || []
+    const defaultVal = props.defaultActive || children[0].props?.value || 0
 
-    const _tabsValue = ref(props.defaultActive || defaultVal)
+    const _tabsValue = ref(defaultVal)
     const innerValue = computed(() => props.active ?? _tabsValue.value)
 
     const tabsRef = ref<HTMLDivElement>()
@@ -82,8 +80,8 @@ export default defineComponent({
 
     const tabsItems = () => {
       const getChildComponentByName = useChildComponentSlots();
-      const childrenList = getChildComponentByName('TabsItem')
-      const tabsItemList = childrenList.map((item: any, index: number) => {
+      const childrenList: VNode[] = getChildComponentByName('TabsItem')
+      const tabsItemList = childrenList.map((item, index) => {
         return (
           <TabsItem
             theme={props.theme}
@@ -96,7 +94,8 @@ export default defineComponent({
             }}
             {...item.props}
           >
-            {item.children.default()}
+            {/* @ts-ignore */}
+            {item.children?.default()}
           </TabsItem>
         );
       });

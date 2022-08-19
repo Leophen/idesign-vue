@@ -143,12 +143,12 @@ export default defineComponent({
     })
 
     // 通用事件
-    const handleEvent = (eventType: 'focus' | 'blur', e: any) => {
+    const handleEvent = (eventType: 'focus' | 'blur', e: Event) => {
       if (eventType === 'focus') {
-        emit('focus', e.target.value, e)
+        emit('focus', (e.target as HTMLTextAreaElement).value, e)
       }
       if (eventType === 'blur') {
-        emit('blur', e.target.value, e)
+        emit('blur', (e.target as HTMLTextAreaElement).value, e)
       }
     };
 

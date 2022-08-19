@@ -1,10 +1,10 @@
-import { computed, defineComponent, onMounted, PropType, ref, watch } from 'vue';
+import { computed, defineComponent, onMounted, PropType, ref, VNode, watch } from 'vue';
 import _ from 'lodash';
 import './index.scss';
 import { Tag } from '../tag'
 import { Input } from '../input'
 import { Dropdown } from '../dropdown'
-import { DropdownOption } from '../dropdown/type'
+import { DropdownItemProps, DropdownOption } from '../dropdown/type'
 import { useChildComponentSlots, turnValue } from '../common'
 
 export default defineComponent({
@@ -122,18 +122,19 @@ export default defineComponent({
     const dropdownWidth = ref(0)
     const children = slots.default?.();
     const getChildComponentByName = useChildComponentSlots();
-    const childrenList = getChildComponentByName('SelectItem')
+    const childrenList: VNode[] = getChildComponentByName('SelectItem')
     // Select.Item 模式 -> 更新下拉数据
     if (children) {
-      let selectData: any = []
-      childrenList.map((item: any) => {
+      let selectData: DropdownItemProps[] = []
+      childrenList.map((item) => {
         selectData.push({
+          // @ts-ignore
           content: item.children.default()[0].children,
-          value: item.props.value,
-          disabled: item.props.disabled,
-          divider: item.props.divider,
-          title: item.props.title,
-          onClick: item.props.onClick,
+          value: item.props?.value,
+          disabled: item.props?.disabled,
+          divider: item.props?.divider,
+          title: item.props?.title,
+          onClick: item.props?.onClick,
         })
       })
       innerOptions.value = selectData

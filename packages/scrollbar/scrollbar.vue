@@ -5,7 +5,7 @@
     @mouseleave="state.hoverShowThumb = false"
   >
     <div
-      ref="scrollWrap"
+      ref="scrollWrapRef"
       class="i-scrollbar__wrap"
       :style="scrollWrapStyle"
       @scroll="handleScroll"
@@ -93,28 +93,28 @@ const state = reactive({
   autoScroll: true
 })
 
-const scrollWrap = ref<any>(null)
+const scrollWrapRef = ref<HTMLElement>()
 watchEffect(() => {
   // 设置视图实际宽高
-  const currentWidth = scrollWrap.value?.clientWidth || 0
-  const currentHeight = scrollWrap.value?.clientHeight || 0
+  const currentWidth = scrollWrapRef.value?.clientWidth || 0
+  const currentHeight = scrollWrapRef.value?.clientHeight || 0
   state.viewCurrentWidth = currentWidth
   state.viewCurrentHeight = currentHeight
 
   // 设置视图总宽高
-  const viewWidth = (scrollWrap.value?.scrollWidth || 0) - currentWidth
-  const viewHeight = (scrollWrap.value?.scrollHeight || 0) - currentHeight
+  const viewWidth = (scrollWrapRef.value?.scrollWidth || 0) - currentWidth
+  const viewHeight = (scrollWrapRef.value?.scrollHeight || 0) - currentHeight
   state.viewWidth = viewWidth
   state.viewHeight = viewHeight
 
   // 设置滚动条宽高及视图与滚动条比值
   const currentBarWidth =
-    (currentWidth - 4) ** 2 / (scrollWrap.value?.scrollWidth || 1)
+    (currentWidth - 4) ** 2 / (scrollWrapRef.value?.scrollWidth || 1)
   state.thumbWidth = currentBarWidth
   state.scaleX = (currentWidth - currentBarWidth - 4) / currentBarWidth
 
   const currentBarHeight =
-    (currentHeight - 4) ** 2 / (scrollWrap.value?.scrollHeight || 1)
+    (currentHeight - 4) ** 2 / (scrollWrapRef.value?.scrollHeight || 1)
   state.thumbHeight = currentBarHeight
   state.scaleY = (currentHeight - currentBarHeight - 4) / currentBarHeight
 })
@@ -136,11 +136,13 @@ const emitScrollY = (ypr: number) => {
 }
 
 // 滚动事件触发
-const handleScroll = (e: any) => {
+const handleScroll = (e: Event) => {
   if (state.autoScroll) {
     // 滚动占比
-    const scrollXProportion = e.target.scrollLeft / state.viewWidth || 0
-    const scrollYProportion = e.target.scrollTop / state.viewHeight || 0
+    const scrollXProportion =
+      (e.target as HTMLElement).scrollLeft / state.viewWidth || 0
+    const scrollYProportion =
+      (e.target as HTMLElement).scrollTop / state.viewHeight || 0
 
     emitScrollX(scrollXProportion)
     emitScrollY(scrollYProportion)
@@ -155,7 +157,7 @@ const startX = ref(0)
 const startY = ref(0)
 
 // 滚动条聚焦控制
-const handleThumbMove = (e: any) => {
+const handleThumbMove = (e: MouseEvent) => {
   const maxX = state.viewCurrentWidth - state.thumbWidth - 4
   startX.value += e.movementX
   startX.value < 0 && (startX.value = 0)
@@ -170,14 +172,14 @@ const handleThumbMove = (e: any) => {
 
   // 滚动占比
   const scrollXProportion =
-    (scrollWrap.value?.scrollLeft || 0) / state.viewWidth || 0
+    (scrollWrapRef.value?.scrollLeft || 0) / state.viewWidth || 0
   const scrollYProportion =
-    (scrollWrap.value?.scrollTop || 0) / state.viewHeight || 0
+    (scrollWrapRef.value?.scrollTop || 0) / state.viewHeight || 0
 
   emitScrollX(scrollXProportion)
   emitScrollY(scrollYProportion)
 
-  scrollWrap.value?.scrollTo({
+  scrollWrapRef.value?.scrollTo({
     left: (startX.value + state.thumbWidth * scrollXProportion) * state.scaleX,
     top: (startY.value + state.thumbHeight * scrollYProportion) * state.scaleY
   })
@@ -207,11 +209,11 @@ const handleClickBarX = (e: MouseEvent) => {
   xProportionBackup.value = 0
   setTimeout(() => {
     const scrollXProportion =
-      (scrollWrap.value?.scrollLeft || 0) / state.viewWidth || 0
+      (scrollWrapRef.value?.scrollLeft || 0) / state.viewWidth || 0
     emitScrollX(scrollXProportion)
   })
 
-  scrollWrap.value?.scrollTo({
+  scrollWrapRef.value?.scrollTo({
     left: relativeLeft * state.scaleX
   })
 }
@@ -224,11 +226,11 @@ const handleClickBarY = (e: MouseEvent) => {
   yProportionBackup.value = 0
   setTimeout(() => {
     const scrollYProportion =
-      (scrollWrap.value?.scrollTop || 0) / state.viewHeight || 0
+      (scrollWrapRef.value?.scrollTop || 0) / state.viewHeight || 0
     emitScrollY(scrollYProportion)
   })
 
-  scrollWrap.value?.scrollTo({
+  scrollWrapRef.value?.scrollTo({
     top: relativeTop * state.scaleY
   })
 }

@@ -228,12 +228,12 @@ const listenClick = ref(false)
 const listenContextMenu = ref(false)
 
 // 悬浮后的操作
-const hoverHandle = (e: any) => {
+const hoverHandle = (e: MouseEvent) => {
   e.preventDefault()
   // 悬浮位置在气泡外
-  if (ifOutContent(e.target)) {
+  if (ifOutContent(e.target as HTMLElement)) {
     // 悬浮位置既在气泡外 又在触发节点外
-    if (ifOutReference(e.target)) {
+    if (ifOutReference(e.target as HTMLElement)) {
       switchPopupShow(false)
     }
     window.removeEventListener('mouseover', hoverHandle)

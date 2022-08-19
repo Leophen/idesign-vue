@@ -193,10 +193,10 @@ const getColList = (col: EPickerCols) => {
 }
 
 // 同步滚动
-const hourPanelRef = ref<HTMLUListElement[]>(null as any)
-const minutePanelRef = ref<HTMLUListElement[]>(null as any)
-const secondPanelRef = ref<HTMLUListElement[]>(null as any)
-const meridiemPanelRef = ref<HTMLUListElement[]>(null as any)
+const hourPanelRef = ref<HTMLUListElement[]>()
+const minutePanelRef = ref<HTMLUListElement[]>()
+const secondPanelRef = ref<HTMLUListElement[]>()
+const meridiemPanelRef = ref<HTMLUListElement[]>()
 const getRef = (type: string) => {
   let ref = meridiemPanelRef
   type === 'hour' && (ref = hourPanelRef)

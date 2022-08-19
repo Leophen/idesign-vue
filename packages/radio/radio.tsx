@@ -56,7 +56,22 @@ export default defineComponent({
     const innerChecked = computed(() => props.checked ?? _radioChecked.value)
 
     // 存在单选框组时从 Context 注入 checked 覆盖原 checked
-    const radioGroupCtx: any = inject('radioGroupCtx', undefined)
+    const radioGroupCtx: {
+      /**
+       * 单选框组全局类型
+       * @default radio
+       */
+      type?: "radio" | "radio-button"
+      /**
+       * 按钮单选框全局尺寸
+       * @default medium
+       */
+      size?: "small" | "medium" | "large"
+      /**
+       * 单选框组是否全局禁用
+       */
+      disabled?: boolean,
+    } = inject('radioGroupCtx', {})
 
     const mergedType = computed(() => props.type || radioGroupCtx?.type || 'radio')
     const mergedSize = computed(() => props.size || radioGroupCtx?.size || 'medium')

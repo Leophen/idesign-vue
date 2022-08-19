@@ -1,4 +1,4 @@
-import { computed, defineComponent, PropType, provide, ref } from 'vue';
+import { computed, defineComponent, PropType, provide, ref, VNode } from 'vue';
 import './index.scss';
 import { useChildComponentSlots } from '../common'
 import Radio from './radio'
@@ -41,12 +41,12 @@ export default defineComponent({
   },
   setup(props, { attrs, emit }) {
     const getChildComponentByName = useChildComponentSlots();
-    const childrenList = getChildComponentByName('Radio')
+    const childrenList: VNode[] = getChildComponentByName('Radio')
 
     const initValue = () => {
       let result = props.defaultChecked
-      !result && childrenList.map((item: any, index: number) => {
-        index === 0 && (result = item.props.value);
+      !result && childrenList.map((item, index) => {
+        index === 0 && (result = item.props?.value);
       })
       return result
     }
@@ -54,8 +54,8 @@ export default defineComponent({
     const innerValue = computed(() => props.checked ?? _groupValue.value)
 
     const radioItems = () => {
-      return childrenList.map((item: any, index: number) => {
-        const itemVal = item.props.value;
+      return childrenList.map((item, index) => {
+        const itemVal = item.props?.value;
         return (
           <Radio
             checked={innerValue.value === itemVal}
@@ -65,7 +65,8 @@ export default defineComponent({
             }}
             {...item.props}
           >
-            {item.children.default()}
+            {/* @ts-ignore */}
+            {item.children?.default()}
           </Radio>
         );
       })

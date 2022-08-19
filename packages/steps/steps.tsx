@@ -1,4 +1,4 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, VNode } from 'vue';
 import StepsItem from './steps-item';
 import './index.scss';
 import { useChildComponentSlots } from '../common'
@@ -42,14 +42,16 @@ export default defineComponent({
   setup(props, { attrs }) {
     const stepsItems = () => {
       const getChildComponentByName = useChildComponentSlots();
-      const childrenList = getChildComponentByName('StepsItem')
-      const stepItemList = childrenList.map((item: any, index: number) => {
+      const childrenList: VNode[] = getChildComponentByName('StepsItem')
+      const stepItemList = childrenList.map((item, index) => {
         const stepIndex = props.reverse ? childrenList.length - index - 1 : index;
         return (
           <StepsItem current={props.current} index={stepIndex}>
             {{
-              title: () => item.children.title(),
-              description: () => item.children.description()
+              // @ts-ignore
+              title: () => item.children?.title(),
+              // @ts-ignore
+              description: () => item.children?.description()
             }}
           </StepsItem>
         );

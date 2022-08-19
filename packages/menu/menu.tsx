@@ -41,11 +41,8 @@ export default defineComponent({
   },
   setup(props, { slots, emit, attrs }) {
     // 初始默认值（导航第一项）
-    let defaultVal = '0'
     const children = getAllElements(slots.default?.() ?? []);
-    children.forEach((child: any, index) => {
-      index === 0 && (defaultVal = props.defaultActive ?? child.props?.value ?? '0')
-    })
+    const defaultVal = props.defaultActive || children[0].props?.value || '0'
 
     const _menuActive = ref<string | number>(defaultVal)
     const innerActive = computed(() => props.active ?? _menuActive.value)
