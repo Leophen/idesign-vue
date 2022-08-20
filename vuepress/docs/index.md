@@ -24,12 +24,12 @@ tagline: ' '
       一套基于 Vue，TypeScript 友好的高质量 UI 组件库
     </p>
     <div class="home-title-btn-wrap">
-      <router-link to="/components/button/button">
+      <RouterLink to="/components/button/button">
         <div class="home-title-btn">
           快速开始
           <Icon name="ArrowRight" :size="14" color="#fff" />
         </div>
-      </router-link>
+      </RouterLink>
       <div class="home-title-btn trans" @click="toReactVersion">
         切换 React 版本
       </div>
