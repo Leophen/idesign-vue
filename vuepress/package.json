@@ -2,8 +2,7 @@
   "name": "idesign-vue",
   "version": "1.0.0",
   "description": "iDesign 前端通用组件库",
-  "exports": "./src/components/index.ts",
-  "type": "module",
+  "main": "src/components/index.ts",
   "scripts": {
     "start": "vuepress dev docs",
     "build": "vuepress build docs"
