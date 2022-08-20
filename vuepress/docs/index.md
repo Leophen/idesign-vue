@@ -250,7 +250,7 @@ const contentArr = [
 ]
 
 const toComponents = () => {
-  window.location.replace('/components/button/button')
+  window.location.replace('/components/Button/Button.html')
 }
 
 const toReactVersion = () => {
