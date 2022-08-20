@@ -28,7 +28,7 @@ export default defineComponent({
      */
     'change': (value?: string | number) => true
   },
-  setup(props, { slots, emit }) {
+  setup(props, { slots, emit, attrs }) {
     // 水平 group
     const horizonGroupValues = ref<any[]>([])
     const horizonGroupOptions = ref<any[]>([])
@@ -141,6 +141,7 @@ export default defineComponent({
               options={horizonGroupOptions.value}
               onClick={handleSelectItem}
               onTrigger={handleTrigger}
+              {...attrs}
             >
               <div
                 class={[
@@ -162,6 +163,7 @@ export default defineComponent({
               hideBorder
               expandAll={ifGroupActive(renderVertical())}
               iconPlacement='right'
+              {...attrs}
             >
               <CollapseItem title={props.title}>
                 {renderVertical()}
