@@ -3,7 +3,7 @@ const { defaultTheme } = require("@vuepress/theme-default");
 const { viteBundler } = require("@vuepress/bundler-vite");
 const { docsearchPlugin } = require('@vuepress/plugin-docsearch')
 const { rightAnchorPlugin } = require('vuepress-plugin-right-anchor')
-const { sitemapPlugin } = require("vuepress-plugin-sitemap2")
+import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 
 module.exports = {
   title: 'iDesign',
