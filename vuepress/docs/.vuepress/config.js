@@ -3,7 +3,6 @@ const { defaultTheme } = require("@vuepress/theme-default");
 const { viteBundler } = require("@vuepress/bundler-vite");
 const { docsearchPlugin } = require('@vuepress/plugin-docsearch')
 const { rightAnchorPlugin } = require('vuepress-plugin-right-anchor')
-import { sitemapPlugin } from "vuepress-plugin-sitemap2";
 
 module.exports = {
   title: 'iDesign',
@@ -131,9 +130,12 @@ module.exports = {
         clickModeDefaultOpen: true
       },
     }),
-    sitemapPlugin({
-      hostname: 'https://idesign-vue.vercel.app/'
-    }),
+    [
+      'vuepress-plugin-sitemap2',
+      {
+        hostname: 'https://idesign-vue.vercel.app/'
+      }
+    ]
   ],
   markdown: {
     lineNumbers: true,
