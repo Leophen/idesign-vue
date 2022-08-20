@@ -1,9 +1,8 @@
 const blockDemo = require("./../../src");
-import { defaultTheme } from "@vuepress/theme-default"
-import { viteBundler } from "@vuepress/bundler-vite"
-import { docsearchPlugin } from '@vuepress/plugin-docsearch'
-import { rightAnchorPlugin } from 'vuepress-plugin-right-anchor'
-import { sitemapPlugin } from "vuepress-plugin-sitemap2"
+const { defaultTheme } = require("@vuepress/theme-default");
+const { viteBundler } = require("@vuepress/bundler-vite");
+const { docsearchPlugin } = require('@vuepress/plugin-docsearch')
+const { rightAnchorPlugin } = require('vuepress-plugin-right-anchor')
 
 module.exports = {
   title: 'iDesign',
@@ -130,10 +129,7 @@ module.exports = {
         trigger: 'click',
         clickModeDefaultOpen: true
       },
-    }),
-    sitemapPlugin({
-      hostname: 'https://idesign-vue.vercel.app/'
-    }),
+    })
   ],
   markdown: {
     lineNumbers: true,
