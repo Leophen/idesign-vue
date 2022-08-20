@@ -129,7 +129,13 @@ module.exports = {
         trigger: 'click',
         clickModeDefaultOpen: true
       },
-    })
+    }),
+    [
+      'sitemap',
+      {
+        hostname: 'https://idesign-vue.vercel.app/',
+      }
+    ],
   ],
   markdown: {
     lineNumbers: true,
