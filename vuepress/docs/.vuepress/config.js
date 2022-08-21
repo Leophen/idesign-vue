@@ -4,6 +4,12 @@ const { viteBundler } = require("@vuepress/bundler-vite");
 const { docsearchPlugin } = require('@vuepress/plugin-docsearch')
 const { rightAnchorPlugin } = require('vuepress-plugin-right-anchor')
 const { sitemapPlugin } = require('vuepress-plugin-sitemap2')
+const {
+  registerComponentsPlugin
+} = require('@vuepress/plugin-register-components')
+const {
+  path
+} = require('@vuepress/utils')
 
 module.exports = {
   title: 'iDesign',
@@ -133,6 +139,11 @@ module.exports = {
     }),
     sitemapPlugin({
       hostname: 'https://idesign-vue.vercel.app/'
+    }),
+    registerComponentsPlugin({
+      components: {
+        Home: path.resolve(__dirname, './components/Home.vue'),
+      },
     }),
   ],
   markdown: {
