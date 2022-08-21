@@ -111,6 +111,7 @@ module.exports = {
       ]
     },
     sidebarDepth: 0,
+    notFound: ['如果您是通过 Algolia 搜索的回车快捷键进入此页面，这是 VuePress 预设 Algolia 的 bug，请返回上一页并使用鼠标点击搜索结果来进行跳转。']
   }),
   plugins: [
     docsearchPlugin({
