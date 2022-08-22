@@ -140,6 +140,7 @@ module.exports = {
     registerComponentsPlugin({
       components: {
         Home: path.resolve(__dirname, './components/Home.vue'),
+        IconDisplay: path.resolve(__dirname, './components/IconDisplay.vue'),
       },
     }),
   ],
