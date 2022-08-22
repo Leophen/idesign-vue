@@ -1,5 +1,5 @@
 <template>
-  <div class="home-container">
+  <div class="home-container" v-if="showHome">
     <header class="home-header">
       <header class="home-title-txt">
         <svg
@@ -35,12 +35,10 @@
         一套基于 Vue，TypeScript 友好的高质量 UI 组件库
       </p>
       <div class="home-title-btn-wrap">
-        <router-link to="/components/Button/Button">
-          <div class="home-title-btn">
-            快速开始
-            <Icon name="ArrowRight" :size="14" color="#fff" />
-          </div>
-        </router-link>
+        <div class="home-title-btn" @click="toComponents">
+          快速开始
+          <Icon name="ArrowRight" :size="14" color="#fff" />
+        </div>
         <div class="home-title-btn trans" @click="toReactVersion">
           切换 React 版本
         </div>
@@ -228,7 +226,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import logo from '/images/logo.svg'
 import {
   Avatar,
@@ -252,6 +250,7 @@ import {
   TimePicker,
   Upload
 } from 'idesign-vue'
+import { useRouter } from 'vue-router'
 
 const contentArr = [
   {
@@ -271,8 +270,16 @@ const contentArr = [
   }
 ]
 
+const showHome = ref(false)
+onMounted(() => {
+  showHome.value = true
+})
+
+const router = useRouter()
 const toComponents = () => {
-  window.location.replace('/components/Button/Button.html')
+  router.push('/components/Button/Button')
+  showHome.value = false
+  // window.location.replace('/components/Button/Button.html')
 }
 
 const toReactVersion = () => {
