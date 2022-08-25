@@ -20,7 +20,7 @@
     "axios": "^0.27.2",
     "chalk": "2.0.0",
     "escape-html": "~1.0.3",
-    "idesign-vue": "1.1.2",
+    "idesign-vue": "^1.1.3",
     "lodash": "^4.17.21",
     "markdown-it": "~13.0.0",
     "markdown-it-container": "~3.0.0",
