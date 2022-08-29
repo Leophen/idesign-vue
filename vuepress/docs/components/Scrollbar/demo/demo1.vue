@@ -2,10 +2,10 @@
   <i-scrollbar :height="360">
     <div
       class="idesign-demo-itemy"
-      v-for="(item, index) in Array(24).fill('item')"
-      :key="index"
+      v-for="n in 24"
+      :key="n"
     >
-      {{ item }}
+      {{ n }}
     </div>
   </i-scrollbar>
 </template>

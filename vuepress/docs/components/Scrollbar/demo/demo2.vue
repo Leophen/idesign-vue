@@ -3,10 +3,10 @@
     <div class="idesign-demo-itemx-wrap">
       <div
         class="idesign-demo-itemx"
-        v-for="(item, index) in Array(36).fill('item')"
-        :key="index"
+        v-for="n in 36"
+        :key="n"
       >
-        {{ item }}
+        {{ n }}
       </div>
     </div>
   </i-scrollbar>
