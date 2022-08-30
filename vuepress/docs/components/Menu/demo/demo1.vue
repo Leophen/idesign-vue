@@ -6,6 +6,7 @@
     <i-menu-item>菜单3</i-menu-item>
     <i-menu-item>菜单4</i-menu-item>
   </i-menu>
+
   <h4>有默认值（非受控）</h4>
   <i-menu :defaultActive="active">
     <i-menu-item>菜单1</i-menu-item>
@@ -13,15 +14,25 @@
     <i-menu-item>菜单3</i-menu-item>
     <i-menu-item>菜单4</i-menu-item>
   </i-menu>
+
   <h4>有固定值（受控）</h4>
-  <i-menu :active="active">
+  <i-menu :modelValue="active">
     <i-menu-item>菜单1</i-menu-item>
     <i-menu-item>菜单2</i-menu-item>
     <i-menu-item>菜单3</i-menu-item>
     <i-menu-item>菜单4</i-menu-item>
   </i-menu>
+
   <h4>一般用法</h4>
-  <i-menu :active="active" @change="handleChange">
+  <i-menu :modelValue="active" @change="handleChange">
+    <i-menu-item>菜单1</i-menu-item>
+    <i-menu-item>菜单2</i-menu-item>
+    <i-menu-item>菜单3</i-menu-item>
+    <i-menu-item>菜单4</i-menu-item>
+  </i-menu>
+
+  <h4>v-model 用法</h4>
+  <i-menu v-model="active">
     <i-menu-item>菜单1</i-menu-item>
     <i-menu-item>菜单2</i-menu-item>
     <i-menu-item>菜单3</i-menu-item>

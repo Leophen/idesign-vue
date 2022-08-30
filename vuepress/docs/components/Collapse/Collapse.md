@@ -68,22 +68,22 @@ Collapse/demo/demo8
 
 ## Collapse Attributes
 
-| 属性          | 说明           | 类型              | 默认值  |
-| ------------- | -------------- | ----------------- | ------- |
-|active|固定展开项（受控）|`Array<string〡number>`|`--`|
-|defaultActive|默认展开项（非受控）|`Array<string〡number>`|`--`|
-|accordion|是否为手风琴模式|`boolean`|`false`|
-|disabled|全局禁用折叠项|`boolean`|`false`|
-|expandAll|默认全部展开|`boolean`|`false`|
-|iconPlacement|自定义图标位置|`"left"〡"right"`|`left`|
-|hideBorder|是否隐藏边框|`boolean`|`false`|
-|noIndent|无缩进模式|`boolean`|`false`|
+| 属性                 | 说明                 | 类型                    | 默认值  |
+| -------------------- | -------------------- | ----------------------- | ------- |
+| modelValue / v-model | 固定展开项（受控）   | `Array<string〡number>` | `--`    |
+| defaultActive        | 默认展开项（非受控） | `Array<string〡number>` | `--`    |
+| accordion            | 是否为手风琴模式     | `boolean`               | `false` |
+| disabled             | 全局禁用折叠项       | `boolean`               | `false` |
+| expandAll            | 默认全部展开         | `boolean`               | `false` |
+| iconPlacement        | 自定义图标位置       | `"left"〡"right"`       | `left`  |
+| hideBorder           | 是否隐藏边框         | `boolean`               | `false` |
+| noIndent             | 无缩进模式           | `boolean`               | `false` |
 
 ## Collapse Slots
 
-| 属性          | 说明           | 类型              | 默认值  |
-| ------------- | -------------- | ----------------- | ------- |
-|change|切换面板时触发，返回变化的值|(value: `Array<string〡number>) => void`|`--`|
+| 属性   | 说明                         | 类型                                     | 默认值 |
+| ------ | ---------------------------- | ---------------------------------------- | ------ |
+| change | 切换面板时触发，返回变化的值 | (value: `Array<string〡number>) => void` | `--`   |
 
 ## CollapseItem Attributes
 

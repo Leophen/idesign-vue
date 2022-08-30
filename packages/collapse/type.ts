@@ -4,7 +4,7 @@ export interface CollapseProps {
   /**
    * 固定展开项（受控）
    */
-  active?: CollapseValueType;
+  modelValue?: CollapseValueType;
   /**
    * 默认展开项（非受控）
    */

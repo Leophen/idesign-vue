@@ -2,7 +2,7 @@
   <i-menu
     :width="200"
     direction="vertical"
-    :active="active"
+    :modelValue="active"
     @change="handleChange"
   >
     <i-menu-item>菜单1</i-menu-item>

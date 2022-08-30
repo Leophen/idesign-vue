@@ -28,12 +28,12 @@ Tabs/demo/demo3
 
 ## Tabs Attributes
 
-| 属性          | 说明                 | 类型               | 默认值   |
-| ------------- | -------------------- | ------------------ | -------- |
-| theme         | 选项卡风格类型       | `"normal"〡"card"` | `normal` |
-| active        | 固定选中值（受控）   | `string〡number`   | `--`     |
-| defaultActive | 默认选中值（非受控） | `string〡number`   | `--`     |
-| disabled      | 全局禁用             | `boolean`          | `false`  |
+| 属性                 | 说明                 | 类型               | 默认值   |
+| -------------------- | -------------------- | ------------------ | -------- |
+| theme                | 选项卡风格类型       | `"normal"〡"card"` | `normal` |
+| modelValue / v-model | 固定选中值（受控）   | `string〡number`   | `--`     |
+| defaultActive        | 默认选中值（非受控） | `string〡number`   | `--`     |
+| disabled             | 全局禁用             | `boolean`          | `false`  |
 
 ## Tabs Events
 

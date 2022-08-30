@@ -12,7 +12,7 @@ export default defineComponent({
     /**
      * 固定选中值（受控）
      */
-    active: {
+    modelValue: {
       type: [String, Number],
     },
     /**
@@ -33,6 +33,10 @@ export default defineComponent({
   },
   emits: {
     /**
+     * 点击菜单项时触发 v-model
+     */
+    'update:modelValue': (value?: string | number) => true,
+    /**
      * 点击菜单项时触发
      */
     'change': (value?: string | number) => true,
@@ -43,11 +47,12 @@ export default defineComponent({
     const defaultVal = props.defaultActive || children[0].props?.value || '0'
 
     const _menuActive = ref<string | number>(defaultVal)
-    const innerActive = computed(() => props.active ?? _menuActive.value)
+    const innerActive = computed(() => props.modelValue ?? _menuActive.value)
 
     const handleChange = (val: string | number) => {
       _menuActive.value = val
       emit('change', val)
+      emit('update:modelValue', val)
     }
 
     provide('menuCtx', {

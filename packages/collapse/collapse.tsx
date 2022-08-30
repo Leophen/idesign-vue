@@ -9,7 +9,7 @@ export default defineComponent({
     /**
      * 固定展开项（受控）
      */
-    active: Array as PropType<Array<string | number>>,
+    modelValue: Array as PropType<Array<string | number>>,
     /**
      * 默认展开项（非受控）
      */
@@ -67,6 +67,10 @@ export default defineComponent({
   },
   emits: {
     /**
+     * 切换面板时触发，返回变化的值 v-model
+     */
+    'update:modelValue': (value?: Array<string | number>) => true,
+    /**
      * 切换面板时触发，返回变化的值
      */
     'change': (value?: Array<string | number>) => true,
@@ -84,7 +88,7 @@ export default defineComponent({
     }
 
     const _collapseActive = ref(initVal())
-    const innerActive = computed(() => props.active ?? _collapseActive.value)
+    const innerActive = computed(() => props.modelValue ?? _collapseActive.value)
 
     // 更新展开项
     const updateInnerActive = (value: string | number) => {
@@ -99,6 +103,7 @@ export default defineComponent({
       }
       _collapseActive.value = [...newValue]
       emit('change', [...newValue])
+      emit('update:modelValue', [...newValue])
     };
 
     const collapseItems = () => {

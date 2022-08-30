@@ -17,7 +17,7 @@ export default defineComponent({
     /**
      * 固定选中值（受控）
      */
-    active: [String, Number],
+    modelValue: [String, Number],
     /**
      * 默认选中值（非受控）
      */
@@ -33,6 +33,10 @@ export default defineComponent({
   },
   emits: {
     /**
+     * 点击选项卡时触发 v-model
+     */
+    'update:modelValue': (value?: string | number) => true,
+    /**
      * 点击选项卡时触发
      */
     'change': (value?: string | number) => true,
@@ -42,7 +46,7 @@ export default defineComponent({
     const defaultVal = props.defaultActive || children[0].props?.value || 0
 
     const _tabsValue = ref(defaultVal)
-    const innerValue = computed(() => props.active ?? _tabsValue.value)
+    const innerValue = computed(() => props.modelValue ?? _tabsValue.value)
 
     const tabsRef = ref<HTMLDivElement>()
     const tabsRefLeft = ref(0)
@@ -91,6 +95,7 @@ export default defineComponent({
             onChange={(value: string | number) => {
               _tabsValue.value = value
               emit('change', value)
+              emit('update:modelValue', value)
             }}
             {...item.props}
           >

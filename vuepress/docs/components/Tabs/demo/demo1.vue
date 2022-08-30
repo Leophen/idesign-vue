@@ -5,20 +5,30 @@
     <i-tabs-item>选项卡22</i-tabs-item>
     <i-tabs-item>选项卡333</i-tabs-item>
   </i-tabs>
+
   <h4>有默认值（非受控）</h4>
   <i-tabs :defaultActive="active">
     <i-tabs-item>选项卡1</i-tabs-item>
     <i-tabs-item>选项卡22</i-tabs-item>
     <i-tabs-item>选项卡333</i-tabs-item>
   </i-tabs>
+
   <h4>有固定值（受控）</h4>
-  <i-tabs :active="active">
+  <i-tabs :modelValue="active">
     <i-tabs-item>选项卡1</i-tabs-item>
     <i-tabs-item>选项卡22</i-tabs-item>
     <i-tabs-item>选项卡333</i-tabs-item>
   </i-tabs>
+
   <h4>一般用法</h4>
-  <i-tabs :active="active" @change="handleChange">
+  <i-tabs :modelValue="active" @change="handleChange">
+    <i-tabs-item>选项卡1</i-tabs-item>
+    <i-tabs-item>选项卡22</i-tabs-item>
+    <i-tabs-item>选项卡333</i-tabs-item>
+  </i-tabs>
+
+  <h4>v-model 用法</h4>
+  <i-tabs v-model="active">
     <i-tabs-item>选项卡1</i-tabs-item>
     <i-tabs-item>选项卡22</i-tabs-item>
     <i-tabs-item>选项卡333</i-tabs-item>

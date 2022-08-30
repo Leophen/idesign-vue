@@ -20,7 +20,7 @@ export interface MenuProps {
   /**
    * 固定选中值（受控）
    */
-  active?: string | number;
+  modelValue?: string | number;
   /**
    * 默认选中值（非受控）
    * @default 0
