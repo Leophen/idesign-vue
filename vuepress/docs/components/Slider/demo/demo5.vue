@@ -5,13 +5,15 @@
     <h4>有默认值（非受控）→</h4>
     <i-slider layout="vertical" :defaultValue="currentVal" />
     <h4>有固定值（受控）→</h4>
-    <i-slider layout="vertical" :value="currentVal" />
+    <i-slider layout="vertical" :modelValue="currentVal" />
     <h4>一般用法 →</h4>
     <i-slider
       layout="vertical"
-      :value="currentVal"
+      :modelValue="currentVal"
       :onChange="handleChange"
     />
+    <h4>v-model 用法 →</h4>
+    <i-slider layout="vertical" v-model="currentVal" />
   </div>
 </template>
 

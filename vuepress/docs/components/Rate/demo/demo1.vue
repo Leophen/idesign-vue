@@ -4,9 +4,11 @@
   <h4>有默认值（非受控）</h4>
   <i-rate :defaultValue="rate" />
   <h4>有固定值（受控）</h4>
-  <i-rate :value="rate" />
+  <i-rate :modelValue="rate" />
   <h4>一般用法</h4>
-  <i-rate :value="rate" @change="handleChange" />
+  <i-rate :modelValue="rate" @change="handleChange" />
+  <h4>v-model 用法</h4>
+  <i-rate v-model="rate" />
 </template>
 
 <script setup>

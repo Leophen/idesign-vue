@@ -2,7 +2,7 @@ export interface RateProps {
   /**
    * 固定分值（受控）
    */
-  value?: number;
+  modelValue?: number;
   /**
    * 默认分值（非受控）
    * @default 0

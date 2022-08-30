@@ -126,7 +126,7 @@ interface SliderProps {
   /**
    * 滑块固定值（受控）
    */
-  value?: number | number[]
+  modelValue?: number | number[]
   /**
    * 滑块默认值（非受控）
    */
@@ -170,6 +170,10 @@ interface SliderProps {
 
 interface SliderEmits {
   /**
+   * 滑块值变化时触发 v-model
+   */
+  (type: 'update:modelValue', val: number): void
+  /**
    * 滑块值变化时触发
    */
   (type: 'change', val: number): void
@@ -177,7 +181,7 @@ interface SliderEmits {
 
 const {
   layout = 'horizontal',
-  value,
+  modelValue,
   defaultValue,
   disabled = false,
   max = 100,
@@ -192,7 +196,7 @@ const emit = defineEmits<SliderEmits>()
 const _sliderValue = ref(
   defaultValue ?? (!range ? min || 0 : [min || 0, max || 0])
 )
-const innerValue = computed(() => value ?? _sliderValue.value)
+const innerValue = computed(() => modelValue ?? _sliderValue.value)
 
 const slider = ref<HTMLDivElement>()
 const rect = ref({
@@ -282,6 +286,7 @@ const updateInnerValue = (val: number) => {
   if (!range) {
     _sliderValue.value = val
     emit('change', val)
+    emit('update:modelValue', val)
   } else {
     if (
       Math.abs(val - (innerValue.value as number[])[0]) <
@@ -293,6 +298,7 @@ const updateInnerValue = (val: number) => {
     }
     _sliderValue.value = innerValue.value
     emit('change', innerValue.value as number)
+    emit('update:modelValue', innerValue.value as number)
   }
 }
 

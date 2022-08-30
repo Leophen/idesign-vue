@@ -1,3 +1,3 @@
 <template>
-  <i-rate :value="3" readonly />
+  <i-rate :defaultValue="3" readonly />
 </template>

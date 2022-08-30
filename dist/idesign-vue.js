@@ -10459,7 +10459,7 @@ const vb = { class: "i-slider__bar" }, gb = { class: "i-slider__bar" }, mb = /* 
   __name: "slider",
   props: {
     layout: { default: "horizontal" },
-    value: null,
+    modelValue: null,
     defaultValue: null,
     disabled: { type: Boolean, default: !1 },
     max: { default: 100 },
@@ -10469,7 +10469,7 @@ const vb = { class: "i-slider__bar" }, gb = { class: "i-slider__bar" }, mb = /* 
     hideTip: { type: Boolean, default: !1 },
     placement: { default: "top" }
   },
-  emits: ["change"],
+  emits: ["update:modelValue", "change"],
   setup(t, { emit: a }) {
     var X;
     const r = ($, k) => {
@@ -10481,7 +10481,7 @@ const vb = { class: "i-slider__bar" }, gb = { class: "i-slider__bar" }, mb = /* 
       return M;
     }, u = F((X = t.defaultValue) != null ? X : t.range ? [t.min || 0, t.max || 0] : t.min || 0), s = ye(() => {
       var $;
-      return ($ = t.value) != null ? $ : u.value;
+      return ($ = t.modelValue) != null ? $ : u.value;
     }), c = F(), d = F({
       left: 0,
       top: 0,
@@ -10511,7 +10511,7 @@ const vb = { class: "i-slider__bar" }, gb = { class: "i-slider__bar" }, mb = /* 
       const $ = (k = c.value) == null ? void 0 : k.getBoundingClientRect();
       d.value.left = ($ == null ? void 0 : $.left) || 0, d.value.top = ($ == null ? void 0 : $.top) || 0, d.value.width = ($ == null ? void 0 : $.width) || 0, d.value.height = ($ == null ? void 0 : $.height) || 0;
     }, L = ($) => {
-      t.range ? (Math.abs($ - s.value[0]) < Math.abs($ - s.value[1]) ? s.value[0] = $ : s.value[1] = $, u.value = s.value, a("change", s.value)) : (u.value = $, a("change", $));
+      t.range ? (Math.abs($ - s.value[0]) < Math.abs($ - s.value[1]) ? s.value[0] = $ : s.value[1] = $, u.value = s.value, a("change", s.value), a("update:modelValue", s.value)) : (u.value = $, a("change", $), a("update:modelValue", $));
     }, P = ($) => {
       if (!t.disabled) {
         p(!0), I();
@@ -10795,7 +10795,7 @@ const ef = ae({
 }, kb = ["onMouseenter", "onMousedown"], $b = ["onMouseenter", "onMousedown"], Lb = ["onMouseenter", "onMousedown"], Eb = /* @__PURE__ */ ae({
   __name: "rate",
   props: {
-    value: null,
+    modelValue: null,
     defaultValue: { default: 0 },
     readonly: { type: Boolean, default: !1 },
     allowClear: { type: Boolean, default: !1 },
@@ -10806,12 +10806,12 @@ const ef = ae({
     activeIcon: { default: "StarFill" },
     voidIcon: { default: "StarFill" }
   },
-  emits: ["change"],
+  emits: ["update:modelValue", "change"],
   setup(t, { emit: a }) {
     const r = F(t.defaultValue), u = ye(() => {
       var m;
-      return (m = t.value) != null ? m : r.value;
-    }), s = F(t.value || t.defaultValue), c = F(!1), d = () => {
+      return (m = t.modelValue) != null ? m : r.value;
+    }), s = F(t.modelValue || t.defaultValue), c = F(!1), d = () => {
       !t.readonly && (c.value = !0);
     }, h = () => {
       !t.readonly && (c.value = !1);
@@ -10823,9 +10823,9 @@ const ef = ae({
       if (!t.readonly)
         if (u.value !== m + C) {
           const E = m + C;
-          r.value = E, a("change", E);
+          r.value = E, a("change", E), a("update:modelValue", E);
         } else
-          t.allowClear && (r.value = 0, a("change", 0));
+          t.allowClear && (r.value = 0, a("change", 0), a("update:modelValue", 0));
     }, y = (m, C) => {
       let E = C === "name" ? t.voidIcon : t.voidColor;
       return (c.value ? s.value : u.value) > m && (E = C === "name" ? t.activeIcon : t.activeColor), E;

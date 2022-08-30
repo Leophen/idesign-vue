@@ -58,18 +58,18 @@ Rate/demo/demo7
 
 ## Rate Attributes
 
-| 属性         | 说明               | 类型      | 默认值             |
-| ------------ | ------------------ | --------- | ------------------ |
-| value        | 固定分值（受控）   | `number`  | `--`               |
-| defaultValue | 默认分值（非受控） | `number`  | `0`                |
-| readonly     | 是否只读           | `boolean` | `false`            |
-| allowClear   | 是否可清除         | `boolean` | `false`            |
-| allowHalf    | 是否支持半星       | `boolean` | `false`            |
-| count        | 最大分值           | `number`  | `5`                |
-| activeColor  | 选中颜色           | `string`  | `#f5db4d`          |
-| voidColor    | 未选中颜色         | `string`  | `#e5e6ea〡#333336` |
-| activeIcon   | 选中图标           | `string`  | `StarFill`         |
-| voidIcon     | 未选中图标         | `string`  | `StarFill`         |
+| 属性                 | 说明               | 类型      | 默认值             |
+| -------------------- | ------------------ | --------- | ------------------ |
+| modelValue / v-model | 固定分值（受控）   | `number`  | `--`               |
+| defaultValue         | 默认分值（非受控） | `number`  | `0`                |
+| readonly             | 是否只读           | `boolean` | `false`            |
+| allowClear           | 是否可清除         | `boolean` | `false`            |
+| allowHalf            | 是否支持半星       | `boolean` | `false`            |
+| count                | 最大分值           | `number`  | `5`                |
+| activeColor          | 选中颜色           | `string`  | `#f5db4d`          |
+| voidColor            | 未选中颜色         | `string`  | `#e5e6ea〡#333336` |
+| activeIcon           | 选中图标           | `string`  | `StarFill`         |
+| voidIcon             | 未选中图标         | `string`  | `StarFill`         |
 
 ## Rate Events
 

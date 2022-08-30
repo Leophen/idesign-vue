@@ -9,7 +9,7 @@ export interface SliderProps {
   /**
    * 滑块固定值（受控）
    */
-  value?: number | number[]
+  modelValue?: number | number[]
   /**
    * 滑块默认值（非受控）
    */

@@ -66,21 +66,21 @@ Slider/demo/demo8
 
 ## Slider Attributes
 
-| 属性   | 说明           | 类型                    | 默认值 |
-| ------ | -------------- | ----------------------- | ------ |
-|layout|滑块布局方向|`"vertical"〡"horizontal"`|`horizontal`|
-|value|滑块固定值（受控）|`number〡number[]`|`--`|
-|defaultValue|滑块默认值（非受控）|`number〡number[]`|`--`|
-|disabled|是否禁用滑块|`boolean`|`false`|
-|max|滑块范围最大值|`number`|`100`|
-|min|滑块范围最小值|`number`|`0`|
-|step|步长|`number`|`1`|
-|range|是否为范围滑块|`boolean`|`false`|
-|hideTip|是否隐藏数值提示|`boolean`|`false`|
-|placement|数值提示出现位置|`placementType`|`top`|
+| 属性                 | 说明                 | 类型                       | 默认值       |
+| -------------------- | -------------------- | -------------------------- | ------------ |
+| layout               | 滑块布局方向         | `"vertical"〡"horizontal"` | `horizontal` |
+| modelValue / v-model | 滑块固定值（受控）   | `number〡number[]`         | `--`         |
+| defaultValue         | 滑块默认值（非受控） | `number〡number[]`         | `--`         |
+| disabled             | 是否禁用滑块         | `boolean`                  | `false`      |
+| max                  | 滑块范围最大值       | `number`                   | `100`        |
+| min                  | 滑块范围最小值       | `number`                   | `0`          |
+| step                 | 步长                 | `number`                   | `1`          |
+| range                | 是否为范围滑块       | `boolean`                  | `false`      |
+| hideTip              | 是否隐藏数值提示     | `boolean`                  | `false`      |
+| placement            | 数值提示出现位置     | `placementType`            | `top`        |
 
 ## Slider Events
 
-| 属性   | 说明           | 类型                    | 默认值 |
-| ------ | -------------- | ----------------------- | ------ |
-|change|滑块值变化时触发|`(value: number) => void`|`--`|
+| 属性   | 说明             | 类型                      | 默认值 |
+| ------ | ---------------- | ------------------------- | ------ |
+| change | 滑块值变化时触发 | `(value: number) => void` | `--`   |

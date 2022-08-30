@@ -60,7 +60,7 @@ interface RateProps {
   /**
    * 固定分值（受控）
    */
-  value?: number
+  modelValue?: number
   /**
    * 默认分值（非受控）
    * @default 0
@@ -110,13 +110,17 @@ interface RateProps {
 
 interface RateEmits {
   /**
+   * 选择评分时触发 v-model
+   */
+  (type: 'update:modelValue', val: number): void
+  /**
    * 选择评分时触发
    */
   (type: 'change', val: number): void
 }
 
 const {
-  value,
+  modelValue,
   defaultValue = 0,
   readonly = false,
   allowClear = false,
@@ -130,8 +134,8 @@ const {
 const emit = defineEmits<RateEmits>()
 
 const _rateValue = ref(defaultValue)
-const innerValue = computed(() => value ?? _rateValue.value)
-const hoverValue = ref(value || defaultValue)
+const innerValue = computed(() => modelValue ?? _rateValue.value)
+const hoverValue = ref(modelValue || defaultValue)
 const ifHover = ref(false)
 
 const handleEnterRate = () => {
@@ -154,10 +158,12 @@ const handleDownRateItem = (index: number) => {
       const newVal = index + step
       _rateValue.value = newVal
       emit('change', newVal)
+      emit('update:modelValue', newVal)
     } else {
       if (allowClear) {
         _rateValue.value = 0
         emit('change', 0)
+        emit('update:modelValue', 0)
       }
     }
   }
