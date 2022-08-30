@@ -44,7 +44,7 @@ TimePicker/demo/demo5
 
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-|value|时间固定值（受控）|`string`|`--`|
+|modelValue / v-model|时间固定值（受控）|`string`|`--`|
 |defaultValue|时间默认值（非受控）|`string`|`当前时间`|
 |trigger|触发方式|`"hover"〡"click"〡"context-menu"`|`click`|
 |disabled|是否禁用选择器|`boolean`|`false`|

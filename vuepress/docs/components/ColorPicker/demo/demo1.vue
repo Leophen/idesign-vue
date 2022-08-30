@@ -4,11 +4,16 @@
   <h4>有默认值（非受控）</h4>
   <i-color-picker :defaultValue="currentValue" />
   <h4>有固定值（受控）</h4>
-  <i-color-picker :value="currentValue" />
+  <i-color-picker :modelValue="currentValue" />
   <h4>一般用法</h4>
   <i-color-picker
-    :value="currentValue"
+    :modelValue="currentValue"
     @change="handleChange"
+    @trigger="handleTrigger"
+  />
+  <h4>v-model 用法</h4>
+  <i-color-picker
+    v-model="currentValue"
     @trigger="handleTrigger"
   />
 </template>

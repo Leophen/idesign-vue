@@ -84,39 +84,40 @@ Select/demo/demo10
 
 ## Select Attributes
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|width|选择器宽度|`string〡number`|`100%`|
-|value|选中值|`string〡number〡(string〡number)[]`|`--`|
-|placeholder|占位符|`string`|`请选择`|
-|options|下拉操作项|`DropdownOption[]`|`[]`|
-|size|选择器尺寸|`"small"〡"medium"〡"large"`|`medium`|
-|clearable|是否可一键清空|`boolean`|`true`|
-|prefixIcon|选择框前置图标名|`string`|`--`|
-|suffixIcon|选择框后置图标名|`string`|`--`|
-|prefixIconClass|选择框前置图标类名|`string`|`--`|
-|suffixIconClass|选择框后置图标类名|`string`|`--`|
-|cascaderDirection|级联子层级展开方向|`"left"〡"right"`|`right`|
-|multiple|是否可多选|`boolean`|`false`|
+| 属性                 | 说明                 | 类型                                 | 默认值   |
+| -------------------- | -------------------- | ------------------------------------ | -------- |
+| width                | 选择器宽度           | `string〡number`                     | `100%`   |
+| modelValue / v-model | 固定选中值（受控）   | `string〡number〡(string〡number)[]` | `--`     |
+| defaultValue         | 默认选中值（非受控） | `string〡number〡(string〡number)[]` | `--`     |
+| placeholder          | 占位符               | `string`                             | `请选择` |
+| options              | 下拉操作项           | `DropdownOption[]`                   | `[]`     |
+| size                 | 选择器尺寸           | `"small"〡"medium"〡"large"`         | `medium` |
+| clearable            | 是否可一键清空       | `boolean`                            | `true`   |
+| prefixIcon           | 选择框前置图标名     | `string`                             | `--`     |
+| suffixIcon           | 选择框后置图标名     | `string`                             | `--`     |
+| prefixIconClass      | 选择框前置图标类名   | `string`                             | `--`     |
+| suffixIconClass      | 选择框后置图标类名   | `string`                             | `--`     |
+| cascaderDirection    | 级联子层级展开方向   | `"left"〡"right"`                    | `right`  |
+| multiple             | 是否可多选           | `boolean`                            | `false`  |
 
 ## Select Events
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-|change|选中值变化时触发|`(value: string | number | (string | number)[]) => void`|`--`|
+| 属性   | 说明             | 类型                                                  | 默认值 |
+| ------ | ---------------- | ----------------------------------------------------- | ------ |
+| change | 选中值变化时触发 | `(value: string〡number〡(string〡number)[]) => void` | `--`   |
 
 ## SelectItem Attributes
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| content | 下拉操作项内容 | `ReactNode` | `--` |
-| value | 下拉操作项唯一标识 | `string〡number` | `--` |
-| disabled | 单项是否禁用 | `boolean` | `false` |
-| divider | 是否显示操作项之后的分隔线 | `boolean` | `false` |
-| title | 该下拉项上方组标题 | `string` | `--` |
+| 属性     | 说明                       | 类型             | 默认值  |
+| -------- | -------------------------- | ---------------- | ------- |
+| content  | 下拉操作项内容             | `ReactNode`      | `--`    |
+| value    | 下拉操作项唯一标识         | `string〡number` | `--`    |
+| disabled | 单项是否禁用               | `boolean`        | `false` |
+| divider  | 是否显示操作项之后的分隔线 | `boolean`        | `false` |
+| title    | 该下拉项上方组标题         | `string`         | `--`    |
 
 ## SelectItem Events
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| click | 点击时触发 | `(dropdownItem: DropdownOption, event: MouseEvent) => void` | `--` |
+| 属性  | 说明       | 类型                                                        | 默认值 |
+| ----- | ---------- | ----------------------------------------------------------- | ------ |
+| click | 点击时触发 | `(dropdownItem: DropdownOption, event: MouseEvent) => void` | `--`   |

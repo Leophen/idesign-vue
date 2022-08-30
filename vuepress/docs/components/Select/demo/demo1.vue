@@ -12,13 +12,19 @@
     <i-select-item value="item3">选项三</i-select-item>
   </i-select>
   <h4>有固定值（受控）</h4>
-  <i-select :value="currentValue">
+  <i-select :modelValue="currentValue">
     <i-select-item value="item1">选项一</i-select-item>
     <i-select-item value="item2">选项二</i-select-item>
     <i-select-item value="item3">选项三</i-select-item>
   </i-select>
   <h4>一般用法</h4>
-  <i-select :value="currentValue" @change="handleChange">
+  <i-select :modelValue="currentValue" @change="handleChange">
+    <i-select-item value="item1">选项一</i-select-item>
+    <i-select-item value="item2">选项二</i-select-item>
+    <i-select-item value="item3">选项三</i-select-item>
+  </i-select>
+  <h4>v-model 用法</h4>
+  <i-select v-model="currentValue">
     <i-select-item value="item1">选项一</i-select-item>
     <i-select-item value="item2">选项二</i-select-item>
     <i-select-item value="item3">选项三</i-select-item>

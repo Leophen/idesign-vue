@@ -52,34 +52,34 @@ ColorPicker/demo/demo6
 
 ## ColorPicker Attributes
 
-| 属性         | 说明                 | 类型                    | 默认值    |
-| ------------ | -------------------- | ----------------------- | --------- |
-|triggerClassName|触发颜色块类名|`string`|`--`|
-|triggerStyle|触发颜色块样式|`CSSProperties`|`--`|
-|size|触发颜色块尺寸|`"small"〡"medium"〡"large"`|`medium`|
-|value|固定颜色值（受控）|`string`|`--`|
-|defaultValue|默认颜色值（非受控）|`string`|`#5e62ea`|
-|colorList|底部预设颜色|`colorListType[]`|`--`|
-|disabled|是否禁用颜色选择器|`boolean`|`false`|
+| 属性             | 说明                 | 类型                         | 默认值    |
+| ---------------- | -------------------- | ---------------------------- | --------- |
+| triggerClassName | 触发颜色块类名       | `string`                     | `--`      |
+| triggerStyle     | 触发颜色块样式       | `CSSProperties`              | `--`      |
+| size             | 触发颜色块尺寸       | `"small"〡"medium"〡"large"` | `medium`  |
+| value            | 固定颜色值（受控）   | `string`                     | `--`      |
+| defaultValue     | 默认颜色值（非受控） | `string`                     | `#5e62ea` |
+| colorList        | 底部预设颜色         | `colorListType[]`            | `--`      |
+| disabled         | 是否禁用颜色选择器   | `boolean`                    | `false`   |
 
 ## ColorPicker Events
 
-| 属性         | 说明                 | 类型                    | 默认值    |
-| ------------ | -------------------- | ----------------------- | --------- |
-|change|修改颜色值时触发|`(val: string) => void`|`--`|
-|trigger|切换颜色面板时触发|`(val: string, visible: boolean) => void`|`--`|
+| 属性    | 说明               | 类型                                      | 默认值 |
+| ------- | ------------------ | ----------------------------------------- | ------ |
+| change  | 修改颜色值时触发   | `(val: string) => void`                   | `--`   |
+| trigger | 切换颜色面板时触发 | `(val: string, visible: boolean) => void` | `--`   |
 
 ## ColorPanel Attributes
 
-| 属性         | 说明                 | 类型                    | 默认值    |
-| ------------ | -------------------- | ----------------------- | --------- |
-| value        | 固定颜色值（受控）   | `string`                | `--`      |
-| defaultValue | 默认颜色值（非受控） | `string`                | `#5e62ea` |
-| colorList    | 底部预设颜色         | `colorListType[]`       | `--`      |
-| disabled     | 禁用颜色面板         | `boolean`               | `false`   |
+| 属性                 | 说明                 | 类型              | 默认值    |
+| -------------------- | -------------------- | ----------------- | --------- |
+| modelValue / v-model | 固定颜色值（受控）   | `string`          | `--`      |
+| defaultValue         | 默认颜色值（非受控） | `string`          | `#5e62ea` |
+| colorList            | 底部预设颜色         | `colorListType[]` | `--`      |
+| disabled             | 禁用颜色面板         | `boolean`         | `false`   |
 
 ## ColorPanel Events
 
-| 属性         | 说明                 | 类型                    | 默认值    |
-| ------------ | -------------------- | ----------------------- | --------- |
-| change     | 修改颜色值时触发     | `(val: string) => void` | `--`      |
+| 属性   | 说明             | 类型                    | 默认值 |
+| ------ | ---------------- | ----------------------- | ------ |
+| change | 修改颜色值时触发 | `(val: string) => void` | `--`   |

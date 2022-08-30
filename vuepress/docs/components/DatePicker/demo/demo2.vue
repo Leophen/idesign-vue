@@ -4,13 +4,15 @@
   <h4>有默认值（非受控）</h4>
   <i-date-picker type="range" :defaultValue="currentValue" />
   <h4>有固定值（受控）</h4>
-  <i-date-picker type="range" :value="currentValue" />
+  <i-date-picker type="range" :modelValue="currentValue" />
   <h4>一般用法</h4>
   <i-date-picker
     type="range"
-    :value="currentValue"
+    :modelValue="currentValue"
     @change="handleChange"
   />
+  <h4>v-model 用法</h4>
+  <i-date-picker type="range" v-model="currentValue" />
 </template>
 
 <script setup>

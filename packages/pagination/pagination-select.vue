@@ -1,7 +1,7 @@
 <template>
   <div class="i-pagination-select">
     <Select
-      :value="value"
+      :modelValue="value"
       :disabled="disabled"
       :options="options"
       :clearable="false"

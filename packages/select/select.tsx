@@ -18,7 +18,7 @@ export default defineComponent({
     /**
      * 固定选中值（受控）
      */
-    value: {
+    modelValue: {
       type: [String, Number, Array] as PropType<
         | string
         | number
@@ -111,6 +111,10 @@ export default defineComponent({
   },
   emits: {
     /**
+     * 选中值变化时触发 v-model
+     */
+    'update:modelValue': (val: string | number | Array<string | number>) => true,
+    /**
      * 选中值变化时触发
      */
     'change': (val: string | number | Array<string | number>) => true
@@ -147,12 +151,13 @@ export default defineComponent({
 
     // 更新下拉数据
     const _selectValue = ref(props.defaultValue)
-    const innerValue = computed(() => props.value ?? _selectValue.value)
+    const innerValue = computed(() => props.modelValue ?? _selectValue.value)
 
     const updateValue = (val: string | number | Array<string | number>) => {
       const newVal = _.cloneDeep(val)
       _selectValue.value = newVal
       emit('change', newVal)
+      emit('update:modelValue', newVal)
     }
 
     // 根据 options 的 value 获得对应的 content
@@ -216,6 +221,7 @@ export default defineComponent({
         const newVal = _.cloneDeep(curInnerValue)
         _selectValue.value = newVal
         emit('change', newVal)
+        emit('update:modelValue', newVal)
       }
     }
 
@@ -227,6 +233,7 @@ export default defineComponent({
       }
       _selectValue.value = nullVal
       emit('change', nullVal)
+      emit('update:modelValue', nullVal)
     }
 
     return () => {

@@ -69,7 +69,7 @@
     <section class="i-color-panel-values">
       <Select
         :width="60"
-        :value="colorType"
+        :modelValue="colorType"
         size="small"
         :disabled="disabled"
         :clearable="false"

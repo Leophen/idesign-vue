@@ -1,15 +1,14 @@
 <template>
   <div className="idesign-demo-block-row">
-    <i-select :value="currentValue" @change="handleChange">
+    <i-select v-model="currentValue">
       <i-select-item value="item1">选项一</i-select-item>
       <i-select-item value="item2">选项二</i-select-item>
       <i-select-item value="item3">选项三</i-select-item>
     </i-select>
     <i-select
-      :value="currentValue"
+      v-model="currentValue"
       :options="options"
       :clearable="false"
-      @change="handleChange"
     />
   </div>
 </template>
@@ -33,8 +32,4 @@ const options = [
 ]
 
 const currentValue = ref('item1')
-
-const handleChange = (val) => {
-  currentValue.value = val
-}
 </script>

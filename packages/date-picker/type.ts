@@ -6,7 +6,7 @@ export interface DatePickerProps {
   /**
    * 固定选中值（受控）
    */
-  value?: string;
+  modelValue?: string;
   /**
    * 默认选中值（非受控）
    */

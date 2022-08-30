@@ -77,7 +77,7 @@ export interface ColorPickerProps {
   /**
    * 固定颜色值（受控）
    */
-  value?: string
+  modelValue?: string
   /**
    * 默认颜色值（非受控）
    * @default #5e62ea

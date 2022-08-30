@@ -42,7 +42,7 @@ interface TimePickerProps {
   /**
    * 固定时间值（受控）
    */
-  value?: string
+  modelValue?: string
   /**
    * 默认时间值（非受控）
    * @default 当前时间
@@ -72,6 +72,10 @@ interface TimePickerProps {
 
 interface TimePickerEmits {
   /**
+   * 选中时间变化时触发 v-model
+   */
+  (type: 'update:modelValue', val: string): void
+  /**
    * 选中时间变化时触发
    */
   (type: 'change', val: string): void
@@ -82,7 +86,7 @@ interface TimePickerEmits {
 }
 
 const {
-  value,
+  modelValue,
   defaultValue,
   trigger = 'click',
   disabled = false,
@@ -109,7 +113,7 @@ const getCurrentTime = (type?: string) => {
 }
 
 const _timeValue = ref(mergeDefaultVal.value)
-const innerValue = computed(() => value ?? _timeValue.value)
+const innerValue = computed(() => modelValue ?? _timeValue.value)
 
 const timeValue = ref({
   hour: '00',
@@ -171,6 +175,7 @@ const updateValue = (val?: TimesType) => {
     : (currentTime = objToValue(timeValue.value))
   _timeValue.value = currentTime
   emit('change', currentTime)
+  emit('update:modelValue', currentTime)
 }
 
 const selectTime = (
@@ -191,6 +196,7 @@ const handleNow = () => {
   const currentTime = dayjs().format(format)
   _timeValue.value = currentTime
   emit('change', currentTime)
+  emit('update:modelValue', currentTime)
 }
 
 const handleConfirm = () => {

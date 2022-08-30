@@ -68,7 +68,7 @@ interface DatePickerProps {
   /**
    * 固定选中值（受控）
    */
-  value?: string
+  modelValue?: string
   /**
    * 默认选中值（非受控）
    */
@@ -107,13 +107,17 @@ interface DatePickerProps {
 
 interface DatePickerEmits {
   /**
+   * 选中值发生变化时触发 v-model
+   */
+  (type: 'update:modelValue', val: string | string[]): void
+  /**
    * 选中值发生变化时触发
    */
   (type: 'change', val: string | string[]): void
 }
 
 const {
-  value,
+  modelValue,
   defaultValue,
   trigger = 'click',
   disabled = false,
@@ -134,11 +138,12 @@ const switchPopup = (visible: boolean) => {
 }
 
 const _dateValue = ref(mergeDefaultVal.value)
-const innerValue = computed(() => value ?? _dateValue.value)
+const innerValue = computed(() => modelValue ?? _dateValue.value)
 
 const handleChange = (val: string | string[]) => {
   _dateValue.value = val
   emit('change', val)
+  emit('update:modelValue', val)
 }
 
 const handleClose = () => {

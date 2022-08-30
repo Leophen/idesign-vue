@@ -9,7 +9,7 @@ export interface SelectProps {
   /**
    * 选中值
    */
-  value?: string | number | Array<string | number>
+  modelValue?: string | number | Array<string | number>
   /**
    * 占位符
    * @default 请选择

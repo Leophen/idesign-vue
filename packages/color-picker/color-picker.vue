@@ -52,7 +52,7 @@ interface ColorPickerProps {
   /**
    * 固定颜色值（受控）
    */
-  value?: string
+  modelValue?: string
   /**
    * 默认颜色值（非受控）
    * @default #5e62ea
@@ -71,6 +71,10 @@ interface ColorPickerProps {
 
 interface ColorPickerEmits {
   /**
+   * 修改颜色值时触发 v-model
+   */
+  (type: 'update:modelValue', val: string): void
+  /**
    * 修改颜色值时触发
    */
   (type: 'change', val: string): void
@@ -84,7 +88,7 @@ const {
   triggerClassName,
   triggerStyle,
   size,
-  value,
+  modelValue,
   defaultValue = '#5e62ea',
   colorList = defaultColor,
   disabled = false
@@ -92,7 +96,7 @@ const {
 const emit = defineEmits<ColorPickerEmits>()
 
 const _colorPickerValue = ref(defaultValue)
-const innerValue = computed(() => value ?? _colorPickerValue.value)
+const innerValue = computed(() => modelValue ?? _colorPickerValue.value)
 
 const visible = ref(false)
 
@@ -101,6 +105,7 @@ const handleChange = (val: string) => {
   if (currentColor.value !== val) {
     _colorPickerValue.value = val
     emit('change', val)
+    emit('update:modelValue', val)
     currentColor.value = val
   }
 }
