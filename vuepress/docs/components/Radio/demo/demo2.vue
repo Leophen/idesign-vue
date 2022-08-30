@@ -14,14 +14,21 @@
     <i-radio value="4">选项四</i-radio>
   </i-radio-group>
   <h4>有固定值（受控）</h4>
-  <i-radio-group :checked="checked">
+  <i-radio-group :modelValue="checked">
     <i-radio value="1">选项一</i-radio>
     <i-radio value="2">选项二</i-radio>
     <i-radio value="3">选项三</i-radio>
     <i-radio value="4">选项四</i-radio>
   </i-radio-group>
   <h4>通用方法</h4>
-  <i-radio-group :checked="checked" @change="handleChange">
+  <i-radio-group :modelValue="checked" @change="handleChange">
+    <i-radio value="1">选项一</i-radio>
+    <i-radio value="2">选项二</i-radio>
+    <i-radio value="3">选项三</i-radio>
+    <i-radio value="4">选项四</i-radio>
+  </i-radio-group>
+  <h4>v-model 用法</h4>
+  <i-radio-group v-model="checked">
     <i-radio value="1">选项一</i-radio>
     <i-radio value="2">选项二</i-radio>
     <i-radio value="3">选项三</i-radio>

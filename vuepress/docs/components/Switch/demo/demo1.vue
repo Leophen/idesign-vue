@@ -4,9 +4,11 @@
   <h4>有默认值（非受控）</h4>
   <i-switch :defaultValue="currentVal" />
   <h4>有固定值（受控）</h4>
-  <i-switch :value="currentVal" />
+  <i-switch :modelValue="currentVal" />
   <h4>一般用法</h4>
-  <i-switch :value="currentVal" @change="handleChange" />
+  <i-switch :modelValue="currentVal" @change="handleChange" />
+  <h4>v-model 用法</h4>
+  <i-switch v-model="currentVal" />
 </template>
 
 <script setup>

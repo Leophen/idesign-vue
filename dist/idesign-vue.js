@@ -7029,20 +7029,20 @@ const Hl = {
     activeLabel: null,
     disabled: { type: Boolean, default: !1 },
     loading: { type: Boolean, default: !1 },
-    value: { type: Boolean, default: () => {
+    modelValue: { type: Boolean, default: () => {
     } },
     defaultValue: { type: Boolean, default: !1 }
   },
-  emits: ["change"],
+  emits: ["update:modelValue", "change"],
   setup(t, { emit: a }) {
     const r = F(t.defaultValue), u = ye(() => {
       var c;
-      return (c = t.value) != null ? c : r.value;
+      return (c = t.modelValue) != null ? c : r.value;
     }), s = () => {
       if (t.disabled || t.loading)
         return;
       const c = !u.value;
-      r.value = c, a("change", c);
+      r.value = c, a("change", c), a("update:modelValue", c);
     };
     return (c, d) => {
       const h = Gt("i-icon");
@@ -7092,7 +7092,7 @@ const zc = ae({
       type: String
     },
     value: [String, Number],
-    checked: {
+    modelValue: {
       type: Boolean,
       default: void 0
     },
@@ -7105,6 +7105,7 @@ const zc = ae({
     }
   },
   emits: {
+    "update:modelValue": (t) => !0,
     change: (t, a) => !0
   },
   setup(t, {
@@ -7114,12 +7115,12 @@ const zc = ae({
   }) {
     const s = F(t.defaultChecked), c = ye(() => {
       var m;
-      return (m = t.checked) != null ? m : s.value;
+      return (m = t.modelValue) != null ? m : s.value;
     }), d = En("radioGroupCtx", {}), h = ye(() => t.type || (d == null ? void 0 : d.type) || "radio"), p = ye(() => t.size || (d == null ? void 0 : d.size) || "medium"), o = ye(() => t.disabled || (d == null ? void 0 : d.disabled) || !1), y = (m) => {
       if (o.value)
         return;
       const C = m.target.checked;
-      s.value = C, r("change", C, m);
+      s.value = C, r("change", C, m), r("update:modelValue", C);
     };
     return () => {
       var C;
@@ -7145,7 +7146,7 @@ const zc = ae({
 }), Uy = ae({
   name: "RadioGroup",
   props: {
-    checked: [String, Number],
+    modelValue: [String, Number],
     defaultChecked: {
       type: [String, Number],
       default: void 0
@@ -7155,6 +7156,7 @@ const zc = ae({
     disabled: Boolean
   },
   emits: {
+    "update:modelValue": (t) => !0,
     change: (t, a) => !0
   },
   setup(t, {
@@ -7169,14 +7171,14 @@ const zc = ae({
       }), o;
     })()), h = ye(() => {
       var o;
-      return (o = t.checked) != null ? o : d.value;
+      return (o = t.modelValue) != null ? o : d.value;
     }), p = () => s.map((o, y) => {
       var C;
       const m = (C = o.props) == null ? void 0 : C.value;
       return b(zc, qe({
-        checked: h.value === m,
+        modelValue: h.value === m,
         onChange: (E, T) => {
-          d.value = m, r("change", m, T);
+          d.value = m, r("change", m, T), r("update:modelValue", m);
         }
       }, o.props), {
         default: () => {
@@ -7205,7 +7207,7 @@ const Uc = ae({
       type: String
     },
     value: [String, Number],
-    checked: {
+    modelValue: {
       type: Boolean,
       default: void 0
     },
@@ -7218,6 +7220,7 @@ const Uc = ae({
     }
   },
   emits: {
+    "update:modelValue": (t) => !0,
     change: (t, a) => !0
   },
   setup(t, {
@@ -7227,12 +7230,12 @@ const Uc = ae({
   }) {
     const s = F(t.defaultChecked), c = ye(() => {
       var y;
-      return (y = t.checked) != null ? y : s.value;
+      return (y = t.modelValue) != null ? y : s.value;
     }), d = En("checkboxGroupCtx", {}), h = ye(() => t.size || (d == null ? void 0 : d.size) || "medium"), p = ye(() => t.disabled || (d == null ? void 0 : d.disabled) || !1), o = (y) => {
       if (p.value)
         return;
       const m = y.target.checked;
-      s.value = m, r("change", m, y);
+      s.value = m, r("change", m, y), r("update:modelValue", m);
     };
     return () => {
       var m;
@@ -7258,8 +7261,8 @@ const Uc = ae({
 }), Gy = ae({
   name: "CheckboxGroup",
   props: {
-    value: Array,
-    defaultValue: {
+    modelValue: Array,
+    defaultChecked: {
       type: Array,
       default: []
     },
@@ -7267,24 +7270,25 @@ const Uc = ae({
     disabled: Boolean
   },
   emits: {
+    "update:modelValue": (t) => !0,
     change: (t, a) => !0
   },
   setup(t, {
     emit: a,
     attrs: r
   }) {
-    const u = F(t.defaultValue), s = ye(() => {
+    const u = F(t.defaultChecked), s = ye(() => {
       var o;
-      return (o = t.value) != null ? o : u.value;
+      return (o = t.modelValue) != null ? o : u.value;
     });
     let c = /* @__PURE__ */ new Set([...s.value]);
     const h = ai()("Checkbox"), p = () => h.map((o) => {
       var m;
       const y = (m = o.props) == null ? void 0 : m.value;
       return b(Uc, qe({
-        checked: s.value.includes(y),
+        modelValue: s.value.includes(y),
         onChange: (C, E) => {
-          C ? c.add(y) : c.delete(y), u.value = Array.from(c), a("change", Array.from(c), E);
+          C ? c.add(y) : c.delete(y), u.value = Array.from(c), a("change", Array.from(c), E), a("update:modelValue", Array.from(c));
         }
       }, o.props), {
         default: () => {

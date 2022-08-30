@@ -9,8 +9,7 @@
     <div className="idesign-demo-block-row">
       <i-checkbox-group
         size="small"
-        :value="currentValue"
-        @change="handleChange"
+        v-model="currentValue"
       >
         <i-checkbox value="bj">北京</i-checkbox>
         <i-checkbox value="sh">上海</i-checkbox>
@@ -22,8 +21,7 @@
     <div className="idesign-demo-block-row">
       <i-checkbox-group
         size="medium"
-        :value="currentValue"
-        @change="handleChange"
+        v-model="currentValue"
       >
         <i-checkbox value="bj">北京</i-checkbox>
         <i-checkbox value="sh">上海</i-checkbox>
@@ -35,8 +33,7 @@
     <div className="idesign-demo-block-row">
       <i-checkbox-group
         size="large"
-        :value="currentValue"
-        @change="handleChange"
+        v-model="currentValue"
       >
         <i-checkbox value="bj">北京</i-checkbox>
         <i-checkbox value="sh">上海</i-checkbox>
@@ -50,9 +47,4 @@
 <script setup>
 import { ref } from 'vue'
 const currentValue = ref(['gz'])
-
-const handleChange = (val, e) => {
-  console.log(val, e)
-  currentValue.value = val
-}
 </script>

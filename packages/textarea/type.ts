@@ -7,7 +7,7 @@ export interface TextareaProps {
   /**
    * 文本框固定值（受控）
    */
-  value?: string | number
+  modelValue?: string | number
   /**
    * 文本框默认值（非受控）
    */

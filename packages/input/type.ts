@@ -7,7 +7,7 @@ export interface InputProps {
   /**
    * 输入框固定值（受控）
    */
-  value?: string | number
+  modelValue?: string | number
   /**
    * 输入框默认值（非受控）
    */

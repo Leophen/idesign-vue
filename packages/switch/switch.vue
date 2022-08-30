@@ -67,7 +67,7 @@ interface SwitchProps {
   /**
    * 开关固定值（受控）
    */
-  value?: boolean
+  modelValue?: boolean
   /**
    * 开关默认值（非受控）
    * @default false
@@ -76,6 +76,10 @@ interface SwitchProps {
 }
 
 interface SwitchEmits {
+  /**
+   * 切换开关时触发 v-model
+   */
+  (type: 'update:modelValue', val: boolean): void
   /**
    * 切换开关时触发
    */
@@ -88,19 +92,20 @@ const {
   loading = false,
   inactiveColor,
   activeColor,
-  value = undefined,
+  modelValue = undefined,
   defaultValue = false
 } = defineProps<SwitchProps>()
 const emit = defineEmits<SwitchEmits>()
 
 const _switchValue = ref(defaultValue)
-const innerValue = computed(() => value ?? _switchValue.value)
+const innerValue = computed(() => modelValue ?? _switchValue.value)
 
 const handleSwitch = () => {
   if (disabled || loading) return
   const newVal = !innerValue.value
   _switchValue.value = newVal
   emit('change', newVal)
+  emit('update:modelValue', newVal)
 }
 </script>
 

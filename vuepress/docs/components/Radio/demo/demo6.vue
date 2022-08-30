@@ -8,7 +8,7 @@
 
     <h4>单选框组局部禁用</h4>
     <div className="idesign-demo-block-row">
-      <i-radio-group :checked="checked" @change="handleChange">
+      <i-radio-group v-model="checked">
         <i-radio value="1">选项一</i-radio>
         <i-radio value="2" disabled> 选项二 </i-radio>
         <i-radio value="3">选项三</i-radio>
@@ -17,8 +17,7 @@
     <div className="idesign-demo-block-row">
       <i-radio-group
         type="radio-button"
-        :checked="checked"
-        @change="handleChange"
+        v-model="checked"
       >
         <i-radio value="1">选项一</i-radio>
         <i-radio value="2">选项二</i-radio>
@@ -47,9 +46,4 @@
 <script setup>
 import { ref } from 'vue'
 const checked = ref('2')
-
-const handleChange = (val, e) => {
-  console.log(val, e)
-  checked.value = val
-}
 </script>

@@ -7,21 +7,28 @@
     <i-checkbox value="sz">深圳</i-checkbox>
   </i-checkbox-group>
   <h4>有默认值（非受控）</h4>
-  <i-checkbox-group :defaultValue="currentValue">
+  <i-checkbox-group :defaultChecked="currentValue">
     <i-checkbox value="bj">北京</i-checkbox>
     <i-checkbox value="sh">上海</i-checkbox>
     <i-checkbox value="gz">广州</i-checkbox>
     <i-checkbox value="sz">深圳</i-checkbox>
   </i-checkbox-group>
   <h4>有固定值（受控）</h4>
-  <i-checkbox-group :value="currentValue">
+  <i-checkbox-group :modelValue="currentValue">
     <i-checkbox value="bj">北京</i-checkbox>
     <i-checkbox value="sh">上海</i-checkbox>
     <i-checkbox value="gz">广州</i-checkbox>
     <i-checkbox value="sz">深圳</i-checkbox>
   </i-checkbox-group>
   <h4>通用方法</h4>
-  <i-checkbox-group :value="currentValue" @change="handleChange">
+  <i-checkbox-group :modelValue="currentValue" @change="handleChange">
+    <i-checkbox value="bj">北京</i-checkbox>
+    <i-checkbox value="sh">上海</i-checkbox>
+    <i-checkbox value="gz">广州</i-checkbox>
+    <i-checkbox value="sz">深圳</i-checkbox>
+  </i-checkbox-group>
+  <h4>v-model 用法</h4>
+  <i-checkbox-group v-model="currentValue">
     <i-checkbox value="bj">北京</i-checkbox>
     <i-checkbox value="sh">上海</i-checkbox>
     <i-checkbox value="gz">广州</i-checkbox>

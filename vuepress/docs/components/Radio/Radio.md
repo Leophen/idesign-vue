@@ -52,14 +52,14 @@ Radio/demo/demo6
 
 ## Radio Attributes
 
-| 属性           | 说明                   | 类型                         | 默认值   |
-| -------------- | ---------------------- | ---------------------------- | -------- |
-| type           | 单选框类型             | `"radio"〡"radio-button"`    | `radio`  |
-| size           | 按钮单选框尺寸         | `"small"〡"medium"〡"large"` | `medium` |
-| checked        | 是否固定选中（受控）   | `boolean`                    | `false`  |
-| defaultChecked | 是否默认选中（非受控） | `boolean`                    | `false`  |
-| disabled       | 是否禁用组件           | `boolean`                    | `false`  |
-| value          | 单选框的值             | `string〡number`             | `--`     |
+| 属性                 | 说明                   | 类型                         | 默认值   |
+| -------------------- | ---------------------- | ---------------------------- | -------- |
+| type                 | 单选框类型             | `"radio"〡"radio-button"`    | `radio`  |
+| size                 | 按钮单选框尺寸         | `"small"〡"medium"〡"large"` | `medium` |
+| modelValue / v-model | 是否固定选中（受控）   | `boolean`                    | `false`  |
+| defaultChecked       | 是否默认选中（非受控） | `boolean`                    | `false`  |
+| disabled             | 是否禁用组件           | `boolean`                    | `false`  |
+| value                | 单选框的值             | `string〡number`             | `--`     |
 
 ## Radio Events
 
@@ -69,13 +69,13 @@ Radio/demo/demo6
 
 ## RadioGroup Attributes
 
-| 属性         | 说明                         | 类型                         | 默认值     |
-| ------------ | ---------------------------- | ---------------------------- | ---------- |
-| checked        | 单选框组选中固定值（受控）   | `string〡number`             | `--`       |
-| defaultChecked | 单选框组选中默认值（非受控） | `string〡number`             | `--`       |
-| type         | 单选框组全局类型             | `"radio"〡"radio-button"`    | `"radio"`  |
-| size         | 按钮单选框全局尺寸           | `"small"〡"medium"〡"large"` | `"medium"` |
-| disabled     | 单选框组是否全局禁用         | `boolean`                    | `false`    |
+| 属性                 | 说明                         | 类型                         | 默认值     |
+| -------------------- | ---------------------------- | ---------------------------- | ---------- |
+| modelValue / v-model | 单选框组选中固定值（受控）   | `string〡number`             | `--`       |
+| defaultChecked       | 单选框组选中默认值（非受控） | `string〡number`             | `--`       |
+| type                 | 单选框组全局类型             | `"radio"〡"radio-button"`    | `"radio"`  |
+| size                 | 按钮单选框全局尺寸           | `"small"〡"medium"〡"large"` | `"medium"` |
+| disabled             | 单选框组是否全局禁用         | `boolean`                    | `false`    |
 
 ## RadioGroup Events
 

@@ -33,7 +33,7 @@ export interface SwitchProps {
   /**
    * 开关固定值（受控）
    */
-  value?: boolean;
+  modelValue?: boolean;
   /**
    * 开关默认值（非受控）
    * @default false

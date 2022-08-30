@@ -59,7 +59,7 @@ Switch/demo/demo6
 | activeColor   | 开关打开时的颜色 | `string`                     | `--`     |
 | disabled      | 是否禁用组件     | `boolean`                    | `false`  |
 | loading       | 是否为加载状态   | `boolean`                    | `false`  |
-| value         | 开关值           | `boolean`                    | `--`     |
+| modelValue / v-model | 开关值   | `boolean`                    | `--`     |
 | defaultValue  | 开关默认值       | `boolean`                    | `false`  |
 
 ## Switch Slots

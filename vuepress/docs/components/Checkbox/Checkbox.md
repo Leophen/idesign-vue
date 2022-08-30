@@ -36,29 +36,31 @@ Checkbox/demo/demo4
 
 ## Checkbox Attributes
 
-| 属性     | 说明           | 类型                         | 默认值     |
-| -------- | -------------- | ---------------------------- | ---------- |
-| size     | 多选框尺寸     | `"small"〡"medium"〡"large"` | `"medium"` |
-| value    | 多选框唯一标识 | `string〡number`             | `--`       |
-| checked  | 是否选中       | `boolean`                    | `false`    |
-| disabled | 是否禁用组件   | `boolean`                    | `false`    |
+| 属性                 | 说明                   | 类型                         | 默认值     |
+| -------------------- | ---------------------- | ---------------------------- | ---------- |
+| size                 | 多选框尺寸             | `"small"〡"medium"〡"large"` | `"medium"` |
+| value                | 多选框唯一标识         | `string〡number`             | `--`       |
+| modelValue / v-model | 是否固定选中（受控）   | `boolean`                    | `false`    |
+| defaultChecked       | 是否默认选中（非受控） | `boolean`                    | `false`    |
+| disabled             | 是否单项禁用           | `boolean`                    | `false`    |
 
 ## Checkbox Events
 
-| 属性     | 说明         | 类型                                   | 默认值 |
-| -------- | ------------ | -------------------------------------- | ------ |
-| onChange | 值变化时触发 | `(checked: boolean, e: Event) => void` | `--`   |
+| 属性   | 说明         | 类型                                   | 默认值 |
+| ------ | ------------ | -------------------------------------- | ------ |
+| change | 值变化时触发 | `(checked: boolean, e: Event) => void` | `--`   |
 
 ## CheckboxGroup Attributes
 
-| 属性         | 说明                 | 类型                         | 默认值     |
-| ------------ | -------------------- | ---------------------------- | ---------- |
-| currentValue | 多选框组选中的值     | `string〡number`             | `--`       |
-| size         | 多选框全局尺寸       | `"small"〡"medium"〡"large"` | `"medium"` |
-| disabled     | 多选框组是否全局禁用 | `boolean`                    | `false`    |
+| 属性                 | 说明                         | 类型                         | 默认值     |
+| -------------------- | ---------------------------- | ---------------------------- | ---------- |
+| modelValue / v-model | 多选框组选中固定值（受控）   | `Array<string〡number>`      | `--`       |
+| defaultChecked       | 多选框组选中默认值（非受控） | `Array<string〡number>`      | `--`       |
+| size                 | 多选框全局尺寸               | `"small"〡"medium"〡"large"` | `"medium"` |
+| disabled             | 多选框组是否全局禁用         | `boolean`                    | `false`    |
 
 ## CheckboxGroup Events
 
-| 属性     | 说明             | 类型                                               | 默认值 |
-| -------- | ---------------- | -------------------------------------------------- | ------ |
-| onChange | 选中某一项时触发 | `(value: Array<string〡number>, e: Event) => void` | `--`   |
+| 属性   | 说明             | 类型                                               | 默认值 |
+| ------ | ---------------- | -------------------------------------------------- | ------ |
+| change | 选中某一项时触发 | `(value: Array<string〡number>, e: Event) => void` | `--`   |

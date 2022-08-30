@@ -9,7 +9,7 @@ export default defineComponent({
     /**
      * 单选框组选中的值（受控值）
      */
-    checked: [String, Number],
+    modelValue: [String, Number],
     /**
      * 单选框组选中的值（非受控值）
      * @default 第一项的 value
@@ -35,6 +35,10 @@ export default defineComponent({
   },
   emits: {
     /**
+     * 选中某一项时触发 v-model
+     */
+    'update:modelValue': (value: string | number) => true,
+    /**
      * 选中某一项时触发
      */
     'change': (value?: string | number, event?: Event) => true,
@@ -51,17 +55,18 @@ export default defineComponent({
       return result
     }
     const _groupValue = ref(initValue())
-    const innerValue = computed(() => props.checked ?? _groupValue.value)
+    const innerValue = computed(() => props.modelValue ?? _groupValue.value)
 
     const radioItems = () => {
       return childrenList.map((item, index) => {
         const itemVal = item.props?.value;
         return (
           <Radio
-            checked={innerValue.value === itemVal}
+            modelValue={innerValue.value === itemVal}
             onChange={(checked, e) => {
               _groupValue.value = itemVal
               emit('change', itemVal, e)
+              emit('update:modelValue', itemVal)
             }}
             {...item.props}
           >

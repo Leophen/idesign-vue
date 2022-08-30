@@ -25,7 +25,7 @@ export default defineComponent({
     /**
      * 是否选中（受控）
      */
-    checked: {
+    modelValue: {
       type: Boolean,
       default: undefined
     },
@@ -47,13 +47,17 @@ export default defineComponent({
   },
   emits: {
     /**
+     * 值变化时触发 v-model
+     */
+    'update:modelValue': (checked: boolean) => true,
+    /**
      * 值变化时触发
      */
     'change': (checked: boolean, ev: Event) => true,
   },
   setup(props, { slots, emit, attrs }) {
     const _radioChecked = ref(props.defaultChecked)
-    const innerChecked = computed(() => props.checked ?? _radioChecked.value)
+    const innerChecked = computed(() => props.modelValue ?? _radioChecked.value)
 
     // 存在单选框组时从 Context 注入 checked 覆盖原 checked
     const radioGroupCtx: {
@@ -82,6 +86,7 @@ export default defineComponent({
       const newChecked = (e.target as HTMLInputElement).checked;
       _radioChecked.value = newChecked
       emit('change', newChecked, e)
+      emit('update:modelValue', newChecked)
     };
 
     return () => {

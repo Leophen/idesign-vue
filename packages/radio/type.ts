@@ -1,8 +1,12 @@
 export interface RadioGroupProps {
   /**
-   * 单选框组选中的值
+   * 单选框组选中固定值（受控）
    */
-  currentValue?: string | number
+  modelValue?: string | number
+  /**
+   * 单选框组选中默认值（非受控）
+   */
+  defaultChecked?: string | number
   /**
    * 单选框组全局类型
    * @default radio
@@ -35,10 +39,14 @@ export interface RadioProps {
    */
   size?: 'small' | 'medium' | 'large'
   /**
-   * 是否选中
+   * 是否固定选中（受控）
+   */
+  modelValue?: boolean
+  /**
+   * 是否默认选中（非受控）
    * @default false
    */
-  checked?: boolean
+  defaultChecked?: boolean
   /**
    * 是否禁用组件
    * @default false

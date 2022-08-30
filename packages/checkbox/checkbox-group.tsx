@@ -9,12 +9,12 @@ export default defineComponent({
     /**
      * 多选框组选中的值（受控值）
      */
-    value: Array as PropType<Array<string | number>>,
+    modelValue: Array as PropType<Array<string | number>>,
     /**
      * 多选框组选中的值（非受控值）
      * @default []
      */
-    defaultValue: {
+    defaultChecked: {
       type: Array as PropType<Array<string | number>>,
       default: []
     },
@@ -30,13 +30,17 @@ export default defineComponent({
   },
   emits: {
     /**
+     * 选中某一项时触发 v-model
+     */
+    'update:modelValue': (value: Array<string | number>) => true,
+    /**
      * 选中某一项时触发
      */
     'change': (value?: Array<string | number>, event?: Event) => true,
   },
   setup(props, { emit, attrs }) {
-    const _groupChecked = ref(props.defaultValue)
-    const innerChecked = computed(() => props.value ?? _groupChecked.value)
+    const _groupChecked = ref(props.defaultChecked)
+    const innerChecked = computed(() => props.modelValue ?? _groupChecked.value)
     let groupCheckedArr: Set<string | number> = new Set([...innerChecked.value]);
 
     const getChildComponentByName = useChildComponentSlots();
@@ -46,7 +50,7 @@ export default defineComponent({
         const itemVal = item.props?.value;
         return (
           <Checkbox
-            checked={innerChecked.value.includes(itemVal)}
+            modelValue={innerChecked.value.includes(itemVal)}
             onChange={(checked, e) => {
               if (checked) {
                 groupCheckedArr.add(itemVal)
@@ -55,6 +59,7 @@ export default defineComponent({
               }
               _groupChecked.value = Array.from(groupCheckedArr)
               emit('change', Array.from(groupCheckedArr), e)
+              emit('update:modelValue', Array.from(groupCheckedArr))
             }}
             {...item.props}
           >
