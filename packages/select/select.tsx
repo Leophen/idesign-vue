@@ -252,7 +252,7 @@ export default defineComponent({
           >
             <Input
               class={!props.clearable && 'i-input__hide-clear'}
-              value={getInputValue(innerValue.value)}
+              modelValue={getInputValue(innerValue.value)}
               placeholder={props.placeholder}
               readonly={!props.disabled}
               disabled={props.disabled}

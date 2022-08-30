@@ -6684,7 +6684,7 @@ const Bu = ae({
     }, {
       default: () => [b(tn, {
         class: !t.clearable && "i-input__hide-clear",
-        value: T(m.value),
+        modelValue: T(m.value),
         placeholder: t.placeholder,
         readonly: !t.disabled,
         disabled: t.disabled,
@@ -6943,7 +6943,7 @@ const Ny = { class: "i-pagination" }, My = {
           type: "number",
           speed: "slow",
           hideNumberBtn: "",
-          value: c.value,
+          modelValue: c.value,
           disabled: t.disabled,
           maxNumber: V(Ie).ceil(r.value.total / r.value.pageSize),
           minNumber: 1,
@@ -6951,7 +6951,7 @@ const Ny = { class: "i-pagination" }, My = {
           onEnter: d,
           onBlur: d,
           onMoveUp: d
-        }, null, 8, ["style", "value", "disabled", "maxNumber"]),
+        }, null, 8, ["style", "modelValue", "disabled", "maxNumber"]),
         Ty
       ]))
     ]));
@@ -7839,10 +7839,10 @@ const i2 = /* @__PURE__ */ ae({
               maxNumber: /^[H]/.test(t.format) ? 23 : 11,
               placeholder: "",
               disabled: t.disabled,
-              value: ((y = r.value) == null ? void 0 : y.hour) || "",
+              modelValue: ((y = r.value) == null ? void 0 : y.hour) || "",
               onInput: s,
               onBlur: h
-            }, null, 8, ["maxNumber", "disabled", "value"]),
+            }, null, 8, ["maxNumber", "disabled", "modelValue"]),
             te("div", {
               class: Me(["i-time-colon", t.disabled && "i-time-colon__disabled"])
             }, " : ", 2)
@@ -7856,10 +7856,10 @@ const i2 = /* @__PURE__ */ ae({
             maxNumber: 59,
             placeholder: "",
             disabled: t.disabled,
-            value: ((m = r.value) == null ? void 0 : m.minute) || "",
+            modelValue: ((m = r.value) == null ? void 0 : m.minute) || "",
             onInput: c,
             onBlur: h
-          }, null, 8, ["disabled", "value"])) : we("", !0),
+          }, null, 8, ["disabled", "modelValue"])) : we("", !0),
           u.second ? (R(), W(Ue, { key: 2 }, [
             te("div", {
               class: Me(["i-time-colon", t.disabled && "i-time-colon__disabled"])
@@ -7872,10 +7872,10 @@ const i2 = /* @__PURE__ */ ae({
               maxNumber: 59,
               placeholder: "",
               disabled: t.disabled,
-              value: ((C = r.value) == null ? void 0 : C.second) || "",
+              modelValue: ((C = r.value) == null ? void 0 : C.second) || "",
               onInput: d,
               onBlur: h
-            }, null, 8, ["disabled", "value"])
+            }, null, 8, ["disabled", "modelValue"])
           ], 64)) : we("", !0)
         ];
       }),
@@ -8945,10 +8945,10 @@ const O2 = ["data-type"], N2 = /* @__PURE__ */ ae({
           b(V(u2), {
             readonly: "",
             disabled: t.disabled,
-            value: V(Ie).isArray(V(h)) ? `${V(h)[0]} ${t.rangeSeparator} ${V(h)[1]}` : V(h),
+            modelValue: V(Ie).isArray(V(h)) ? `${V(h)[0]} ${t.rangeSeparator} ${V(h)[1]}` : V(h),
             placeholder: "\u8BF7\u9009\u62E9\u65E5\u671F",
             suffixIcon: "Calendar"
-          }, null, 8, ["disabled", "value"])
+          }, null, 8, ["disabled", "modelValue"])
         ]),
         _: 1
       }, 8, ["trigger", "visible", "disabled"])
@@ -9940,15 +9940,15 @@ const R2 = { class: "i-color-panel-header" }, T2 = /* @__PURE__ */ te("div", { c
           te("div", Y2, [
             re.value === "hex" ? (R(), tt(V(tn), {
               key: 0,
-              value: c.hexVal,
+              modelValue: c.hexVal,
               size: "small",
               disabled: t.disabled,
               onFocus: N,
               onInput: J,
               onBlur: Se
-            }, null, 8, ["value", "disabled"])) : (R(), W(Ue, { key: 1 }, [
+            }, null, 8, ["modelValue", "disabled"])) : (R(), W(Ue, { key: 1 }, [
               b(V(tn), {
-                value: c.r.toFixed(0),
+                modelValue: c.r.toFixed(0),
                 type: "number",
                 size: "small",
                 maxNumber: 255,
@@ -9956,9 +9956,9 @@ const R2 = { class: "i-color-panel-header" }, T2 = /* @__PURE__ */ te("div", { c
                 selectAll: "",
                 hideNumberBtn: "",
                 onInput: j
-              }, null, 8, ["value"]),
+              }, null, 8, ["modelValue"]),
               b(V(tn), {
-                value: c.g.toFixed(0),
+                modelValue: c.g.toFixed(0),
                 type: "number",
                 size: "small",
                 maxNumber: 255,
@@ -9966,9 +9966,9 @@ const R2 = { class: "i-color-panel-header" }, T2 = /* @__PURE__ */ te("div", { c
                 selectAll: "",
                 hideNumberBtn: "",
                 onInput: me
-              }, null, 8, ["value"]),
+              }, null, 8, ["modelValue"]),
               b(V(tn), {
-                value: c.b.toFixed(0),
+                modelValue: c.b.toFixed(0),
                 type: "number",
                 size: "small",
                 maxNumber: 255,
@@ -9976,12 +9976,12 @@ const R2 = { class: "i-color-panel-header" }, T2 = /* @__PURE__ */ te("div", { c
                 selectAll: "",
                 hideNumberBtn: "",
                 onInput: be
-              }, null, 8, ["value"])
+              }, null, 8, ["modelValue"])
             ], 64))
           ]),
           te("div", X2, [
             b(V(tn), {
-              value: (c.a * 100).toFixed(0),
+              modelValue: (c.a * 100).toFixed(0),
               type: "number",
               size: "small",
               disabled: t.disabled,
@@ -9990,7 +9990,7 @@ const R2 = { class: "i-color-panel-header" }, T2 = /* @__PURE__ */ te("div", { c
               selectAll: "",
               hideNumberBtn: "",
               onInput: ve
-            }, null, 8, ["value", "disabled"])
+            }, null, 8, ["modelValue", "disabled"])
           ])
         ])
       ]),

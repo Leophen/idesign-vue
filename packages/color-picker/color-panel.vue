@@ -81,7 +81,7 @@
       <div class="i-color-panel-input__wrapper">
         <div class="i-color-panel-input__class">
           <Input
-            :value="colors.hexVal"
+            :modelValue="colors.hexVal"
             size="small"
             :disabled="disabled"
             @focus="inputFocusHex"
@@ -91,7 +91,7 @@
           />
           <template v-else>
             <Input
-              :value="colors.r.toFixed(0)"
+              :modelValue="colors.r.toFixed(0)"
               type="number"
               size="small"
               :maxNumber="255"
@@ -101,7 +101,7 @@
               @input="inputChangeR"
             />
             <Input
-              :value="colors.g.toFixed(0)"
+              :modelValue="colors.g.toFixed(0)"
               type="number"
               size="small"
               :maxNumber="255"
@@ -111,7 +111,7 @@
               @input="inputChangeG"
             />
             <Input
-              :value="colors.b.toFixed(0)"
+              :modelValue="colors.b.toFixed(0)"
               type="number"
               size="small"
               :maxNumber="255"
@@ -124,7 +124,7 @@
         </div>
         <div class="i-color-panel-input__alpha">
           <Input
-            :value="(colors.a * 100).toFixed(0)"
+            :modelValue="(colors.a * 100).toFixed(0)"
             type="number"
             size="small"
             :disabled="disabled"

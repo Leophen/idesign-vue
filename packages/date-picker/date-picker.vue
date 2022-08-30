@@ -12,7 +12,7 @@
       <Input
         readonly
         :disabled="disabled"
-        :value="
+        :modelValue="
           !_.isArray(innerValue)
             ? innerValue
             : `${innerValue[0]} ${rangeSeparator} ${innerValue[1]}`

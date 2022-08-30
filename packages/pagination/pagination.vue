@@ -25,7 +25,7 @@
         type="number"
         speed="slow"
         hideNumberBtn
-        :value="inputVal"
+        :modelValue="inputVal"
         :disabled="disabled"
         :maxNumber="_.ceil(pageData.total / pageData.pageSize)"
         :minNumber="1"

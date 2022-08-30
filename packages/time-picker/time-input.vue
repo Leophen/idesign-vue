@@ -14,7 +14,7 @@
         :maxNumber="/^[H]/.test(format) ? 23 : 11"
         placeholder=""
         :disabled="disabled"
-        :value="innerValue?.hour || ''"
+        :modelValue="innerValue?.hour || ''"
         @input="inputChangeHour"
         @blur="handleUsualBlur"
       />
@@ -31,7 +31,7 @@
         :maxNumber="59"
         placeholder=""
         :disabled="disabled"
-        :value="innerValue?.minute || ''"
+        :modelValue="innerValue?.minute || ''"
         @input="inputChangeMinute"
         @blur="handleUsualBlur"
       />
@@ -48,7 +48,7 @@
         :maxNumber="59"
         placeholder=""
         :disabled="disabled"
-        :value="innerValue?.second || ''"
+        :modelValue="innerValue?.second || ''"
         @input="inputChangeSecond"
         @blur="handleUsualBlur"
       />
