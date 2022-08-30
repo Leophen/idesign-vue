@@ -283,7 +283,7 @@ const toComponents = () => {
 }
 
 const toReactVersion = () => {
-  window.open('https://idesign-react.vercel.app/')
+  window.open('https://idesign-react.leophen.top/')
 }
 const tipVisible = ref(false)
 const setTipVisible = (visible: boolean) => {

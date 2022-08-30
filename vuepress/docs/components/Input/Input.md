@@ -113,7 +113,7 @@ Input/demo/demo13
 | 属性            | 说明                             | 类型                            | 默认值    |
 | --------------- | -------------------------------- | ------------------------------- | --------- |
 | placeholder     | 占位符                           | `string`                        | `请输入`  |
-| value           | 输入框受控值                     | `string〡number`                | `--`      |
+| modelValue / v-model | 输入框受控值                 | `string〡number`                | `--`      |
 | defaultValue    | 输入框默认值                     | `string〡number`                | `--`      |
 | disabled        | 是否禁用输入框                   | `boolean`                       | `false`   |
 | readonly        | 输入框是否只读                   | `boolean`                       | `false`   |

@@ -17,7 +17,7 @@ export default defineComponent({
     /**
      * 输入框固定值（受控）
      */
-    value: [String, Number],
+    modelValue: [String, Number],
     /**
      * 输入框默认值（非受控）
      */
@@ -159,6 +159,10 @@ export default defineComponent({
   },
   emits: {
     /**
+     * 输入框值发生变化时触发 v-model
+     */
+    'update:modelValue': (value: string) => true,
+    /**
      * 输入框值发生变化时触发
      */
     'input': (value: string, ev?: Event) => true,
@@ -214,7 +218,7 @@ export default defineComponent({
     };
 
     const _inputVal = ref(props.defaultValue)
-    const computedValue = computed(() => props.value ?? _inputVal.value)
+    const computedValue = computed(() => props.modelValue ?? _inputVal.value)
 
     const valueLength = ref(computedValue.value?.toString().length || 0)
 
@@ -237,6 +241,7 @@ export default defineComponent({
       }
       _inputVal.value = currentValue
       emit('input', currentValue, e)
+      emit('update:modelValue', currentValue)
       // 受控化
       nextTick(() => {
         if (inputRef.value && computedValue.value !== inputRef.value.value) {
@@ -249,6 +254,7 @@ export default defineComponent({
     const handleClear = (e: Event) => {
       _inputVal.value = ''
       emit('input', '', e)
+      emit('update:modelValue', '')
       emit('clear', e)
     };
 
@@ -366,6 +372,7 @@ export default defineComponent({
       (inputRef.value as unknown as HTMLInputElement).value = result;
       _inputVal.value = result
       emit('input', result, e)
+      emit('update:modelValue', result)
     };
 
     const renderNumberBtn = (
@@ -418,6 +425,7 @@ export default defineComponent({
         (inputRef.value as unknown as HTMLInputElement).value = result;
         _inputVal.value = result
         emit('input', result, e)
+        emit('update:modelValue', result)
         emit('move', result, e)
       }
 

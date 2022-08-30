@@ -3,7 +3,7 @@
     <i-tag>普通标签</i-tag>
 
     <a
-      href="https://idesign-vue.vercel.app/"
+      href="https://idesign-vue.leophen.top/"
       target="_blank"
       rel="noreferrer"
     >

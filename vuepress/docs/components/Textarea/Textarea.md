@@ -79,7 +79,7 @@ Textarea/demo/demo9
 | 属性         | 说明                       | 类型                            | 默认值   |
 | ------------ | -------------------------- | ------------------------------- | -------- |
 | placeholder  | 占位符                     | `string`                        | `请输入` |
-| value        | 文本框受控值               | `string〡number`                | `--`     |
+| modelValue / v-model  | 文本框受控值      | `string〡number`                | `--`     |
 | defaultValue | 文本框默认值               | `string〡number`                | `--`     |
 | disabled     | 是否禁用文本框             | `boolean`                       | `false`  |
 | readonly     | 文本框是否只读             | `boolean`                       | `false`  |

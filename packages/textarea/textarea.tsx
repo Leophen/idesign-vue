@@ -16,7 +16,7 @@ export default defineComponent({
     /**
      * 文本框固定值（受控）
      */
-    value: {
+    modelValue: {
       type: [String, Number],
       default: undefined
     },
@@ -90,6 +90,10 @@ export default defineComponent({
   },
   emits: {
     /**
+     * 输入内容变化时触发 v-model
+     */
+    'update:modelValue': (value: string) => true,
+    /**
      * 输入内容变化时触发
      */
     'input': (value: string | number, ev?: Event) => true,
@@ -103,9 +107,8 @@ export default defineComponent({
     'blur': (value: string | number, ev?: Event) => true,
   },
   setup(props, { attrs, emit }) {
-
     const _inputValue = ref(props.defaultValue)
-    const innerValue = computed(() => props.value ?? _inputValue.value)
+    const innerValue = computed(() => props.modelValue ?? _inputValue.value)
 
     const valueLength = ref(innerValue.value?.toString().length || 0)
     const textAreaRef = ref<HTMLTextAreaElement>()
@@ -115,6 +118,7 @@ export default defineComponent({
       props.maxLength && (valueLength.value = newVal.length)
       _inputValue.value = newVal;
       emit('input', newVal, e)
+      emit('update:modelValue', newVal)
       // 受控化
       nextTick(() => {
         if (textAreaRef.value && innerValue.value !== textAreaRef.value.value) {

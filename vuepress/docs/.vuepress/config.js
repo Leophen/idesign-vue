@@ -135,7 +135,7 @@ module.exports = {
       },
     }),
     sitemapPlugin({
-      hostname: 'https://idesign-vue.vercel.app/'
+      hostname: 'https://idesign-vue.leophen.top/'
     }),
     registerComponentsPlugin({
       components: {

@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://idesign-vue.vercel.app/" target="_blank">
+  <a href="https://idesign-vue.leophen.top/" target="_blank">
     <img alt="iDesign Logo" width="200" src="https://i.postimg.cc/fbLPyXJd/logo.png"/>
   </a>
 </div>
@@ -10,7 +10,7 @@
 
 <div align="center">
 
-基于 Vue 框架的 UI 组件库 [iDesign](https://idesign-vue.vercel.app/)。
+基于 Vue 框架的 UI 组件库 [iDesign](https://idesign-vue.leophen.top/)。
 
 </div>
 
@@ -55,7 +55,7 @@ app.mount('#app');
 
 ## 生态
 
-- [iDesign React](https://idesign-react.vercel.app/)
+- [iDesign React](https://idesign-react.leophen.top/)
 
 # 浏览器兼容性
 

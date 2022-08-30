@@ -5,20 +5,18 @@
   <i-input type="number" hideNumberBtn />
   <h4>受控且有最大最小值的数字输入框</h4>
   <i-input
-    :value="currentVal"
+    v-model="currentVal"
     type="number"
     :minNumber="1"
     :maxNumber="50"
-    @input="handleInput"
   />
   <h4>受控且有最大最小值并锁定空值的数字输入框</h4>
   <i-input
-    :value="currentVal"
+    v-model="currentVal"
     type="number"
     :minNumber="1"
     :maxNumber="50"
     minNumberLock
-    @input="handleInput"
   />
   <h4>慢速拖拽控件且有最大值的数字输入框</h4>
   <i-input
@@ -40,7 +38,7 @@
     type="number"
     :precision="2"
     :step="0.5"
-    @input="handleInput2"
+    @input="handleInput"
   />
   <h4>带前后缀图标的数字输入框</h4>
   <i-input
@@ -60,11 +58,6 @@ import { ref } from 'vue'
 const currentVal = ref('1')
 
 const handleInput = (val, e) => {
-  console.log(val, e)
-  currentVal.value = val
-}
-
-const handleInput2 = (val, e) => {
   console.log(val, e)
 }
 </script>

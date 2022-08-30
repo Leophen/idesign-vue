@@ -4,9 +4,11 @@
   <h4>有默认值（非受控）</h4>
   <i-textarea :defaultValue="currentVal" />
   <h4>有固定值（受控）</h4>
-  <i-textarea :value="currentVal" />
+  <i-textarea :modelValue="currentVal" />
   <h4>一般用法</h4>
-  <i-textarea :value="currentVal" @input="handleInput" />
+  <i-textarea :modelValue="currentVal" @input="handleInput" />
+  <h4>v-model 用法</h4>
+  <i-textarea v-model="currentVal" />
 </template>
 
 <script setup>
