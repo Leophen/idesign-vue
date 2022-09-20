@@ -1,5 +1,19 @@
 import _ from 'lodash'
 import { Component, getCurrentInstance, Slots, VNode, VNodeTypes } from 'vue'
+import { mount } from '@vue/test-utils'
+
+/**
+ * 模拟 @testing-library/react render 测试函数
+ * @param component
+ * @returns wrapper
+ */
+export const render = (comp: VNode) => {
+  return mount({
+    render() {
+      return comp
+    }
+  })
+}
 
 /**
  * 通用位置类型

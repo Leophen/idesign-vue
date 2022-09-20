@@ -13,7 +13,8 @@
     "start": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "docs": "vue-tsc --noEmit && vite build && cd vuepress && yarn && yarn build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.5",
@@ -24,12 +25,15 @@
     "@types/tinycolor2": "^1.4.3",
     "@vitejs/plugin-vue": "^3.0.0",
     "@vitejs/plugin-vue-jsx": "^2.0.0",
+    "@vue/test-utils": "next",
     "dayjs": "^1.11.4",
+    "jsdom": "^20.0.0",
     "lodash": "^4.17.21",
     "sass": "^1.53.0",
     "tinycolor2": "^1.4.2",
     "typescript": "^4.6.4",
     "vite": "^3.0.0",
+    "vitest": "^0.23.4",
     "vue-tsc": "^0.38.4"
   }
 }

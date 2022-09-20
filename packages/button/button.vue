@@ -1,12 +1,13 @@
 <template>
   <button :class="cls" @click="handleClick">
-    <i-icon class="i-button-icon" v-if="!!icon" :name="icon" />
+    <Icon class="i-button-icon" v-if="!!icon" :name="icon" />
     <slot />
   </button>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { Icon } from '../icon'
 
 interface ButtonProps {
   /**
