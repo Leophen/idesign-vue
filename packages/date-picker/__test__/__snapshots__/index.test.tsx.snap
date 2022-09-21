@@ -1,0 +1,161 @@
+// Vitest Snapshot v1
+
+exports[`DatePicker 组件测试 > defaultValue 1`] = `
+<div
+  class="i-date-picker"
+  data-type="date"
+>
+  
+  <div
+    class="i-popup__reference"
+  >
+    
+    
+    <div
+      class="i-input i-input-is-readonly"
+    >
+      <!---->
+      <!---->
+      <input
+        class="i-input__inner"
+        placeholder="请选择日期"
+        readonly=""
+      />
+      <!---->
+      <!---->
+      <!---->
+      <i
+        class="i-icon icon-Calendar i-input-suffix-icon"
+      />
+      <!---->
+      <!---->
+    </div>
+    <!---->
+    
+    
+  </div>
+  <!--teleport start-->
+  <!--teleport end-->
+  
+</div>
+`;
+
+exports[`DatePicker 组件测试 > rangeSeparator 1`] = `
+<div
+  class="i-date-picker"
+  data-type="range"
+>
+  
+  <div
+    class="i-popup__reference"
+  >
+    
+    
+    <div
+      class="i-input i-input-is-readonly"
+    >
+      <!---->
+      <!---->
+      <input
+        class="i-input__inner"
+        placeholder="请选择日期"
+        readonly=""
+      />
+      <!---->
+      <!---->
+      <!---->
+      <i
+        class="i-icon icon-Calendar i-input-suffix-icon"
+      />
+      <!---->
+      <!---->
+    </div>
+    <!---->
+    
+    
+  </div>
+  <!--teleport start-->
+  <!--teleport end-->
+  
+</div>
+`;
+
+exports[`DatePicker 组件测试 > type 1`] = `
+<div
+  class="i-date-picker"
+  data-type="range"
+>
+  
+  <div
+    class="i-popup__reference"
+  >
+    
+    
+    <div
+      class="i-input i-input-is-readonly"
+    >
+      <!---->
+      <!---->
+      <input
+        class="i-input__inner"
+        placeholder="请选择日期"
+        readonly=""
+      />
+      <!---->
+      <!---->
+      <!---->
+      <i
+        class="i-icon icon-Calendar i-input-suffix-icon"
+      />
+      <!---->
+      <!---->
+    </div>
+    <!---->
+    
+    
+  </div>
+  <!--teleport start-->
+  <!--teleport end-->
+  
+</div>
+`;
+
+exports[`DatePicker 组件测试 > value 1`] = `
+<div
+  class="i-date-picker"
+  data-type="date"
+>
+  
+  <div
+    class="i-popup__reference"
+  >
+    
+    
+    <div
+      class="i-input i-input-is-readonly"
+    >
+      <!---->
+      <!---->
+      <input
+        class="i-input__inner"
+        placeholder="请选择日期"
+        readonly=""
+      />
+      <!---->
+      <!---->
+      <!---->
+      <i
+        class="i-icon icon-Calendar i-input-suffix-icon"
+      />
+      <!---->
+      <!---->
+    </div>
+    <!---->
+    
+    
+  </div>
+  <!--teleport start-->
+  <!--teleport end-->
+  
+</div>
+`;

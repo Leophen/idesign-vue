@@ -1,0 +1,9 @@
+// Vitest Snapshot v1
+
+exports[`Divider 组件测试 > create 1`] = `
+<div
+  class="i-divider"
+>
+  <!---->
+</div>
+`;
