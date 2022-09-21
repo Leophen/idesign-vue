@@ -15,4 +15,4 @@ export const LayoutPlugin: Plugin = {
   }
 }
 
-export { Layout }
+export { Layout, LayoutAside, LayoutContent, LayoutFooter, LayoutHeader }

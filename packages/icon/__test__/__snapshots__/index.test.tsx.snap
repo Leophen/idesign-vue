@@ -1,0 +1,7 @@
+// Vitest Snapshot v1
+
+exports[`Icon 组件测试 > create 1`] = `
+<i
+  class="i-icon icon-ModeLight"
+/>
+`;

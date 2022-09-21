@@ -1,0 +1,44 @@
+// Vitest Snapshot v1
+
+exports[`Image 组件测试 > create 1`] = `
+<div
+  class="i-image"
+>
+  <div
+    class="i-loading"
+  >
+    <div
+      class="i-loading-spinner"
+    >
+      
+      
+      <i
+        class="i-icon icon-Loading"
+        style="font-size: 36px;"
+      />
+    </div>
+    <div
+      class="i-loading-info"
+    >
+      
+      
+    </div>
+  </div>
+  <div
+    class="i-image-mask"
+  >
+    <i
+      class="i-icon icon-View"
+      style="color: rgb(255, 255, 255);"
+    />
+     预览 
+  </div>
+  <div
+    class="i-preview-dialog-wrapper"
+  >
+    <transition-stub>
+      <!--v-if-->
+    </transition-stub>
+  </div>
+</div>
+`;

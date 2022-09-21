@@ -1,0 +1,40 @@
+// Vitest Snapshot v1
+
+exports[`Grid 组件测试 > create 1`] = `
+<div
+  class="i-grid i-grid--align-top i-grid--justify-start"
+>
+  
+  <div
+    class="i-grid__item i-grid__item--span-8"
+    style="flex: 1;"
+  >
+    
+    <div>
+      GridItem1
+    </div>
+    
+  </div>
+  <div
+    class="i-grid__item i-grid__item--span-8"
+    style="flex: 1;"
+  >
+    
+    <div>
+      GridItem2
+    </div>
+    
+  </div>
+  <div
+    class="i-grid__item i-grid__item--span-8"
+    style="flex: 1;"
+  >
+    
+    <div>
+      GridItem3
+    </div>
+    
+  </div>
+  
+</div>
+`;

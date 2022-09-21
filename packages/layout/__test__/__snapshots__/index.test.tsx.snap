@@ -1,0 +1,51 @@
+// Vitest Snapshot v1
+
+exports[`Layout 组件测试 > create 1`] = `
+<div
+  class="i-layout"
+>
+  
+  <header
+    class="i-layout--header"
+  >
+    
+    Header
+    
+  </header>
+  <div
+    class="i-layout"
+  >
+    
+    <aside
+      class="i-layout--aside"
+      style="width: 240px; max-width: 240px; min-width: 240px; flex: 0 0 240px;"
+    >
+      
+      Aside
+      
+    </aside>
+    <div
+      class="i-layout"
+    >
+      
+      <main
+        class="i-layout--content"
+      >
+        
+        Content
+        
+      </main>
+      <footer
+        class="i-layout--footer"
+      >
+        
+        Copyright @ 2019-2021 iDesign. All Rights Reserved
+        
+      </footer>
+      
+    </div>
+    
+  </div>
+  
+</div>
+`;

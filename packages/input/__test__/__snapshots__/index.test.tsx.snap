@@ -1,0 +1,13 @@
+// Vitest Snapshot v1
+
+exports[`Input 组件测试 > clearable 1`] = ``;
+
+exports[`Input 组件测试 > create 1`] = ``;
+
+exports[`Input 组件测试 > defaultValue 1`] = ``;
+
+exports[`Input 组件测试 > init 1`] = ``;
+
+exports[`Input 组件测试 > number 1`] = ``;
+
+exports[`Input 组件测试 > password 1`] = ``;
