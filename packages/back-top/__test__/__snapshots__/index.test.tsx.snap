@@ -1,0 +1,23 @@
+// Vitest Snapshot v1
+
+exports[`BackTop 组件测试 > create 1`] = `
+<div
+  class="i-back-top"
+>
+  <transition-stub>
+    <!--v-if-->
+  </transition-stub>
+  <transition-stub>
+    <button
+      class="i-button i-button--type-primary i-button--shape-circle i-back-top--button"
+    >
+      <!--v-if-->
+      
+      <i
+        class="i-icon icon-ArrowUpBold"
+      />
+      
+    </button>
+  </transition-stub>
+</div>
+`;

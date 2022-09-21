@@ -1,16 +1,16 @@
 <template>
-  <div class="'i-back-top'" @click="scrollToTop">
+  <div class="i-back-top" @click="scrollToTop">
     <Transition name="i-fade">
       <slot v-if="visible && $slots.default" />
     </Transition>
     <Transition name="i-fade">
-      <i-button
+      <Button
         shape="circle"
         class="i-back-top--button"
         v-if="visible && !$slots.default"
       >
-        <i-icon name="ArrowUpBold" />
-      </i-button>
+        <Icon name="ArrowUpBold" />
+      </Button>
     </Transition>
   </div>
 </template>
@@ -18,6 +18,8 @@
 <script setup lang="ts">
 import _ from 'lodash'
 import { onMounted, ref } from 'vue'
+import { Icon } from '../icon'
+import { Button } from '../button'
 
 interface BackTopProps {
   /**

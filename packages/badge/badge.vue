@@ -11,13 +11,14 @@
 
 <script setup lang="ts">
 import { computed, CSSProperties } from 'vue'
+import { turnValue } from '../common'
 
 interface BadgeProps {
   /**
    * 徽标内容，可为任意内容
    * @default 0
    */
-  count?: string | HTMLElement
+  count?: string | number | HTMLElement
   /**
    * 封顶的数字值
    * @default 99
@@ -79,8 +80,8 @@ if (typeof count === 'number') {
 const getOffset = () => {
   const result: CSSProperties = {}
   if (offset) {
-    offset[0] && (result.right = +offset[0])
-    offset[1] && (result.marginTop = +offset[1])
+    offset[0] && (result.right = turnValue(+offset[0]))
+    offset[1] && (result.marginTop = turnValue(+offset[1]))
   }
   return result
 }
