@@ -1,0 +1,21 @@
+// Vitest Snapshot v1
+
+exports[`Checkbox 组件测试 > create 1`] = `
+<label
+  class="i-checkbox i-checkbox--size-medium"
+>
+  <input
+    class="i-checkbox__former"
+    readonly=""
+    type="checkbox"
+  />
+  <span
+    class="i-checkbox__input"
+  />
+  <span
+    class="i-checkbox__label"
+  >
+    <!---->
+  </span>
+</label>
+`;

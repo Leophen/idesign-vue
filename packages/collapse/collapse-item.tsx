@@ -79,7 +79,8 @@ export default defineComponent({
     const contentHeight = ref(0)
 
     let resizeObserver: ResizeObserver
-    if (isBrowser()) {
+    const ifResizeObserver = typeof ResizeObserver !== 'undefined'
+    if (isBrowser() && ifResizeObserver) {
       resizeObserver = new ResizeObserver(entries => {
         contentHeight.value = entries[0].contentRect.height + 16
       });
@@ -87,10 +88,10 @@ export default defineComponent({
     onMounted(() => {
       const height = contentInnerRef.value?.getBoundingClientRect().height || 0
       contentHeight.value = height + 16 // 加上下 padding
-      resizeObserver.observe((contentInnerRef.value as HTMLElement))
+      ifResizeObserver && resizeObserver.observe((contentInnerRef.value as HTMLElement))
     })
     onUnmounted(() => {
-      resizeObserver.disconnect()
+      ifResizeObserver && resizeObserver.disconnect()
     })
 
     return () => {

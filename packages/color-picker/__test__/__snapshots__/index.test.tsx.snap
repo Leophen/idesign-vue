@@ -1,0 +1,22 @@
+// Vitest Snapshot v1
+
+exports[`ColorPicker 组件测试 > create 1`] = `
+<div
+  class="i-color-picker"
+>
+  
+  <div
+    class="i-popup__reference"
+  >
+    
+    <div
+      class="i-color"
+      style="background: rgb(94, 98, 234);"
+    />
+    
+  </div>
+  <!--teleport start-->
+  <!--teleport end-->
+  
+</div>
+`;
