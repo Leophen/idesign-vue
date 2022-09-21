@@ -1,6 +1,6 @@
 <template>
   <div :class="cls" v-if="!closed">
-    <i-icon :name="iconName" :size="16" />
+    <Icon :name="iconName" :size="16" />
 
     <div class="i-alert--content">
       <div class="i-alert--title" v-if="!!title">
@@ -15,13 +15,14 @@
     </div>
 
     <div class="i-alert--close-btn" v-if="closable" @click="handleCloseAlert">
-      <i-icon name="Close" :size="16" />
+      <Icon name="Close" :size="16" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { Icon } from '../icon'
 
 interface AlertProps {
   /**

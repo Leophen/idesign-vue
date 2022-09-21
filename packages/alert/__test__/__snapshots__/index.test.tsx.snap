@@ -1,0 +1,101 @@
+// Vitest Snapshot v1
+
+exports[`Alert 组件测试 > type 1`] = `
+<div
+  class="i-alert i-alert--type-info"
+  message="Alert 内容"
+>
+  <i
+    class="i-icon icon-TipInfo"
+    style="font-size: 16px;"
+  />
+  <div
+    class="i-alert--content"
+  >
+    <!--v-if-->
+    <div
+      class="i-alert--description"
+    >
+      
+      
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`Alert 组件测试 > type 2`] = `
+<div
+  class="i-alert i-alert--type-success"
+  message="Alert 内容"
+>
+  <i
+    class="i-icon icon-TipCheckFill"
+    style="font-size: 16px;"
+  />
+  <div
+    class="i-alert--content"
+  >
+    <!--v-if-->
+    <div
+      class="i-alert--description"
+    >
+      
+      
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`Alert 组件测试 > type 3`] = `
+<div
+  class="i-alert i-alert--type-warning"
+  message="Alert 内容"
+>
+  <i
+    class="i-icon icon-TipWarningFill"
+    style="font-size: 16px;"
+  />
+  <div
+    class="i-alert--content"
+  >
+    <!--v-if-->
+    <div
+      class="i-alert--description"
+    >
+      
+      
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>
+`;
+
+exports[`Alert 组件测试 > type 4`] = `
+<div
+  class="i-alert i-alert--type-error"
+  message="Alert 内容"
+>
+  <i
+    class="i-icon icon-TipCloseFill"
+    style="font-size: 16px;"
+  />
+  <div
+    class="i-alert--content"
+  >
+    <!--v-if-->
+    <div
+      class="i-alert--description"
+    >
+      
+      
+      <!--v-if-->
+    </div>
+  </div>
+  <!--v-if-->
+</div>
+`;

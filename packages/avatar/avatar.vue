@@ -8,7 +8,7 @@
       v-if="image && imgLoad"
     />
     <slot v-if="(!image || !imgLoad) && $slots.default" />
-    <i-icon
+    <Icon
       name="User"
       color="#fff"
       v-if="(!image || !imgLoad) && !$slots.default"
@@ -19,6 +19,7 @@
 <script setup lang="ts">
 import { computed, inject, ref } from 'vue'
 import { turnValue } from '../common'
+import { Icon } from '../icon'
 
 interface AvatarProps {
   /**

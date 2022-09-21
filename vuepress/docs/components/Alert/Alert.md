@@ -20,7 +20,7 @@ Alert/demo/demo2
 
 ## 带相关操作的提示
 
-提供 `operation` 属性来配置跟在提示内容后的操作。
+提供 `operation` 插槽来配置跟在提示内容后的操作。
 
 :::demo
 Alert/demo/demo3
