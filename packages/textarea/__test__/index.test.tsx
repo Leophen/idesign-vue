@@ -1,4 +1,4 @@
-import { expect, vi } from 'vitest';
+import { vi } from 'vitest';
 import { Textarea } from '../index';
 import { render } from '../../common'
 
