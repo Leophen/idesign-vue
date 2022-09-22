@@ -1,0 +1,15 @@
+// Vitest Snapshot v1
+
+exports[`Message 组件测试 > create 1`] = `
+<div
+  class="i-message"
+>
+  <i
+    class="i-icon icon-TipInfo"
+    style="font-size: 20px;"
+  />
+  
+  消息提示
+  
+</div>
+`;

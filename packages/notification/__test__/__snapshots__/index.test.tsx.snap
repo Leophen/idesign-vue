@@ -1,0 +1,25 @@
+// Vitest Snapshot v1
+
+exports[`Notification 组件测试 > create 1`] = `
+<div
+  class="i-notification"
+>
+  <i
+    class="i-icon icon-TipInfo"
+    style="font-size: 20px;"
+  />
+  <div
+    class="i-notification__main"
+  >
+    <!--v-if-->
+    <div
+      class="i-notification__content"
+    >
+      
+      消息提示
+      
+    </div>
+  </div>
+  <!--v-if-->
+</div>
+`;

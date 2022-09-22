@@ -1,0 +1,65 @@
+// Vitest Snapshot v1
+
+exports[`Progress 组件测试 > circle 1`] = `
+<div
+  class="i-progress"
+>
+  <div
+    class="i-progress-circle"
+    style="width: 100px; height: 100px;"
+  >
+    <svg
+      height="100"
+      width="100"
+    >
+      <circle
+        class="i-progress-circle__bg"
+        cx="50"
+        cy="50"
+        fill="none"
+        r="40"
+        style="stroke-width: 20px;"
+      />
+      <circle
+        class="i-progress-circle__inner"
+        cx="50"
+        cy="50"
+        fill="none"
+        r="40"
+        style="stroke-width: 20px; stroke-linecap: round; stroke-dasharray: 314.1592653589793; stroke-dashoffset: 125.66370614359175; animation: unset;"
+      />
+    </svg>
+    <div
+      class="i-progress__info"
+    >
+      <!--v-if-->
+       60%
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Progress 组件测试 > create 1`] = `
+<div
+  class="i-progress"
+>
+  
+  <div
+    class="i-progress-bar"
+    style="width: 200px; height: 6px;"
+  >
+    <div
+      class="i-progress-bar__inner"
+      style="width: 60%; animation: unset;"
+    />
+    <!--v-if-->
+  </div>
+  <div
+    class="i-progress__info"
+  >
+    60% 
+    <!--v-if-->
+  </div>
+  
+</div>
+`;

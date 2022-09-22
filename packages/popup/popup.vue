@@ -157,14 +157,18 @@ const createPopperInstance = () => {
             effect: ({ state, instance }) => {
               const { reference } = state.elements
 
-              // 监听触发节点宽高内容变化
-              const referenceObserverContent = new ResizeObserver((entries) => {
-                instance.update()
-              })
-              referenceObserverContent.observe(reference as HTMLElement)
+              if (typeof ResizeObserver !== 'undefined') {
+                // 监听触发节点宽高内容变化
+                const referenceObserverContent = new ResizeObserver(
+                  (entries) => {
+                    instance.update()
+                  }
+                )
+                referenceObserverContent.observe(reference as HTMLElement)
 
-              return () => {
-                referenceObserverContent.disconnect()
+                return () => {
+                  referenceObserverContent.disconnect()
+                }
               }
             }
           },
