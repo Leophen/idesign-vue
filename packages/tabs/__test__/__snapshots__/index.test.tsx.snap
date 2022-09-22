@@ -1,0 +1,47 @@
+// Vitest Snapshot v1
+
+exports[`Tabs 组件测试 > create 1`] = `
+<div
+  class="i-tabs"
+>
+  
+  <div
+    class="i-tabs-item i-tabs-item__active"
+    data-active="true"
+    data-disabled="false"
+  >
+    
+    
+    选项卡1
+    
+    
+  </div>
+  <div
+    class="i-tabs-item"
+    data-active="false"
+    data-disabled="false"
+  >
+    
+    
+    选项卡2
+    
+    
+  </div>
+  <div
+    class="i-tabs-item"
+    data-active="false"
+    data-disabled="false"
+  >
+    
+    
+    选项卡3
+    
+    
+  </div>
+  
+  <div
+    class="i-tabs__bar"
+    style="width: 0px; left: 0px;"
+  />
+</div>
+`;

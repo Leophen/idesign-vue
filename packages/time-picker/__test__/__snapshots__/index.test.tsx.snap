@@ -1,0 +1,271 @@
+// Vitest Snapshot v1
+
+exports[`TimePicker 组件测试 > create 1`] = `
+<div
+  class="i-time-picker"
+>
+  
+  <div
+    class="i-popup__reference i-time-popup"
+  >
+    
+    
+    <div
+      class="i-input i-input-is-readonly"
+    >
+      <!---->
+      
+      
+      
+      <div
+        class="i-input i-input--size-small i-input--type-number"
+      >
+        <!---->
+        <!---->
+        <input
+          class="i-input__inner"
+          max="23"
+          min="0"
+          placeholder=""
+          step="1"
+          type="number"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <div
+          class="i-input-number-slider"
+        >
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      <div
+        class="i-time-colon"
+      >
+         : 
+      </div>
+      
+      
+      <div
+        class="i-input i-input--size-small i-input--type-number"
+      >
+        <!---->
+        <!---->
+        <input
+          class="i-input__inner"
+          max="59"
+          min="0"
+          placeholder=""
+          step="1"
+          type="number"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <div
+          class="i-input-number-slider"
+        >
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="i-time-colon"
+      >
+         : 
+      </div>
+      
+      <div
+        class="i-input i-input--size-small i-input--type-number"
+      >
+        <!---->
+        <!---->
+        <input
+          class="i-input__inner"
+          max="59"
+          min="0"
+          placeholder=""
+          step="1"
+          type="number"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <div
+          class="i-input-number-slider"
+        >
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      
+      <input
+        class="i-input__inner"
+        placeholder=""
+        readonly=""
+      />
+      <!---->
+      <!---->
+      <!---->
+      <i
+        class="i-icon icon-Clock i-input-suffix-icon"
+      />
+      <!---->
+      <!---->
+    </div>
+    <!---->
+    
+    
+  </div>
+  <!--teleport start-->
+  <!--teleport end-->
+  
+</div>
+`;
+
+exports[`TimePicker 组件测试 > create 2`] = `
+<div
+  class="i-time-picker"
+>
+  
+  <div
+    class="i-popup__reference i-time-popup"
+  >
+    
+    
+    <div
+      class="i-input i-input-is-readonly"
+    >
+      <!---->
+      
+      
+      
+      <div
+        class="i-input i-input--size-small i-input--type-number"
+      >
+        <!---->
+        <!---->
+        <input
+          class="i-input__inner"
+          max="23"
+          min="0"
+          placeholder=""
+          step="1"
+          type="number"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <div
+          class="i-input-number-slider"
+        >
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      <div
+        class="i-time-colon"
+      >
+         : 
+      </div>
+      
+      
+      <div
+        class="i-input i-input--size-small i-input--type-number"
+      >
+        <!---->
+        <!---->
+        <input
+          class="i-input__inner"
+          max="59"
+          min="0"
+          placeholder=""
+          step="1"
+          type="number"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <div
+          class="i-input-number-slider"
+        >
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      <div
+        class="i-time-colon"
+      >
+         : 
+      </div>
+      
+      <div
+        class="i-input i-input--size-small i-input--type-number"
+      >
+        <!---->
+        <!---->
+        <input
+          class="i-input__inner"
+          max="59"
+          min="0"
+          placeholder=""
+          step="1"
+          type="number"
+        />
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <div
+          class="i-input-number-slider"
+        >
+          <!---->
+        </div>
+      </div>
+      <!---->
+      
+      
+      
+      <input
+        class="i-input__inner"
+        placeholder=""
+        readonly=""
+      />
+      <!---->
+      <!---->
+      <!---->
+      <i
+        class="i-icon icon-Clock i-input-suffix-icon"
+      />
+      <!---->
+      <!---->
+    </div>
+    <!---->
+    
+    
+  </div>
+  <!--teleport start-->
+  <!--teleport end-->
+  
+</div>
+`;

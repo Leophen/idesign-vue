@@ -1,0 +1,14 @@
+// Vitest Snapshot v1
+
+exports[`Tag 组件测试 > create 1`] = `
+<div
+  class="i-tag i-tag--type-default"
+>
+  <!--v-if-->
+  <!--v-if-->
+  
+  标签
+  
+  <!--v-if-->
+</div>
+`;
