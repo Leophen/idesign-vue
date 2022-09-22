@@ -42,7 +42,7 @@ export default defineComponent({
   setup(props, { attrs }) {
     const stepsItems = () => {
       const getChildComponentByName = useChildComponentSlots();
-      const childrenList: VNode[] = getChildComponentByName('StepsItem')
+      const childrenList: VNode[] = props.reverse ? getChildComponentByName('StepsItem').reverse() : getChildComponentByName('StepsItem')
       const stepItemList = childrenList.map((item, index) => {
         const stepIndex = props.reverse ? childrenList.length - index - 1 : index;
         return (

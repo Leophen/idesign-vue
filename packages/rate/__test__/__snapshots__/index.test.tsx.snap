@@ -1,0 +1,50 @@
+// Vitest Snapshot v1
+
+exports[`Rate 组件测试 > create 1`] = `
+<div
+  class="i-rate"
+>
+  
+  <div
+    class="i-rate-star"
+  >
+    <i
+      class="i-icon icon-StarFill"
+      style="font-size: 20px;"
+    />
+  </div>
+  <div
+    class="i-rate-star"
+  >
+    <i
+      class="i-icon icon-StarFill"
+      style="font-size: 20px;"
+    />
+  </div>
+  <div
+    class="i-rate-star"
+  >
+    <i
+      class="i-icon icon-StarFill"
+      style="font-size: 20px;"
+    />
+  </div>
+  <div
+    class="i-rate-star"
+  >
+    <i
+      class="i-icon icon-StarFill"
+      style="font-size: 20px;"
+    />
+  </div>
+  <div
+    class="i-rate-star"
+  >
+    <i
+      class="i-icon icon-StarFill"
+      style="font-size: 20px;"
+    />
+  </div>
+  
+</div>
+`;

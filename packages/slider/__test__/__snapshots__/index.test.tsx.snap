@@ -1,0 +1,115 @@
+// Vitest Snapshot v1
+
+exports[`Slider 组件测试 > create 1`] = `
+<div
+  class="i-slider"
+>
+  
+  <div
+    class="i-slider__bar"
+  >
+    <div
+      class="i-slider__bar-active"
+      style="left: 0%; top: 0px;"
+    />
+  </div>
+  
+  <div
+    class="i-popup__reference"
+  >
+    
+    <div
+      class="i-slider__button"
+      style="left: calc(0% - 0px);"
+    />
+    
+  </div>
+  <!--teleport start-->
+  <!--teleport end-->
+  
+  
+  <!--v-if-->
+</div>
+`;
+
+exports[`Slider 组件测试 > range 1`] = `
+<div
+  class="i-slider"
+>
+  <!--v-if-->
+  
+  <div
+    class="i-slider__bar"
+  >
+    <div
+      class="i-slider__bar-active"
+      style="left: 0px; top: 0px; width: 30%; height: 6px;"
+    />
+    <div
+      class="i-slider__bar-active"
+      style="left: 90%; top: 0px;"
+    />
+  </div>
+  
+  <div
+    class="i-popup__reference"
+  >
+    
+    <div
+      class="i-slider__button"
+      style="left: calc(30% - 0px);"
+    />
+    
+  </div>
+  <!--teleport start-->
+  <!--teleport end-->
+  
+  
+  <div
+    class="i-popup__reference"
+  >
+    
+    <div
+      class="i-slider__button"
+      style="left: calc(90% - 0px);"
+    />
+    
+  </div>
+  <!--teleport start-->
+  <!--teleport end-->
+  
+  
+</div>
+`;
+
+exports[`Slider 组件测试 > vertical 1`] = `
+<div
+  class="i-slider i-slider__layout-vertical"
+>
+  
+  <div
+    class="i-slider__bar"
+  >
+    <div
+      class="i-slider__bar-active"
+      style="left: 0px; top: 0%;"
+    />
+  </div>
+  
+  <div
+    class="i-popup__reference"
+  >
+    
+    <div
+      class="i-slider__button"
+      style="top: calc(0% - 0px);"
+    />
+    
+  </div>
+  <!--teleport start-->
+  <!--teleport end-->
+  
+  
+  <!--v-if-->
+</div>
+`;

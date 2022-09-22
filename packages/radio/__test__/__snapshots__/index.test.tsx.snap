@@ -1,0 +1,21 @@
+// Vitest Snapshot v1
+
+exports[`Radio 组件测试 > create 1`] = `
+<label
+  class="i-radio i-radio--size-medium"
+>
+  <input
+    class="i-radio__former"
+    readonly=""
+    type="radio"
+  />
+  <span
+    class="i-radio__input"
+  />
+  <span
+    class="i-radio__label"
+  >
+    <!---->
+  </span>
+</label>
+`;

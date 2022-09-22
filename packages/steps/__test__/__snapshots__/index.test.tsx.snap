@@ -1,0 +1,289 @@
+// Vitest Snapshot v1
+
+exports[`Steps 组件测试 > create 1`] = `
+<div
+  class="i-steps i-steps__layout-horizontal"
+>
+  
+  <div
+    class="i-steps-item"
+  >
+    <div
+      class="i-steps-item__content"
+    >
+      <header
+        class="i-steps-item__title"
+      >
+        
+        步骤1
+        
+        <div
+          class="i-steps-item__icon"
+        >
+          <span>
+            1
+          </span>
+        </div>
+      </header>
+      <article
+        class="i-steps-item__description"
+      >
+        
+        提示文字1
+        
+      </article>
+    </div>
+  </div>
+  <div
+    class="i-steps-item"
+  >
+    <div
+      class="i-steps-item__content"
+    >
+      <header
+        class="i-steps-item__title"
+      >
+        
+        步骤2
+        
+        <div
+          class="i-steps-item__icon"
+        >
+          <span>
+            2
+          </span>
+        </div>
+      </header>
+      <article
+        class="i-steps-item__description"
+      >
+        
+        提示文字2
+        
+      </article>
+    </div>
+  </div>
+  <div
+    class="i-steps-item"
+  >
+    <div
+      class="i-steps-item__content"
+    >
+      <header
+        class="i-steps-item__title"
+      >
+        
+        步骤3
+        
+        <div
+          class="i-steps-item__icon"
+        >
+          <span>
+            3
+          </span>
+        </div>
+      </header>
+      <article
+        class="i-steps-item__description"
+      >
+        
+        提示文字3
+        
+      </article>
+    </div>
+  </div>
+  
+</div>
+`;
+
+exports[`Steps 组件测试 > layout 1`] = `
+<div
+  class="i-steps i-steps__layout-vertical"
+>
+  
+  <div
+    class="i-steps-item"
+  >
+    <div
+      class="i-steps-item__content"
+    >
+      <header
+        class="i-steps-item__title"
+      >
+        
+        步骤1
+        
+        <div
+          class="i-steps-item__icon"
+        >
+          <span>
+            1
+          </span>
+        </div>
+      </header>
+      <article
+        class="i-steps-item__description"
+      >
+        
+        提示文字1
+        
+      </article>
+    </div>
+  </div>
+  <div
+    class="i-steps-item"
+  >
+    <div
+      class="i-steps-item__content"
+    >
+      <header
+        class="i-steps-item__title"
+      >
+        
+        步骤2
+        
+        <div
+          class="i-steps-item__icon"
+        >
+          <span>
+            2
+          </span>
+        </div>
+      </header>
+      <article
+        class="i-steps-item__description"
+      >
+        
+        提示文字2
+        
+      </article>
+    </div>
+  </div>
+  <div
+    class="i-steps-item"
+  >
+    <div
+      class="i-steps-item__content"
+    >
+      <header
+        class="i-steps-item__title"
+      >
+        
+        步骤3
+        
+        <div
+          class="i-steps-item__icon"
+        >
+          <span>
+            3
+          </span>
+        </div>
+      </header>
+      <article
+        class="i-steps-item__description"
+      >
+        
+        提示文字3
+        
+      </article>
+    </div>
+  </div>
+  
+</div>
+`;
+
+exports[`Steps 组件测试 > reverse 1`] = `
+<div
+  class="i-steps i-steps__layout-horizontal"
+>
+  
+  <div
+    class="i-steps-item"
+  >
+    <div
+      class="i-steps-item__content"
+    >
+      <header
+        class="i-steps-item__title"
+      >
+        
+        步骤3
+        
+        <div
+          class="i-steps-item__icon"
+        >
+          <span>
+            3
+          </span>
+        </div>
+      </header>
+      <article
+        class="i-steps-item__description"
+      >
+        
+        提示文字3
+        
+      </article>
+    </div>
+  </div>
+  <div
+    class="i-steps-item"
+  >
+    <div
+      class="i-steps-item__content"
+    >
+      <header
+        class="i-steps-item__title"
+      >
+        
+        步骤2
+        
+        <div
+          class="i-steps-item__icon"
+        >
+          <span>
+            2
+          </span>
+        </div>
+      </header>
+      <article
+        class="i-steps-item__description"
+      >
+        
+        提示文字2
+        
+      </article>
+    </div>
+  </div>
+  <div
+    class="i-steps-item"
+  >
+    <div
+      class="i-steps-item__content"
+    >
+      <header
+        class="i-steps-item__title"
+      >
+        
+        步骤1
+        
+        <div
+          class="i-steps-item__icon"
+        >
+          <span>
+            1
+          </span>
+        </div>
+      </header>
+      <article
+        class="i-steps-item__description"
+      >
+        
+        提示文字1
+        
+      </article>
+    </div>
+  </div>
+  
+</div>
+`;

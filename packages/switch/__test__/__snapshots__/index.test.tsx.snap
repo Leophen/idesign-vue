@@ -1,0 +1,22 @@
+// Vitest Snapshot v1
+
+exports[`Switch 组件测试 > create 1`] = `
+<button
+  class="i-switch"
+  role="switch"
+  type="button"
+>
+  <span
+    class="i-switch__handle"
+  >
+    <!--v-if-->
+  </span>
+  <div
+    class="i-switch__content"
+  >
+    
+    
+    <!--v-if-->
+  </div>
+</button>
+`;

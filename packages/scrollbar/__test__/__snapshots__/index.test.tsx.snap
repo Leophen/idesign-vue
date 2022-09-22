@@ -1,0 +1,97 @@
+// Vitest Snapshot v1
+
+exports[`Scrollbar 组件测试 > create 1`] = `
+<div
+  class="i-scrollbar"
+>
+  <div
+    class="i-scrollbar__wrap"
+    style="max-height: 60px; max-width: auto; user-select: unset;"
+  >
+    
+    
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    <div>
+      item
+    </div>
+    
+    
+  </div>
+  <div
+    class="i-scrollbar__barY"
+  >
+    <transition-stub>
+      <!--v-if-->
+    </transition-stub>
+  </div>
+  <!--v-if-->
+</div>
+`;
