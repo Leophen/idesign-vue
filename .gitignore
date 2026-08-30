@@ -26,3 +26,5 @@ vuepress/docs/.vuepress/dist
 .cache
 .temp
 .yarn
+.vercel
+.env*

@@ -2,6 +2,9 @@
   "name": "idesign-vue",
   "version": "1.1.8",
   "description": "iDesign 前端通用组件库",
+  "engines": {
+    "node": "22.x"
+  },
   "main": "dist/idesign-vue.umd.cjs",
   "module": "dist/idesign-vue.js",
   "files": [

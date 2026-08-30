@@ -2,6 +2,9 @@
   "name": "idesign-vue",
   "version": "1.0.0",
   "description": "iDesign 前端通用组件库",
+  "engines": {
+    "node": "22.x"
+  },
   "main": "src/components/index.ts",
   "scripts": {
     "start": "vuepress dev docs --clean-cache",

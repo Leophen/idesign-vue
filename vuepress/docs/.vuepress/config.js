@@ -117,7 +117,6 @@ module.exports = {
     ],
     sidebar: {
       '/guide/': 'auto',
-      '/guide.html': 'auto',
       '/components/': componentsSidebar,
     },
     sidebarDepth: 0,
