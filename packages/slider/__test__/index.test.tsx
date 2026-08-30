@@ -1,5 +1,5 @@
-import { Slider } from '../index';
-import { render } from '../../common'
+﻿import { Slider } from '../index';
+import { render } from '../../__test__/utils'
 
 describe('Slider 组件测试', () => {
   it('create', () => {

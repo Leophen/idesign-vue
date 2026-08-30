@@ -29,6 +29,7 @@ exports[`TimePicker 组件测试 > create 1`] = `
           placeholder=""
           step="1"
           type="number"
+          value="12"
         />
         <!---->
         <!---->
@@ -62,6 +63,7 @@ exports[`TimePicker 组件测试 > create 1`] = `
           placeholder=""
           step="1"
           type="number"
+          value="34"
         />
         <!---->
         <!---->
@@ -95,6 +97,7 @@ exports[`TimePicker 组件测试 > create 1`] = `
           placeholder=""
           step="1"
           type="number"
+          value="56"
         />
         <!---->
         <!---->
@@ -115,6 +118,7 @@ exports[`TimePicker 组件测试 > create 1`] = `
         class="i-input__inner"
         placeholder=""
         readonly=""
+        value=""
       />
       <!---->
       <!---->
@@ -164,6 +168,7 @@ exports[`TimePicker 组件测试 > create 2`] = `
           placeholder=""
           step="1"
           type="number"
+          value="12"
         />
         <!---->
         <!---->
@@ -197,6 +202,7 @@ exports[`TimePicker 组件测试 > create 2`] = `
           placeholder=""
           step="1"
           type="number"
+          value="34"
         />
         <!---->
         <!---->
@@ -230,6 +236,7 @@ exports[`TimePicker 组件测试 > create 2`] = `
           placeholder=""
           step="1"
           type="number"
+          value="56"
         />
         <!---->
         <!---->
@@ -250,6 +257,7 @@ exports[`TimePicker 组件测试 > create 2`] = `
         class="i-input__inner"
         placeholder=""
         readonly=""
+        value=""
       />
       <!---->
       <!---->

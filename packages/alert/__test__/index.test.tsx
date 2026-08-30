@@ -1,5 +1,5 @@
-import { Alert } from '../index';
-import { render } from '../../common'
+﻿import { Alert } from '../index';
+import { render } from '../../__test__/utils'
 
 describe('Alert 组件测试', () => {
   it('type', () => {

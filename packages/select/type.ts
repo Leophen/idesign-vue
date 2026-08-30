@@ -1,4 +1,4 @@
-import { DropdownOption } from '../Dropdown/type'
+import { DropdownOption } from '../dropdown/type'
 
 export interface SelectProps {
   /**

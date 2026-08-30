@@ -1,5 +1,5 @@
-import { Badge } from '../index';
-import { render } from '../../common'
+﻿import { Badge } from '../index';
+import { render } from '../../__test__/utils'
 
 describe('Badge 组件测试', () => {
   function renderSup(badge) {

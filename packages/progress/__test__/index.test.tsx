@@ -1,5 +1,5 @@
-import { Progress } from '../index';
-import { render } from '../../common'
+﻿import { Progress } from '../index';
+import { render } from '../../__test__/utils'
 
 describe('Progress 组件测试', () => {
   it('create', () => {

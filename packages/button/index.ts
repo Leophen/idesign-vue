@@ -7,4 +7,5 @@ export const ButtonPlugin: Plugin = {
   },
 };
 
-export { Button };
+export { Button }
+export type { ButtonProps } from './type'

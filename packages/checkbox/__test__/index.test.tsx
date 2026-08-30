@@ -1,6 +1,6 @@
-import { vi } from 'vitest';
+﻿import { vi } from 'vitest';
 import { Checkbox, CheckboxGroup } from '../index';
-import { render } from '../../common'
+import { render } from '../../__test__/utils'
 
 describe('Checkbox 组件测试', () => {
   it('create', () => {

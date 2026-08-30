@@ -2,7 +2,7 @@
   <div :class="['i-color-panel', disabled && 'i-color-panel__disabled']">
     <header class="i-color-panel-header">
       <div class="i-color-panel-header-txt">颜色选择器</div>
-      <div className="i-color-panel-header-icon" @click="() => emit('close')">
+      <div class="i-color-panel-header-icon" @click="() => emit('close')">
         <Icon name="Close" />
       </div>
     </header>

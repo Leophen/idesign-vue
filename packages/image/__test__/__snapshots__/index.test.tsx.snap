@@ -36,7 +36,12 @@ exports[`Image 组件测试 > create 1`] = `
   <div
     class="i-preview-dialog-wrapper"
   >
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      name="i-fade"
+      persisted="false"
+    >
       <!--v-if-->
     </transition-stub>
   </div>

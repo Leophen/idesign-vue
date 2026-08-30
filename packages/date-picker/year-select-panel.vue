@@ -21,7 +21,7 @@
             'i-date__year-select-item__current'
         ]"
         :key="item"
-        @click="(e) => handleClickItem(e, item)"
+        @click="handleClickItem($event, item)"
       >
         {{ item }}
       </div>

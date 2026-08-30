@@ -1,6 +1,6 @@
-import { vi } from 'vitest';
+﻿import { vi } from 'vitest';
 import { Dropdown } from '../index';
-import { render } from '../../common'
+import { render } from '../../__test__/utils'
 
 const options = [
   {

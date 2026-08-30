@@ -18,7 +18,7 @@
           new Date().getMonth() === item && 'i-date__month-select-item__current'
         ]"
         :key="item"
-        @click="(e) => handleClickItem(e, item)"
+        @click="handleClickItem($event, item)"
       >
         {{ item + 1 }}
       </div>
@@ -29,7 +29,7 @@
 <script setup lang="ts">
 import _ from 'lodash'
 import { ref, watch } from 'vue'
-import { Icon } from '../Icon'
+import { Icon } from '../icon'
 
 interface MonthSelectPanelProps {
   /**

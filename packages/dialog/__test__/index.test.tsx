@@ -1,5 +1,5 @@
-import { Dialog } from '../index';
-import { render } from '../../common'
+﻿import { Dialog } from '../index';
+import { render } from '../../__test__/utils'
 
 describe('Dialog 组件测试', () => {
   it('create', () => {

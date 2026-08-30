@@ -1,5 +1,5 @@
-import { Image } from '../index';
-import { render } from '../../common'
+﻿import { Image } from '../index';
+import { render } from '../../__test__/utils'
 
 describe('Image 组件测试', () => {
   it('create', () => {

@@ -1,6 +1,6 @@
-import { vi } from 'vitest';
+﻿import { vi } from 'vitest';
 import { Button } from '../index';
-import { render } from '../../common'
+import { render } from '../../__test__/utils'
 
 describe('Button 组件测试', () => {
   const renderBtnHasClass = (btn, className) => {

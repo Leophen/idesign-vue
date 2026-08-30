@@ -1,5 +1,5 @@
-import { Grid, GridItem } from '../index';
-import { render } from '../../common'
+﻿import { Grid, GridItem } from '../index';
+import { render } from '../../__test__/utils'
 
 describe('Grid 组件测试', () => {
   it('create', () => {

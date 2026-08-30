@@ -43,7 +43,7 @@
 
 <script setup lang="ts">
 import { Icon } from '../icon'
-import { Button } from '../Button'
+import { Button } from '../button'
 import {
   hasParent,
   isBrowser,

@@ -89,7 +89,7 @@ class MessageManger {
   }
 }
 
-const messageInstance: any = {}
+const messageInstance: Partial<Record<PositionType, MessageManger>> = {}
 
 const openMessage = (
   type: MessageType,
@@ -123,7 +123,7 @@ const clearMessage = (position?: PositionType) => {
   if (position) {
     messageInstance[position]?.clear()
   } else {
-    Object.values(messageInstance).forEach((item: any) => item?.clear())
+    Object.values(messageInstance).forEach((item) => item?.clear())
   }
 }
 

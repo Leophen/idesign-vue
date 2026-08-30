@@ -1,3 +1,5 @@
+import type { CSSProperties, VNode } from 'vue';
+
 export interface GridProps {
   /**
    * 栅格每一项的垂直对齐方式
@@ -7,7 +9,7 @@ export interface GridProps {
   /**
    * 内容
    */
-  children?: React.ReactNode;
+  children?: VNode | VNode[];
   /**
    * 栅格每一项间的间隔
    */
@@ -20,7 +22,7 @@ export interface GridProps {
   /**
    * 自定义样式
    */
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 }
 
 export interface GridItemProps {
@@ -31,7 +33,7 @@ export interface GridItemProps {
   /**
    * 内容
    */
-  children?: React.ReactNode;
+  children?: VNode | VNode[];
   /**
    * 栅格每一项间的间隔
    */
@@ -52,9 +54,9 @@ export interface GridItemProps {
   /**
    * 自定义样式
    */
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   /**
    * 自定义单项宽度
    */
-  width?: React.CSSProperties["width"];
+  width?: CSSProperties['width'];
 }

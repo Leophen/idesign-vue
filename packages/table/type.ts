@@ -1,10 +1,14 @@
-import { CSSProperties } from "vue";
+import { CSSProperties, VNode } from 'vue';
 
-export interface ColumnType {
+export interface ColumnType<T extends Record<string, unknown> = Record<string, unknown>> {
   /**
    * 唯一标识
    */
   key: string;
+  /**
+   * 数据字段名
+   */
+  dataIndex?: keyof T & string;
   /**
    * 标题
    */
@@ -16,20 +20,24 @@ export interface ColumnType {
   /**
    * 对齐方式
    */
-  align?: CSSProperties["textAlign"];
+  align?: CSSProperties['textAlign'];
+  /**
+   * 自定义单元格渲染
+   */
+  render?: (value: unknown, record: T, index: number) => VNode | string | number;
 }
 
-export interface TableProps {
+export interface TableProps<T extends Record<string, unknown> = Record<string, unknown>> {
   /**
    * 表头配置数据
    * @default []
    */
-  columns?: ColumnType[];
+  columns?: ColumnType<T>[];
   /**
    * 表格数据源
    * @default []
    */
-  data?: { [x: string]: any }[];
+  data?: T[];
   /**
    * 表格列表最大高度，超出显示滚动条
    */
@@ -41,33 +49,33 @@ export interface TableProps {
   stripe?: boolean;
 }
 
-export interface ColumnGroupProps {
+export interface ColumnGroupProps<T extends Record<string, unknown> = Record<string, unknown>> {
   /**
    * 列数据项
    * @default []
    */
-  columns?: ColumnType[];
+  columns?: ColumnType<T>[];
 }
 
-export interface TableHeadProps {
+export interface TableHeadProps<T extends Record<string, unknown> = Record<string, unknown>> {
   /**
    * 列数据
    * @default []
    */
-  columns?: ColumnType[];
+  columns?: ColumnType<T>[];
 }
 
-export interface TableBodyProps {
+export interface TableBodyProps<T extends Record<string, unknown> = Record<string, unknown>> {
   /**
    * 数据源
    * @default []
    */
-  data?: { [x: string]: any }[];
+  data?: T[];
   /**
    * 列数据
    * @default []
    */
-  columns?: ColumnType[];
+  columns?: ColumnType<T>[];
   /**
    * 表格列表高度，超出显示滚动条
    */

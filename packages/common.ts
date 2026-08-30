@@ -1,19 +1,5 @@
 import _ from 'lodash'
 import { Component, getCurrentInstance, Slots, VNode, VNodeTypes } from 'vue'
-import { mount } from '@vue/test-utils'
-
-/**
- * 模拟 @testing-library/react render 测试函数
- * @param component
- * @returns wrapper
- */
-export const render = (comp: VNode) => {
-  return mount({
-    render() {
-      return comp
-    }
-  })
-}
 
 /**
  * 通用位置类型
@@ -135,10 +121,11 @@ export const useChildComponentSlots = () => {
           return item
         })
         .flat()
-        // @ts-ignore
-        .filter((item: VNode) =>
-          (item.type as Component).name?.endsWith(childComponentName)
-        ) as VNode[]
+        .filter((item): item is VNode => isComponent(item as VNode))
+        .filter((item) => {
+          const componentType = item.type as Component
+          return componentType.name?.endsWith(childComponentName) ?? false
+        })
     )
   }
 }

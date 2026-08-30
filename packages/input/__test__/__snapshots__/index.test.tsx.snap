@@ -1,13 +1,185 @@
 // Vitest Snapshot v1
 
-exports[`Input 组件测试 > clearable 1`] = ``;
+exports[`Input 组件测试 > clearable 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <div
+    class="i-input"
+  >
+    <!---->
+    <!---->
+    <input
+      class="i-input__inner"
+      placeholder="请输入"
+      value=""
+    />
+    <!---->
+    <i
+      class="i-icon icon-TipCloseFill"
+    />
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
 
-exports[`Input 组件测试 > create 1`] = ``;
+exports[`Input 组件测试 > create 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <div
+    class="i-input"
+  >
+    <!---->
+    <!---->
+    <input
+      class="i-input__inner"
+      placeholder="请输入"
+      value=""
+    />
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
 
-exports[`Input 组件测试 > defaultValue 1`] = ``;
+exports[`Input 组件测试 > defaultValue 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <div
+    class="i-input"
+  >
+    <!---->
+    <!---->
+    <input
+      class="i-input__inner"
+      placeholder="请输入"
+      value="iDesign"
+    />
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
 
-exports[`Input 组件测试 > init 1`] = ``;
+exports[`Input 组件测试 > init 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <div
+    class="i-input"
+  >
+    <!---->
+    <!---->
+    <input
+      class="i-input__inner"
+      placeholder="请输入内容"
+      value="iDesign"
+    />
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
 
-exports[`Input 组件测试 > number 1`] = ``;
+exports[`Input 组件测试 > number 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <div
+    class="i-input i-input--type-number"
+  >
+    <!---->
+    <!---->
+    <input
+      class="i-input__inner"
+      max="1.7976931348623157e+308"
+      min="-9007199254740991"
+      placeholder="请输入"
+      step="1"
+      type="number"
+      value=""
+    />
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <div
+      class="i-input-number-button"
+    >
+      <i
+        class="i-icon icon-ArrowCaretTop"
+      />
+      <i
+        class="i-icon icon-ArrowCaretBottom"
+      />
+    </div>
+    <div
+      class="i-input-number-slider"
+    >
+      <!---->
+    </div>
+  </div>
+  <!---->
+  
+</div>
+`;
 
-exports[`Input 组件测试 > password 1`] = ``;
+exports[`Input 组件测试 > password 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <div
+    class="i-input i-input--type-password"
+  >
+    <!---->
+    <!---->
+    <input
+      class="i-input__inner"
+      placeholder="请输入"
+      type="password"
+      value=""
+    />
+    <!---->
+    <!---->
+    <i
+      class="i-icon icon-ViewHide"
+    />
+    <!---->
+    <!---->
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;

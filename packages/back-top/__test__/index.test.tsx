@@ -1,5 +1,5 @@
-import { BackTop } from '../index';
-import { render } from '../../common'
+﻿import { BackTop } from '../index';
+import { render } from '../../__test__/utils'
 
 describe('BackTop 组件测试', () => {
   it('create', () => {

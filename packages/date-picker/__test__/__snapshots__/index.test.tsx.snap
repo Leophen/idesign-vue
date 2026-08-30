@@ -20,6 +20,7 @@ exports[`DatePicker 组件测试 > defaultValue 1`] = `
         class="i-input__inner"
         placeholder="请选择日期"
         readonly=""
+        value="2022-05-20"
       />
       <!---->
       <!---->
@@ -60,6 +61,7 @@ exports[`DatePicker 组件测试 > rangeSeparator 1`] = `
         class="i-input__inner"
         placeholder="请选择日期"
         readonly=""
+        value="2022-05-20 / 2022-11-11"
       />
       <!---->
       <!---->
@@ -100,6 +102,7 @@ exports[`DatePicker 组件测试 > type 1`] = `
         class="i-input__inner"
         placeholder="请选择日期"
         readonly=""
+        value="2022-05-20 ~ 2022-11-11"
       />
       <!---->
       <!---->
@@ -140,6 +143,7 @@ exports[`DatePicker 组件测试 > value 1`] = `
         class="i-input__inner"
         placeholder="请选择日期"
         readonly=""
+        value="2022-05-20"
       />
       <!---->
       <!---->

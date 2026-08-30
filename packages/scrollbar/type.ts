@@ -1,16 +1,18 @@
+import type { CSSProperties, VNode } from 'vue';
+
 export interface ScrollbarProps {
   /**
    * 内容
    */
-  children?: React.ReactNode;
+  children?: VNode | VNode[];
   /**
    * 滚动容器高度
    */
-  height?: React.CSSProperties["height"];
+  height?: CSSProperties['height'];
   /**
    * 滚动容器宽度
    */
-  width?: React.CSSProperties["width"];
+  width?: CSSProperties['width'];
   /**
    * 水平滚动触发事件
    */

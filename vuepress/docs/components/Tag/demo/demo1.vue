@@ -3,7 +3,7 @@
     <i-tag>普通标签</i-tag>
 
     <a
-      href="https://idesign-vue.leophen.top/"
+      href="https://idesign-vue.leophen.cn/"
       target="_blank"
       rel="noreferrer"
     >

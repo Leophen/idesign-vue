@@ -1,5 +1,5 @@
-import { Scrollbar } from '../index';
-import { render } from '../../common'
+﻿import { Scrollbar } from '../index';
+import { render } from '../../__test__/utils'
 
 describe('Scrollbar 组件测试', () => {
   it('create', () => {

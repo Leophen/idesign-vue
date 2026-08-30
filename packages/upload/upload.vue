@@ -18,7 +18,7 @@
       >
         {{ uploadTxt }}
       </Button>
-      <div className="i-upload__block" v-if="theme === 'block'">
+      <div class="i-upload__block" v-if="theme === 'block'">
         <Icon name="ThePlus" :size="20" />
         {{ uploadTxt }}
       </div>

@@ -1,5 +1,5 @@
-import { DatePicker } from '../index';
-import { render } from '../../common'
+﻿import { DatePicker } from '../index';
+import { render } from '../../__test__/utils'
 
 describe('DatePicker 组件测试', () => {
   it('value', () => {

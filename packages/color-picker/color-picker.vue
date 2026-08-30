@@ -31,7 +31,7 @@
 
 <script setup lang="ts">
 import { computed, CSSProperties, ref } from 'vue'
-import { Popup } from '../Popup'
+import { Popup } from '../popup'
 import ColorPanel from './color-panel.vue'
 import { colorListType, defaultColor } from './type'
 

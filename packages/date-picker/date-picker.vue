@@ -1,5 +1,5 @@
 <template>
-  <div class="i-date-picker" :data-type="type">
+  <div class="i-date-picker" v-bind="{ 'data-type': type }">
     <Popup
       placement="bottom"
       :trigger="trigger"
@@ -44,8 +44,8 @@
 import _ from 'lodash'
 import dayjs from 'dayjs'
 import isBetween from 'dayjs/plugin/isBetween'
-import { Popup } from '../Popup'
-import { Input } from '../Input'
+import { Popup } from '../popup'
+import { Input } from '../input'
 import DatePanel from './date-panel.vue'
 import DateRangePanel from './date-range-panel.vue'
 import { DATE_FORMAT } from './type'

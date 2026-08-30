@@ -89,7 +89,7 @@ class NotificationManger {
   }
 }
 
-const notificationInstance: any = {}
+const notificationInstance: Partial<Record<PositionType, NotificationManger>> = {}
 
 const openNotification = (
   type: NotificationType,
@@ -132,8 +132,7 @@ const clearNotification = (position?: PositionType) => {
   if (position) {
     notificationInstance[position]?.clear()
   } else {
-    console.log(Object.values(notificationInstance), 'jjj')
-    Object.values(notificationInstance).forEach((item: any) => item?.clear())
+    Object.values(notificationInstance).forEach((item) => item?.clear())
   }
 }
 

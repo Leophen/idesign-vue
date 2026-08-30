@@ -53,7 +53,20 @@ html.dark {
   }
 }
 
+aside.sidebar {
+  background-color: var(--c-bg-sidebar, var(--i-bg-hover));
+  border-right: 1px solid var(--c-border, var(--i-border));
+
+  // 兜底：分组子项始终展示（与自定义 SidebarItem 一致）
+  .sidebar-items > li > .sidebar-item-children {
+    display: block !important;
+  }
+}
+
 .sidebar {
+  background-color: var(--c-bg-sidebar, var(--i-bg-hover));
+  border-right: 1px solid var(--c-border, var(--i-border));
+
   .sidebar-items {
     padding-top: 0;
     li a {

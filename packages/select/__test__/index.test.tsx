@@ -1,5 +1,5 @@
-import { Select,SelectItem } from '../index';
-import { render } from '../../common'
+﻿import { Select,SelectItem } from '../index';
+import { render } from '../../__test__/utils'
 
 describe('Select 组件测试', () => {
   it('create', () => {

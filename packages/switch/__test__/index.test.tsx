@@ -1,6 +1,6 @@
-import { vi } from 'vitest';
+﻿import { vi } from 'vitest';
 import { Switch } from '../index';
-import { render } from '../../common'
+import { render } from '../../__test__/utils'
 
 describe('Switch 组件测试', () => {
   it('create', () => {

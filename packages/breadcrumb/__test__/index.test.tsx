@@ -1,5 +1,5 @@
-import { Breadcrumb, BreadcrumbItem } from '../index';
-import { render } from '../../common'
+﻿import { Breadcrumb, BreadcrumbItem } from '../index';
+import { render } from '../../__test__/utils'
 
 describe('Breadcrumb 组件测试', () => {
   const renderItem = (breadcrumb) => {

@@ -88,7 +88,12 @@ exports[`Scrollbar 组件测试 > create 1`] = `
   <div
     class="i-scrollbar__barY"
   >
-    <transition-stub>
+    <transition-stub
+      appear="false"
+      css="true"
+      name="i-fade"
+      persisted="false"
+    >
       <!--v-if-->
     </transition-stub>
   </div>

@@ -40,7 +40,7 @@
 <script setup lang="ts">
 import _ from 'lodash'
 import dayjs from 'dayjs'
-import { Button } from '../Button'
+import { Button } from '../button'
 import {
   DEFAULT_FORMAT,
   DEFAULT_STEPS,

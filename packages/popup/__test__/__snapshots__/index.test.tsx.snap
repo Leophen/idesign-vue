@@ -1,3 +1,21 @@
 // Vitest Snapshot v1
 
-exports[`Popup 组件测试 > create 1`] = ``;
+exports[`Popup 组件测试 > create 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <div
+    class="i-popup__reference"
+  >
+    
+    <button>
+      悬浮提示
+    </button>
+    
+  </div>
+  <!--teleport start-->
+  <!--teleport end-->
+  
+</div>
+`;

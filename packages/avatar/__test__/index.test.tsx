@@ -1,5 +1,5 @@
-import { Avatar } from '../index';
-import { render } from '../../common'
+﻿import { Avatar } from '../index';
+import { render } from '../../__test__/utils'
 
 const imageSrc = 'https://picsum.photos/180/120';
 

@@ -1,5 +1,5 @@
-import { Collapse, CollapseItem } from '../index';
-import { render } from '../../common'
+﻿import { Collapse, CollapseItem } from '../index';
+import { render } from '../../__test__/utils'
 
 describe('Collapse 组件测试', () => {
   it('create', () => {

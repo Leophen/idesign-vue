@@ -1,6 +1,6 @@
-import { vi } from 'vitest';
+﻿import { vi } from 'vitest';
 import { Input } from '../index';
-import { render } from '../../common'
+import { render } from '../../__test__/utils'
 
 describe('Input 组件测试', () => {
   const renderInput = (input) => {

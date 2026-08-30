@@ -1,9 +1,81 @@
 // Vitest Snapshot v1
 
-exports[`Textarea 组件测试 > create 1`] = ``;
+exports[`Textarea 组件测试 > create 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <div
+    class="i-textarea"
+  >
+    <textarea
+      class="i-textarea__inner"
+      placeholder="请输入"
+      value=""
+    />
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
 
-exports[`Textarea 组件测试 > defaultValue 1`] = ``;
+exports[`Textarea 组件测试 > defaultValue 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <div
+    class="i-textarea"
+  >
+    <textarea
+      class="i-textarea__inner"
+      placeholder="请输入"
+      value="iDesign"
+    />
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
 
-exports[`Textarea 组件测试 > placeholder 1`] = ``;
+exports[`Textarea 组件测试 > placeholder 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <div
+    class="i-textarea"
+  >
+    <textarea
+      class="i-textarea__inner"
+      placeholder="请输入内容"
+      value=""
+    />
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;
 
-exports[`Textarea 组件测试 > value 1`] = ``;
+exports[`Textarea 组件测试 > value 1`] = `
+<div
+  data-v-app=""
+>
+  
+  <div
+    class="i-textarea"
+  >
+    <textarea
+      class="i-textarea__inner"
+      placeholder="请输入"
+      value="iDesign"
+    />
+    <!---->
+  </div>
+  <!---->
+  
+</div>
+`;

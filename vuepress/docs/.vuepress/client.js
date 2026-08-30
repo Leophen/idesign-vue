@@ -1,28 +1,29 @@
-import { defineClientConfig } from "@vuepress/client";
-
-// import Antd from "ant-design-vue";
-// import "ant-design-vue/dist/antd.css";
-
-// import ElementPlus from "element-plus";
-// import "element-plus/dist/index.css";
-
-// import ArcoVue from '@arco-design/web-vue';
-// import ArcoVueIcon from '@arco-design/web-vue/es/icon';
-// import '@arco-design/web-vue/dist/arco.css';
+import { defineClientConfig, usePageFrontmatter } from '@vuepress/client'
+import { computed, provide } from 'vue'
+import { useRoute } from 'vue-router'
+import {
+  resolveSidebarItems,
+  sidebarItemsSymbol,
+} from '@vuepress/theme-default/lib/client/composables/useSidebarItems.js'
+import { useThemeLocaleData } from '@vuepress/theme-default/lib/client/composables/useThemeData.js'
 
 import iDesign from 'idesign-vue'
 import 'idesign-vue/dist/style.css'
-// import iDesign from '../../../dist/idesign-vue'
-// import '../../../dist/style.css'
 
 export default defineClientConfig({
   enhance({ app }) {
-    // app.use(Antd)
-    // app.use(ElementPlus)
-    // app.use(ArcoVue);
-    // app.use(ArcoVueIcon);
     app.use(iDesign)
   },
-  setup() { },
-  rootComponents: [],
-});
+  setup() {
+    // VuePress dev 模式下 theme 默认的 sidebarItems 未追踪 route.path，
+    // 路由切换后侧栏可能一直为空；此处显式依赖 route 以修复左侧组件导航。
+    const route = useRoute()
+    const themeLocale = useThemeLocaleData()
+    const frontmatter = usePageFrontmatter()
+    const sidebarItems = computed(() => {
+      void route.path
+      return resolveSidebarItems(frontmatter.value, themeLocale.value)
+    })
+    provide(sidebarItemsSymbol, sidebarItems)
+  },
+})

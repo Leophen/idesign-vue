@@ -1,5 +1,5 @@
-import { Drawer } from '../index';
-import { render } from '../../common'
+﻿import { Drawer } from '../index';
+import { render } from '../../__test__/utils'
 
 describe('Drawer 组件测试', () => {
   it('create', () => {

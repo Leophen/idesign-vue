@@ -1,5 +1,5 @@
-import { Layout, LayoutAside, LayoutContent, LayoutFooter, LayoutHeader } from '../index';
-import { render } from '../../common'
+﻿import { Layout, LayoutAside, LayoutContent, LayoutFooter, LayoutHeader } from '../index';
+import { render } from '../../__test__/utils'
 
 describe('Layout 组件测试', () => {
   it('create', () => {

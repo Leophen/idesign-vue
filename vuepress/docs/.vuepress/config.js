@@ -7,13 +7,92 @@ const { sitemapPlugin } = require('vuepress-plugin-sitemap2')
 const { registerComponentsPlugin } = require('@vuepress/plugin-register-components')
 const { path } = require('@vuepress/utils')
 
+const compPath = (name) => `/components/${name}/${name}`
+
+const componentsSidebar = [
+  {
+    text: '基础组件',
+    link: '',
+    children: [
+      compPath('Button'),
+      compPath('Icon'),
+      compPath('Divider'),
+      compPath('Grid'),
+      compPath('Layout'),
+      compPath('Scrollbar'),
+    ],
+  },
+  {
+    text: '导航组件',
+    link: '',
+    children: [
+      compPath('Dropdown'),
+      compPath('Menu'),
+      compPath('Tabs'),
+      compPath('Breadcrumb'),
+      compPath('Pagination'),
+      compPath('BackTop'),
+    ],
+  },
+  {
+    text: '表单组件',
+    link: '',
+    children: [
+      compPath('Switch'),
+      compPath('Radio'),
+      compPath('Checkbox'),
+      compPath('Input'),
+      compPath('Textarea'),
+      compPath('Select'),
+      compPath('TimePicker'),
+      compPath('DatePicker'),
+      compPath('ColorPicker'),
+      compPath('Table'),
+      compPath('Upload'),
+      compPath('Slider'),
+      compPath('Progress'),
+      compPath('Steps'),
+      compPath('Rate'),
+    ],
+  },
+  {
+    text: '数据展示组件',
+    link: '',
+    children: [
+      compPath('Tag'),
+      compPath('Empty'),
+      compPath('Loading'),
+      compPath('Avatar'),
+      compPath('Badge'),
+      compPath('Image'),
+      compPath('Carousel'),
+      compPath('Collapse'),
+    ],
+  },
+  {
+    text: '弹框提示组件',
+    link: '',
+    children: [
+      compPath('Alert'),
+      compPath('Message'),
+      compPath('Notification'),
+      compPath('Dialog'),
+      compPath('Drawer'),
+      compPath('Popup'),
+    ],
+  },
+]
+
 module.exports = {
   title: 'iDesign',
   description: '一套基于 Vue 的高质量 UI 组件库',
   head: [['link', { rel: 'icon', type: 'image/png', href: '/images/logo.ico' }]],
   base: process.env.BASE || '/',
   host: "0.0.0.0",
-  port: 3333,
+  port: 5173,
+  alias: {
+    '@theme/SidebarItem.vue': path.resolve(__dirname, 'components/SidebarItem.vue'),
+  },
   locales: {
     "/": {
       lang: "zh-CN",
@@ -25,11 +104,11 @@ module.exports = {
     navbar: [
       {
         text: '指南',
-        link: '/guide.md',
+        link: '/guide.html',
       },
       {
         text: '组件',
-        link: '/components/Button/Button.md',
+        link: '/components/Button/Button.html',
       },
       {
         text: 'GitHub',
@@ -38,79 +117,8 @@ module.exports = {
     ],
     sidebar: {
       '/guide/': 'auto',
-      '/components/': [
-        {
-          text: '基础组件',
-          link: '',
-          children: [
-            '/components/Button/Button.md',
-            '/components/Icon/Icon.md',
-            '/components/Divider/Divider.md',
-            '/components/Grid/Grid.md',
-            '/components/Layout/Layout.md',
-            '/components/Scrollbar/Scrollbar.md',
-          ],
-        },
-        {
-          text: '导航组件',
-          link: '',
-          children: [
-            '/components/Dropdown/Dropdown.md',
-            '/components/Menu/Menu.md',
-            '/components/Tabs/Tabs.md',
-            '/components/Breadcrumb/Breadcrumb.md',
-            '/components/Pagination/Pagination.md',
-            '/components/BackTop/BackTop.md',
-          ],
-        },
-        {
-          text: '表单组件',
-          link: '',
-          children: [
-            '/components/Switch/Switch.md',
-            '/components/Radio/Radio.md',
-            '/components/Checkbox/Checkbox.md',
-            '/components/Input/Input.md',
-            '/components/Textarea/Textarea.md',
-            '/components/Select/Select.md',
-            '/components/TimePicker/TimePicker.md',
-            '/components/DatePicker/DatePicker.md',
-            '/components/ColorPicker/ColorPicker.md',
-            '/components/Table/Table.md',
-            '/components/Upload/Upload.md',
-            '/components/Slider/Slider.md',
-            '/components/Progress/Progress.md',
-            '/components/Steps/Steps.md',
-            '/components/Rate/Rate.md',
-          ],
-        },
-        {
-          text: '数据展示组件',
-          link: '',
-          children: [
-            '/components/Tag/Tag.md',
-            '/components/Empty/Empty.md',
-            '/components/Loading/Loading.md',
-            '/components/Avatar/Avatar.md',
-            '/components/Badge/Badge.md',
-            '/components/Image/Image.md',
-            '/components/Carousel/Carousel.md',
-            '/components/Collapse/Collapse.md',
-          ],
-        },
-        {
-          text: '弹框提示组件',
-          link: '',
-          children: [
-            '/components/Alert/Alert.md',
-            '/components/Message/Message.md',
-            '/components/Notification/Notification.md',
-            '/components/Dialog/Dialog.md',
-            '/components/Drawer/Drawer.md',
-            '/components/Popup/Popup.md',
-          ],
-        },
-      ]
+      '/guide.html': 'auto',
+      '/components/': componentsSidebar,
     },
     sidebarDepth: 0,
     notFound: ['如果您是通过 Algolia 搜索的回车快捷键进入此页面，这是 VuePress 预设 Algolia 的 bug，请返回上一页并使用鼠标点击搜索结果来进行跳转。']
@@ -120,7 +128,6 @@ module.exports = {
       apiKey: '0976f4949ddd8a3f89658eec1259baa4',
       indexName: 'idesign-vue',
       appId: 'B20VNZVD4U',
-      // placeholder: 'Search',
     }),
     [
       blockDemo({
@@ -135,7 +142,7 @@ module.exports = {
       },
     }),
     sitemapPlugin({
-      hostname: 'https://idesign-vue.leophen.top/'
+      hostname: 'https://idesign-vue.leophen.cn/'
     }),
     registerComponentsPlugin({
       components: {

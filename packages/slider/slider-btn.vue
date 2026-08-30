@@ -5,7 +5,7 @@
     :placement="placement"
   >
     <div
-      className="i-slider__button"
+      class="i-slider__button"
       ref="btnRef"
       :style="getBtnStyle()"
       @mouseenter="() => setEnterShowTip(true)"

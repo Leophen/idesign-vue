@@ -4,10 +4,20 @@ exports[`BackTop 组件测试 > create 1`] = `
 <div
   class="i-back-top"
 >
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="i-fade"
+    persisted="false"
+  >
     <!--v-if-->
   </transition-stub>
-  <transition-stub>
+  <transition-stub
+    appear="false"
+    css="true"
+    name="i-fade"
+    persisted="false"
+  >
     <button
       class="i-button i-button--type-primary i-button--shape-circle i-back-top--button"
     >

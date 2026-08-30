@@ -1,5 +1,5 @@
-import { Table } from '../index';
-import { render } from '../../common'
+﻿import { Table } from '../index';
+import { render } from '../../__test__/utils'
 
 const columns = [
   {

@@ -1,6 +1,6 @@
-import { vi } from 'vitest';
+﻿import { vi } from 'vitest';
 import { ColorPicker } from '../index';
-import { render } from '../../common'
+import { render } from '../../__test__/utils'
 
 describe('ColorPicker 组件测试', () => {
   const renderColor = (comp) => {
